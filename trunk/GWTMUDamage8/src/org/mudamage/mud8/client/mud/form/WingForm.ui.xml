@@ -1,0 +1,19 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style src="form.css">
+		
+	</ui:style>
+	<g:HTMLPanel>
+	    <div>
+	        <label>
+	            <a class="{style.label}">羽：</a>
+	            <g:ListBox ui:field="item" name="wingitem"></g:ListBox>
+	        </label>
+	        <g:CheckBox ui:field="luck" text="幸運" name="wingluck"></g:CheckBox>
+	        <g:ListBox ui:field="plus" name="wingplus"></g:ListBox>
+	        <g:ListBox ui:field="op" name="wingop"></g:ListBox>
+	        <g:ListBox ui:field="cop" name="wingcop"></g:ListBox>
+	    </div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

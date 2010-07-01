@@ -1,0 +1,17 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style src="form.css">
+		
+	</ui:style>
+	<g:HTMLPanel>
+	    <div>
+	        <label>
+	            <a class="{style.label}">ペット：</a>
+	            <g:ListBox ui:field="petitem" name="petitem"></g:ListBox>
+	        </label>
+	            <g:ListBox ui:field="petsub1"></g:ListBox>
+	            <g:ListBox ui:field="petsub2"></g:ListBox>
+	    </div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

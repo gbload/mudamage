@@ -1,0 +1,39 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:f="urn:import:org.mudamage.mud8.client.mud.form">
+	<ui:style src="form.css">
+	</ui:style>
+	<g:HTMLPanel>
+		<f:StatusForm ui:field="status" styleName="{style.status}"></f:StatusForm>
+		<div>
+			<label>
+				<a class="{style.label}">タイトル：</a>
+				<g:TextBox ui:field="title" name="title" styleName="{style.input} {style.title_input}"></g:TextBox>
+			</label>
+		</div>
+		<div>
+			<label>
+				<a class="{style.label}">経験値増加(%)：</a>
+				<g:TextBox ui:field="exp" styleName="{style.input} {style.exp_input}"></g:TextBox>
+			</label>
+		</div>
+		<div>
+			<label>
+				<a class="{style.label}">クラス：</a>
+				<g:ListBox  ui:field="job" name="job" styleName="{style.select}"></g:ListBox>
+			</label>
+		</div>
+		<f:PetForm ui:field="pet"></f:PetForm>
+		<f:WingForm ui:field="wing"></f:WingForm>
+		<f:AccForm type="neck" label="ネック：" ui:field="neck"></f:AccForm>
+		<f:EquipForm type="right" label="右：" ui:field="right"></f:EquipForm>
+		<f:EquipForm type="left" label="左：" ui:field="left"></f:EquipForm>
+		<f:EquipForm type="helm" label="兜：" ui:field="helm"></f:EquipForm>
+		<f:EquipForm type="armor" label="鎧：" ui:field="armor"></f:EquipForm>
+		<f:EquipForm type="glove" label="手：" ui:field="glove"></f:EquipForm>
+		<f:EquipForm type="garter" label="腰：" ui:field="garter"></f:EquipForm>
+		<f:EquipForm type="boots" label="足：" ui:field="boots"></f:EquipForm>
+		<f:AccForm type="ring1" label="リング１：" ui:field="ring1"></f:AccForm>
+		<f:AccForm type="ring2" label="リング２：" ui:field="ring2"></f:AccForm>
+	</g:HTMLPanel>
+</ui:UiBinder> 
