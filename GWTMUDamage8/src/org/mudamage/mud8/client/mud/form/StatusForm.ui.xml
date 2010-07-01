@@ -1,0 +1,42 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style src="form.css">
+		
+	</ui:style>
+	<g:HTMLPanel>
+		<div>
+			<label>
+				<a class="{style.label} {style.status_label}">Lv：</a>
+				<g:TextBox ui:field="lv" name="lv" styleName="{style.input} {style.status_input}"></g:TextBox>
+			</label>
+	        <a class="{style.label} {style.status_label}">ポイント:</a>
+	        <a ui:field="point"></a>/<a ui:field="maxpoint"></a>
+	        <a class="{style.label} {style.status_label}">生成:</a>
+	        <a ui:field="fruit"></a>/<a ui:field="maxfruit"></a>
+	        <button>MLV</button>
+		</div>
+		<div>
+			<label>
+				<a class="{style.label} {style.status_label}">力：</a>
+				<g:TextBox ui:field="str" name="str" styleName="{style.input} {style.status_input}"></g:TextBox>
+			</label>
+			<label>
+				<a class="{style.label} {style.status_label}">敏捷：</a>
+				<g:TextBox ui:field="agi" name="agi" styleName="{style.input} {style.status_input}"></g:TextBox>
+			</label>
+			<label>
+				<a class="{style.label} {style.status_label}">体力：</a>
+				<g:TextBox ui:field="vit" name="vit" styleName="{style.input} {style.status_input}"></g:TextBox>
+			</label>
+			<label>
+				<a class="{style.label} {style.status_label}">エナジー：</a>
+				<g:TextBox ui:field="ene" name="ene" styleName="{style.input} {style.status_input}"></g:TextBox>
+			</label>
+			<label>
+				<a class="{style.label} {style.status_label}">統率：</a>
+				<g:TextBox ui:field="rec" styleName="{style.input} {style.status_input}"></g:TextBox>
+			</label>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

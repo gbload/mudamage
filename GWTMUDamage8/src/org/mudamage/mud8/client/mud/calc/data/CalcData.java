@@ -1,0 +1,120 @@
+package org.mudamage.mud8.client.mud.calc.data;
+
+import org.mudamage.mud8.client.mud.calc.MUDamageBaseCalc;
+import org.mudamage.mud8.client.mud.form.data.FormData;
+
+public class CalcData {
+	public Integer job;
+	
+	public Integer lv;
+	public Integer str;
+	public Integer ori_str;
+	public Integer add_str;
+	public Integer agi;
+	public Integer ori_agi;
+	public Integer add_agi;
+	public Integer vit;
+	public Integer ori_vit;
+	public Integer add_vit;
+	public Integer ene;
+	public Integer ori_ene;
+	public Integer add_ene;
+	
+	public Integer hp;
+	public Integer sd;
+	public Integer mana;
+	public Integer ag;
+	
+	public Integer speed;
+	public Integer magic_speed;
+	public Integer min;
+	public Integer max;
+	public Integer magic_min;
+	public Integer magic_max;
+	public Integer hit;
+	public Integer pvp_hit;
+	
+	public Integer def;
+	public Integer avoid;
+	public Integer pvp_avoid;
+	
+	public Double normal;
+	public Double cri;
+	public Double exd;
+	public Double ignore;
+	public Double wd;
+	
+	public Integer aplus;
+	public Integer gplus;
+	public Integer cplus;
+	public Integer sl;
+	public Integer sb;
+	public Integer inner;
+	public Integer weak;
+	public Boolean ba;
+	
+	public FormData formdata;
+	public CalcData(FormData data){
+		formdata = data;
+	}
+	
+	public void calcAll(){
+		this.job = 0;
+		
+		this.lv = formdata.getValue(FormData.DataNumber.lv);
+		this.str = formdata.getValue(FormData.DataNumber.str);
+		this.ori_str = this.str;
+		this.add_str = 0;
+		this.agi = formdata.getValue(FormData.DataNumber.agi);
+		this.ori_agi = this.agi;
+		this.add_agi = 0;
+		this.vit = formdata.getValue(FormData.DataNumber.vit);
+		this.ori_vit = this.vit;
+		this.add_vit = 0;
+		this.ene = formdata.getValue(FormData.DataNumber.ene);
+		this.ori_ene = this.ene;
+		this.add_ene = 0;
+		
+		this.hp = (int) MUDamageBaseCalc.calcHP(job, lv, ori_vit, add_vit);
+		this.sd = 0;
+		this.mana = 0;
+		this.ag = 0;
+
+		this.speed = 0;
+		this.magic_speed = 0;
+		this.min = 0;
+		this.max = 0;
+		this.magic_min = 0;
+		this.magic_max = 0;
+		this.hit = 0;
+		this.pvp_hit = 0;
+		
+		this.def = 0;
+		this.avoid = 0;
+		this.pvp_avoid = 0;
+
+		this.normal = 0.0;
+		this.cri = 0.0;
+		this.exd = 0.0;
+		this.ignore = 0.0;
+		this.wd = 0.0;
+		
+		this.aplus = 0;
+		this.gplus = 0;
+		this.cplus = 0;
+		this.sl = 0;
+		this.sb = 0;
+		this.inner = 0;
+		this.weak = 0;
+		this.ba = false;
+	}
+	
+	public Integer getHP(){
+		this.hp = (int) MUDamageBaseCalc.calcHP(job, lv, ori_vit, add_vit);
+		return this.hp;
+		/*
+		 * this.hp = calcHP(vit,formdata);
+		 * return this.hp;
+		 */
+	}
+}
