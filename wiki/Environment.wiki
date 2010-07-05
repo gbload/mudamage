@@ -4,5 +4,5 @@
 
 ・Eclipse
 プラグイン
-*GWT（Google Web Toolkit）
-*SVN（Subeclipseなど）
+  *GWT（Google Web Toolkit）
+  *SVN（Subeclipseなど）
