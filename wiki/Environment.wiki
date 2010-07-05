@@ -4,6 +4,7 @@
 
 == Eclipse ==
 === 必須プラグイン ===
+必須のプラグインです。
   GWT（Google Web Toolkit）
   SVN（Subeclipseなど）
 
