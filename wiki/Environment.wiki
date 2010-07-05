@@ -2,7 +2,9 @@
 
 = 必要環境 =
 
-・Eclipse
-プラグイン
-  *GWT（Google Web Toolkit）
-  *SVN（Subeclipseなど）
+== Eclipse ==
+=== 必須プラグイン ===
+  GWT（Google Web Toolkit）
+  SVN（Subeclipseなど）
+
+=== 推奨プラグイン ===
