@@ -1,0 +1,8 @@
+#必要環境
+
+= 必要環境 =
+
+・Eclipse
+プラグイン
+*GWT（Google Web Toolkit）
+*SVN（Subeclipseなど）
