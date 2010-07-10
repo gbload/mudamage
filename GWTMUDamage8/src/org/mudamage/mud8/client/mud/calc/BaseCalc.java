@@ -1,6 +1,7 @@
 package org.mudamage.mud8.client.mud.calc;
 
 import org.mudamage.mud8.client.mud.calc.data.CalcData;
+import org.mudamage.mud8.client.mud.form.static_data.ExOptionStaticData;
 import org.mudamage.mud8.client.mud.form.static_data.StatusStaticData;
 
 /**
@@ -28,6 +29,7 @@ public class BaseCalc {
 		// TODO
 		// %の部分
 		hp += Math.floor(bhp * c.sl/100);
+		hp += Math.floor(bhp * 4/100)*c.getGuardExops(ExOptionStaticData.HP);
 		//hp += Math.floor(bhp*d.support_sl/100);//スウェルライフ
 		//hp += Math.floor(bhp*4/100)*exop_hp;//EXOP生命増加
 		//ソケットOP生命増加

@@ -38,7 +38,14 @@ public class JobStaticData {
 	/**
 	 * 全ての職業の文字列を格納した配列
 	 */
-	public static String[] jobs = {KNIGHT,WIZARD,ELF,MAGIC,DARKLOAD,SUMMONER};
+	public static String[][] jobs = {
+		{KNIGHT,KNIGHT_NUM.toString()},
+		{WIZARD,WIZARD_NUM.toString()},
+		{ELF,ELF_NUM.toString()},
+		{MAGIC,MAGIC_NUM.toString()},
+		{DARKLOAD,DARKLOAD_NUM.toString()},
+		{SUMMONER,SUMMONER_NUM.toString()}
+	};
 	/**
 	 * 各職業に対応した数字を返します。
 	 * @param job
@@ -55,14 +62,16 @@ public class JobStaticData {
 	 * @param jobnum
 	 * @return job_name
 	 */
+	/*
 	public static String getJobString(int jobnum){
 		return jobs[jobnum];
 	}
+	*/
 	/**
 	 * 全ての職業の文字列を格納した配列を返します。
 	 * @return jobs
 	 */
-	public static String[] getJobs(){
+	public static String[][] getJobs(){
 		return jobs;
 	}
 }

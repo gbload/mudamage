@@ -1,6 +1,5 @@
 package org.mudamage.mud8.client.mud.form.static_data.equip;
 
-import org.mudamage.mud8.client.mud.form.static_data.JobStaticData;
 
 public class EquipEquip {
 	public static double[][][] data ={
@@ -110,10 +109,10 @@ public class EquipEquip {
 	 * @param job
 	 * @return names
 	 */
-	public static String[] getNames(int part,String job){
+	public static String[] getNames(int part,Integer job){
 		String[] str = new String[data.length];
 		int size = 0;
-		int jobnum = (1<<JobStaticData.getJobNumber(job));
+		int jobnum = (1<<job);
 		for(int i=0;i<data.length;i++)
 			if((new Double(data[i][0][1]).intValue()&jobnum)!=0)
 				str[size++] = series[i] + getPartName(part,data[i][0][0]);

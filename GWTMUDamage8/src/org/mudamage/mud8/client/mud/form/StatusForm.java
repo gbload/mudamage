@@ -1,16 +1,14 @@
 package org.mudamage.mud8.client.mud.form;
 
+import org.mudamage.mud8.client.mud.calc.data.CalcData;
 import org.mudamage.mud8.client.mud.form.data.FormData;
 import org.mudamage.mud8.client.mud.form.event.MUDamageComposite;
 import org.mudamage.mud8.client.mud.form.event.ValueEvent;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.AnchorElement;
-import com.google.gwt.event.dom.client.ChangeEvent;
-import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -49,8 +47,8 @@ public class StatusForm extends MUDamageComposite {
 	 * Statusフォームを初期化します。
 	 */
 	@Override
-	public void init(FormData formdata){
-		data = formdata;
+	public void init(CalcData calcdata){
+		data = calcdata;
 		/*
 		 * <select>に<option>を追加する
 		 */
@@ -58,12 +56,16 @@ public class StatusForm extends MUDamageComposite {
 		 * イベントの設定
 		 */
 		// 値の保存イベント
-		for(TextBox textbox : textboxs)
-			textbox.addChangeHandler(new ValueEvent(data, textbox));
+		lv.addChangeHandler(new ValueEvent(data.lv, lv));
+		str.addChangeHandler(new ValueEvent(data.str, lv));
+		agi.addChangeHandler(new ValueEvent(data.agi, lv));
+		vit.addChangeHandler(new ValueEvent(data.vit, lv));
+		ene.addChangeHandler(new ValueEvent(data.ene, lv));
+		rec.addChangeHandler(new ValueEvent(data.rec, lv));
 	}	
 
 	@Override
-	public void initJob(String job){
+	public void initJob(Integer job){
 		
 	}
 }
