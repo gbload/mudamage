@@ -1,6 +1,7 @@
 package org.mudamage.mud8.client.mud.form;
 
 import org.mudamage.mud8.client.common.CommonForm;
+import org.mudamage.mud8.client.mud.calc.data.CalcData;
 import org.mudamage.mud8.client.mud.form.data.FormData;
 import org.mudamage.mud8.client.mud.form.event.ValueEvent;
 import org.mudamage.mud8.client.mud.form.static_data.JobStaticData;
@@ -40,13 +41,13 @@ public class MUDamageForm extends Composite {
 	@UiField AccForm ring1;
 	@UiField AccForm ring2;
 	
-	FormData data;
+	CalcData data;
 	
-	public MUDamageForm(FormData formdata) {
+	public MUDamageForm(CalcData calcdata) {
 		initWidget(uiBinder.createAndBindUi(this));
 		
 		// フォームデータのセット
-		data = formdata;
+		data = calcdata;
 		status.init(data);
 		pet.init(data);
 		wing.init(data);
@@ -65,8 +66,9 @@ public class MUDamageForm extends Composite {
 		CommonForm.setOption(job, JobStaticData.getJobs());
 		
 		// イベントの設定
-		title.addChangeHandler(new ValueEvent(data, title));
-		exp.addChangeHandler(new ValueEvent(data, exp));
+		//title.addChangeHandler(new ValueEvent(data, title));
+		//exp.addChangeHandler(new ValueEvent(data, exp));
+		job.addChangeHandler(new ValueEvent(data.job,job));
 		job.addChangeHandler(new ChangeHandler() {
 			@Override
 			public void onChange(ChangeEvent event) {
@@ -76,7 +78,7 @@ public class MUDamageForm extends Composite {
 				// 全体的なフォームの変更
 				pet.initJobChange(value);
 				// 値の保存
-				data.setValue(CommonForm.getSplitName(job), CommonForm.getSelectValue(job));
+				//data.setValue(CommonForm.getSplitName(job), CommonForm.getSelectValue(job));
 				// 追随する処理
 			}
 		});

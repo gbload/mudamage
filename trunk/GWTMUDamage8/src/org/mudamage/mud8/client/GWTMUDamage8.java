@@ -16,9 +16,8 @@ public class GWTMUDamage8 implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
-		FormData formdata = new FormData();
-		final MUDamageForm mudf = new MUDamageForm(formdata);
-		CalcData calcdata = new CalcData(formdata);
+		CalcData calcdata = new CalcData();
+		final MUDamageForm mudf = new MUDamageForm(calcdata);
 		final MUDamageResultForm mudr = new MUDamageResultForm(calcdata);
 		RootPanel.get("mud").add(mudf);
 		RootPanel.get("mud_result").add(mudr);

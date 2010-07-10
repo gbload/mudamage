@@ -11,12 +11,12 @@
 	            <g:ListBox ui:field="kind" name="kind"></g:ListBox>
 	        </label>
 	        <g:ListBox ui:field="item" name="item"></g:ListBox>
-	        <g:ListBox ui:field="sub1"></g:ListBox>
-	        <g:ListBox ui:field="sub2"></g:ListBox>
-	        <g:ListBox ui:field="sub3"></g:ListBox>
-	        <g:ListBox ui:field="sub4"></g:ListBox>
-	        <g:ListBox ui:field="sub5"></g:ListBox>
-	        <g:ListBox ui:field="sub6"></g:ListBox>
+	        <g:ListBox ui:field="exop1"></g:ListBox>
+	        <g:ListBox ui:field="exop2"></g:ListBox>
+	        <g:ListBox ui:field="exop3"></g:ListBox>
+	        <g:ListBox ui:field="exop4"></g:ListBox>
+	        <g:ListBox ui:field="exop5"></g:ListBox>
+	        <g:ListBox ui:field="exop6"></g:ListBox>
 	    </div>
 	</g:HTMLPanel>
 </ui:UiBinder> 

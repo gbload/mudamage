@@ -1,9 +1,11 @@
 package org.mudamage.mud8.client.mud.form;
 
 import org.mudamage.mud8.client.common.CommonForm;
+import org.mudamage.mud8.client.mud.calc.data.CalcData;
 import org.mudamage.mud8.client.mud.form.data.FormData;
 import org.mudamage.mud8.client.mud.form.event.MUDamageComposite;
 import org.mudamage.mud8.client.mud.form.event.ValueEvent;
+import org.mudamage.mud8.client.mud.form.static_data.EquipStaticData;
 import org.mudamage.mud8.client.mud.form.static_data.ExOptionStaticData;
 
 import com.google.gwt.core.client.GWT;
@@ -25,21 +27,18 @@ public class AccForm extends MUDamageComposite {
 	@UiField AnchorElement label;
 	@UiField ListBox kind;
 	@UiField ListBox item;
-	@UiField ListBox sub1;
-	@UiField ListBox sub2;
-	@UiField ListBox sub3;
-	@UiField ListBox sub4;
-	@UiField ListBox sub5;
-	@UiField ListBox sub6;
+	@UiField ListBox exop1;
+	@UiField ListBox exop2;
+	@UiField ListBox exop3;
+	@UiField ListBox exop4;
+	@UiField ListBox exop5;
+	@UiField ListBox exop6;
 	private ListBox[] listboxs;
 	private int SUBINDEX = 2;
 	/*
 	 * 変数
 	 */
-	private String type;
-	private String NECK = "neck";
-	private String RING1 = "ring1";
-	private String RING2 = "ring2";
+	private Integer type;
 
 	private String[] neck_kinds = {"なし","EX","セット"};
 	private String[] ring_kinds = {"なし","EX","セット"};
@@ -48,17 +47,17 @@ public class AccForm extends MUDamageComposite {
 	 */
 	public AccForm() {
 		initWidget(uiBinder.createAndBindUi(this));
-		ListBox[] lb = {kind,item,sub1,sub2,sub3,sub4,sub5,sub6};
+		ListBox[] lb = {kind,item,exop1,exop2,exop3,exop4,exop5,exop6};
 		listboxs = lb;
 	}
 	/**
 	 * Accフォームを初期化します。
 	 */
 	@Override
-	public void init(FormData formdata){
-		data = formdata;
+	public void init(CalcData calcdata){
+		data = calcdata;
 		// kindの設定
-		if(type.equals(NECK)){
+		if(type.equals(EquipStaticData.NECK)){
 			CommonForm.setOption(kind, neck_kinds);
 		}else{
 			CommonForm.setOption(kind, ring_kinds);
@@ -68,13 +67,13 @@ public class AccForm extends MUDamageComposite {
 			listboxs[i].setVisible(false);
 		}
 		// イベントの設定
-		for(ListBox listbox : listboxs)
-			listbox.addChangeHandler(new ValueEvent(data, listbox));
+		//for(ListBox listbox : listboxs)
+		//	listbox.addChangeHandler(new ValueEvent(data, listbox));
 		
 		kind.addChangeHandler(new ChangeHandler() {
 			@Override
 			public void onChange(ChangeEvent event) {
-				String value = data.getValue(kind);
+				String value = CommonForm.getSelectValue(kind);
 				// サブフォームを全て非表示にする
 				for(int i=SUBINDEX;i<listboxs.length;i++){
 					listboxs[i].setVisible(false);
@@ -82,7 +81,7 @@ public class AccForm extends MUDamageComposite {
 				// EXの場合
 				if(value.equals("EX")){
 					for(int i=SUBINDEX;i<listboxs.length;i++){
-						if(type.equals(NECK))
+						if(type.equals(EquipStaticData.NECK))
 							CommonForm.setOption(listboxs[i], ExOptionStaticData.getWeaponExops(true, true));
 						else
 							CommonForm.setOption(listboxs[i], ExOptionStaticData.getGuardExops());
@@ -110,10 +109,7 @@ public class AccForm extends MUDamageComposite {
 	 * @param str
 	 */
 	public void setType(String str){
-		type = str;
-		// kindとitemフォームの名前付け
-		kind.setName(type+"_"+kind.getName());
-		item.setName(type+"_"+item.getName());
+		type = EquipStaticData.getEquipTypeNumber(str);
 	}
 
 }

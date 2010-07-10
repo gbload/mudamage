@@ -2,6 +2,7 @@ package org.mudamage.mud8.client.mud.form;
 
 import org.mudamage.mud8.client.common.CommonEtc;
 import org.mudamage.mud8.client.common.CommonForm;
+import org.mudamage.mud8.client.mud.calc.data.CalcData;
 import org.mudamage.mud8.client.mud.form.data.FormData;
 import org.mudamage.mud8.client.mud.form.event.MUDamageComposite;
 import org.mudamage.mud8.client.mud.form.event.ValueEvent;
@@ -41,8 +42,8 @@ public class WingForm extends MUDamageComposite {
 	 * Wingフォームを初期化します。
 	 */
 	@Override
-	public void init(FormData formdata){
-		data = formdata;
+	public void init(CalcData calcdata){
+		data = calcdata;
 		// アイテムをフォームに追加する
 		CommonForm.setOption(item, WingStaticData.getNames("ナイト"));
 		CommonForm.setPlusOption(plus);
@@ -52,16 +53,18 @@ public class WingForm extends MUDamageComposite {
 		op.setVisible(false);
 		cop.setVisible(false);
 		// イベントの設定
+		/*
 		item.addChangeHandler(new ValueEvent(data, item));
 		luck.addClickHandler(new ValueEvent(data, luck));
 		plus.addChangeHandler(new ValueEvent(data, plus));
 		op.addChangeHandler(new ValueEvent(data, op));
 		cop.addChangeHandler(new ValueEvent(data, cop));
+		*/
 		item.addChangeHandler(new ChangeHandler() {
 			@Override
 			public void onChange(ChangeEvent event) {
 				// TODO 自動生成されたメソッド・スタブ
-				String value = data.getValue(item);
+				String value = CommonForm.getSelectValue(item);
 				
 				// luck,plusの表示
 				luck.setVisible((!value.equals("なし")));

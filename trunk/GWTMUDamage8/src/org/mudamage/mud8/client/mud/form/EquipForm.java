@@ -1,6 +1,7 @@
 package org.mudamage.mud8.client.mud.form;
 
 import org.mudamage.mud8.client.common.CommonForm;
+import org.mudamage.mud8.client.mud.calc.data.CalcData;
 import org.mudamage.mud8.client.mud.form.data.FormData;
 import org.mudamage.mud8.client.mud.form.event.MUDamageComposite;
 import org.mudamage.mud8.client.mud.form.event.ValueEvent;
@@ -15,7 +16,6 @@ import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.CheckBox;
-import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -37,14 +37,8 @@ public class EquipForm extends MUDamageComposite {
 	private ListBox[] listboxs;
 	private int SUBINDEX = 1;
 
-	private String type;
-	private String RIGHT = "right";
-	private String LEFT = "left";
-	private String HELM = "helm";
-	private String ARMOR = "armor";
-	private String GLOVE = "glove";
-	private String GARTER = "garter";
-	private String BOOTS = "boots";
+	private Integer type;
+	private Integer job;
 	
 	private String[] kinds = {"なし","通常","EX","セット","ソケット"};
 	/**
@@ -59,8 +53,8 @@ public class EquipForm extends MUDamageComposite {
 	 * Equipフォームを初期化します。
 	 */
 	@Override
-	public void init(FormData formdata){
-		data = formdata;
+	public void init(CalcData calcdata){
+		data = calcdata;
 		/*
 		 * <select>に<option>を追加する
 		 */
@@ -69,15 +63,15 @@ public class EquipForm extends MUDamageComposite {
 		 * イベントの設定
 		 */
 		// 値をセットするイベント
-		for(ListBox listbox : listboxs)
-			listbox.addChangeHandler(new ValueEvent(data, listbox));
-		luck.addClickHandler(new ValueEvent(data, luck));
+		//for(ListBox listbox : listboxs)
+		//	listbox.addChangeHandler(new ValueEvent(data, listbox));
+		//luck.addClickHandler(new ValueEvent(data, luck));
 		
 		// kindのイベント
 		kind.addChangeHandler(new ChangeHandler() {
 			@Override
 			public void onChange(ChangeEvent event) {
-				String value = data.getValue(kind);
+				String value = CommonForm.getSelectValue(kind);
 				// サブフォームを全て非表示にする
 				for(int i=SUBINDEX;i<listboxs.length;i++){
 					listboxs[i].setVisible(false);
@@ -95,15 +89,16 @@ public class EquipForm extends MUDamageComposite {
 			}
 		});
 		// jobによる初期化
-		initJob(JobStaticData.KNIGHT);
+		initJob(JobStaticData.KNIGHT_NUM);
 	}
 	@Override
-	public void initJob(String job){
+	public void initJob(Integer job){
+		this.job = job;
 		/*
 		 * <select>に<option>を追加する
 		 */
 		CommonForm.setOption(kind, kinds);
-		if(type.equals(RIGHT)||type.equals(LEFT))
+		if(type.equals(EquipStaticData.RIGHT)||type.equals(EquipStaticData.LEFT))
 			CommonForm.setOption(op, CommonForm.getItemOption("攻撃"));
 		else
 			CommonForm.setOption(op, CommonForm.getItemOption("防御"));
@@ -116,23 +111,13 @@ public class EquipForm extends MUDamageComposite {
 		}
 		luck.setVisible(false);
 	}
-	private String[] getItem(String job){
-		if(type.equals(RIGHT))
+	private String[] getItem(Integer job){
+		if(type.equals(EquipStaticData.RIGHT))
 			return new String[0];
-		else if(type.equals(LEFT))
+		else if(type.equals(EquipStaticData.LEFT))
 			return new String[0];
-		else if(type.equals(HELM))
-			return EquipStaticData.getHelmNames(job);
-		else if(type.equals(ARMOR))
-			return EquipStaticData.getArmorNames(job);
-		else if(type.equals(GLOVE))
-			return EquipStaticData.getGloveNames(job);
-		else if(type.equals(GARTER))
-			return EquipStaticData.getGarterNames(job);
-		else if(type.equals(BOOTS))
-			return EquipStaticData.getBootsNames(job);
 		else
-			return new String[0];
+			return EquipStaticData.getNames(type, job);
 	}
 	/*
 	 * UiBinderで使うための関数
@@ -150,10 +135,6 @@ public class EquipForm extends MUDamageComposite {
 	 * @param str
 	 */
 	public void setType(String str){
-		type = str;
-		// kindとitemフォームの名前付け
-		for(ListBox listbox : listboxs)
-			listbox.setName(type+"_"+listbox.getName());
-		luck.setName(type+"_"+luck.getName());
+		type = EquipStaticData.getEquipTypeNumber(str);
 	}
 }

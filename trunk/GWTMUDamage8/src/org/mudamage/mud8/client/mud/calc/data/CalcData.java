@@ -2,6 +2,7 @@ package org.mudamage.mud8.client.mud.calc.data;
 
 import org.mudamage.mud8.client.mud.calc.BaseCalc;
 import org.mudamage.mud8.client.mud.form.data.FormData;
+import org.mudamage.mud8.client.mud.form.static_data.ExOptionStaticData;
 
 public class CalcData {
 	// 職
@@ -20,6 +21,9 @@ public class CalcData {
 	public Integer ene;
 	public Integer ori_ene;
 	public Integer add_ene;
+	public Integer rec;
+	public Integer ori_rec;
+	public Integer add_rec;
 	// メーター
 	public Integer hp;
 	public Integer sd;
@@ -32,6 +36,7 @@ public class CalcData {
 	// 攻撃関連
 	public CalcWeaponData right;
 	public CalcWeaponData left;
+	public CalcWeaponData neck;
 	public Integer speed;
 	public Integer magic_speed;
 	public Integer min;
@@ -47,6 +52,11 @@ public class CalcData {
 	public CalcEquipData glove;
 	public CalcEquipData garter;
 	public CalcEquipData boots;
+	public CalcEquipData ring1;
+	public CalcEquipData ring2;
+	public CalcEquipData[] equips = {
+		helm,armor,glove,garter,boots,shield
+	};
 	public Integer def;
 	public Integer avoid;
 	public Integer pvp_avoid;
@@ -69,6 +79,8 @@ public class CalcData {
 	public FormData formdata;
 	public CalcData(FormData data){
 		formdata = data;
+	}
+	public CalcData(){
 	}
 	
 	public void calcAll(){
@@ -129,5 +141,17 @@ public class CalcData {
 		 * this.hp = calcHP(vit,formdata);
 		 * return this.hp;
 		 */
+	}
+	/*
+	 * 取得メソッド
+	 */
+	public Integer getGuardExops(int kind){
+		Integer count=0;
+		for(int i=0;i<equips.length;i++)
+			if(equips[i].exop[kind])
+				count++;
+		if(ring1.exop[kind])count++;
+		if(ring2.exop[kind])count++;
+		return count;
 	}
 }
