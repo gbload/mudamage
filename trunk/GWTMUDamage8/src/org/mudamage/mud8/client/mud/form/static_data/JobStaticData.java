@@ -5,6 +5,12 @@ package org.mudamage.mud8.client.mud.form.static_data;
  *
  */
 public class JobStaticData {
+	public static final Integer KNIGHT_NUM = 0;
+	public static final Integer WIZARD_NUM = 1;
+	public static final Integer ELF_NUM = 2;
+	public static final Integer MAGIC_NUM = 3;
+	public static final Integer DARKLOAD_NUM = 4;
+	public static final Integer SUMMONER_NUM = 5;
 	/**
 	 * ナイトを表す文字列
 	 */

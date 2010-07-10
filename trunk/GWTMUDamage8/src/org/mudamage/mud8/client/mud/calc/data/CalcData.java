@@ -1,11 +1,12 @@
 package org.mudamage.mud8.client.mud.calc.data;
 
-import org.mudamage.mud8.client.mud.calc.MUDamageBaseCalc;
+import org.mudamage.mud8.client.mud.calc.BaseCalc;
 import org.mudamage.mud8.client.mud.form.data.FormData;
 
 public class CalcData {
+	// 職
 	public Integer job;
-	
+	// ステータス
 	public Integer lv;
 	public Integer str;
 	public Integer ori_str;
@@ -19,12 +20,18 @@ public class CalcData {
 	public Integer ene;
 	public Integer ori_ene;
 	public Integer add_ene;
-	
+	// メーター
 	public Integer hp;
 	public Integer sd;
 	public Integer mana;
 	public Integer ag;
-	
+	// ペット関連
+	public Integer pet;
+	public Integer petsub1;
+	public Integer petsub2;
+	// 攻撃関連
+	public CalcWeaponData right;
+	public CalcWeaponData left;
 	public Integer speed;
 	public Integer magic_speed;
 	public Integer min;
@@ -33,17 +40,23 @@ public class CalcData {
 	public Integer magic_max;
 	public Integer hit;
 	public Integer pvp_hit;
-	
+	// 防御関連
+	public CalcEquipData shield;
+	public CalcEquipData helm;
+	public CalcEquipData armor;
+	public CalcEquipData glove;
+	public CalcEquipData garter;
+	public CalcEquipData boots;
 	public Integer def;
 	public Integer avoid;
 	public Integer pvp_avoid;
-	
+	// 特殊確率関連
 	public Double normal;
 	public Double cri;
 	public Double exd;
 	public Double ignore;
 	public Double wd;
-	
+	// サポート関連
 	public Integer aplus;
 	public Integer gplus;
 	public Integer cplus;
@@ -75,7 +88,7 @@ public class CalcData {
 		this.ori_ene = this.ene;
 		this.add_ene = 0;
 		
-		this.hp = (int) MUDamageBaseCalc.calcHP(job, lv, ori_vit, add_vit);
+		this.hp = (int) BaseCalc.calcHP(this);
 		this.sd = 0;
 		this.mana = 0;
 		this.ag = 0;
@@ -110,7 +123,7 @@ public class CalcData {
 	}
 	
 	public Integer getHP(){
-		this.hp = (int) MUDamageBaseCalc.calcHP(job, lv, ori_vit, add_vit);
+		this.hp = (int) BaseCalc.calcHP(this);
 		return this.hp;
 		/*
 		 * this.hp = calcHP(vit,formdata);

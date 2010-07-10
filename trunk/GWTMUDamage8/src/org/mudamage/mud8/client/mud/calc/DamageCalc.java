@@ -7,9 +7,9 @@ import org.mudamage.mud8.client.mud.form.data.FormData;
  * @author SINLION
  *
  */
-public class MUDamageCalc {
+public class DamageCalc {
 	private FormData formdata;
-	public MUDamageCalc(FormData data){
+	public DamageCalc(FormData data){
 		formdata = data;
 	}
 	public Integer getHP(){return new Integer(1);}
