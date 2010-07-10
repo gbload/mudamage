@@ -6,7 +6,7 @@ import org.mudamage.mud8.client.mud.form.event.MUDamageComposite;
 import org.mudamage.mud8.client.mud.form.event.ValueEvent;
 import org.mudamage.mud8.client.mud.form.static_data.EquipStaticData;
 import org.mudamage.mud8.client.mud.form.static_data.JobStaticData;
-import org.mudamage.mud8.client.mud.form.static_data.OptionStaticData;
+import org.mudamage.mud8.client.mud.form.static_data.ExOptionStaticData;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.AnchorElement;

@@ -1,5 +1,6 @@
 package org.mudamage.mud8.client.mud.calc;
 
+import org.mudamage.mud8.client.mud.calc.data.CalcData;
 import org.mudamage.mud8.client.mud.form.static_data.StatusStaticData;
 
 /**
@@ -7,25 +8,26 @@ import org.mudamage.mud8.client.mud.form.static_data.StatusStaticData;
  * @author SINLION
  *
  */
-public class MUDamageBaseCalc {
-	public static double calcHP(int job,int lv,int ori_vit,int add_vit){
+public class BaseCalc {
+	public static double calcHP(CalcData c){
 
 		/*
 		 * HPの計算 
 		 */
-		double init_hp = StatusStaticData.getInitHP(job);
-		double init_vit = StatusStaticData.getInitStatus(job, StatusStaticData.VIT);
-		double vit_inc = StatusStaticData.getHPVitInc(job);
-		double lv_inc = StatusStaticData.getHPLVInc(job);
+		double init_hp = StatusStaticData.getInitHP(c.job);
+		double init_vit = StatusStaticData.getInitStatus(c.job, StatusStaticData.VIT);
+		double vit_inc = StatusStaticData.getHPVitInc(c.job);
+		double lv_inc = StatusStaticData.getHPLVInc(c.job);
 		
 		double bhp = Math.floor(
-				init_hp + (ori_vit - init_vit) * vit_inc + (lv - 1) * lv_inc
+				init_hp + (c.ori_vit - init_vit) * vit_inc + (c.lv - 1) * lv_inc
 				);
 		double hp = bhp + Math.floor(
-				add_vit * vit_inc
+				c.add_vit * vit_inc
 				);
 		// TODO
 		// %の部分
+		hp += Math.floor(bhp * c.sl/100);
 		//hp += Math.floor(bhp*d.support_sl/100);//スウェルライフ
 		//hp += Math.floor(bhp*4/100)*exop_hp;//EXOP生命増加
 		//ソケットOP生命増加

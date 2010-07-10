@@ -4,6 +4,7 @@ import org.mudamage.mud8.client.common.CommonForm;
 import org.mudamage.mud8.client.mud.form.data.FormData;
 import org.mudamage.mud8.client.mud.form.event.MUDamageComposite;
 import org.mudamage.mud8.client.mud.form.event.ValueEvent;
+import org.mudamage.mud8.client.mud.form.static_data.PetStaticData;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ChangeEvent;
@@ -27,13 +28,6 @@ public class PetForm extends MUDamageComposite {
 	@UiField ListBox petsub1;
 	@UiField ListBox petsub2;
 	/*
-	 * 変数
-	 */
-	private String[] items = {"なし", "サタン", "守護天使", "デーモン", "守護精霊", "ユニリア", "ディノラント", "フェンリル", "白と黒のポンガ", "白銀のアリオン"};
-	private String[] dinoop = {"", "AG+50", "攻撃速度+5", "ダメージ吸収+5%"};
-	private String[] fenrirop = {"", "ノーマル", "破壊", "守護", "黄金"};
-	private String[] darkhorselv = new String[50];
-	/*
 	 * コンストラクタ
 	 */
 	public PetForm() {
@@ -45,12 +39,8 @@ public class PetForm extends MUDamageComposite {
 	 */
 	public void init(FormData formdata){
 		data = formdata;
-		// ダークホースLvの配列を作成する
-		for(int i=1;i<=50;i++){
-			darkhorselv[i-1] = "Lv"+i;
-		}
 		// ペットアイテムを設定する
-		CommonForm.setOption(petitem, items);
+		CommonForm.setOption(petitem, PetStaticData.getPetNames());
 		// ペットサブフォームの設定をする
 		petsub1.setVisible(false);
 		petsub2.setVisible(false);
@@ -67,19 +57,19 @@ public class PetForm extends MUDamageComposite {
 				String value = data.getValue(petitem);
 				petsub1.setVisible(false);
 				petsub2.setVisible(false);
-				if(value.equals("ディノラント")){
-					CommonForm.setOption(petsub1, dinoop);
-					CommonForm.setOption(petsub2, dinoop);
+				if(PetStaticData.equal(value, PetStaticData.DINO)){
+					CommonForm.setOption(petsub1, PetStaticData.getDinoOp());
+					CommonForm.setOption(petsub2, PetStaticData.getDinoOp());
 					petsub1.setName("dinoluntop1");
 					petsub2.setName("dinoluntop2");
 					petsub1.setVisible(true);
 					petsub2.setVisible(true);
-				}else if(value.equals("フェンリル")){
-					CommonForm.setOption(petsub1, fenrirop);
+				}else if(PetStaticData.equal(value, PetStaticData.FENRIR)){
+					CommonForm.setOption(petsub1, PetStaticData.getFenrirOp());
 					petsub1.setName("fenrirop");
 					petsub1.setVisible(true);
-				}else if(value.equals("ダークホース")){
-					CommonForm.setOption(petsub1, darkhorselv);
+				}else if(PetStaticData.equal(value, PetStaticData.DARKHORSE)){
+					CommonForm.setOption(petsub1, PetStaticData.getDarkHorseLv());
 					petsub1.setName("darkhorselv");
 					petsub1.setVisible(true);
 				}
@@ -93,17 +83,10 @@ public class PetForm extends MUDamageComposite {
 	 * @param jobname
 	 */
 	public void initJobChange(String jobname){
-		String[] str;
+		// TODO 
 		if(jobname.equals("ダークロード")){
-			str = new String[items.length];
-			for(int i=0;i<items.length;i++){
-				str[i] = items[i];
-			}
-			str[items.length] = "ダークホース";
 		}else{
-			str = items;
 		}
 		// ペットアイテムを設定する
-		CommonForm.setOption(petitem, str);
 	}
 }

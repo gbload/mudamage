@@ -4,7 +4,7 @@ import org.mudamage.mud8.client.common.CommonForm;
 import org.mudamage.mud8.client.mud.form.data.FormData;
 import org.mudamage.mud8.client.mud.form.event.MUDamageComposite;
 import org.mudamage.mud8.client.mud.form.event.ValueEvent;
-import org.mudamage.mud8.client.mud.form.static_data.OptionStaticData;
+import org.mudamage.mud8.client.mud.form.static_data.ExOptionStaticData;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.AnchorElement;
@@ -83,9 +83,9 @@ public class AccForm extends MUDamageComposite {
 				if(value.equals("EX")){
 					for(int i=SUBINDEX;i<listboxs.length;i++){
 						if(type.equals(NECK))
-							CommonForm.setOption(listboxs[i], OptionStaticData.getWeaponExops(true, true));
+							CommonForm.setOption(listboxs[i], ExOptionStaticData.getWeaponExops(true, true));
 						else
-							CommonForm.setOption(listboxs[i], OptionStaticData.getGuardExops());
+							CommonForm.setOption(listboxs[i], ExOptionStaticData.getGuardExops());
 						listboxs[i].setName(type+"_exop"+Integer.toString(i-SUBINDEX+1));
 						listboxs[i].setVisible(true);
 					}
