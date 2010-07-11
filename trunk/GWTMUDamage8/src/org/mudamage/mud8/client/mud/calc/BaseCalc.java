@@ -1,8 +1,8 @@
 package org.mudamage.mud8.client.mud.calc;
 
 import org.mudamage.mud8.client.mud.calc.data.CalcData;
-import org.mudamage.mud8.client.mud.form.static_data.ExOptionStaticData;
-import org.mudamage.mud8.client.mud.form.static_data.StatusStaticData;
+import org.mudamage.mud8.client.mud.static_data.ExOptionStaticData;
+import org.mudamage.mud8.client.mud.static_data.StatusStaticData;
 
 /**
  * ステータスなどの計算を行います。
