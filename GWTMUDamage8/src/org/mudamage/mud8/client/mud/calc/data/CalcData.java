@@ -2,7 +2,7 @@ package org.mudamage.mud8.client.mud.calc.data;
 
 import org.mudamage.mud8.client.mud.calc.BaseCalc;
 import org.mudamage.mud8.client.mud.form.data.FormData;
-import org.mudamage.mud8.client.mud.form.static_data.ExOptionStaticData;
+import org.mudamage.mud8.client.mud.static_data.ExOptionStaticData;
 
 public class CalcData {
 	// 職
