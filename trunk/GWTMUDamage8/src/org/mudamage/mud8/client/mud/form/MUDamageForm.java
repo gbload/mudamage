@@ -4,7 +4,7 @@ import org.mudamage.mud8.client.common.CommonForm;
 import org.mudamage.mud8.client.mud.calc.data.CalcData;
 import org.mudamage.mud8.client.mud.form.data.FormData;
 import org.mudamage.mud8.client.mud.form.event.ValueEvent;
-import org.mudamage.mud8.client.mud.form.static_data.JobStaticData;
+import org.mudamage.mud8.client.mud.static_data.JobStaticData;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ChangeEvent;

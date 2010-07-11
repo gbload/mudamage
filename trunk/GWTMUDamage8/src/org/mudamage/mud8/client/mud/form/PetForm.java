@@ -5,7 +5,7 @@ import org.mudamage.mud8.client.mud.calc.data.CalcData;
 import org.mudamage.mud8.client.mud.form.data.FormData;
 import org.mudamage.mud8.client.mud.form.event.MUDamageComposite;
 import org.mudamage.mud8.client.mud.form.event.ValueEvent;
-import org.mudamage.mud8.client.mud.form.static_data.PetStaticData;
+import org.mudamage.mud8.client.mud.static_data.PetStaticData;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ChangeEvent;
@@ -55,7 +55,7 @@ public class PetForm extends MUDamageComposite {
 				// 追随する処理
 				// サブフォームの表示と非表示の切り替え
 				// とりあえず全部非表示
-				Integer value = data.pet;//data.getValue(petitem);
+				Integer value = Integer.decode(CommonForm.getSelectValue(petitem));//data.pet;//data.getValue(petitem);
 				petsub1.setVisible(false);
 				petsub2.setVisible(false);
 				if(value.equals(PetStaticData.DINO)){
