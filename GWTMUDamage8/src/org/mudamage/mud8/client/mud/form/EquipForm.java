@@ -5,6 +5,7 @@ import org.mudamage.mud8.client.mud.calc.data.CalcData;
 import org.mudamage.mud8.client.mud.form.data.FormData;
 import org.mudamage.mud8.client.mud.form.event.MUDamageComposite;
 import org.mudamage.mud8.client.mud.form.event.ValueEvent;
+import org.mudamage.mud8.client.mud.static_data.EnchantOptionStaticData;
 import org.mudamage.mud8.client.mud.static_data.EquipStaticData;
 import org.mudamage.mud8.client.mud.static_data.ExOptionStaticData;
 import org.mudamage.mud8.client.mud.static_data.JobStaticData;
@@ -33,12 +34,14 @@ public class EquipForm extends MUDamageComposite {
 	@UiField CheckBox luck;
 	@UiField ListBox plus;
 	@UiField ListBox op;
+	@UiField ListBox en;
+	@UiField ListBox enop;
 	
 	private ListBox[] listboxs;
 	private int SUBINDEX = 1;
 
 	private Integer type;
-	private Integer job;
+	private Integer job = JobStaticData.KNIGHT_NUM;
 	
 	private String[] kinds = {"なし","通常","EX","セット","ソケット"};
 	/**
@@ -77,20 +80,30 @@ public class EquipForm extends MUDamageComposite {
 					listboxs[i].setVisible(false);
 				}
 				luck.setVisible(true);
-				// TODO 通常の場合
-				if(value.equals("通常")){
+				// TODO 通常/EXの場合
+				if(value.equals("通常")||value.equals("EX")){
+					Integer plus_value = plus.getSelectedIndex();
 					// サブフォームを表示する
 					for(int i=SUBINDEX;i<listboxs.length;i++){
 						listboxs[i].setVisible(true);
 					}
+					// アイテム名をセットする
+					CommonForm.setOption(item, EquipStaticData.getNames(type, job));
+					// エンチャントOPをセットする
+					CommonForm.setOption(en, EnchantOptionStaticData.getEnchantGuardNames(plus_value));
 				}
 				// TODO EXの場合
 				// TODO セットの場合
+				// TODO ソケットの場合
 			}
 		});
 		// jobによる初期化
-		initJob(JobStaticData.KNIGHT_NUM);
+		initJob(job);
 	}
+	/**
+	 * 職変更による初期化
+	 * @param job
+	 */
 	@Override
 	public void initJob(Integer job){
 		this.job = job;
@@ -111,11 +124,16 @@ public class EquipForm extends MUDamageComposite {
 		}
 		luck.setVisible(false);
 	}
-	private String[] getItem(Integer job){
+	/**
+	 * アイテム名を取得します。
+	 * @param job
+	 * @return names
+	 */
+	private String[][] getItem(Integer job){
 		if(type.equals(EquipStaticData.RIGHT))
-			return new String[0];
+			return new String[0][0];
 		else if(type.equals(EquipStaticData.LEFT))
-			return new String[0];
+			return new String[0][0];
 		else
 			return EquipStaticData.getNames(type, job);
 	}
