@@ -14,6 +14,8 @@
 	        <g:CheckBox ui:field="luck" text="幸運" name="luck"></g:CheckBox>
 	        <g:ListBox ui:field="plus" name="plus"></g:ListBox>
 	        <g:ListBox ui:field="op" name="op"></g:ListBox>
+	        <g:ListBox ui:field="en" name="op"></g:ListBox>
+	        <g:ListBox ui:field="enop" name="enop"></g:ListBox>
 	    </div>
 	</g:HTMLPanel>
 </ui:UiBinder> 

@@ -26,7 +26,10 @@ public class EquipStaticData {
 		"boots",
 		"shield",
 		"right",
-		"left"
+		"left",
+		"neck",
+		"ring1",
+		"ring2"
 	};
 	/*
 	 * 必要な関数
@@ -43,13 +46,31 @@ public class EquipStaticData {
 		return 0;
 	}
 	/**
-	 * 装備の名前の配列を返します。
+	 * 通常装備/EX装備の名前の配列を返します。
 	 * @param type
 	 * @param job
 	 * @return names
 	 */
-	public static String[] getNames(Integer type,Integer job){
+	public static String[][] getNames(Integer type,Integer job){
 		return EquipEquip.getNames(type, job);
+	}
+	/**
+	 * 通常装備のDEFを返します。
+	 * @param name
+	 * @param plus
+	 * @return
+	 */
+	public static Integer getDef(int name,int plus){
+		return EquipEquip.getDef(name, plus);
+	}
+	/**
+	 * EX装備のDEFを返します。
+	 * @param name
+	 * @param plus
+	 * @return
+	 */
+	public static Integer getExDef(int name,int plus){
+		return EquipEquip.getExDef(name, plus);
 	}
 	
 }
