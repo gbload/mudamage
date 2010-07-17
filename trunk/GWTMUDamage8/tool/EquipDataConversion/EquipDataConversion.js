@@ -271,7 +271,10 @@ function init(){
 		for (var i = 0; i < 6; i++) {
 			jobnum += item_base[5][i] << i;
 		}
-		result += jobnum.toString() + "}";
+		result += jobnum.toString() + ",";
+		// 攻撃速度
+		var speed = equip[loop+(SIZE-3)][7];
+		result += speed.toString() + "}";
 		
 		// スペック
 		/*
@@ -302,9 +305,11 @@ function init(){
 			// 防御成功率
 		}
 		*/
+		var def = [];
 		var str = [];
 		var agi = [];
 		var ene = [];
+		var def_ex = [];
 		var str_ex = [];
 		var agi_ex = [];
 		var ene_ex = [];
@@ -313,6 +318,8 @@ function init(){
 		var ene_diff = [];
 		for(var j=0;j<SIZE;j++){
 			item = equip[loop+j][12];
+			// TODO 防御力
+			def.push(getSpec("def",0));
 			// 要求力
 			str.push(equip_require("str"));
 			// 要求敏
@@ -329,6 +336,8 @@ function init(){
 			var ene_n = getSpec("ene",0);
 			// EX //
 			item = equip[loop+j][13];
+			// TODO 防御力
+			def_ex.push(getSpec("def",0));
 			// 要求力
 			str_ex.push(equip_require("str"));
 			// 要求敏
@@ -364,6 +373,18 @@ function init(){
 		
 		var e;
 		var r;
+		// DEF
+		result += ",{";
+		for (var i = 0; i < SIZE; i++) {
+			// 通常
+			if(i!=0)result += ",";
+			result += def[i].toString();
+			// EX
+			result += ",";
+			result += def_ex[i].toString();
+		}
+		result += "}";
+		
 		// 要求力
 		result += ",{";
 		// 上昇値
