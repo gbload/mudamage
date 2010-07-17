@@ -33,6 +33,13 @@ public class CalcData {
 	public Integer pet;
 	public Integer petsub1;
 	public Integer petsub2;
+	// 羽関連
+	public Integer wing_def;
+	public Integer wing_attack_option;
+	public Integer wing_magic_option;
+	public Integer wing_noroi_option;
+	public Integer wing_inc;
+	public Integer wing_dec;
 	// 攻撃関連
 	public CalcWeaponData right;
 	public CalcWeaponData left;
@@ -154,4 +161,12 @@ public class CalcData {
 		if(ring2.exop[kind])count++;
 		return count;
 	}
+	public Integer getAttackExops(int kind){
+		Integer count=0;
+		if(neck.exop[kind])count++;
+		if(right.exop[kind])count++;
+		if(left.exop[kind])count++;
+		return count;
+	}
+	public Boolean isLeft(){return true;}
 }
