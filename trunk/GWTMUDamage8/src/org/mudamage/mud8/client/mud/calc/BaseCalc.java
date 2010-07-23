@@ -2,6 +2,7 @@ package org.mudamage.mud8.client.mud.calc;
 
 import org.mudamage.mud8.client.mud.calc.data.CalcData;
 import org.mudamage.mud8.client.mud.static_data.ExOptionStaticData;
+import org.mudamage.mud8.client.mud.static_data.JobStaticData;
 import org.mudamage.mud8.client.mud.static_data.PetStaticData;
 import org.mudamage.mud8.client.mud.static_data.StatusStaticData;
 
@@ -143,6 +144,25 @@ public class BaseCalc {
 	 */
 	public static int calcSpeed(CalcData c){
 		int agi_inc = StatusStaticData.getSpeedInc(c.job);
+		return baseSpeed(c,agi_inc);
+	}
+	/**
+	 * 魔法速度の計算
+	 * @param c
+	 * @return magic_speed
+	 */
+	public static int calcMagicSpeed(CalcData c){
+		int agi_inc = StatusStaticData.getMagicSpeedInc(c.job);
+		return baseSpeed(c,agi_inc);
+	}
+	/**
+	 * 速度の基本計算
+	 * @param c
+	 * @param agi_inc
+	 * @return speed
+	 */
+	private static int baseSpeed(CalcData c,int agi_inc){
+		if(agi_inc==0)return 0;
 		// 敏捷による増加
 		int speed = (int)Math.floor(c.agi/agi_inc);
 		// 武器による増加
@@ -165,5 +185,112 @@ public class BaseCalc {
 		// TODO 速度計算
 		
 		return speed;
+	}
+	/**
+	 * 攻撃成功率の計算
+	 * @param c
+	 * @return hit
+	 */
+	public static int calcHit(CalcData c){
+		int hit = (int)(Math.floor(c.lv*5));
+		// ステータスによる増加
+		if(c.job.equals(JobStaticData.DARKLOAD_NUM))
+			hit = (int)(Math.floor(c.str/6) + Math.floor(c.agi*2.5)+Math.floor(c.rec/10));
+		else
+			hit = (int)(Math.floor(c.str/4) + Math.floor(c.agi*1.5));
+		// TODO その他OPによる増加
+		
+		return hit;
+	}
+	/**
+	 * 対人攻撃成功率の計算
+	 * @param c
+	 * @return pvp_hit
+	 */
+	public static int calcPvPHit(CalcData c){
+		double inc = StatusStaticData.getPvPHitInc(c.job);
+		// TODO 対人攻撃成功率計算
+		int pvphit = (int)(Math.floor(0));
+		
+		return pvphit;
+	}
+	/**
+	 * 防御成功率の計算
+	 * @param c
+	 * @return avoid
+	 */
+	public static int calcAvoid(CalcData c){
+		int agi_inc = StatusStaticData.getAvoidInc(c.job);
+		
+		int avoid = (int)(Math.floor(c.agi/agi_inc));
+		// TODO 防御成功率計算
+		
+		return avoid;
+	}
+	/**
+	 * 対人防御成功率の計算
+	 * @param c
+	 * @return pvp_avoid
+	 */
+	public static int calcPvPAvoid(CalcData c){
+		int agi_inc = StatusStaticData.getPvPAvoidInc(c.job);
+		// TODO 対人防御成功率計算
+		int pvpavoid = (int)(Math.floor(0));
+		
+		return pvpavoid;
+	}
+	/**
+	 * 最小攻撃力の計算
+	 * @param c
+	 * @return min_attack
+	 */
+	public static int calcMinAttack(CalcData c){
+		// TODO 最小攻撃力計算
+		return 0;
+	}
+	/**
+	 * 最大攻撃力の計算
+	 * @param c
+	 * @return max_attack
+	 */
+	public static int calcMaxAttack(CalcData c){
+		// TODO 最大攻撃力計算
+		return 0;
+	}
+	/**
+	 * 攻撃力の基本計算
+	 * @param c
+	 * @return attack
+	 */
+	private static int baseAttack(CalcData c){
+		// TODO 攻撃力計算
+		return 0;
+	}
+	/**
+	 * 最小魔力の計算
+	 * @param c
+	 * @return min_magic
+	 */
+	public static int calcMinMagic(CalcData c){
+		// TODO 最小魔力計算
+		return 0;
+	}
+	/**
+	 * 最大魔力の計算
+	 * @param c
+	 * @return max_magic
+	 */
+	public static int calcMaxMagic(CalcData c){
+		// TODO 最大魔力計算
+		return 0;
+	}
+	/**
+	 * 魔力の基本計算
+	 * @param c
+	 * @return magic
+	 */
+	private static int baseMagic(CalcData c){
+		// TODO 魔力計算
+		return 0;
 	}
 }
