@@ -1,7 +1,6 @@
 package org.mudamage.mud8.client.mud.form;
 
 import org.mudamage.mud8.client.mud.calc.data.CalcData;
-import org.mudamage.mud8.client.mud.form.data.FormData;
 import org.mudamage.mud8.client.mud.form.event.MUDamageComposite;
 import org.mudamage.mud8.client.mud.form.event.ValueEvent;
 

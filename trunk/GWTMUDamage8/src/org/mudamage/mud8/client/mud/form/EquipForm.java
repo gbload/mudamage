@@ -2,12 +2,12 @@ package org.mudamage.mud8.client.mud.form;
 
 import org.mudamage.mud8.client.common.CommonForm;
 import org.mudamage.mud8.client.mud.calc.data.CalcData;
-import org.mudamage.mud8.client.mud.form.data.FormData;
+import org.mudamage.mud8.client.mud.form.event.EnchantEvent;
 import org.mudamage.mud8.client.mud.form.event.MUDamageComposite;
-import org.mudamage.mud8.client.mud.form.event.ValueEvent;
 import org.mudamage.mud8.client.mud.static_data.EnchantOptionStaticData;
 import org.mudamage.mud8.client.mud.static_data.EquipStaticData;
 import org.mudamage.mud8.client.mud.static_data.ExOptionStaticData;
+import org.mudamage.mud8.client.mud.static_data.FormKindStaticData;
 import org.mudamage.mud8.client.mud.static_data.JobStaticData;
 
 import com.google.gwt.core.client.GWT;
@@ -42,8 +42,6 @@ public class EquipForm extends MUDamageComposite {
 
 	private Integer type;
 	private Integer job = JobStaticData.KNIGHT_NUM;
-	
-	private String[] kinds = {"なし","通常","EX","セット","ソケット"};
 	/**
 	 * コンストラクタ
 	 */
@@ -71,17 +69,18 @@ public class EquipForm extends MUDamageComposite {
 		//luck.addClickHandler(new ValueEvent(data, luck));
 		
 		// kindのイベント
+		kind.addChangeHandler(new EnchantEvent(kind, plus, en, enop));
 		kind.addChangeHandler(new ChangeHandler() {
 			@Override
 			public void onChange(ChangeEvent event) {
-				String value = CommonForm.getSelectValue(kind);
+				int value = Integer.decode(CommonForm.getSelectValue(kind));
 				// サブフォームを全て非表示にする
 				for(int i=SUBINDEX;i<listboxs.length;i++){
 					listboxs[i].setVisible(false);
 				}
 				luck.setVisible(true);
 				// TODO 通常/EXの場合
-				if(value.equals("通常")||value.equals("EX")){
+				if(value == FormKindStaticData.NORMAL||value == FormKindStaticData.EX){
 					Integer plus_value = plus.getSelectedIndex();
 					// サブフォームを表示する
 					for(int i=SUBINDEX;i<listboxs.length;i++){
@@ -92,11 +91,15 @@ public class EquipForm extends MUDamageComposite {
 					// エンチャントOPをセットする
 					CommonForm.setOption(en, EnchantOptionStaticData.getEnchantGuardNames(plus_value));
 				}
-				// TODO EXの場合
 				// TODO セットの場合
 				// TODO ソケットの場合
 			}
 		});
+		// plusのイベント
+		plus.addChangeHandler(new EnchantEvent(kind, plus, en, enop));
+		// enのイベント
+		en.addChangeHandler(new EnchantEvent(kind, plus, en, enop));
+		
 		// jobによる初期化
 		initJob(job);
 	}
@@ -110,7 +113,7 @@ public class EquipForm extends MUDamageComposite {
 		/*
 		 * <select>に<option>を追加する
 		 */
-		CommonForm.setOption(kind, kinds);
+		CommonForm.setOption(kind,FormKindStaticData.getKindNames());
 		if(type.equals(EquipStaticData.RIGHT)||type.equals(EquipStaticData.LEFT))
 			CommonForm.setOption(op, CommonForm.getItemOption("攻撃"));
 		else
