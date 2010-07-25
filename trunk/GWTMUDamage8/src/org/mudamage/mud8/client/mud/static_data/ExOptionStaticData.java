@@ -1,23 +1,23 @@
 package org.mudamage.mud8.client.mud.static_data;
 
 public class ExOptionStaticData {
-	public static final Integer NONE = -1;
+	public static final Integer NONE = 0;
 	//武器EXOP定数
-	public static final Integer EXD = 0;
-	public static final Integer SPEED = 1;
-	public static final Integer GET_MANA = 2;
-	public static final Integer GET_HP = 3;
-	public static final Integer ATTACK_LV20 = 4;
-	public static final Integer ATTACK_2PER = 5;
-	public static final Integer MAGIC_LV20 = 6;
-	public static final Integer MAGIC_2PER = 7;
+	public static final Integer EXD = 1;
+	public static final Integer SPEED = 2;
+	public static final Integer GET_MANA = 3;
+	public static final Integer GET_HP = 4;
+	public static final Integer ATTACK_LV20 = 5;
+	public static final Integer ATTACK_2PER = 6;
+	public static final Integer MAGIC_LV20 = 7;
+	public static final Integer MAGIC_2PER = 8;
 	//防具EXOP定数
-	public static final Integer AVOID = 8;
-	public static final Integer DEC = 9;
-	public static final Integer HP = 10;
-	public static final Integer MANA = 11;
-	public static final Integer REFLECTION = 12;
-	public static final Integer ZEN = 13;
+	public static final Integer AVOID = 9;
+	public static final Integer DEC = 10;
+	public static final Integer HP = 11;
+	public static final Integer MANA = 12;
+	public static final Integer REFLECTION = 13;
+	public static final Integer ZEN = 14;
 	
 	
 	public static final String NONE_NAME = "";

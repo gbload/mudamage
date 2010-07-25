@@ -237,6 +237,7 @@ public class SocketOptionStaticData {
 	 * 値の取得関数
 	 */
 	public static String[] getSocketValues(int number){
+		if(number==-1)return new String[0];
 		String[] result = new String[5];
 		int attr = number/10;
 		int op = number%10;
