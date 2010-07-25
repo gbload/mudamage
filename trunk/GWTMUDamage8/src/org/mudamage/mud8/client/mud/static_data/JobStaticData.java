@@ -5,73 +5,58 @@ package org.mudamage.mud8.client.mud.static_data;
  *
  */
 public class JobStaticData {
-	public static final Integer KNIGHT_NUM = 0;
-	public static final Integer WIZARD_NUM = 1;
-	public static final Integer ELF_NUM = 2;
-	public static final Integer MAGIC_NUM = 3;
-	public static final Integer DARKLOAD_NUM = 4;
-	public static final Integer SUMMONER_NUM = 5;
+	/*
+	 * 定数
+	 */
+	public static final Integer KNIGHT = 0;
+	public static final Integer WIZARD = 1;
+	public static final Integer ELF = 2;
+	public static final Integer MAGIC = 3;
+	public static final Integer DARKLOAD = 4;
+	public static final Integer SUMMONER = 5;
+	
+	public static final Integer[] job_numbers = {KNIGHT,WIZARD,ELF,MAGIC,DARKLOAD,SUMMONER};
 	/**
 	 * ナイトを表す文字列
 	 */
-	public static final String KNIGHT = "ナイト";
+	public static final String KNIGHT_NAME = "ナイト";
 	/**
 	 * ウィザードを表す文字列
 	 */
-	public static final String WIZARD = "ウィザード";
+	public static final String WIZARD_NAME = "ウィザード";
 	/**
 	 * エルフを表す文字列
 	 */
-	public static final String ELF = "エルフ";
+	public static final String ELF_NAME = "エルフ";
 	/**
 	 * 魔剣士を表す文字列
 	 */
-	public static final String MAGIC = "魔剣士";
+	public static final String MAGIC_NAME = "魔剣士";
 	/**
 	 * ダークロードを表す文字列
 	 */
-	public static final String DARKLOAD = "ダークロード";
+	public static final String DARKLOAD_NAME = "ダークロード";
 	/**
 	 * 召喚師を表す文字列
 	 */
-	public static final String SUMMONER = "召喚師";
+	public static final String SUMMONER_NAME = "召喚師";
 	/**
 	 * 全ての職業の文字列を格納した配列
 	 */
-	public static String[][] jobs = {
-		{KNIGHT,KNIGHT_NUM.toString()},
-		{WIZARD,WIZARD_NUM.toString()},
-		{ELF,ELF_NUM.toString()},
-		{MAGIC,MAGIC_NUM.toString()},
-		{DARKLOAD,DARKLOAD_NUM.toString()},
-		{SUMMONER,SUMMONER_NUM.toString()}
-	};
+	public static final String[] job_names = {KNIGHT_NAME,WIZARD_NAME,ELF_NAME,MAGIC_NAME,DARKLOAD_NAME,SUMMONER_NAME};
+
 	/**
-	 * 各職業に対応した数字を返します。
-	 * @param job
-	 * @return job_number
+	 * Jobの名前を返す
+	 * @return job_names
 	 */
-	public static int getJobNumber(String job){
-		for(int i=0;i<jobs.length;i++)
-			if(jobs[i].equals(job))
-				return i;
-		return -1;
+	public static String[] getJobNames(){
+		return job_names;
 	}
 	/**
-	 * 各職業に対応した数字から各職業の文字列を返します。
-	 * @param jobnum
-	 * @return job_name
+	 * Jobのナンバーを返す
+	 * @return job_numbers
 	 */
-	/*
-	public static String getJobString(int jobnum){
-		return jobs[jobnum];
-	}
-	*/
-	/**
-	 * 全ての職業の文字列を格納した配列を返します。
-	 * @return jobs
-	 */
-	public static String[][] getJobs(){
-		return jobs;
+	public static Integer[] getJobNumbers(){
+		return job_numbers;
 	}
 }

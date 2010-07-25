@@ -41,7 +41,7 @@ public class EquipForm extends MUDamageComposite {
 	private int SUBINDEX = 1;
 
 	private Integer type;
-	private Integer job = JobStaticData.KNIGHT_NUM;
+	private Integer job = JobStaticData.KNIGHT;
 	/**
 	 * コンストラクタ
 	 */

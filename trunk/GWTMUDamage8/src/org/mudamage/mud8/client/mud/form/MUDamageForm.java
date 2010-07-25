@@ -62,7 +62,7 @@ public class MUDamageForm extends Composite {
 		ring2.init(data);
 		
 		// 値のセット
-		CommonForm.setOption(job, JobStaticData.getJobs());
+		CommonForm.setOption(job, JobStaticData.getJobNames());
 		
 		// イベントの設定
 		//title.addChangeHandler(new ValueEvent(data, title));

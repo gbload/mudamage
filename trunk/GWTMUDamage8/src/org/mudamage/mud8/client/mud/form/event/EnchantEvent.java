@@ -6,6 +6,7 @@ import org.mudamage.mud8.client.mud.static_data.FormKindStaticData;
 
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.ListBox;
 /**
  * エンチャント及びOPフォームを変更するためのイベント
@@ -66,14 +67,14 @@ public class EnchantEvent implements ChangeHandler {
 			}
 			
 			// enchant_optionのselect index取得
-			int enchant_option_index = enchant.getSelectedIndex();
+			int enchant_option_index = enchant_option.getSelectedIndex();
 			
 			// enchantの現在選択されているデータを取得
 			int enchant_name = Integer.decode(CommonForm.getSelectValue(enchant));
 			
 			// enchant_optionの表示用データ取得
 			String[] enchant_option_names = EnchantOptionStaticData.getEnchantValues(enchant_name, now_plus);
-			
+			Window.alert(Integer.toString(enchant_option_names.length));
 			// 現在選択中のenchant_optionが選択できなくなった場合、選択可能な最大値を選択
 			if(enchant_option_index >= enchant_option_names.length){
 				enchant_option_index = enchant_option_names.length - 1;
