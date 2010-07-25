@@ -7,6 +7,7 @@ import org.mudamage.mud8.client.mud.form.event.MUDamageComposite;
 import org.mudamage.mud8.client.mud.form.event.ValueEvent;
 import org.mudamage.mud8.client.mud.static_data.EquipStaticData;
 import org.mudamage.mud8.client.mud.static_data.ExOptionStaticData;
+import org.mudamage.mud8.client.mud.static_data.FormKindStaticData;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.AnchorElement;
@@ -40,8 +41,7 @@ public class AccForm extends MUDamageComposite {
 	 */
 	private Integer type;
 
-	private String[] neck_kinds = {"なし","EX","セット"};
-	private String[] ring_kinds = {"なし","EX","セット"};
+	private Integer[] exop_numbers;
 	/**
 	 * コンストラクタ
 	 */
@@ -57,11 +57,7 @@ public class AccForm extends MUDamageComposite {
 	public void init(CalcData calcdata){
 		data = calcdata;
 		// kindの設定
-		if(type.equals(EquipStaticData.NECK)){
-			CommonForm.setOption(kind, neck_kinds);
-		}else{
-			CommonForm.setOption(kind, ring_kinds);
-		}
+		CommonForm.setOption(kind, FormKindStaticData.getAccKindNames());
 		// サブフォームを全て非表示にする
 		for(int i=SUBINDEX;i<listboxs.length;i++){
 			listboxs[i].setVisible(false);
@@ -81,10 +77,13 @@ public class AccForm extends MUDamageComposite {
 				// EXの場合
 				if(value.equals("EX")){
 					for(int i=SUBINDEX;i<listboxs.length;i++){
-						if(type.equals(EquipStaticData.NECK))
-							CommonForm.setOption(listboxs[i], ExOptionStaticData.getWeaponExops(true, true));
-						else
-							CommonForm.setOption(listboxs[i], ExOptionStaticData.getGuardExops());
+						if(type.equals(EquipStaticData.NECK)){
+							CommonForm.setOption(listboxs[i], ExOptionStaticData.getWeaponExopNames());
+							exop_numbers = ExOptionStaticData.getWeaponExopNumbers();
+						}else{
+							CommonForm.setOption(listboxs[i], ExOptionStaticData.getGuardExopNames());
+							exop_numbers = ExOptionStaticData.getGuardExopNumbers();
+						}
 						listboxs[i].setName(type+"_exop"+Integer.toString(i-SUBINDEX+1));
 						listboxs[i].setVisible(true);
 					}

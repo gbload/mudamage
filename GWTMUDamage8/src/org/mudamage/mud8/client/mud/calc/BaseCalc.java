@@ -194,7 +194,7 @@ public class BaseCalc {
 	public static int calcHit(CalcData c){
 		int hit = (int)(Math.floor(c.lv*5));
 		// ステータスによる増加
-		if(c.job.equals(JobStaticData.DARKLOAD_NUM))
+		if(c.job.equals(JobStaticData.DARKLOAD))
 			hit = (int)(Math.floor(c.str/6) + Math.floor(c.agi*2.5)+Math.floor(c.rec/10));
 		else
 			hit = (int)(Math.floor(c.str/4) + Math.floor(c.agi*1.5));

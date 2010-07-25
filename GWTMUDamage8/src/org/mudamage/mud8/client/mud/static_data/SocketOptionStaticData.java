@@ -57,42 +57,45 @@ public class SocketOptionStaticData {
 	 * 定数　名前
 	 */
 	// 炎
-	public static final String[] ATTACK_LV_NAME = {"攻撃魔力lv",ATTACK_LV.toString()};
-	public static final String[] MAX_NAME = {"最大攻撃魔力",MAX.toString()};
-	public static final String[] MIN_NAME = {"最小攻撃魔力",MIN.toString()};
-	public static final String[] ATTACK_NAME = {"攻撃魔力増加",ATTACK.toString()};
-	public static final String[] SPEED_NAME = {"速度増加",SPEED.toString()};
-	public static final String[] AG_DEC_NAME = {"AG消費減少",AG_DEC.toString()};
+	public static final String ATTACK_LV_NAME = "攻撃魔力lv";
+	public static final String MAX_NAME = "最大攻撃魔力";
+	public static final String MIN_NAME = "最小攻撃魔力";
+	public static final String ATTACK_NAME = "攻撃魔力増加";
+	public static final String SPEED_NAME = "速度増加";
+	public static final String AG_DEC_NAME = "AG消費減少";
 	// 稲妻
-	public static final String[] EXD_DAMAGE_NAME = {"EXD増加",EXD_DAMAGE.toString()};
-	public static final String[] EXD_PER_NAME = {"EXD確率",EXD_PER.toString()};
-	public static final String[] CRI_DAMAGE_NAME = {"クリ増加",CRI_DAMAGE.toString()};
-	public static final String[] CRI_PER_NAME = {"クリ確率",CRI_PER.toString()};
+	public static final String EXD_DAMAGE_NAME = "EXD増加";
+	public static final String EXD_PER_NAME = "EXD確率";
+	public static final String CRI_DAMAGE_NAME = "クリ増加";
+	public static final String CRI_PER_NAME = "クリ確率";
 	// 氷
-	public static final String[] SKILL_NAME = {"スキル増加",SKILL.toString()};
-	public static final String[] GET_HP_NAME = {"獲得生命",GET_HP.toString()};
-	public static final String[] GET_MANA_NAME = {"獲得マナ",GET_MANA.toString()};
-	public static final String[] HIT_NAME = {"攻撃成功率",HIT.toString()};
-	public static final String[] ITEM_ENDURANCE_NAME = {"アイテム耐久",ITEM_ENDURANCE.toString()};
+	public static final String SKILL_NAME = "スキル増加";
+	public static final String GET_HP_NAME = "獲得生命";
+	public static final String GET_MANA_NAME = "獲得マナ";
+	public static final String HIT_NAME = "攻撃成功率";
+	public static final String ITEM_ENDURANCE_NAME = "アイテム耐久";
 	// 水
-	public static final String[] DEF_NAME = {"防御力増加",DEF.toString()};
-	public static final String[] SHIELD_NAME = {"盾装備時増加",SHIELD.toString()};
-	public static final String[] DEC_NAME = {"ダメ減",DEC.toString()};
-	public static final String[] REFLECTION_NAME = {"ダメ反",REFLECTION.toString()};
-	public static final String[] AVOID_NAME = {"防御成功",AVOID.toString()};
+	public static final String DEF_NAME = "防御力増加";
+	public static final String SHIELD_NAME = "盾装備時増加";
+	public static final String DEC_NAME = "ダメ減";
+	public static final String REFLECTION_NAME = "ダメ反";
+	public static final String AVOID_NAME = "防御成功";
 	// 風
-	public static final String[] HP_NAME = {"最大生命増加",HP.toString()};
-	public static final String[] MANA_NAME = {"最大マナ増加",MANA.toString()};
-	public static final String[] AG_MAX_NAME = {"最大AG増加",AG_MAX.toString()};
-	public static final String[] AH_NAME = {"自動生命回復",AH.toString()};
-	public static final String[] AM_NAME = {"自動マナ回復",AM.toString()};
-	public static final String[] AG_AUTO_NAME = {"自動AG回復",AG_AUTO.toString()};
+	public static final String HP_NAME = "最大生命増加";
+	public static final String MANA_NAME = "最大マナ増加";
+	public static final String AG_MAX_NAME = "最大AG増加";
+	public static final String AH_NAME = "自動生命回復";
+	public static final String AM_NAME = "自動マナ回復";
+	public static final String AG_AUTO_NAME = "自動AG回復";
 	// 地
-	public static final String[] VIT_NAME = {"体力増加",VIT.toString()};
+	public static final String VIT_NAME = "体力増加";
 	/*
 	 * 定数　名前配列
 	 */
-	public static final String[][] attack_names = {
+	/**
+	 * 武器ソケットOP
+	 */
+	public static final String[] attack_names = {
 		ATTACK_LV_NAME,
 		MAX_NAME,
 		MIN_NAME,
@@ -109,7 +112,27 @@ public class SocketOptionStaticData {
 		HIT_NAME,
 		ITEM_ENDURANCE_NAME
 	};
-	public static final String[][] guard_names = {
+	public static final Integer[] attack_numbers = {
+		ATTACK_LV,
+		MAX,
+		MIN,
+		ATTACK,
+		SPEED,
+		AG_DEC,
+		EXD_DAMAGE,
+		EXD_PER,
+		CRI_DAMAGE,
+		CRI_PER,
+		SKILL,
+		GET_HP,
+		GET_MANA,
+		HIT,
+		ITEM_ENDURANCE
+	};
+	/**
+	 * 防具ソケットOP
+	 */
+	public static final String[] guard_names = {
 		DEF_NAME,
 		SHIELD_NAME,
 		DEC_NAME,
@@ -122,6 +145,20 @@ public class SocketOptionStaticData {
 		AM_NAME,
 		AG_AUTO_NAME,
 		VIT_NAME,
+	};
+	public static final Integer[] guard_numbers = {
+		DEF,
+		SHIELD,
+		DEC,
+		REFLECTION,
+		AVOID,
+		HP,
+		MANA,
+		AG_MAX,
+		AH,
+		AM,
+		AG_AUTO,
+		VIT,
 	};
 	/*
 	 * 定数　値
@@ -180,21 +217,29 @@ public class SocketOptionStaticData {
 		earth_values
 	};
 	/*
-	 * 名前の取得関数
+	 * 名前とナンバーの取得関数
 	 */
-	public static String[][] getAttackNames(){
+	// 武器
+	public static String[] getAttackNames(){
 		return attack_names;
 	}
-	public static String[][] getGuardNames(){
+	public static Integer[] getAttackNumbers(){
+		return attack_numbers;
+	}
+	// 防具
+	public static String[] getGuardNames(){
 		return guard_names;
+	}
+	public static Integer[] getGuardNumbers(){
+		return guard_numbers;
 	}
 	/*
 	 * 値の取得関数
 	 */
-	public static String[] getSocketValues(int name){
+	public static String[] getSocketValues(int number){
 		String[] result = new String[5];
-		int attr = name/10;
-		int op = name%10;
+		int attr = number/10;
+		int op = number%10;
 		Integer[] val = values[attr][op];
 		for(int i=0;i<5;i++)
 			result[i] = val[i].toString();

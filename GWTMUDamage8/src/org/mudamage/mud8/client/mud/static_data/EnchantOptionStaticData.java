@@ -34,33 +34,33 @@ public class EnchantOptionStaticData {
 	/*
 	 * 定数　名前
 	 */
-	private static final String[] NONE_NAME = {"",NONE.toString()};
+	private static final String NONE_NAME = "";
 	// 武器エンチャント
-	private static final String[] MIN_NAME = {"最小攻撃力",MIN.toString()};
-	private static final String[] MAX_NAME = {"最大攻撃力",MAX.toString()};
-	private static final String[] REQUIRE_STR_NAME = {"要求力減",REQUIRE_STR.toString()};
-	private static final String[] REQUIRE_AGI_NAME = {"要求敏減",REQUIRE_AGI.toString()};
-	private static final String[] ATTACK_NAME = {"攻撃力",ATTACK.toString()};
-	private static final String[] CRI_NAME = {"Cダメ",CRI.toString()};
-	private static final String[] SKILL_NAME = {"スキル攻撃力",SKILL.toString()};
-	private static final String[] PVP_HIT_NAME = {"対人攻撃率",PVP_HIT.toString()};
-	private static final String[] SD_DEC_NAME = {"SD比率減(%)",SD_DEC.toString()};
-	private static final String[] SD_IGNORE_NAME = {"SD無視(%)",SD_IGNORE.toString()};
+	private static final String MIN_NAME = "最小攻撃力";
+	private static final String MAX_NAME = "最大攻撃力";
+	private static final String REQUIRE_STR_NAME = "要求力減";
+	private static final String REQUIRE_AGI_NAME = "要求敏減";
+	private static final String ATTACK_NAME = "攻撃力";
+	private static final String CRI_NAME = "Cダメ";
+	private static final String SKILL_NAME = "スキル攻撃力";
+	private static final String PVP_HIT_NAME = "対人攻撃率";
+	private static final String SD_DEC_NAME = "SD比率減(%)";
+	private static final String SD_IGNORE_NAME = "SD無視(%)";
 	// 杖エンチャント
-	private static final String[] MAGIC_NAME = {"魔力上昇",MAGIC.toString()};
-	private static final String[] MAGIC_SKILL_NAME = {"スキル攻撃力",MAGIC_SKILL.toString()};
-	private static final String[] MAGIC_CRI_NAME = {"Cダメ",MAGIC_CRI.toString()};
-	private static final String[] MAGIC_SD_DEC_NAME = {"SD比率減(%)",MAGIC_SD_DEC.toString()};
-	private static final String[] MAGIC_SD_IGNORE_NAME = {"SD無視(%)",MAGIC_SD_IGNORE.toString()};
+	private static final String MAGIC_NAME = "魔力上昇";
+	private static final String MAGIC_SKILL_NAME = "スキル攻撃力";
+	private static final String MAGIC_CRI_NAME = "Cダメ";
+	private static final String MAGIC_SD_DEC_NAME = "SD比率減(%)";
+	private static final String MAGIC_SD_IGNORE_NAME = "SD無視(%)";
 	// 防具エンチャント
-	private static final String[] DEF_NAME = {"防御力上昇",DEF.toString()};
-	private static final String[] AG_NAME = {"最大AG上昇",AG.toString()};
-	private static final String[] HP_NAME = {"最大生命上昇",HP.toString()};
-	private static final String[] AH_NAME = {"自動生命回復",AH.toString()};
-	private static final String[] AM_NAME = {"自動マナ回復",AM.toString()};
-	private static final String[] PVP_AVOID_NAME = {"対人防御成功",PVP_AVOID.toString()};
-	private static final String[] DEC_NAME = {"ダメ減(%)",DEC.toString()};
-	private static final String[] SD_INC_NAME = {"SD比率上昇(%)",SD_INC.toString()};
+	private static final String DEF_NAME = "防御力上昇";
+	private static final String AG_NAME = "最大AG上昇";
+	private static final String HP_NAME = "最大生命上昇";
+	private static final String AH_NAME = "自動生命回復";
+	private static final String AM_NAME = "自動マナ回復";
+	private static final String PVP_AVOID_NAME = "対人防御成功";
+	private static final String DEC_NAME = "ダメ減(%)";
+	private static final String SD_INC_NAME = "SD比率上昇(%)";
 	/*
 	 * 定数　数値
 	 */
@@ -124,7 +124,10 @@ public class EnchantOptionStaticData {
 	/*
 	 * 定数　名前配列
 	 */
-	private static final String[][] enchant_attack_names = {
+	/**
+	 * 剣エンチャント
+	 */
+	private static final String[] enchant_attack_names = {
 		NONE_NAME,
 		MIN_NAME,
 		MAX_NAME,
@@ -137,7 +140,22 @@ public class EnchantOptionStaticData {
 		SD_DEC_NAME,
 		SD_IGNORE_NAME
 	};
-	private static final String[][] enchant_magic_names = {
+	private static final Integer[] enchant_attack_numbers = {
+		NONE,
+		MIN,
+		MAX,
+		REQUIRE_STR,
+		REQUIRE_AGI,
+		ATTACK,CRI,
+		SKILL,
+		PVP_HIT,
+		SD_DEC,
+		SD_IGNORE
+	};
+	/**
+	 * 杖エンチャント
+	 */
+	private static final String[] enchant_magic_names = {
 		NONE_NAME,
 		MAGIC_NAME,
 		REQUIRE_STR_NAME,
@@ -148,7 +166,21 @@ public class EnchantOptionStaticData {
 		MAGIC_SD_DEC_NAME,
 		MAGIC_SD_IGNORE_NAME
 	};
-	private static final String[][] enchant_guard_names = {
+	private static final Integer[] enchant_magic_numbers = {
+		NONE,
+		MAGIC,
+		REQUIRE_STR,
+		REQUIRE_AGI,
+		MAGIC_CRI,
+		MAGIC_SKILL,
+		PVP_HIT,
+		MAGIC_SD_DEC,
+		MAGIC_SD_IGNORE
+	};
+	/**
+	 * 防具エンチャント
+	 */
+	private static final String[] enchant_guard_names = {
 		NONE_NAME,
 		DEF_NAME,
 		AG_NAME,
@@ -159,6 +191,17 @@ public class EnchantOptionStaticData {
 		DEC_NAME,
 		SD_INC_NAME
 	};
+	private static final Integer[] enchant_guard_numbers = {
+		NONE,
+		DEF,
+		AG,
+		HP,
+		AH,
+		AM,
+		PVP_AVOID,
+		DEC,
+		SD_INC
+	};
 	/*
 	 * 定数　アイテムレベル毎のエンチャント {plus,個数}
 	 */
@@ -168,35 +211,65 @@ public class EnchantOptionStaticData {
 	/*
 	 * private関数
 	 */
-	private static Integer getEncahntCount(Integer[][] enchant_lv,int plus){
+	private static Integer getEnchantCount(Integer[][] enchant_lv,int plus){
 		for(int i=enchant_lv.length - 1;i>=0;i--)
 			if(plus >= enchant_lv[i][0])
 				return enchant_lv[i][1];
 		return 0;
 	}
-	private static String[][] getEnchantNames(String[][] names,int count){
-		String[][] result = new String[count][2];
+	private static String[] getEnchantNames(String[] names,int count){
+		String[] result = new String[count];
 		for(int i=0;i<count;i++)
 			result[i] = names[i];
 		return result;
 	}
+	private static Integer[] getEnchantNumbers(Integer[] numbers,int count){
+		Integer[] result = new Integer[count];
+		for(int i=0;i<count;i++)
+			result[i] = numbers[i];
+		return result;
+	}
 	/*
-	 * 名前の取得関数
+	 * 名前とナンバーの取得関数
 	 */
-	public static String[][] getEnchantAttackNames(int plus){
-		return getEnchantNames(enchant_attack_names, getEncahntCount(enchant_attack_lv, plus));
+	/**
+	 * 剣エンチャント
+	 * @param plus
+	 * @return attack_enchant
+	 */
+	public static String[] getEnchantAttackNames(int plus){
+		return getEnchantNames(enchant_attack_names, getEnchantCount(enchant_attack_lv, plus));
 	}
-	public static String[][] getEnchantMagicNames(int plus){
-		return getEnchantNames(enchant_magic_names, getEncahntCount(enchant_magic_lv, plus));
+	public static Integer[] getEnchantAttackNumbers(int plus){
+		return getEnchantNumbers(enchant_attack_numbers,getEnchantCount(enchant_attack_lv,plus));
 	}
-	public static String[][] getEnchantGuardNames(int plus){
-		return getEnchantNames(enchant_guard_names, getEncahntCount(enchant_guard_lv, plus));
+	/**
+	 * 杖エンチャント
+	 * @param plus
+	 * @return magic_enchant
+	 */
+	public static String[] getEnchantMagicNames(int plus){
+		return getEnchantNames(enchant_magic_names, getEnchantCount(enchant_magic_lv, plus));
+	}
+	public static Integer[] getEnchantMagicNumbers(int plus){
+		return getEnchantNumbers(enchant_magic_numbers, getEnchantCount(enchant_magic_lv, plus));
+	}
+	/**
+	 * 防具エンチャント
+	 * @param plus
+	 * @return guard_enchant
+	 */
+	public static String[] getEnchantGuardNames(int plus){
+		return getEnchantNames(enchant_guard_names, getEnchantCount(enchant_guard_lv, plus));
+	}
+	public static Integer[] getEnchantGuardNumbers(int plus){
+		return getEnchantNumbers(enchant_guard_numbers, getEnchantCount(enchant_guard_lv, plus));
 	}
 	/*
 	 * 値の取得関数
 	 */
-	public static String[] getEnchantValues(int name,int plus){
-		int size = require_lv[name] - plus + 1;
+	public static String[] getEnchantValues(int number,int plus){
+		int size = require_lv[number] - plus + 1;
 		if(size <= 0)return null;
 		String[] str = new String[size];
 		for(int i=0;i<size;i++){
