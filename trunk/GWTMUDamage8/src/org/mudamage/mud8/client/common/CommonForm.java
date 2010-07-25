@@ -96,7 +96,7 @@ public class CommonForm {
 		return plus;
 	}
 	/**
-	 * 装備のOPをセットします。
+	 * 装備のOPを返します。
 	 * @param opnames
 	 * @return
 	 */
@@ -110,7 +110,7 @@ public class CommonForm {
 		return ops;
 	}
 	/**
-	 * 装備のOPをセットします。
+	 * 装備のOPを返します。
 	 * @param opname
 	 * @return
 	 */
@@ -121,5 +121,10 @@ public class CommonForm {
 		for(int i=4;i<=16;i+=4)
 			ops[size++] = opname + "+" + Integer.toString(i);
 		return ops;
+	}
+	public static int getSelectIndex(ListBox listbox){
+		int index = listbox.getSelectedIndex();
+		if(index == -1)index = 0;
+		return index;
 	}
 }

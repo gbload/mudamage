@@ -3,6 +3,7 @@ package org.mudamage.mud8.client.mud.form;
 import org.mudamage.mud8.client.common.CommonForm;
 import org.mudamage.mud8.client.mud.calc.data.CalcData;
 import org.mudamage.mud8.client.mud.form.event.EnchantEvent;
+import org.mudamage.mud8.client.mud.form.event.EquipKindEvent;
 import org.mudamage.mud8.client.mud.form.event.MUDamageComposite;
 import org.mudamage.mud8.client.mud.static_data.EnchantOptionStaticData;
 import org.mudamage.mud8.client.mud.static_data.EquipStaticData;
@@ -28,27 +29,33 @@ public class EquipForm extends MUDamageComposite {
 	interface EquipFormUiBinder extends UiBinder<Widget, EquipForm> {
 	}
 
-	@UiField AnchorElement label;
-	@UiField ListBox kind;
-	@UiField ListBox item;
-	@UiField CheckBox luck;
-	@UiField ListBox plus;
-	@UiField ListBox op;
-	@UiField ListBox en;
-	@UiField ListBox enop;
+	@UiField public AnchorElement label;
+	@UiField public ListBox kind;
+	@UiField public ListBox item;
+	@UiField public CheckBox luck;
+	@UiField public ListBox plus;
+	@UiField public ListBox op;
+	@UiField public ListBox enchant;
+	@UiField public ListBox enchant_option;
 	
-	private ListBox[] listboxs;
-	private int SUBINDEX = 1;
+	public Integer[] kind_numbers;
+	public Integer[] item_numbers;
+	public Integer[] op_numbers;
+	public Integer[] enchant_numbers;
+	public Integer[] enchant_option_numbers;
+	
+	public Widget[] widgets;
+	public int SUBINDEX = 1;
 
-	private Integer type;
-	private Integer job = JobStaticData.KNIGHT;
+	public Integer type;
+	public Integer job = JobStaticData.KNIGHT;
 	/**
 	 * コンストラクタ
 	 */
 	public EquipForm() {
 		initWidget(uiBinder.createAndBindUi(this));
-		ListBox[] lb = {kind,item,plus,op};
-		listboxs = lb;
+		Widget[] lb = {kind,item,plus,op,luck,enchant,enchant_option};
+		widgets = lb;
 	}
 	/**
 	 * Equipフォームを初期化します。
@@ -63,42 +70,13 @@ public class EquipForm extends MUDamageComposite {
 		/*
 		 * イベントの設定
 		 */
-		// 値をセットするイベント
-		//for(ListBox listbox : listboxs)
-		//	listbox.addChangeHandler(new ValueEvent(data, listbox));
-		//luck.addClickHandler(new ValueEvent(data, luck));
-		
 		// kindのイベント
-		kind.addChangeHandler(new EnchantEvent(kind, plus, en, enop));
-		kind.addChangeHandler(new ChangeHandler() {
-			@Override
-			public void onChange(ChangeEvent event) {
-				int value = Integer.decode(CommonForm.getSelectValue(kind));
-				// サブフォームを全て非表示にする
-				for(int i=SUBINDEX;i<listboxs.length;i++){
-					listboxs[i].setVisible(false);
-				}
-				luck.setVisible(true);
-				// TODO 通常/EXの場合
-				if(value == FormKindStaticData.NORMAL||value == FormKindStaticData.EX){
-					Integer plus_value = plus.getSelectedIndex();
-					// サブフォームを表示する
-					for(int i=SUBINDEX;i<listboxs.length;i++){
-						listboxs[i].setVisible(true);
-					}
-					// アイテム名をセットする
-					CommonForm.setOption(item, EquipStaticData.getNames(type, job));
-					// エンチャントOPをセットする
-					CommonForm.setOption(en, EnchantOptionStaticData.getEnchantGuardNames(plus_value));
-				}
-				// TODO セットの場合
-				// TODO ソケットの場合
-			}
-		});
+		kind.addChangeHandler(new EnchantEvent(this));
+		kind.addChangeHandler(new EquipKindEvent(this));
 		// plusのイベント
-		plus.addChangeHandler(new EnchantEvent(kind, plus, en, enop));
-		// enのイベント
-		en.addChangeHandler(new EnchantEvent(kind, plus, en, enop));
+		plus.addChangeHandler(new EnchantEvent(this));
+		// enchantのイベント
+		enchant.addChangeHandler(new EnchantEvent(this));
 		
 		// jobによる初期化
 		initJob(job);
@@ -114,6 +92,8 @@ public class EquipForm extends MUDamageComposite {
 		 * <select>に<option>を追加する
 		 */
 		CommonForm.setOption(kind,FormKindStaticData.getKindNames());
+		this.kind_numbers = FormKindStaticData.getKindNumbers();
+		
 		if(type.equals(EquipStaticData.RIGHT)||type.equals(EquipStaticData.LEFT))
 			CommonForm.setOption(op, CommonForm.getItemOption("攻撃"));
 		else
@@ -122,8 +102,8 @@ public class EquipForm extends MUDamageComposite {
 		/*
 		 * サブフォームを全て非表示にする
 		 */
-		for(int i=SUBINDEX;i<listboxs.length;i++){
-			listboxs[i].setVisible(false);
+		for(int i=SUBINDEX;i<widgets.length;i++){
+			widgets[i].setVisible(false);
 		}
 		luck.setVisible(false);
 	}
