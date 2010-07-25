@@ -1,36 +1,38 @@
 package org.mudamage.mud8.client.mud.static_data;
 
+import com.google.gwt.user.client.Window;
+
 public class EnchantOptionStaticData {
 	/*
 	 * 定数
 	 */
-	public static final Integer NONE = -1;
+	public static final Integer NONE = 0;
 	// 武器エンチャント
-	public static final Integer MIN = 0;
-	public static final Integer MAX= 1;
-	public static final Integer REQUIRE_STR = 2;
-	public static final Integer REQUIRE_AGI = 3;
-	public static final Integer ATTACK = 4;
-	public static final Integer CRI = 5;
-	public static final Integer SKILL = 6;
-	public static final Integer PVP_HIT = 7;
-	public static final Integer SD_DEC = 8;
-	public static final Integer SD_IGNORE = 9;
+	public static final Integer MIN = 1;
+	public static final Integer MAX= 2;
+	public static final Integer REQUIRE_STR = 3;
+	public static final Integer REQUIRE_AGI = 4;
+	public static final Integer ATTACK = 5;
+	public static final Integer CRI = 6;
+	public static final Integer SKILL = 7;
+	public static final Integer PVP_HIT = 8;
+	public static final Integer SD_DEC = 9;
+	public static final Integer SD_IGNORE = 10;
 	// 杖エンチャント
-	public static final Integer MAGIC = 10;
-	public static final Integer MAGIC_SKILL = 11;
-	public static final Integer MAGIC_CRI = 12;
-	public static final Integer MAGIC_SD_DEC = 13;
-	public static final Integer MAGIC_SD_IGNORE = 14;
+	public static final Integer MAGIC = 11;
+	public static final Integer MAGIC_SKILL = 12;
+	public static final Integer MAGIC_CRI = 13;
+	public static final Integer MAGIC_SD_DEC = 14;
+	public static final Integer MAGIC_SD_IGNORE = 15;
 	// 防具エンチャント
-	public static final Integer DEF = 15;
-	public static final Integer AG = 16;
-	public static final Integer HP = 17;
-	public static final Integer AH = 18;
-	public static final Integer AM = 19;
-	public static final Integer PVP_AVOID = 20;
-	public static final Integer DEC = 21;
-	public static final Integer SD_INC = 22;
+	public static final Integer DEF = 16;
+	public static final Integer AG = 17;
+	public static final Integer HP = 18;
+	public static final Integer AH = 19;
+	public static final Integer AM = 20;
+	public static final Integer PVP_AVOID = 21;
+	public static final Integer DEC = 22;
+	public static final Integer SD_INC = 23;
 	/*
 	 * 定数　名前
 	 */
@@ -65,6 +67,8 @@ public class EnchantOptionStaticData {
 	 * 定数　数値
 	 */
 	private static final Integer[][] values = {
+		{},// NONE
+		
 		{2,3,4,5,6,7,9,11,12,14,15,16,17,20}, // 最小攻撃力
 		{3,4,5,6,7,8,10,12,14,17,20,23,26,29}, // 最大攻撃力
 		{6,8,10,12,14,16,20,23,26,29,32,35,37,40}, // 要求力減
@@ -95,6 +99,8 @@ public class EnchantOptionStaticData {
 	 * 定数　要求LV
 	 */
 	private static final Integer[] require_lv = {
+		14, // NONE
+		
 		0, // 最大攻撃力
 		0, // 最大攻撃力
 		0, // 要求力減
@@ -269,12 +275,35 @@ public class EnchantOptionStaticData {
 	 * 値の取得関数
 	 */
 	public static String[] getEnchantValues(int number,int plus){
-		int size = require_lv[number] - plus + 1;
-		if(size <= 0)return null;
+		// plusが13以上の場合は13にする
+		int plus_value = plus;
+		if(plus > 13)plus_value = 13;
+		// 要素のサイズを取得
+		int size = plus_value - require_lv[number] + 1;
+		// サイズがマイナスの場合、0にする
+		if(size <= 0)size=0;
+		// 名前の配列の準備
 		String[] str = new String[size];
-		for(int i=0;i<size;i++){
-			str[i] = values[i].toString();
+		// 名前の配列を作成
+		for(int i=0;i<size&&i<=13;i++){
+			str[i] = values[number][i].toString();
 		}
 		return str;
+	}
+	public static Integer[] getEnchantValueNumbers(int number,int plus){
+		// plusが13以上の場合は13にする
+		int plus_value = plus;
+		if(plus > 13)plus_value = 13;
+		// 要素のサイズを取得
+		int size = plus_value - require_lv[number] + 1;
+		// サイズがマイナスの場合、0にする
+		if(size <= 0)size=0;
+		// ナンバーの配列を準備
+		Integer[] num = new Integer[size];
+		// ナンバーの配列を作成
+		for(int i=0;i<size&&i<=13;i++){
+			num[i] = values[number][i];
+		}
+		return num;
 	}
 }
