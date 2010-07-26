@@ -13,12 +13,16 @@ import org.mudamage.mud8.client.mud.static_data.JobStaticData;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.AnchorElement;
+import com.google.gwt.dom.client.DivElement;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.CheckBox;
+import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class EquipForm extends MUDamageComposite {
@@ -37,6 +41,14 @@ public class EquipForm extends MUDamageComposite {
 	@UiField public ListBox op;
 	@UiField public ListBox enchant;
 	@UiField public ListBox enchant_option;
+
+	@UiField public HTMLPanel exop_box;
+	@UiField public ListBox exop1;
+	@UiField public ListBox exop2;
+	@UiField public ListBox exop3;
+	@UiField public ListBox exop4;
+	@UiField public ListBox exop5;
+	@UiField public ListBox exop6;
 	
 	public Integer[] kind_numbers;
 	public Integer[] item_numbers;
@@ -54,7 +66,7 @@ public class EquipForm extends MUDamageComposite {
 	 */
 	public EquipForm() {
 		initWidget(uiBinder.createAndBindUi(this));
-		Widget[] lb = {kind,item,plus,op,luck,enchant,enchant_option};
+		Widget[] lb = {kind,item,plus,op,luck,enchant,enchant_option,exop_box};
 		widgets = lb;
 	}
 	/**

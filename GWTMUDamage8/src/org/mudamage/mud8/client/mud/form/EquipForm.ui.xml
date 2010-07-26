@@ -16,6 +16,16 @@
 	        <g:ListBox ui:field="op" name="op"></g:ListBox>
 	        <g:ListBox ui:field="enchant" name="op"></g:ListBox>
 	        <g:ListBox ui:field="enchant_option" name="enop"></g:ListBox>
+			
+			<g:HTMLPanel ui:field="exop_box">
+					<a class="{style.label}"></a>
+			        <g:ListBox ui:field="exop1"></g:ListBox>
+			        <g:ListBox ui:field="exop2"></g:ListBox>
+			        <g:ListBox ui:field="exop3"></g:ListBox>
+			        <g:ListBox ui:field="exop4"></g:ListBox>
+			        <g:ListBox ui:field="exop5"></g:ListBox>
+			        <g:ListBox ui:field="exop6"></g:ListBox>
+			</g:HTMLPanel>
 	    </div>
 	</g:HTMLPanel>
 </ui:UiBinder> 
