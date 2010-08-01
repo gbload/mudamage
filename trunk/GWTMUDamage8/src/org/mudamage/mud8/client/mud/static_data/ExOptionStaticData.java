@@ -98,13 +98,13 @@ public class ExOptionStaticData {
 	 * @return attack_exop_names
 	 */
 	public static String[] getGuardExopNames(){
-		return weapon_attack_exop_names;
+		return guard_exop_names;
 	}
 	/**
 	 * 防具EXOPのナンバーを返す
 	 * @return attack_exop_numbers
 	 */
 	public static Integer[] getGuardExopNumbers(){
-		return weapon_attack_exop_numbers;
+		return guard_exop_numbers;
 	}
 }

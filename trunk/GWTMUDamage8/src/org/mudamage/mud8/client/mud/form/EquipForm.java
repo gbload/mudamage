@@ -5,24 +5,17 @@ import org.mudamage.mud8.client.mud.calc.data.CalcData;
 import org.mudamage.mud8.client.mud.form.event.EnchantEvent;
 import org.mudamage.mud8.client.mud.form.event.EquipKindEvent;
 import org.mudamage.mud8.client.mud.form.event.MUDamageComposite;
-import org.mudamage.mud8.client.mud.static_data.EnchantOptionStaticData;
 import org.mudamage.mud8.client.mud.static_data.EquipStaticData;
-import org.mudamage.mud8.client.mud.static_data.ExOptionStaticData;
 import org.mudamage.mud8.client.mud.static_data.FormKindStaticData;
 import org.mudamage.mud8.client.mud.static_data.JobStaticData;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.AnchorElement;
-import com.google.gwt.dom.client.DivElement;
-import com.google.gwt.event.dom.client.ChangeEvent;
-import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class EquipForm extends MUDamageComposite {
@@ -57,7 +50,9 @@ public class EquipForm extends MUDamageComposite {
 	public Integer[] enchant_option_numbers;
 	
 	public Widget[] widgets;
+	public ListBox[] exops;
 	public int SUBINDEX = 1;
+	public int COMMONINDEX=4;
 
 	public Integer type;
 	public Integer job = JobStaticData.KNIGHT;
@@ -68,6 +63,8 @@ public class EquipForm extends MUDamageComposite {
 		initWidget(uiBinder.createAndBindUi(this));
 		Widget[] lb = {kind,item,plus,op,luck,enchant,enchant_option,exop_box};
 		widgets = lb;
+		ListBox[] lb2 = {exop1,exop2,exop3,exop4,exop5,exop6};
+		exops = lb2;
 	}
 	/**
 	 * Equipフォームを初期化します。
