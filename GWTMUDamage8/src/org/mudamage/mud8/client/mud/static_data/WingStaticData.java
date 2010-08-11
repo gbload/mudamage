@@ -1,6 +1,50 @@
 package org.mudamage.mud8.client.mud.static_data;
 
 public class WingStaticData {
+	// 羽定数
+	public static final Integer NONE		 = 0;
+	public static final Integer KNIGHT1	 = 1;
+	public static final Integer WIZARD1	 = 2;
+	public static final Integer ELF1		 = 3;
+	public static final Integer SUMMONER1 = 4;
+	public static final Integer KNIGHT2	 = 5;
+	public static final Integer WIZARD2	 = 6;
+	public static final Integer ELF2		 = 7;
+	public static final Integer SUMMONER2 = 8;
+	public static final Integer MAGIC2	 = 9;
+	public static final Integer DARKLOAD2 = 10;
+	public static final Integer KNIGHT3	 = 11;
+	public static final Integer WIZARD3	 = 12;
+	public static final Integer ELF3		 = 13;
+	public static final Integer SUMMONER3 = 14;
+	public static final Integer MAGIC3	 = 15;
+	public static final Integer DARKLOAD3 = 16;
+	
+	// 羽名前
+	public static final String NONE_NAME		 = "なし";
+	public static final String KNIGHT1_NAME	 = "サタンの羽";
+	public static final String WIZARD1_NAME	 = "守護天使の羽";
+	public static final String ELF1_NAME		 = "妖精の羽";
+	public static final String SUMMONER1_NAME = "ミザリーウイング";
+	public static final String KNIGHT2_NAME	 = "デビルウイング";
+	public static final String WIZARD2_NAME	 = "ソウルウイング";
+	public static final String ELF2_NAME		 = "ホーリーウイング";
+	public static final String SUMMONER2_NAME = "デスペアーウイング";
+	public static final String MAGIC2_NAME	 = "ダークウイング";
+	public static final String DARKLOAD2_NAME = "君主のマント";
+	public static final String KNIGHT3_NAME	 = "テンペストウイング";
+	public static final String WIZARD3_NAME	 = "ライジングウイング";
+	public static final String ELF3_NAME		 = "ファントムウイング";
+	public static final String SUMMONER3_NAME = "ディメンジョンウイング";
+	public static final String MAGIC3_NAME	 = "スプリームウイング";
+	public static final String DARKLOAD3_NAME = "帝王のマント";
+	
+	//羽データ
+	public static final Integer[][] WING_DATA = {
+		{}
+	};
+	
+	
 	private static WingStaticDataStructure w(String name,String jobs,String ops,Integer type,Integer def,Integer inc,Integer dec){
 		return new WingStaticDataStructure(name, jobs, ops, type, def, inc, dec);
 	}
