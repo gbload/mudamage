@@ -1,5 +1,7 @@
 package org.mudamage.mud8.client.mud.static_data;
 
+import org.apache.commons.digester.ObjectParamRule;
+
 public class WingStaticData {
 	// 羽定数
 	public static final Integer NONE		 = 0;
@@ -39,9 +41,102 @@ public class WingStaticData {
 	public static final String MAGIC3_NAME	 = "スプリームウイング";
 	public static final String DARKLOAD3_NAME = "帝王のマント";
 	
-	//羽データ
+	// 羽オプション定数
+	public static final Integer COP_IGNORE3 = 1;
+	public static final Integer COP_HP = 2;
+	public static final Integer COP_MANA = 3;
+	public static final Integer COP_REC = 4;
+	public static final Integer COP_IGNORE5 = 5;
+	public static final Integer COP_FULL_HP = 6;
+	public static final Integer COP_FULL_MANA = 7;
+	public static final Integer COP_FULL_REFLECTION = 8;
+	
+	// 羽データ
 	public static final Integer[][] WING_DATA = {
-		{}
+		/*
+		 * {OP,x次羽,防御力,ダメージ増加,ダメージ吸収}
+		 */
+		{0,0,0,0,0},
+		// サタンの羽
+		{
+			OptionStaticData.ATTACK,
+			1,20,12,12
+		},
+		// 守護天使の羽
+		{
+			OptionStaticData.MAGIC,
+			1,10,12,12
+		},
+		// 妖精の羽
+		{
+			0,
+			1,10,12,12
+		},
+		// ミザリーウイング
+		{
+			OptionStaticData.MAGIC,
+			1,10,12,12
+		},
+		// デビルウイング
+		{
+			OptionStaticData.ATTACK,
+			2,45,32,25
+		},
+		// ソウルウイング
+		{
+			OptionStaticData.MAGIC,
+			2,30,32,25
+		},
+		// ホーリーウイング
+		{
+			OptionStaticData.ATTACK,
+			2,30,32,25
+		},
+		// デスペアーウイング
+		{
+			OptionStaticData.MAGIC + OptionStaticData.NOROI,
+			2,30,32,25
+		},
+		// ダークウイング
+		{
+			OptionStaticData.ATTACK + OptionStaticData.MAGIC,
+			2,40,32,25
+		},
+		// 君主のマント
+		{
+			OptionStaticData.ATTACK,
+			4,15,20,0
+		},
+		// テンペストウイング
+		{
+			OptionStaticData.ATTACK + OptionStaticData.GUARD,
+			3,60,39,39
+		},
+		// ライジングウイング
+		{
+			OptionStaticData.MAGIC + OptionStaticData.GUARD,
+			3,45,39,39
+		},
+		// ファントムウイング
+		{
+			OptionStaticData.ATTACK + OptionStaticData.GUARD,
+			3,45,39,39
+		},
+		// ディメンジョンウイング
+		{
+			OptionStaticData.ATTACK + OptionStaticData.NOROI,
+			3,45,39,39
+		},
+		// スプリームウイング
+		{
+			OptionStaticData.ATTACK + OptionStaticData.MAGIC,
+			3,55,39,39
+		},
+		// 帝王のマント
+		{
+			OptionStaticData.ATTACK + OptionStaticData.GUARD,
+			3,45,39,24
+		}
 	};
 	
 	

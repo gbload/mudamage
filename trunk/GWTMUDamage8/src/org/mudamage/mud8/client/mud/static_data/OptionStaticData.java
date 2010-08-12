@@ -25,7 +25,7 @@ public class OptionStaticData {
 	 * @param name
 	 * @return names
 	 */
-	private static String[] getOptionNames(String[] name){
+	public static String[] getOptionNames(String[] name){
 		String[] names = new String[(OPTION_SIZE*name.length)+1];
 		names[0] = "";
 		for(int j=0;j<name.length;j++){
@@ -41,7 +41,7 @@ public class OptionStaticData {
 	 * オプションのナンバーを作成する
 	 * @return numbers
 	 */
-	private static Integer[] getOptionNumbers(String[] name){
+	public static Integer[] getOptionNumbers(String[] name){
 		Integer[] numbers = new Integer[(OPTION_SIZE*name.length)+1];
 		numbers[0] = 0;
 		for(int j=0;j<name.length;j++){
