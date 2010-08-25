@@ -22,7 +22,7 @@ var DataConversion = function(item,type,isEx){
 DataConversion.prototype = {
 	item:null,
 	spec:null,
-	type:0
+	type:0		// type 0:guard 1:weapon
 	
 };
 
