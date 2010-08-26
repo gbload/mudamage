@@ -3,7 +3,7 @@ package org.mudamage.mud8.client.mud.static_data.equip;
 
 public class EquipEquip {
 	/*
-	 * TODO 説明 
+	 * 説明 
 	 * 0:基本情報 [名前,装備可能職,攻撃速度]
 	 * 1:防御力情報 [兜,EX兜,鎧,EX鎧,手,EX手,腰,EX腰,足,EX足]
 	 * 2:要求力 if long [(上昇数値,ベース数値,EXベース数値)...] short [上昇数値,(ベース数値,EXベース数値)...]
