@@ -33,6 +33,8 @@ public class EnchantOptionStaticData {
 	public static final Integer PVP_AVOID = 21;
 	public static final Integer DEC = 22;
 	public static final Integer SD_INC = 23;
+	
+	public static final Integer LAST = 24;
 	/*
 	 * 定数　名前
 	 */

@@ -44,6 +44,8 @@ public class SocketOptionStaticData {
 	public static final Integer AG_AUTO = 45;
 	// 地
 	public static final Integer VIT = 50;
+	
+	public static final Integer LAST = 60; // ソケットOPの数
 	/*
 	 * 定数　属性
 	 */
