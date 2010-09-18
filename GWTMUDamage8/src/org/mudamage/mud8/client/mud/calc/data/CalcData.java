@@ -8,7 +8,7 @@ import org.mudamage.mud8.client.mud.static_data.WingStaticData;
 
 public class CalcData {
 	// 職
-	public Integer job;
+	public Integer job=0;
 	// ステータス
 	public Integer lv=1;
 	public Integer str=0;

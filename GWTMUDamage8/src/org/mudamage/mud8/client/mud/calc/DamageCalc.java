@@ -1,5 +1,6 @@
 package org.mudamage.mud8.client.mud.calc;
 
+import org.mudamage.mud8.client.mud.calc.data.CalcData;
 import org.mudamage.mud8.client.mud.form.data.FormData;
 
 /**
@@ -13,4 +14,8 @@ public class DamageCalc {
 		formdata = data;
 	}
 	public Integer getHP(){return new Integer(1);}
+	
+	public static int calcSkill(CalcData c){
+		return 0;
+	}
 }
