@@ -45,6 +45,7 @@ public class CalcData {
 	public Integer wing_dec=0;
 	public Integer[] wing_cop=new Integer[WingStaticData.COP_LAST];
 	// 攻撃関連
+	public CalcSkillData[] skill;
 	public CalcWeaponData right=new CalcWeaponData();
 	public CalcWeaponData left=new CalcWeaponData();
 	public CalcWeaponData neck=new CalcWeaponData();
