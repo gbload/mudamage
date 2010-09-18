@@ -22,6 +22,62 @@ public class BaseCalc {
 	 * @return
 	 */
 	public static int calcStatus(CalcData c){
+		// 基本ステータス
+		c.str = c.ori_str;
+		c.agi = c.ori_agi;
+		c.vit = c.ori_vit;
+		c.ene = c.ori_ene;
+		c.rec = c.ori_rec;
+		/*
+		 * 装備類
+		 */
+		// 防具
+		for(int i=0;i<c.equips.length;i++)
+			c.vit += c.equips[i].vit;
+		// 右手
+		c.str += c.right.str;
+		c.agi += c.right.agi;
+		c.ene += c.right.ene;
+		// 左手
+		c.str += c.left.str;
+		c.agi += c.left.agi;
+		c.ene += c.left.ene;
+		// ネック
+		c.str += c.neck.str;
+		c.agi += c.neck.agi;
+		c.vit += c.neck.vit;
+		c.ene += c.neck.ene;
+		// リング1
+		c.str += c.ring1.str;
+		c.agi += c.ring1.agi;
+		c.vit += c.ring1.vit;
+		c.ene += c.ring1.ene;
+		// リング2
+		c.str += c.ring2.str;
+		c.agi += c.ring2.agi;
+		c.vit += c.ring2.vit;
+		c.ene += c.ring2.ene;
+		/*
+		 * セットオプション
+		 */
+		c.str += c.setop[SetOptionStaticData.STR];
+		c.agi += c.setop[SetOptionStaticData.AGI];
+		c.vit += c.setop[SetOptionStaticData.VIT];
+		c.ene += c.setop[SetOptionStaticData.ENE];
+		c.rec += c.setop[SetOptionStaticData.REC];
+		/*
+		 * ソケットオプション
+		 */
+		for(int i=0;i<c.equips.length;i++)
+			c.vit += c.equips[i].soop[SocketOptionStaticData.VIT];
+		/*
+		 * 羽
+		 */
+		c.rec += c.wing_cop[WingStaticData.COP_REC];
+		/*
+		 * TODO 課金アイテム
+		 */
+		
 		return 0;
 	}
 	/**
@@ -59,6 +115,8 @@ public class BaseCalc {
 		//かぼちゃ、課金などでのHP増加
 		//380OPの生命増加
 		//黄金のフェンリルの生命増加
+		
+		c.hp = hp;
 		return hp;
 	}
 	/**

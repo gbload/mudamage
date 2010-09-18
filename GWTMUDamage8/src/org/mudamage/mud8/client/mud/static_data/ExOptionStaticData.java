@@ -19,6 +19,8 @@ public class ExOptionStaticData {
 	public static final Integer REFLECTION = 13;
 	public static final Integer ZEN = 14;
 	
+	public static final Integer LAST = 15;
+	
 	
 	public static final String NONE_NAME = "";
 	//武器EXOP名前
