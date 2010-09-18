@@ -36,6 +36,8 @@ public class SetOptionStaticData {
 	public static final Integer DAMAGE = 23; // ダメージ増加
 	public static final Integer IGNORE = 24; // 防御無視確率％
 	public static final Integer WD = 25; // ダブルダメージ確率％
+	
+	public static final Integer LAST=26; // セットオプションの数
 	/*
 	 * 定数　名前
 	 */

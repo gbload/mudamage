@@ -51,6 +51,8 @@ public class WingStaticData {
 	public static final Integer COP_FULL_MANA = 7;
 	public static final Integer COP_FULL_REFLECTION = 8;
 	
+	public static final Integer COP_LAST = 9;
+	
 	// 羽データ
 	public static final Integer[][] WING_DATA = {
 		/*
