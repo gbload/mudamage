@@ -1,6 +1,7 @@
 package org.mudamage.mud8.client.mud.calc.data;
 
 public class CalcWeaponData {
+	public Integer item;
 	public Integer min;
 	public Integer max;
 	public Integer magic;
@@ -13,5 +14,4 @@ public class CalcWeaponData {
 	public Boolean[] exop;
 	public Integer[] soop;
 	public Integer[] sobonus;
-	public Integer[] setsoop;
 }

@@ -1,6 +1,7 @@
 package org.mudamage.mud8.client.mud.calc.data;
 
 public class CalcEquipData {
+	public Integer item;
 	public Integer def;
 	public Integer avoid;
 	public Integer plus;
@@ -10,5 +11,4 @@ public class CalcEquipData {
 	public Boolean[] exop;
 	public Integer[] soop;
 	public Integer[] sobonus;
-	public Integer[] setsoop;
 }
