@@ -34,6 +34,7 @@ public class CalcData {
 	public Integer petsub1;
 	public Integer petsub2;
 	// 羽関連
+	public Integer wing;
 	public Integer wing_def;
 	public Integer wing_attack_option;
 	public Integer wing_magic_option;
@@ -82,6 +83,9 @@ public class CalcData {
 	public Integer inner;
 	public Integer weak;
 	public Boolean ba;
+	// オプション関連
+	public Integer[] setsoop; // ソケットのセットオプション
+	public Integer[] setop; // セットオプション
 	
 	public FormData formdata;
 	public CalcData(FormData data){
