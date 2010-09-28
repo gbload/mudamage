@@ -148,12 +148,12 @@ calc function panel():void{
 	
 	//4行目
 	ln();
-	if(muc.job == 0 || muc.job == 2 || muc.job == 3 || muc.job == 4)text("攻撃速度:" + muc.speed);
+	if(muc.job == 0 || muc.job == 2 || muc.job == 3 || muc.job == 4 || muc.job == 6)text("攻撃速度:" + muc.speed);
 	if(muc.job == 1 || muc.job == 3 || muc.job == 5)text("魔法速度:" + muc.magicspeed);
 	
 	//5行目
 	ln();
-	if(muc.job == 0 || muc.job == 2 || muc.job == 3 || muc.job == 4)//攻撃組み
+	if(muc.job == 0 || muc.job == 2 || muc.job == 3 || muc.job == 4 || muc.job == 6)//攻撃組み
 		text("攻撃力:" + muc.minmax[0] + "～" + muc.minmax[1]);
 	//攻撃成功率
 	text("(率" + muc.hit +"/対人" +muc.pvphit +")");

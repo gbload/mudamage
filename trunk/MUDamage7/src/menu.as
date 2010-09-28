@@ -298,6 +298,12 @@ menu function getdata(title:String):Array{
 	//2010/03/02
 	//エンブレム・イベントでの経験値増加入力フォーム
 	a[22] = d.f_exp.text;
+	//2010/09/28
+	//レイジーファイターサポートスキル
+	a[23] = new Array();
+	a[23][0] = d.s_ignore.selected;
+	a[23][1] = d.s_vit.text;
+	a[23][2] = d.s_avoid.text;
 	return a;
 }
 menu function open(event:Event):Boolean{
@@ -511,6 +517,12 @@ menu function setdata(a:Array):void{
 	//エンブレム・イベントでの経験値増加入力フォーム
 	d.f_exp.text = a[22];
 	
+	//2010/09/28
+	//レイジーファイターサポートスキル
+	d.s_ignore.selected = a[23][0];
+	d.s_vit.text = a[23][1];
+	d.s_avoid.text = a[23][2];
+	
 	//Alert.show(a.toString());
 }
 menu function export(event:Event):Boolean{
@@ -682,5 +694,11 @@ menu function exportdata(a2:Array):Array{
 	//2010/03/02
 	//エンブレム・イベントでの経験値増加入力フォーム
 	a[22] = a2[index++];
+	//2010/09/28
+	//レイジーファイターサポートスキル
+	a[23] = new Array();
+	a[23][0] = a2[index++];
+	a[23][1] = a2[index++];
+	a[23][2] = a2[index++];
 	return a;
 }

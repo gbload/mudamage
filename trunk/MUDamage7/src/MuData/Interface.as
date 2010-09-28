@@ -94,7 +94,7 @@ static public function getRight(job:int):Array{//右手の一覧を返す
 static public function getLeft(job:int):Array{//左手の一覧を返す
 
 	var a:Array = [];
-	if(job == 0 || job == 3 || job == 5)//ナイト、魔剣士、召喚師のみ左手に武器を持てる
+	if(job == 0 || job == 3 || job == 5 || job == 6)//ナイト、魔剣士、召喚師のみ左手に武器を持てる
 		for(i=0;i<Weapon.weapon.length;i++)
 			if(Weapon.weapon[i][5][job])//装備可能職かチェック
 				if(!(job == 5 && Weapon.weapon[i][3] == "杖"))//召喚師は左手にロッドは持てない

@@ -38,7 +38,8 @@ package MuCalc
 				[22,25,20,15],//エルフ
 				[26,26,26,26],//魔剣士
 				[26,20,20,15,25],//ダークロード
-				[21,21,18,23]];//召喚師
+				[21,21,18,23],//召喚師
+				[32,27,25,20]];//レイジーファイター
 		public function getJobPoint(job:int,status:String):int{
 			switch(status){
 				case "str":
