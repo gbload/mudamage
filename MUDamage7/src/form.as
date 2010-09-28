@@ -55,6 +55,7 @@ form var mlvpoint:Label;//MLVのポイント
 form var mlvBox:Box;//MLV
 form var sebox:Container;//スペルエンハンス
 form var berserkerbox:Container;//バーサーカー
+form var ignorebox:Container;//敵の防御力無視
 form var mapBox:Container;
 
 form var supportpanel:Panel;//入力支援のパネル
@@ -95,7 +96,7 @@ form function init():void{
 	
 	//バージョン情報
 	var la:Label = new Label();
-	la.text = "MUDamage7 ver1.90";
+	la.text = "MUDamage7 ver1.91";
 	hbox.addChild(la);
 	
 	//拡大縮小ボタン
@@ -324,7 +325,7 @@ private function formJob():FormItem{
 	co.rowCount = 10;
 	dat::d.f_job = co;
 	co.dataProvider = new ArrayCollection(
-		["ナイト","ウィザード","エルフ","魔剣士","ダークロード","召喚師"]);
+		["ナイト","ウィザード","エルフ","魔剣士","ダークロード","召喚師","レイジーファイター"]);
 	co.addEventListener(ListEvent.CHANGE,click::jobChange);
 	fi.addChild(co);
 	
@@ -922,6 +923,17 @@ private function formSupport():Container{
 		hbox.addChild(box);
 		form::berserkerbox = box;
 		hide(box);//隠す
+		//敵の防御力無視
+		box = new HBox();
+		ch = new CheckBox();
+		d.s_ignore = ch;
+		box.addChild(ch);
+		la = new Label();
+		la.text = "敵の防御力無視";
+		box.addChild(la);
+		hbox.addChild(box);
+		form::ignorebox = box;
+		hide(box);//隠す
 		//インナーベーション
 		fi = new FormItem();
 		hbox.addChild(fi);
@@ -945,6 +957,30 @@ private function formSupport():Container{
 		te.restrict = "0-9";
 		te.maxChars = 2;
 		te.width = 32;
+		te.addEventListener(FocusEvent.FOCUS_IN,click::focusEvent);
+		//体力向上
+		fi = new FormItem();
+		hbox.addChild(fi);
+		fi.setStyle("fontSize","13");
+		fi.label = "体力向上：";
+		te = new TextInput();
+		fi.addChild(te);
+		d.s_vit = te;
+		te.restrict = "0-9";
+		te.maxChars = 3;
+		te.width = 42;
+		te.addEventListener(FocusEvent.FOCUS_IN,click::focusEvent);
+		//防御成功率向上
+		fi = new FormItem();
+		hbox.addChild(fi);
+		fi.setStyle("fontSize","13");
+		fi.label = "防御成功率向上：";
+		te = new TextInput();
+		fi.addChild(te);
+		d.s_avoid = te;
+		te.restrict = "0-9";
+		te.maxChars = 3;
+		te.width = 42;
 		te.addEventListener(FocusEvent.FOCUS_IN,click::focusEvent);
 	//2行目
 	hbox = new HBox();

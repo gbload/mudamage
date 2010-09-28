@@ -71,6 +71,9 @@ package MuCalc
 		public var support_berserker:int=0;//バーサーカー
 		public var support_sera_a:int=0;//セラフィーA
 		public var support_sera_g:int=0;//セラフィーG
+		public var support_vit:int=0;//体力+
+		public var support_avoid:int=0;//防御成功率+
+		public var support_ignore:int=0;//敵の防御力無視
 		//スキル
 		public var skill:Array=new Array();//スキルスタック
 		public var skill_minmax:Array=new Array();//[[0 min 1 max 2 cri 3 exd]]

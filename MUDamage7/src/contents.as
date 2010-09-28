@@ -428,6 +428,10 @@ click function jobChange(event:Event):void{
 		d.f_left.f_kind.dataProvider = ["なし","通常","EX","セット","ソケット","EXソケット","鷹"];
 	else
 		d.f_left.f_kind.dataProvider = ["なし","通常","EX","セット","ソケット","EXソケット"];
+	//レイジーファイターの場合、敵の防御力無視を表示
+	if(d.f_job.selectedLabel == "レイジーファイター")show(form::ignorebox);
+	else{hide(form::ignorebox);d.s_ignore.selected = false;}
+	
 }
 click function soopChange(event:Event):Boolean{
 	var item:Item = dat::d.getItemByName(event.target.name);
@@ -754,7 +758,7 @@ change function statusChange():void{
 	    var vit:int = parseInt(d.f_vit.text);
 	    var ene:int = parseInt(d.f_ene.text);
 	    var rec:int = 0;
-	    if(d.f_job.selectedLabel == "魔剣士"){//mの計算
+	    if(d.f_job.selectedLabel == "魔剣士" || d.f_job.selectedLabel == "レイジーファイター"){//mの計算
 	        //ポイント計算
 	        point = (lv-1)*7;
 	        if(lv>=380)point += 20;
