@@ -1,0 +1,27 @@
+#MUDamage7について
+
+MUDamage7はFlashです。ソースコードはActionScriptで書かれており、FlexSDKを使ってビルドしています。
+
+= ビルドの仕方 =
+ビルドするには、{インストールしたフォルダ}/flex_sdk_3.4.1.10084/bin/mxmlc.exeを使います。
+
+{{{
+# {インストールしたフォルダ}/flex_sdk_3.4.1.10084/bin/mxmlc MUDamage7/src/MUDamage7.mxml
+}}}
+
+ソースコード内のbuild.shは、これらのビルドするためのコードをまとめたものです。
+
+また、deploy.shは、
+  * "mudamage.zip"
+  * "mudamage_src.zip"
+  * "mudamage_export.zip"
+  * "mudamage_ver000.zip"
+  * "mudamage_src_ver000.zip"
+  * "mudamage_export_ver000.zip"
+を生成します。
+
+deploy.shは引数にversionを取ります。
+
+{{{
+# deploy.sh 192
+}}}
