@@ -1,175 +1,175 @@
 すでのそのタイトルのデータが存在します。上書きしますか？
-
+Data for the title already exists. Overwrite?
 備考：インナーベーション(IV:innervation)・・・敵の防御力低下\n
-
+Note:Innovation(IV) - Lowers enemies' defense\n
 エンブレムやイベントの経験値増加を入力してください。\n\n
-
+Please enter the experience increasing of the event or the seal.\n\n
 上記リストから削除するデータを選択してください。
-
+Please select the data to delete from the list above.
 指定したタイトルのデータが見つかりませんでした。
-
+Could not find the specified data of the title.
 イベントで経験値2倍、豊穣で2倍　→　合計400%\n
-
+Experience at the event twice and  [Seal of Wealth] twice  → the total of 400% \n
 スケルトン変身の指輪　攻撃力+40/魔力+40/呪い+40
-
+Skeleton Transformation Ring Damage/Wizardry/Curse +40
 ウイークネス(WN:weakness)・・・敵の攻撃力低下\n
-
+Weakness(WN) - Weakens damages from enemies' attack\n
 キングスカルアーチャー7（10～15分経過）
-
+Orc Archer7(after 10~15min)
 キングスカルアーチャー7（5～10分経過）
-
+Orc Archer7(after 5~10min)
 キングスカルアーチャー1（10～15分経過)
-
+Orc Archer1(after 10~15min)
 キングスカルアーチャー2（10～15分経過)
-
+Orc Archer2(after 10~15min)
 キングスカルアーチャー3（10～15分経過)
-
+Orc Archer3(after 10~15min)
 キングスカルアーチャー4（10～15分経過)
-
+Orc Archer4(after 10~15min)
 キングスカルアーチャー5（10～15分経過)
-
+Orc Archer5(after 10~15min)
 キングスカルアーチャー6（10～15分経過)
-
+Orc Archer6(after 10~15min)
 キングスカルアーチャー7（0～5分経過）
-
+Orc Archer7(after 0~5min)
 キングスカルアーチャー1（5～10分経過)
-
+Orc Archer1(after 5~10min)
 キングスカルアーチャー2（5～10分経過)
-
+Orc Archer2(after 5~10min)
 キングスカルアーチャー3（5～10分経過)
-
+Orc Archer3(after 5~10min)
 キングスカルアーチャー4（5～10分経過)
-
+Orc Archer4(after 5~10min)
 キングスカルアーチャー5（5～10分経過)
-
+Orc Archer5(after 5~10min)
 キングスカルアーチャー6（5～10分経過)
-
+Orc Archer6(after 5~10min)
 ダークスカルアーマー7（10～15分経過）
-
+Spirit Soldier7(after 10~15min)
 レッドスカルアーマー7（10～15分経過）
-
+Spirit Knight7(after 10~15min)
 キングスカルアーチャー1（0～5分経過)
-
+Orc Archer1(after 0~5min)
 キングスカルアーチャー2（0～5分経過)
-
+Orc Archer2(after 0~5min)
 キングスカルアーチャー3（0～5分経過)
-
+Orc Archer3(after 0~5min)
 キングスカルアーチャー4（0～5分経過)
-
+Orc Archer4(after 0~5min)
 キングスカルアーチャー5（0～5分経過)
-
+Orc Archer5(after 0~5min)
 キングスカルアーチャー6（0～5分経過)
-
+Orc Archer6(after 0~5min)
 ダークスカルアーマー7（5～10分経過）
-
+Spirit Soldier7(after 5~10min)
 レッドスカルアーマー7（5～10分経過）
-
+Spirit Knight7(after 5~10min)
 絆のエンブレムを3人PTで使用　→　210%
-
+-
 Error:データの保存に失敗しました。　
-
+Error:Failed to store data.
 ダークスカルアーマー1（10～15分経過)
-
+Spirit Soldier1(after 10~15min)
 ダークスカルアーマー2（10～15分経過)
-
+Spirit Soldier2(after 10~15min)
 ダークスカルアーマー3（10～15分経過)
-
+Spirit Soldier3(after 10~15min)
 ダークスカルアーマー4（10～15分経過)
-
+Spirit Soldier4(after 10~15min)
 ダークスカルアーマー5（10～15分経過)
-
+Spirit Soldier5(after 10~15min)
 ダークスカルアーマー6（10～15分経過)
-
+Spirit Soldier6(after 10~15min)
 ダークスカルアーマー7（0～5分経過）
-
+Spirit Soldier7(after 0~5min)
 ダークスカルアーマー8（10～15分経過)
-
+Spirit Soldier8(after 10~15min)
 レッドスカルアーマー1（10～15分経過)
-
+Spirit Knight1(after 10~15min)
 レッドスカルアーマー2（10～15分経過)
-
+Spirit Knight2(after 10~15min)
 レッドスカルアーマー3（10～15分経過)
-
+Spirit Knight3(after 10~15min)
 レッドスカルアーマー4（10～15分経過)
-
+Spirit Knight4(after 10~15min)
 レッドスカルアーマー5（10～15分経過)
-
+Spirit Knight5(after 10~15min)
 レッドスカルアーマー6（10～15分経過)
-
+Spirit Knight6(after 10~15min)
 レッドスカルアーマー7（0～5分経過）
-
+Spirit Knight7(after 0~5min)
 レッドスカルアーマー8（10～15分経過)
-
+Spirit Knight8(after 10~15min)
 保存されているデータがありません。
-
+There is no data being saved.
 備考：SL = (体力/100)+(エナ/20)+(PT人数-1)
-
+Note:SL = (vit/100)+(ene/20)+([PT member]-1)
 ダークスカルアーマー1（5～10分経過)
-
+Spirit Soldier1(after 5~10min)
 ダークスカルアーマー2（5～10分経過)
-
+Spirit Soldier2(after 5~10min)
 ダークスカルアーマー3（5～10分経過)
-
+Spirit Soldier3(after 5~10min)
 ダークスカルアーマー4（5～10分経過)
-
+Spirit Soldier4(after 5~10min)
 ダークスカルアーマー5（5～10分経過)
-
+Spirit Soldier5(after 5~10min)
 ダークスカルアーマー6（5～10分経過)
-
+Spirit Soldier6(after 5~10min)
 ダークスカルアーマー8（5～10分経過)
-
+Spirit Soldier8(after 5~10min)
 レッドスカルアーマー1（5～10分経過)
-
+Spirit Knight1(after 5~10min)
 レッドスカルアーマー2（5～10分経過)
-
+Spirit Knight2(after 5~10min)
 レッドスカルアーマー3（5～10分経過)
-
+Spirit Knight3(after 5~10min)
 レッドスカルアーマー4（5～10分経過)
-
+Spirit Knight4(after 5~10min)
 レッドスカルアーマー5（5～10分経過)
-
+Spirit Knight5(after 5~10min)
 レッドスカルアーマー6（5～10分経過)
-
+Spirit Knight6(after 5~10min)
 レッドスカルアーマー8（5～10分経過)
-
+Spirit Knight8(after 5~10min)
 ダークスカルアーマー1（0～5分経過)
-
+Spirit Soldier1(after 0~5min)
 ダークスカルアーマー2（0～5分経過)
-
+Spirit Soldier2(after 0~5min)
 ダークスカルアーマー3（0～5分経過)
-
+Spirit Soldier3(after 0~5min)
 ダークスカルアーマー4（0～5分経過)
-
+Spirit Soldier4(after 0~5min)
 ダークスカルアーマー5（0～5分経過)
-
+Spirit Soldier5(after 0~5min)
 ダークスカルアーマー6（0～5分経過)
-
+Spirit Soldier6(after 0~5min)
 ダークスカルアーマー8（0～5分経過)
-
+Spirit Soldier8(after 0~5min)
 パンダ変化の指輪　攻撃力+30/魔力+30
-
+Panda Ring Damage/Wizardry/Curse +30
 レッドスカルアーマー1（0～5分経過)
-
+Spirit Knight1(after 0~5min)
 レッドスカルアーマー2（0～5分経過)
-
+Spirit Knight2(after 0~5min)
 レッドスカルアーマー3（0～5分経過)
-
+Spirit Knight3(after 0~5min)
 レッドスカルアーマー4（0～5分経過)
-
+Spirit Knight4(after 0~5min)
 レッドスカルアーマー5（0～5分経過)
-
+Spirit Knight5(after 0~5min)
 レッドスカルアーマー6（0～5分経過)
-
+Spirit Knight6(after 0~5min)
 レッドスカルアーマー8（0～5分経過)
-
+Spirit Knight8(after 0~5min)
 対人ダメージ+200　対人攻撃成功率+10
 
 セメデンのレッドウイングアーマー
-
+Sedemen Red Wing Armor
 データの保存を許可してください。
 
 バンガイオンのケルベロスアーマー
-
+Gaion Strom Crow Armor
 バンガイオンのケルベロスガーダー
 
 スペルエンハンス(最小魔力20%上昇)
