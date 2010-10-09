@@ -96,7 +96,7 @@ form function init():void{
 	
 	//バージョン情報
 	var la:Label = new Label();
-	la.text = "MUDamage7 ver1.91";
+	la.text = "MUDamage7 ver1.92";
 	hbox.addChild(la);
 	
 	//拡大縮小ボタン
@@ -834,9 +834,9 @@ private function formSupport():Container{
 		var te:TextInput = new TextInput();
 		fi.addChild(te);
 		d.s_aplus = te;
-		te.restrict = "0-9";
-		te.maxChars = 3;
-		te.width = 42;
+		te.restrict = "0-9.";
+		te.maxChars = 6;
+		te.width = 72;
 		te.addEventListener(FocusEvent.FOCUS_IN,click::focusEvent);
 		//G+
 		fi = new FormItem();
