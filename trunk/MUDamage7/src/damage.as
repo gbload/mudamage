@@ -416,7 +416,7 @@ damage function calcDamage(muc:MuChar,d:int,elf:Boolean=false,cri:Boolean=false,
     if(muc.dinolunt[0])d += Math.floor(d*15/100);//ディノラント
     if(muc.satan)d += Math.floor(d*30/100);//サタン
     //[デーモン]
-    if(muc.deamon){d += Math.floor(d * 0.4);}
+    //if(muc.deamon){d += Math.floor(d * 0.4);}
     
     d += Math.floor(d * muc.wing_inc/100);//羽
     if(muc.fenrir==2)d += Math.floor(d*10/100);//フェンリル

@@ -870,6 +870,9 @@ calcchar function calcMinMax(muc:MuChar,cri:Boolean,exd:Boolean,min:Boolean):int
     if(etc_mahouring){d = Math.floor(d * 1.1);}
     //[大魔法師の爪装備時] Y = int(Y * 1.15)
     if(etc_daimahouring){d = Math.floor(d * 1.15);}
+    //[デーモン]
+    if(muc.deamon){d += Math.floor(d * 0.4);}
+    
     //[スケルトンパージドラゴン装備時] Y = int(Y * 1.2)
     if(muc.skelton){d = Math.floor(d * 1.2);}
     
@@ -974,6 +977,8 @@ calcchar function calcMinMaxLeft(muc:MuChar,cri:Boolean,exd:Boolean,min:Boolean)
     if(etc_mahouring){d = Math.floor(d * 1.1);}
     //[大魔法師の爪装備時] Y = int(Y * 1.15)
     if(etc_daimahouring){d = Math.floor(d * 1.15);}
+    //[デーモン]
+    if(muc.deamon){d += Math.floor(d * 0.4);}
     
     //[武器のEXOPに攻撃力増加+LV/20がある時]　Ｒ ＝ Ｒ ＋ int(レベル ÷ 20) 
     if(exopleftlv20)d += Math.floor((muc.lv-muc.add_lv)/20);
