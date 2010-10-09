@@ -64,7 +64,7 @@ calc var wing_rec:int=0;//羽のCOP統率増加
 calc var skill:int=0;//スキル威力
 calc var magic_skill:int=0;//魔法スキル威力
 //サポート
-calc var support_a:int=0;//A+
+calc var support_a:Number=0.0;//A+
 calc var support_g:int=0;//G+
 calc var support_c:int=0;//C+
 calc var support_sb:int=0;//SB
@@ -326,7 +326,7 @@ calc function getForm():void{
 	skill=0;//スキル威力
 	magic_skill=0;//魔法スキル威力
 	//サポート
-	support_a=parseInt(d.s_aplus.text);//A+
+	support_a=parseFloat(d.s_aplus.text);//A+
 	support_g=parseInt(d.s_gplus.text);//G+
 	support_c=parseInt(d.s_cplus.text);//C+
 	support_sb=parseInt(d.s_sb.text);//SB
@@ -786,7 +786,7 @@ calc function initData():void{
 	skill=0;//スキル威力
 	magic_skill=0;//魔法スキル威力
 	//サポート
-	support_a=0;//A+
+	support_a=0.0;//A+
 	support_g=0;//G+
 	support_c=0;//C+
 	support_sb=0;//SB

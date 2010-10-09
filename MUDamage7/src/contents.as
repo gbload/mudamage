@@ -116,9 +116,12 @@ click function InputSupport(event:Event):void{
 	list2 = [3,6,9,12,15,18];//yのリスト（＋α）
 	x = list[s.supportdatas[s.MLV_A].selectedIndex];//ｘの値
 	y = list2[s.supportdatas[s.MLV_A].selectedIndex];//yの値
-	if(parseInt(s.supportdatas[s.EE_ENE].text) >= 92)//要求エナ制限
-		s.supportdatas[s.R_A].text = Math.floor(parseInt(s.supportdatas[s.EE_ENE].text)*10 / x) + y;
-	else//要求エナに満たない場合
+	if(parseInt(s.supportdatas[s.EE_ENE].text) >= 92){//要求エナ制限
+		var tmp:Number = Math.floor(((parseInt(s.supportdatas[s.EE_ENE].text)*10 / x) + y)*100)/100;
+		if(Math.floor(tmp*1.1) != Math.floor(((parseInt(s.supportdatas[s.EE_ENE].text)*10 / x) + y)*1.1))
+			tmp += 0.01;
+		s.supportdatas[s.R_A].text = tmp;
+	}else//要求エナに満たない場合
 		s.supportdatas[s.R_A].text = "0";
 	//G+
 	list = [80,76,72,68,64,60];//ｘのリスト
