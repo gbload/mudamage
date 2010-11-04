@@ -422,7 +422,9 @@ damage function calcDamage(muc:MuChar,d:int,elf:Boolean=false,cri:Boolean=false,
     if(muc.fenrir==2)d += Math.floor(d*10/100);//フェンリル
     
     //スキル%
-	if(muc.job == 0)//ナイトのとき
+    if(muc.now_skill[0] == "プラズマストーム")
+    	d += Math.floor(d * 1.2);
+	else if(muc.job == 0)//ナイトのとき
     	d += Math.floor(d * Math.floor((100 + muc.ene/10))/100);//スキル%
     else if(muc.job == 4){//ダークロードのとき
     	if(muc.now_skill[5] == 5) d += Math.floor(d * Math.floor((100 + muc.ene/25))/100);//スキル%
