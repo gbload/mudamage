@@ -163,877 +163,877 @@ Spirit Knight6(after 0~5min)
 レッドスカルアーマー8（0～5分経過)
 Spirit Knight8(after 0~5min)
 対人ダメージ+200　対人攻撃成功率+10
-
+PvP Attack+200 PvP Attack Success Rate+10
 セメデンのレッドウイングアーマー
 Sedemen Red Wing Armor
 データの保存を許可してください。
-
+Please allow storage of data.
 バンガイオンのケルベロスアーマー
-Gaion Strom Crow Armor
+Gaion Storm Crow Armor
 バンガイオンのケルベロスガーダー
-
+Gaion Storm Crow Pants
 スペルエンハンス(最小魔力20%上昇)
-
+Expansion of Wizardry(Minimum Dmg+20%)
 対人防御力+200　対人防御成功率+10
-
+PvP Defense+200 PvP Defense Success Rate+10
 アグニスのダークソウルアーマー
-
+Agnis Adamantine Armor
 アグニスのダークソウルガーダー
-
+Agnis Adamantine Pants
 アヌビスのオーディーンのグラブ
-
+Anubis Legendary Gloves
 イシスのオーディーンのガーダー
-
+Enis Legendary Pants
 オークアーチャー8（10～15分経過)
-
+Orc Archer8(after 10~15min)
 ガウェインのスキルのネックレス
-
+Gywen Pendant Ability
 クロノのレッドウイングガーダー
-
+Chrono Red Wing Pants
 セメデンのレッドウインググラブ
-
+Sedemen Red Wing Gloves
 セメデンのレッドウイングブーツ
-
+Sedemen Red Wing Boots
 セメデンのレッドウイングヘルム
-
+Sedemen Red Wing Helm
 バンガイオンのケルベロスブーツ
-
+Gaion Storm Crow Boots
 ヘラスのスフィンクスのガーダー
-
+Heras Sphinx Pants
 オークアーチャー8（5～10分経過)
-
+Orc Archer8(after 5~10min)
 IV = (エナ/90)+20 | WN = (エナ/65)+7 \n
-
+IV = (ene/90)+20 | WN = (ene/65)+7 \n
 オークアーチャー8（0～5分経過)
-
+Orc Archer8(after 0~5min)
 モンスターkill時マナ回復(マナ/)
-
+Monster Attack Mana Increment(Mana/)
 モンスターkill時生命回復(生命/)
-
+Monster Attack Life Increment(HP/)
 最大生命+200　対人防御成功率+10
-
+Max Life+200 PvP Defense Success Rate+10
 アグニスのダークソウルマスク
-
+Agnis Adamantine Helm
 アプルナスのスケイルアーマー
-
+Eplete Scale Armor
 アプルナスのスケイルガーダー
-
+Eplete Scale Pants
 アプルナスの稲妻のネックレス
-
+Eplete Pendant Lightning
 アルアンのパルテナのガーダー
-
+Aruan Guardian Pants
 イシスのオーディーンのブーツ
-
+Enis Legendary Boots
 ガウェインのパルテナのグラブ
-
+Gywen Guardian Gloves
 ガウェインのパルテナのブーツ
-
+Gywen Guardian Boots
 クロノのレッドウインググラブ
-
+Chrono Red Wing Gloves
 クロノのレッドウイングヘルム
-
+Chrono Red Wing Helm
 データをインポートしました。
-
+Imported data.
 ドッペルゲンガー・ヴィシャス
-
+Knight Doppleganger
 ハイペリオンの青銅のガーダー
-
+Hyperion Bronze Pants
 バンガイオンの水のネックレス
-
+Gaion Pendant Water
 ブロイのダークソウルガーダー
-
+Broy Adamantine Pants
 ヘラスのスフィンクスのグラブ
-
+Heras Sphinx Gloves
 ヘラスのスフィンクスのブーツ
-
+Heras Sphinx Boots
 ミネのスフィンクスのガーダー
-
+Minet Sphinx Pants
 ミュレンのケルベロスアーマー
-
+Muren Storm Crow Armor
 ミュレンのケルベロスガーダー
-
+Muren Storm Crow Pants
 ヴィシャスのドラゴンアーマー
-
+Vicious Dragon Armor
 ヴィシャスのドラゴンガーダー
-
+Vicious Dragon Pants
 以下のタイトルで保存します。
-
+Save the following titles.
  && item.f_soop[0].dataProvider[1][0] == 
-
+ && item.f_soop[0].dataProvider[1][0] == 
 A+,G+共にMLVでの上昇値は未検証
-
+A+,G+ is Untested in MLV
 SD回復量+20　対人防御成功率+10
-
+SD Increment+20 PvP Defense Success Rate+10
 SD自動回復　対人防御成功率+10
-
+SD Auto Increment  PvP Defense Success Rate+10
 \n現在保存されているデータ：
-
+\nThe data is currently stored:
 アークエンジェルスタッフ(新)
-
+Staff of Archangel(new)
 アークエンジェルスタッフ(旧)
-
+Staff of Archangel(old)
 アークエンジェルセプター(新)
-
+Scepter of Archangel(new)
 アークエンジェルセプター(旧)
-
+Scepter of Archangel(old)
 エクセレントダメージ確率 +10%
-
+Excellent Damage rate increase+10%
 エクセレントダメージ確率 +15%
-
+Excellent Damage rate increase+15%
 クリティカルダメージ確率 +10%
-
+Critical Damage success rate increase+10%
 クリティカルダメージ確率 +15%
-
+Critical Damage success rate increase+15%
 クリティカルダメージ確率 +20%
-
+Critical Damage success rate increase+20%
 両手剣装備時ダメージ増加 +20%
-
+Increase Two-handed Weapon Equipment Damage +20%
 両手剣装備時ダメージ増加 +30%
-
+Increase Two-handed Weapon Equipment Damage +30%
 暗黒のオウガ7（10～15分経過）
-
+Spirit Beast7(after 10~15min)
 エクセレントダメージ確率 +5%
-
+Excellent Damage rate increase+5%
 クリティカルダメージ確率 +5%
-
+Critical Damage success rate increase+5%
 暗黒のオウガ7（5～10分経過）
-
+Spirit Beast7(after 5~10min)
 第二師団長 烈火のベルモント
-
+Vermont
  && d.f_left.f_item.selectedItem[0] == 
-
+ && d.f_left.f_item.selectedItem[0] == 
 2人200% 3人210% 4人220% 5人230%\n\n
-
+-\n\n
 アヌビスのオーディーンの兜
-
+Anubis Legendary Helm
 アヌビスのオーディーンの鎧
-
+Anubis Legendary Armor
 アプルナスのスケイルヘルム
-
+Eplete Scale Helm
 アルアンのパルテナのブーツ
-
+Aruan Guardian Boots
 エクスプロージョンブレード
-
+Explosion Blade
 オーディーンの風のガーダー
-
+Odin Wind Pants
 ガルーダのミスリルアーマー
-
+Garuda Brass Armor
 ガルーダのミスリルガーダー
-
+Garuda Brass Pants
 クラウドのミスリルガーダー
-
+Cloud Brass Pants
 クリスタルモーニングスター
-
+Crystal Morning Star
 グリードのスケイルアーマー
-
+Berserker Scale Armor
 グリードのスケイルガーダー
-
+Berserker Scale Pants
 ドッペルゲンガー・アヌビス
-
+Doppleganger Wizard
 ドッペルゲンガー・ミュレン
-
+Doppleganger Magic
 ドラークのエルフのガーダー
-
+Drake Vine Pants
 ハイペリオンの青銅のブーツ
-
+Hyperion Bronze Boots
 フェイズのシルクのガーダー
-
+Fase Silk Pants
 ブラッティウィッチクイーン
-
+Bloody Witch Queen
 ブロイのダークソウルグラブ
-
+Broy Adamantine Gloves
 ブロイのダークソウルブーツ
-
+Broy Adamantine Boots
 ヘラスのスフィンクスの仮面
-
+Heras Sphinx Helm
 ミネのスフィンクスのブーツ
-
+Minet Sphinx Boots
 ミュレンのケルベロスグラブ
-
+Muren Storm Crow Gloves
 ヴィシャスのドラゴンヘルム
-
+Vicious Dragon Helm
 以下のタイトルを開きます。
-
+Open the following title.
 暗黒のオウガ1（10～15分経過)
-
+Spirit Beast1(after 10~15min)
 暗黒のオウガ2（10～15分経過)
-
+Spirit Beast2(after 10~15min)
 暗黒のオウガ3（10～15分経過)
-
+Spirit Beast3(after 10~15min)
 暗黒のオウガ4（10～15分経過)
-
+Spirit Beast4(after 10~15min)
 暗黒のオウガ5（10～15分経過)
-
+Spirit Beast5(after 10~15min)
 暗黒のオウガ6（10～15分経過)
-
+Spirit Beast6(after 10~15min)
 暗黒のオウガ7（0～5分経過）
-
+Spirit Beast7(after 0~5min)
 暗黒のオウガ8（10～15分経過)
-
+Spirit Beast8(after 10~15min)
 最大SD+700　対人防御成功率+10
-
+Max SD+700 PvP Defense Success Rate+10
  && item.f_exop[0].dataProvider[1] == 
-
+ && item.f_exop[0].dataProvider[1] == 
  && item.f_exop[0].dataProvider[3] == 
-
+ && item.f_exop[0].dataProvider[3] == 
 アークエンジェルソード(新)
-
+Sword of Archangel(new)
 アークエンジェルソード(旧)
-
+Sword of Archangel(old)
 暗黒のオウガ1（5～10分経過)
-
+Spirit Beast1(after 5~10min)
 暗黒のオウガ2（5～10分経過)
-
+Spirit Beast2(after 5~10min)
 暗黒のオウガ3（5～10分経過)
-
+Spirit Beast3(after 5~10min)
 暗黒のオウガ4（5～10分経過)
-
+Spirit Beast4(after 5~10min)
 暗黒のオウガ5（5～10分経過)
-
+Spirit Beast5(after 5~10min)
 暗黒のオウガ6（5～10分経過)
-
+Spirit Beast6(after 5~10min)
 暗黒のオウガ8（5～10分経過)
-
+Spirit Beast8(after 5~10min)
 骸骨の戦士7（10～15分経過）
-
+Orc Warrior7(after 10~15min)
 髑髏メイジ7（10～15分経過）
-
+Spirit Sorcerer7(after 10~15min)
  && d.f_left.f_kind.selectedLabel != 
-
+ && d.f_left.f_kind.selectedLabel != 
 http://www.w3.org/TR/html4/strict.dtd
-
+http://www.w3.org/TR/html4/strict.dtd
 備考：C+ = (エナ/30)+(統率/25)
-
+note: C+ = (ene/30)+(rec/25)
 副司令官 雷撃のレイモンド
-
+Raymond
 暗黒のオウガ1（0～5分経過)
-
+Spirit Beast1(after 0~5min)
 暗黒のオウガ2（0～5分経過)
-
+Spirit Beast2(after 0~5min)
 暗黒のオウガ3（0～5分経過)
-
+Spirit Beast3(after 0~5min)
 暗黒のオウガ4（0～5分経過)
-
+Spirit Beast4(after 0~5min)
 暗黒のオウガ5（0～5分経過)
-
+Spirit Beast5(after 0~5min)
 暗黒のオウガ6（0～5分経過)
-
+Spirit Beast6(after 0~5min)
 暗黒のオウガ8（0～5分経過)
-
+Spirit Beast8(after 0~5min)
 石造破壊シミュレータ(β版)
-
+Blood Castle AA Getter Simulator(beta)
 第一師団長 月光のデスラー
-
+Destler
 骸骨の戦士7（5～10分経過）
-
+Orc Warrior7(after 5~10min)
 髑髏メイジ7（5～10分経過）
-
+Spirit Sorcerer7(after 5~10min)
 アタックプラス強化(エナ/)
-
+Greater Damage Increse(ene/)
 アルゴスの精霊のガーダー
-
+Argo Spirit Pants
 アルビアンの風のガーダー
-
+Elvian Wind Pants
 イシスのオーディーンの兜
-
+Enis Legendary Helm
 イシスのオーディーンの鎧
-
+Enis Legendary Armor
 エクセレントダメージ確率
-
+Excellent Damage rate increase
 オーク戦士8（10～15分経過)
-
+Orc Warrior8(after 10~15min)
 オーディーンの風のグラブ
-
+Odin Wind Gloves
 オーディーンの風のブーツ
-
+Odin Wind Boots
 カオティックディセイアー
-
+Chaotic Diseier
 カンタータの鋼鉄のグラブ
-
+Kantata Plate Gloves
 カンタータの鋼鉄のブーツ
-
+Kantata Plate Boots
 ガイアのシルクのガーダー
-
+Gaia Silk Pants
 ガウェインのパルテナの鎧
-
+Gywen Guardian Armor
 ガウェインのプラチナボウ
-
+Gywen Silver Bow
 ガルーダのミスリルグラブ
-
+Garuda Brass Gloves
 ガルーダのミスリルブーツ
-
+Garuda Brass Boots
 ガルーダの炎のネックレス
-
+Garuda Pendant Fire
 クリティカルダメージ確率
-
+Critical Damage success rate increase
 グリードのスケイルグラブ
-
+Berserker Scale Gloves
 グリードのスケイルブーツ
-
+Berserker Scale Boots
 グリードのスケイルヘルム
-
+Berserker Scale Helm
 グレートドラゴンアーマー
-
+Great Dragon Armor
 グレートドラゴンガーダー
-
+Great Dragon Pants
 シャイニングブラスト強化
-
+Cometfall Increase
 ジェノサイダーウォーリア
-
+Genocider Warrior
 スケルトンパージドラゴン
-
+Skeleton Budge Dragon
 ストームブリッツアーマー
-
+Storm Blitz Armor
 ストームブリッツガーダー
-
+Storm Blitz Pants
 ダークブリザードアーマー
-
+Dark Steel Armor
 ダークブリザードガーダー
-
+Dark Steel Pants
 チェーンライトニング強化
-
+Chain Lightning Increase
 ディメンションウォーカー
-
+Ice Walker
 ディメンションプリズナー
-
+Slaughterer
 デススピリット（訓練兵）
-
+Death Spirit (Training)
 データを読み込みました。
-
+Loaded data.
 トルネードクラッシュ強化
-
+Twisting Slash Increase
 ドッペルゲンガー・カリス
-
+Elf Doppleganger
 ドッペルゲンガー・クロノ
-
+Summoner Doppleganger
 ドッペルゲンガー・ブロイ
-
+Lord Doppleganger
 ドラークのエルフのブーツ
-
+Drake Vine Boots
 ハイオンのドラゴングラブ
-
+Hyon Dragon Gloves
 ハイオンのドラゴンブーツ
-
+Hyon Dragon Boots
 ハイオンのドラゴンヘルム
-
+Hyon Dragon Helm
 フェイズのシルクのグラブ
-
+Fase Silk Gloves
 フェイズのシルクのブーツ
-
+Fase Silk Boots
 ブラックドラゴンアーマー
-
+Black Dragon Armor
 ブラックドラゴンガーダー
-
+Black Dragon Pants
 ヘラスのスフィンクスの鎧
-
+Heras Sphinx Armor
 ライトニングショック強化
-
+Lightning Shock Increase
 レッドスピリットアーマー
-
+Red Spirit Armor
 レッドスピリットガーダー
-
+Red Spirit Pants
 両手剣装備時ダメージ増加
-
+Increase Two-handed Weapon Equipment Damage
 狂戦士のモーニングスター
-
+Warrior Morning Star
 骸骨の戦士1（10～15分経過)
-
+Orc Warrior1(after 10~15min)
 骸骨の戦士2（10～15分経過)
-
+Orc Warrior2(after 10~15min)
 骸骨の戦士3（10～15分経過)
-
+Orc Warrior3(after 10~15min)
 骸骨の戦士4（10～15分経過)
-
+Orc Warrior4(after 10~15min)
 骸骨の戦士5（10～15分経過)
-
+Orc Warrior5(after 10~15min)
 骸骨の戦士6（10～15分経過)
-
+Orc Warrior6(after 10~15min)
 骸骨の戦士7（0～5分経過）
-
+Orc Warrior7(after 0~5min)
 髑髏メイジ1（10～15分経過)
-
+Spirit Sorcerer1(after 10~15min)
 髑髏メイジ2（10～15分経過)
-
+Spirit Sorcerer2(after 10~15min)
 髑髏メイジ3（10～15分経過)
-
+Spirit Sorcerer3(after 10~15min)
 髑髏メイジ4（10～15分経過)
-
+Spirit Sorcerer4(after 10~15min)
 髑髏メイジ5（10～15分経過)
-
+Spirit Sorcerer5(after 10~15min)
 髑髏メイジ6（10～15分経過)
-
+Spirit Sorcerer6(after 10~15min)
 髑髏メイジ7（0～5分経過）
-
+Spirit Sorcerer7(after 0~5min)
 髑髏メイジ8（10～15分経過)
-
+Spirit Sorcerer8(after 10~15min)
 アークエンジェルボウ(新)
-
+Bow of Archangel(new)
 アークエンジェルボウ(旧)
-
+Bow of Archangel(old)
 オーク戦士8（5～10分経過)
-
+Orc Warrior8(after 5~10min)
 モンスターkill時SD回復(SD/)
-
+Monster Attack SD Increment(SD/)
 備考：SB = (敏/50)+(エナ/200)
-
+note:SB = (agi/50)+(ene/200)
 骸骨の戦士1（5～10分経過)
-
+Orc Warrior1(after 5~10min)
 骸骨の戦士2（5～10分経過)
-
+Orc Warrior2(after 5~10min)
 骸骨の戦士3（5～10分経過)
-
+Orc Warrior3(after 5~10min)
 骸骨の戦士4（5～10分経過)
-
+Orc Warrior4(after 5~10min)
 骸骨の戦士5（5～10分経過)
-
+Orc Warrior5(after 5~10min)
 骸骨の戦士6（5～10分経過)
-
+Orc Warrior6(after 5~10min)
 髑髏メイジ1（5～10分経過)
-
+Spirit Sorcerer1(after 5~10min)
 髑髏メイジ2（5～10分経過)
-
+Spirit Sorcerer2(after 5~10min)
 髑髏メイジ3（5～10分経過)
-
+Spirit Sorcerer3(after 5~10min)
 髑髏メイジ4（5～10分経過)
-
+Spirit Sorcerer4(after 5~10min)
 髑髏メイジ5（5～10分経過)
-
+Spirit Sorcerer5(after 5~10min)
 髑髏メイジ6（5～10分経過)
-
+Spirit Sorcerer6(after 5~10min)
 髑髏メイジ8（5～10分経過)
-
+Spirit Sorcerer8(after 5~10min)
 アルゴスの 精霊のグラブ
-
+Argo Spirit Gloves
 エクスポート/インポート
-
+Export/Import
 エクセレントダメージ +10
-
+Excellent Damage+10
 エクセレントダメージ +20
-
+Excellent Damage+20
 エクセレントダメージ +30
-
+Excellent Damage+30
 オーク戦士8（0～5分経過)
-
+Orc Warrior8(after 0~5min)
 クリティカルダメージ +20
-
+Critical Damage+20
 クリティカルダメージ +50
-
+Critical Damage+50
 シーズン5PVに映ってたBOSS
-
+-
 参謀長 漆黒のジェリント
-
+Jerint
 第四師団長 疾風のガリア
-
+Gaul
 骸骨の戦士1（0～5分経過)
-
+Orc Warrior1(after 0~5min)
 骸骨の戦士2（0～5分経過)
-
+Orc Warrior2(after 0~5min)
 骸骨の戦士3（0～5分経過)
-
+Orc Warrior3(after 0~5min)
 骸骨の戦士4（0～5分経過)
-
+Orc Warrior4(after 0~5min)
 骸骨の戦士5（0～5分経過)
-
+Orc Warrior5(after 0~5min)
 骸骨の戦士6（0～5分経過)
-
+Orc Warrior6(after 0~5min)
 髑髏メイジ1（0～5分経過)
-
+Spirit Sorcerer1(after 0~5min)
 髑髏メイジ2（0～5分経過)
-
+Spirit Sorcerer2(after 0~5min)
 髑髏メイジ3（0～5分経過)
-
+Spirit Sorcerer3(after 0~5min)
 髑髏メイジ4（0～5分経過)
-
+Spirit Sorcerer4(after 0~5min)
 髑髏メイジ5（0～5分経過)
-
+Spirit Sorcerer5(after 0~5min)
 髑髏メイジ6（0～5分経過)
-
+Spirit Sorcerer6(after 0~5min)
 髑髏メイジ8（0～5分経過)
-
+Spirit Sorcerer8(after 0~5min)
  && item.f_op.dataProvider[0] != 
-
+ && item.f_op.dataProvider[0] != 
 アッシュクローアーマー
-
+Ashcrow Armor
 アッシュクローガーダー
-
+Ashcrow Pants
 アブソリュートセプター
-
+Absolute Scepter
 アポロの氷のネックレス
-
+Apollo Pendant Ice
 アポロの魔導のガーダー
-
+Apollo Pad Pants
 アルアンのパルテナの兜
-
+Aruan Guardian Helm
 アルアンのパルテナの鎧
-
+Aruan Guardian Armor
 アルビアンの風のブーツ
-
+Elvian Wind Boots
 エレクトリックスパーク
-
+Electric Spike
 オーディーンのガーダー
-
+Legendary Pants
 カオスサンダースタッフ
-
+Chaos Lightning Staff
 カオスドラゴンアックス
-
+Chaos Dragon Axe
 カリスの精霊のガーダー
-
+Karis Spirit Pants
 カンタータの毒のリング
-
+Kantata Ring of Poison
 カンタータの風のリング
-
+Kantata Ring of Wind
 ガイアのシルクのグラブ
-
+Gaia Silk Gloves
 ガイオンディフェンダー
-
+Bodyguard
 ガードプラス強化(エナ/)
-
+Great Defense
 ギガンティスウォーリア
-
+Gigantis Warrior
 ギガンティックストーム
-
+Gigantic Storm
 クラウドのミスリルの兜
-
+Cloud Brass Helm
 グランドソウルシールド
-
+Grand Soul Shield
 グランドヴァイパーの杖
-
+Grand Viper Staff
 グレートドラゴングラブ
-
+Great Dragon Gloves
 グレートドラゴンブーツ
-
+Great Dragon Boots
 グレートドラゴンヘルム
-
+Great Dragon Helm
 グレートロードセプター
-
+Great Lord Scepter
 ケンタウロスウォーリア
-
+Kentarus Warrior
 シリオンの骸骨のグラブ
-
+Sylion Bone Gloves
 シリオンの骸骨のブーツ
-
+Sylion Bone Boots
 ストームブリッツグラブ
-
+Storm Blitz Gloves
 ストームブリッツブーツ
-
+Storm Blitz Boots
 ストームブリッツヘルム
-
+Storm Blitz Helm
 ストームブリッツロッド
-
+Storm Blitz Stick
 スフィンクスのガーダー
-
+Sphinx Pants
 セトのエルフのガーダー
-
+Ceto Vine Pants
 ダークエルフ（訓練兵）
-
+Dark Elf (Training)
 ダークブリザードグラブ
-
+Dark Steel Gloves
 ダークブリザードブーツ
-
+Dark Steel Boots
 ダークブリザードマスク
-
+Dark Steel Helm
 ダークマスターアーマー
-
+Dark Master Armor
 ダークマスターガーダー
-
+Dark Master Pants
 ディメンションウイング
-
+Wing of Dimensions
 データを保存しました。
-
+Saved data.
 ドラゴンナイトアーマー
-
+Dragon Knight Armor
 ドラゴンナイトガーダー
-
+Dragon Knight Pants
 ハイペリオンの青銅の鎧
-
+Hyperion Bronze Armor
 バネクの魔導のガーダー
-
+Barnake Pad Pants
 バルガスの兵営・安息所
-
+Barracks of Balgass
 ファイアスクリーム強化
-
+Fire Scream Increase
 フェニックスのガーダー
-
+Dark Phoenix Pants
 ブラックソウルアーマー
-
+Dark Soul Armor
 ブラックソウルガーダー
-
+Dark Soul Pants
 ブラックドラゴングラブ
-
+Black Dragon Gloves
 ブラックドラゴンブーツ
-
+Black Dragon Boots
 ブラックドラゴンヘルム
-
+Black Dragon Helm
 ブラッティデスライダー
-
+Bloody Death Rider
 ブロイの氷のネックレス
-
+Broy Pendant Ice
 ミストの青銅のガーダー
-
+Mist Bronze Pants
 ミネのスフィンクスの鎧
-
+Minet Sphinx Armor
 レイブの鋼鉄のガーダー
-
+Rave Plate Pants
 レッドウイングアーマー
-
+Red Wing Armor
 レッドウイングガーダー
-
+Red Wing Pants
 レッドスピリットグラブ
-
+Red Spirit Gloves
 レッドスピリットブーツ
-
+Red Spirit Boots
 レッドスピリットヘルム
-
+Red Spirit Helm
 ヴィシャスの地のリング
-
+Vicious Ring of Earth
 備考：※A+の要求エナ92\n
-
+note:A+ is required 92 ene.\n
 無名のレザーバックラー
-
+Anonymous Large Shield
 阿修羅の風のネックレス
-
+Evis Bone Pendant Wind
 阿修羅の骸骨のガーダー
-
+Evis Bone Pants
 LVを400にしてください。
-
+Please levels 400.
 インナーベーション：0%
-
+Innovation:0%
 ダブルダメージ確率 +10%
-
+Double Damage Rate+10%
 ダブルダメージ確率 +15%
-
+Double Damage Rate+15%
 ダブルダメージ確率 +20%
-
+Double Damage Rate+20%
 ダブルダメージ確率 +5%
-
+Double Damage Rate+5%
 修練のエンブレム:150%\n
-
+-\n
 第三師団長 激流のカト
-
+Kato
 豊穣のエンブレム:200%\n
-
+-\n
 軍団長 大地のエルカン
-
+Erkanne
 アグニスの毒のリング
-
+Agnis Ring of Poison
 アックスウォーリアー
-
+Axe Warrior
 アッシュクローグラブ
-
+Ashcrow Gloves
 アッシュクローブーツ
-
+Ashcrow Boots
 アッシュクローヘルム
-
+Ashcrow Helm
 アヌビスの炎のリング
-
+Anubis Ring of Fire
 アプルナスの鋼鉄の盾
-
+Eplete Shield Plate
 アポロの魔導のグラブ
-
+Apollo Pad Gloves
 アポロの魔法のリング
-
+Apollo Ring of Magic
 アーティクルマスター
-
+Grand Wizard
 インナーベーション：
-
+Innovation:
 インベリアルスタッフ
-
+Imberial Staff
 ウェアウルフヒーロー
-
+Werewolf (Hero)
 エクセレントダメージ
-
+Excellent Damage
 エレメンタルシールド
-
+Elemental Shield
 エンシェントアーマー
-
+Ancient Armor
 エンシェントガーダー
-
+Ancient Pants
 オメガインパクト強化
-
+Earth Break
 オーディーンのグラブ
-
+Legendary Gloves
 オーディーンのブーツ
-
+Legendary Boots
 オーディーンの風の兜
-
+Odin Wind Helm
 オーディーンの風の鎧
-
+Odin Wind Armor
 カウンターリベリオン
-
+Imperial Guardian
 カオスネイチャーボウ
-
+Chaos Nature Bow
 カリスの精霊のブーツ
-
+Karis Spirit Boots
 カンタータの鋼鉄の鎧
-
+Kantata Plate Armor
 ガーディアンシールド
-
+Guardian Shield
 キャプテングリズリー
-
+Captain Grizzly
 クリティカルダメージ
-
+Critical Damage
 クリムゾングローリー
-
+Crimson Glory Shield
 クロノの魔法のリング
-
+Chrono Ring of Magic
 クロマチックスタッフ
-
+Chromatic Staff
 サラマンダーシールド
-
+Salamander Shield
 シャイニングセプター
-
+Shining Scepter
 シャイニングブラスト
-
+Cometfall
 シルフィードアーマー
-
+Sylphid Ray Armor
 シルフィードガーダー
-
+Sylphid Ray Pants
 ジェノサイドアーマー
-
+Phantom Armor
 ジェノサイドガーダー
-
+Phantom Pants
 ジャイアントマンモス
-
+Giant Mammoth
 スウェルライフ強化(%)
-
+Swell Life Increase(%)
 ストライカーセプター
-
+Striker Scepter
 スフィンクスのグラブ
-
+Sphinx Gloves
 スフィンクスのブーツ
-
+Sphinx Boots
 セトのエルフのグラブ
-
+Ceto Vine Gloves
 セトのエルフのブーツ
-
+Ceto Vine Boots
 ダークアイアンナイト
-
+Dark Iron Knight
 ダークソウルアーマー
-
+Adamantine Armor
 ダークソウルガーダー
-
+Adamantine Pants
 ダークマスターグラブ
-
+Dark Master Gloves
 ダークマスターブーツ
-
+Dark Master Boots
 ダークマスターマスク
-
+Dark Master Helm
 チェーンライトニング
-
+Chain Lightning
 データがありません。
-
+Not found data.
 トルネードクラッシュ
-
+Twisting Slash
 ドラゴンナイトグラブ
-
+Dragon Knight Gloves
 ドラゴンナイトブーツ
-
+Dragon Knight Boots
 ドラゴンナイトヘルム
-
+Dragon Knight Helm
 ドラークのエルフの兜
-
+Drake Vine Helm
 ドラークのエルフの鎧
-
+Drake Vine Armor
 バネクの魔導のブーツ
-
+Barnake Pad Boots
 パワースラッシュ強化
-
+Power Slash Increase
 ファイアバースト強化
-
+Fire Burst Increase
 ファイナルスラッシュ
-
+Slash
 フェニックスのグラブ
-
+Dark Phoenix Gloves
 フェニックスのブーツ
-
+Dark Phoenix Boots
 ブラックソウルグラブ
-
+Dark Soul Gloves
 ブラックソウルブーツ
-
+Dark Soul Boots
 ブラックソウルヘルム
-
+Dark Soul Helm
 ブラッドアタック強化
-
+Fire Slash Increase
 ベノムミストアーマー
-
+Venom Mist Armor
 ベノムミストガーダー
-
+Venom Mist Pants
 ベルセルクウォーリア
-
+Berserker Warrior
 ミストの青銅のグラブ
-
+Mist Bronze Gloves
 ミュレンの炎のリング
-
+Muren Ring of Fire
 ライトニングショック
-
+Lightning Shock
 ルシファーのガーダー
-
+Grand Soul Pants
 レッドウインググラブ
-
+Red Wing Gloves
 レッドウイングブーツ
-
+Red Wing Boots
 レッドウイングヘルム
-
+Red Wing Helm
 レッドウイングロッド
-
+Red Wing Stick
 ロードセンチュリオン
-
+Lord Centurion
 ヴァリアントアーマー
-
+Valiant Armor
 ヴァリアントガーダー
-
+Valiant Pants
 不明なスキル名です。
-
+Error Skill.
 狂戦士の革のガーダー
-
+Warrior Leather Pants
 石造破壊シミュレータ
-
+Blood Castle AA Getter Simulator
 計算フォームから追加
-
+Add from MUDamage Form
 阿修羅の骸骨のブーツ
-
+Evis Bone Boots
 クライウルフ(攻防戦)
-
+Crywolf(event)
 フレイムハンド(単体)
-
+Raven Attack(Single)
 フレイムハンド(範囲)
-
+Raven Attack(All)
 盾装備時、防御力 +25%
-
+Increase defensive Skill When Using Shield Weapons +25%
 インナーベーション:
-
+Innovation:
 ブラッドキャッスル1
-
+Blood Castle1
 ブラッドキャッスル2
-
+Blood Castle2
 ブラッドキャッスル3
-
+Blood Castle3
 ブラッドキャッスル4
-
+Blood Castle4
 ブラッドキャッスル5
-
+Blood Castle5
 ブラッドキャッスル6
-
+Blood Castle6
 ブラッドキャッスル7
-
+Blood Castle7
 ブラッドキャッスル8
-
+Blood Castle8
 以下入力例です。\n\n
-
+-\n\n
 最大攻撃力/魔力上昇
-
+Max Damage Increase
 最小攻撃力/魔力上昇
-
+Min Damage Increase
 盾装備時、防御力 +5%
-
+Increase defensive Skill When Using Shield Weapons +5%
 アイスジャイアント
-
+Ice Giant
 アブソリュートゼロ
-
+Strike of Destruction
 アルゴスの精霊の鎧
-
+Argo Spirit Armor
 アースシェイク強化
-
+Earthquake Increase
 イクリプスアーマー
 
 イクリプスガーダー
@@ -1401,7 +1401,7 @@ text/html; charset=utf-8
 トーテムゴーレム
 
 ドッペルゲンガー
-
+Doppleganger
 ドラゴンアーマー
 
 ドラゴンガーダー
