@@ -1035,61 +1035,61 @@ Argo Spirit Armor
 アースシェイク強化
 Earthquake Increase
 イクリプスアーマー
-
+Eclipse Armor
 イクリプスガーダー
-
+Eclipse Pants
 イノセントアーマー
-
+Seraphim Armor
 イノセントガーダー
-
+Seraphim Pants
 エウロパのガーダー
-
+Divine Pants
 エクスプロージョン
-
+Explosion Blade
 エレメンタルメイス
-
+Elemental Mace
 エンシェントグラブ
-
+Ancient Gloves
 エンシェントブーツ
-
+Ancient Boots
 エンシェントヘルム
-
+Ancient Helm
 エンシェントロッド
-
+Ancient Stick
 ガイアのシルクの兜
-
+Gaia Silk Helm
 ガイアのシルクの鎧
-
+Gaia Silk Armor
 ガイオンプリースト
-
+Medic
 ガイオン・カレイン
-
+Gaion Kharein
 クォーターマスター
-
+Quartermaster
 クレイジーラビット
-
+Hideous Rabbit
 グレートレインボウ
-
+Great Reign Crossbow
 グロリアスアーマー
-
+Glorious Armor
 グロリアスガーダー
-
+Glorious Pants
 ケルベロスアーマー
-
+Storm Crow Armor
 ケルベロスガーダー
-
+Storm Crow Pants
 コンバットマスター
-
+Combat Instructor
 サイクロンアーマー
-
+Violent Wing Armor
 サイクロンガーダー
-
+Violent Wing Pants
 サドゥンアイス強化
-
+Ice Storm Increase
 シリオンの骸骨の兜
-
+Sylion Bone Helm
 シリオンの骸骨の鎧
-
+Sylion Bone Armor
 シルバーバルキリー
 
 シルフィードグラブ
