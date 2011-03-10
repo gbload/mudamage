@@ -133,8 +133,8 @@ calcchar function Def(muc:MuChar):MuChar{
 		avoid = muc.agi/4;
 		pvpavoid = lv*2 + muc.agi/2;
 	}else if(d.f_job.selectedLabel == "レイジーファイター"){
-		de += muc.agi/7;
-		avoid = muc.agi/7;
+		de += muc.agi/8;
+		avoid = muc.agi/10;
 		pvpavoid = lv*2 + muc.agi/2;
 	}
 	bde = de;//純粋なDEF
@@ -169,13 +169,13 @@ calcchar function Def(muc:MuChar):MuChar{
 		tmp = series[0][0];
 		for each(var i:Object in series){
 			//魔剣士専用装備か確認
-			for(var j:int;j<i[1].length;j++)
-				if(j==3){ if(!i[1][j])ch=false;}//魔
-				else if(i[1][j] )ch=false;//その他
+			if((!i[1][3] && !i[1][6]) //魔剣士とレイジファイターのどちらも装備不可 
+				|| ( i[1][0] || i[1][1] || i[1][2] || i[1][4] || i[1][5] )) //それ以外の職で装備可能
+				ch=false;
 			//シリーズが統一されているか確認
 			if(tmp == i[0])count++;//同じシリーズ名のものをカウント
 		}
-	if(ch && count==4)uniform=true;//魔の場合
+	if(ch && count==4)uniform=true;//魔orレイジファイターの場合
 	if(!ch && count==5)uniform=true;
 	
 	//盾の防御力
@@ -239,7 +239,7 @@ calcchar function Def(muc:MuChar):MuChar{
 		avoid += d.f_left.f_op.selectedItem.value;
 	}
 	if(uniform)avoid += Math.floor(avoid * 0.1);//統一ボーナス
-	for(j=0;j<exop_avoid;j++)//EXOPの防御成功
+	for(var j:int=0;j<exop_avoid;j++)//EXOPの防御成功
 		avoid += Math.floor(avoid * 0.1);
 	for each(i in soop_avoid)//ソケットOPの防御成功
 		avoid += Math.floor(avoid * (i as int)/100);
@@ -333,10 +333,10 @@ calcchar function HP(muc:MuChar):MuChar{
 		bmana = 40 + (ene - c.getJobPoint(5,"ene"))*1.5 + (muc.lv-1)*1.5;//ベースとなるマナ
 		mana += (setop_ene + etc_ene) * 1.5;//セットのエナ＋
 	}else if(d.f_job.selectedLabel == "レイジーファイター"){
-		bhp = 100 + (vit - c.getJobPoint(6,"vit")) * 2 + (muc.lv-1) * 1.5;//ベースとなるHP
+		bhp = 100 + (vit - c.getJobPoint(6,"vit")) * 2 + (muc.lv-1) * 1;//ベースとなるHP
 		hp += muc.add_vit * 2;//セットとソケットの体力＋
-		bmana = 40 + (ene - c.getJobPoint(6,"ene"))*1.5 + (muc.lv-1)*1;//ベースとなるマナ
-		mana += (setop_ene + etc_ene) * 1.5;//セットのエナ＋
+		bmana = 40 + (ene - c.getJobPoint(6,"ene"))*1.3 + (muc.lv-1)*1;//ベースとなるマナ
+		mana += (setop_ene + etc_ene) * 1.3;//セットのエナ＋
 	}
 	//HP
 	hp += bhp;
@@ -399,7 +399,7 @@ calcchar function HP(muc:MuChar):MuChar{
 	else if(d.f_job.selectedLabel == "召喚師")
 		ag = Math.floor((muc.str*0.2)+(muc.agi*0.25)+(muc.vit*0.3)+(muc.ene*0.15));
 	else if(d.f_job.selectedLabel == "レイジーファイター")
-		ag = Math.floor((muc.str*0.3)+(muc.agi*0.2)+(muc.vit*0.1)+(muc.ene*0.15));
+		ag = Math.floor((muc.str*0.15)+(muc.agi*0.2)+(muc.vit*0.3)+(muc.ene*1.0));
 	if(mlvcount.ag)ag += MLV.inf_ag[mlvcount.ag];//MLV
 	ag += setop_ag;//セットOP
 	ag += enop_ag;//エンチャントOP
@@ -434,7 +434,7 @@ calcchar function Speed(muc:MuChar):MuChar{
 		speed = muc.agi/20;
 		ms = muc.agi/20;
 	}else if(d.f_job.selectedLabel == "レイジーファイター"){
-		speed = muc.agi/10;
+		speed = muc.agi/9;
 	}
 	
 	//武器の攻撃速度
@@ -844,8 +844,8 @@ calcchar function calcMinMax(muc:MuChar,cri:Boolean,exd:Boolean,min:Boolean):int
 	    if(min)d = Math.floor((muc.str-1)/9);//Ｒ ＝ ステータス最小攻撃力
 	    else d = Math.floor((muc.str-1)/4);//Ｒ ＝ ステータス最大攻撃力
 	}else if(dat::d.f_job.selectedLabel == "レイジーファイター"){
-	    if(min)d = Math.floor(muc.str/7) + Math.floor(muc.vit/14);//Ｒ ＝ ステータス最小攻撃力
-	    else d = Math.floor(muc.str/5) + Math.floor(muc.vit/10);//Ｒ ＝ ステータス最大攻撃力
+	    if(min)d = Math.floor(muc.str/7) + Math.floor(muc.vit/15);//Ｒ ＝ ステータス最小攻撃力
+	    else d = Math.floor(muc.str/5) + Math.floor(muc.vit/12);//Ｒ ＝ ステータス最大攻撃力
 	}
 	//追加OP
     d += weapon_op;//武器の追加攻撃力
@@ -921,7 +921,11 @@ calcchar function calcMinMax(muc:MuChar,cri:Boolean,exd:Boolean,min:Boolean):int
     	}
 	
     //二刀流攻撃力1.1倍
-    if(muc.lefthund){d = Math.floor(d * 0.55);}
+    if(muc.lefthund)
+    	if(muc.job == 6)//レイジファイターのみ1.3倍
+    		d = Math.floor(d * 0.65);
+		else
+			d = Math.floor(d * 0.55);
 
     return d;
 }
@@ -949,9 +953,9 @@ calcchar function calcMinMaxLeft(muc:MuChar,cri:Boolean,exd:Boolean,min:Boolean)
 	    }
 	}else if(dat::d.f_job.selectedLabel == "レイジーファイター"){
 	    if(min){//最小
-	        d = Math.floor(muc.str/7) + Math.floor(muc.vit/14);//Ｒ ＝ ステータス最小攻撃力
+	        d = Math.floor(muc.str/7) + Math.floor(muc.vit/15);//Ｒ ＝ ステータス最小攻撃力
 	    }else{//最大
-	        d = Math.floor(muc.str/5) + Math.floor(muc.vit/10);//Ｒ ＝ ステータス最大攻撃力
+	        d = Math.floor(muc.str/5) + Math.floor(muc.vit/12);//Ｒ ＝ ステータス最大攻撃力
 	    }
 	}
 	//追加OP
@@ -1010,7 +1014,11 @@ calcchar function calcMinMaxLeft(muc:MuChar,cri:Boolean,exd:Boolean,min:Boolean)
     if(muc.fenrir==4)d += muc.lv/12;//黄金のフェンリル　攻撃力増加
 
     //二刀流攻撃力1.1倍
-    d = Math.floor(d * 0.55);
+    if(muc.lefthund)
+    	if(muc.job == 6)//レイジファイターのみ1.3倍
+    		d = Math.floor(d * 0.65);
+		else
+			d = Math.floor(d * 0.55);
 	//後半ダメージ計算=============================================
 	//スキル攻撃力増加
 	d += muc.op_skill;
