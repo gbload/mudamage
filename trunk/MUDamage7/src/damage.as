@@ -438,6 +438,8 @@ damage function calcDamage(muc:MuChar,d:int,elf:Boolean=false,cri:Boolean=false,
     		d += Math.floor(d * Math.floor((100 + muc.agi/8 + muc.ene/10))/100);//スキル%
     	else if(muc.now_skill[5] == 12)//ドラゴンロアー
     		d += Math.floor(d * Math.floor((50 + muc.ene/10))/100);//スキル%
+    	else if(muc.now_skill[5] == 13)//フェニックスショット
+    		d += Math.floor(d * Math.floor((120 + muc.vit/10))/100);//スキル%
     else
     	d += d;//スキル200%
     
