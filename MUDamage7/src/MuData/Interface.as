@@ -123,7 +123,7 @@ static public function getSocketRight(job:int):Array{//ソケット右手の一�
 static public function getSocketLeft(job:int):Array{//ソケット左手の一覧を返す
 
 	var a:Array = [];
-	if(job == 0 || job == 3 || job == 5)//ナイト、魔剣士、召喚師のみ左手に武器を持てる
+	if(job == 0 || job == 3 || job == 5 || job == 6)//ナイト、魔剣士、召喚師のみ左手に武器を持てる
 		for(i=0;i<Socket.socket_weapon.length;i++)
 			if(Socket.socket_weapon[i][5][job])//装備可能職かチェック
 				if(!(job == 5 && Socket.socket_weapon[i][3] == "杖"))//召喚師は左手にロッドは持てない
@@ -152,7 +152,7 @@ static public function getSetRight(job:int):Array{//ソケット右手の一覧�
 static public function getSetLeft(job:int):Array{//ソケット左手の一覧を返す
 
 	var a:Array = [];
-	if(job == 0 || job == 3 || job == 5)//ナイト、魔剣士、召喚師のみ左手に武器を持てる
+	if(job == 0 || job == 3 || job == 5 || job == 6)//ナイト、魔剣士、召喚師のみ左手に武器を持てる
 		for(i=0;i<SetItem.set_weapon.length;i++)
 			if(SetItem.set_weapon[i][5][job])//装備可能職かチェック
 				if(!(job == 5 && SetItem.set_weapon[i][3] == "杖"))//召喚師は左手にロッドは持てない
