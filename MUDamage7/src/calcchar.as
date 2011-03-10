@@ -132,7 +132,7 @@ calcchar function Def(muc:MuChar):MuChar{
 		de += muc.agi/3;
 		avoid = muc.agi/4;
 		pvpavoid = lv*2 + muc.agi/2;
-	}else if(d.f_job.selectedLabel == "レイジーファイター"){
+	}else if(d.f_job.selectedLabel == "レイジファイター"){
 		de += muc.agi/8;
 		avoid = muc.agi/10;
 		pvpavoid = lv*2 + muc.agi/2;
@@ -277,7 +277,7 @@ calcchar function Hit(muc:MuChar):MuChar{
 	}else if(d.f_job.selectedLabel == "召喚師"){
 		muc.hit = lv*5 + muc.agi*1.5 + muc.str/4;
 		muc.pvphit = lv*3 + muc.agi*3.5;
-	}else if(d.f_job.selectedLabel == "レイジーファイター"){
+	}else if(d.f_job.selectedLabel == "レイジファイター"){
 		muc.hit = lv*5 + muc.agi*2.5 + muc.str/6;
 		muc.pvphit = lv*3 + muc.agi*4;
 	}
@@ -332,7 +332,7 @@ calcchar function HP(muc:MuChar):MuChar{
 		hp += muc.add_vit * 2;//セットとソケットの体力＋
 		bmana = 40 + (ene - c.getJobPoint(5,"ene"))*1.5 + (muc.lv-1)*1.5;//ベースとなるマナ
 		mana += (setop_ene + etc_ene) * 1.5;//セットのエナ＋
-	}else if(d.f_job.selectedLabel == "レイジーファイター"){
+	}else if(d.f_job.selectedLabel == "レイジファイター"){
 		bhp = 100 + (vit - c.getJobPoint(6,"vit")) * 2 + (muc.lv-1) * 1;//ベースとなるHP
 		hp += muc.add_vit * 2;//セットとソケットの体力＋
 		bmana = 40 + (ene - c.getJobPoint(6,"ene"))*1.3 + (muc.lv-1)*1;//ベースとなるマナ
@@ -398,7 +398,7 @@ calcchar function HP(muc:MuChar):MuChar{
 		ag = Math.floor((muc.str*0.3)+(muc.agi*0.2)+(muc.vit*0.1)+(muc.ene*0.15)+(muc.rec*0.3));
 	else if(d.f_job.selectedLabel == "召喚師")
 		ag = Math.floor((muc.str*0.2)+(muc.agi*0.25)+(muc.vit*0.3)+(muc.ene*0.15));
-	else if(d.f_job.selectedLabel == "レイジーファイター")
+	else if(d.f_job.selectedLabel == "レイジファイター")
 		ag = Math.floor((muc.str*0.15)+(muc.agi*0.2)+(muc.vit*0.3)+(muc.ene*1.0));
 	if(mlvcount.ag)ag += MLV.inf_ag[mlvcount.ag];//MLV
 	ag += setop_ag;//セットOP
@@ -433,7 +433,7 @@ calcchar function Speed(muc:MuChar):MuChar{
 	}else if(d.f_job.selectedLabel == "召喚師"){
 		speed = muc.agi/20;
 		ms = muc.agi/20;
-	}else if(d.f_job.selectedLabel == "レイジーファイター"){
+	}else if(d.f_job.selectedLabel == "レイジファイター"){
 		speed = muc.agi/9;
 	}
 	
@@ -545,7 +545,7 @@ calcchar function Normal(muc:MuChar):MuChar{
 	//防御無視
 	muc.ignore += wing_ignore;//羽
 	muc.ignore += setop_ignore;//セットOP
-	muc.ignore += muc.support_ignore;//レイジーファイターバフ
+	muc.ignore += muc.support_ignore;//レイジファイターバフ
 	
 	//ダブルダメージ
 	muc.wd += setop_w;//セットOP
@@ -843,7 +843,7 @@ calcchar function calcMinMax(muc:MuChar,cri:Boolean,exd:Boolean,min:Boolean):int
 	}else if(dat::d.f_job.selectedLabel == "召喚師"){
 	    if(min)d = Math.floor((muc.str-1)/9);//Ｒ ＝ ステータス最小攻撃力
 	    else d = Math.floor((muc.str-1)/4);//Ｒ ＝ ステータス最大攻撃力
-	}else if(dat::d.f_job.selectedLabel == "レイジーファイター"){
+	}else if(dat::d.f_job.selectedLabel == "レイジファイター"){
 	    if(min)d = Math.floor(muc.str/7) + Math.floor(muc.vit/15);//Ｒ ＝ ステータス最小攻撃力
 	    else d = Math.floor(muc.str/5) + Math.floor(muc.vit/12);//Ｒ ＝ ステータス最大攻撃力
 	}
@@ -951,7 +951,7 @@ calcchar function calcMinMaxLeft(muc:MuChar,cri:Boolean,exd:Boolean,min:Boolean)
 	    }else{//最大
 	        d = Math.floor((muc.str-1)/4);//Ｒ ＝ ステータス最大攻撃力
 	    }
-	}else if(dat::d.f_job.selectedLabel == "レイジーファイター"){
+	}else if(dat::d.f_job.selectedLabel == "レイジファイター"){
 	    if(min){//最小
 	        d = Math.floor(muc.str/7) + Math.floor(muc.vit/15);//Ｒ ＝ ステータス最小攻撃力
 	    }else{//最大
@@ -1279,7 +1279,7 @@ calcchar function calcPlasmaStorm(muc:MuChar,cri:Boolean,exd:Boolean,min:Boolean
 	    d = Math.floor(muc.str/5 + muc.agi/5 + muc.vit/7 + muc.ene/3 + muc.rec/3);
 	}else if(dat::d.f_job.selectedLabel == "召喚師"){
 	    d = Math.floor(muc.str/5 + muc.agi/5 + muc.vit/7 + muc.ene/3);
-	}else if(dat::d.f_job.selectedLabel == "レイジーファイター"){
+	}else if(dat::d.f_job.selectedLabel == "レイジファイター"){
 	    d = Math.floor(muc.str/5 + muc.agi/5 + muc.vit/3 + muc.ene/7);
 	}
 	//スキル威力

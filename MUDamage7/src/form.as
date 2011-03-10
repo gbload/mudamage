@@ -327,7 +327,7 @@ private function formJob():FormItem{
 	co.rowCount = 10;
 	dat::d.f_job = co;
 	co.dataProvider = new ArrayCollection(
-		["ナイト","ウィザード","エルフ","魔剣士","ダークロード","召喚師","レイジーファイター"]);
+		["ナイト","ウィザード","エルフ","魔剣士","ダークロード","召喚師","レイジファイター"]);
 	co.addEventListener(ListEvent.CHANGE,click::jobChange);
 	fi.addChild(co);
 	
