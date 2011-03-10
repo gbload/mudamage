@@ -50,6 +50,7 @@ form var setbox:Array = new Array();//セットステータス
 form var sobox:Array = new Array();//ソケットオプション
 form var box380:Array = new Array();//380OP
 form var helmbox:Container;//兜
+form var glovebox:Container;//兜
 form var fruitpoint:Array = new Array();//実のポイント
 form var mlvpoint:Label;//MLVのポイント
 form var mlvBox:Box;//MLV
@@ -240,7 +241,8 @@ form function init():void{
 	f.addChild(formEquip("鎧:",d.f_armor,d.f_armor.name));
 	
 	//手フォームの作成
-	f.addChild(formEquip("手:",d.f_glove,d.f_glove.name));
+	form::glovebox = formEquip("手:",d.f_glove,d.f_glove.name);
+	f.addChild(form::glovebox);
 	
 	//腰フォームの作成
 	f.addChild(formEquip("腰:",d.f_garter,d.f_garter.name));

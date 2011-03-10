@@ -1,4 +1,5 @@
 // ActionScript file
+import mx.core.UIComponent;
 import Csv.Item;
 
 import MuCalc.MLV;
@@ -432,8 +433,14 @@ click function jobChange(event:Event):void{
 	else
 		d.f_left.f_kind.dataProvider = ["なし","通常","EX","セット","ソケット","EXソケット"];
 	//レイジーファイターの場合、敵の防御力無視を表示
-	if(d.f_job.selectedLabel == "レイジーファイター")show(form::ignorebox);
-	else{hide(form::ignorebox);d.s_ignore.selected = false;}
+	if(d.f_job.selectedLabel == "レイジーファイター"){
+		show(form::ignorebox);
+		form::glovebox.visible = false;
+	}else{
+		hide(form::ignorebox);
+		d.s_ignore.selected = false;
+		form::glovebox.visible = true;
+	}
 	
 }
 click function soopChange(event:Event):Boolean{
