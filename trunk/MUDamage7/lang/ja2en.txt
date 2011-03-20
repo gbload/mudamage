@@ -1,0 +1,3296 @@
+すでのそのタイトルのデータが存在します。上書きしますか？
+Data for the title already exists. Overwrite?
+備考：インナーベーション(IV:innervation)・・・敵の防御力低下\n
+Note:Innovation(IV) - Lowers enemies' defense\n
+エンブレムやイベントの経験値増加を入力してください。\n\n
+Please enter the experience increasing of the event or the seal.\n\n
+上記リストから削除するデータを選択してください。
+Please select the data to delete from the list above.
+指定したタイトルのデータが見つかりませんでした。
+Could not find the specified data of the title.
+イベントで経験値2倍、豊穣で2倍　→　合計400%\n
+Experience at the event twice and  [Seal of Wealth] twice  -> the total of 400% \n
+スケルトン変身の指輪　攻撃力+40/魔力+40/呪い+40
+Skeleton Transformation Ring Damage/Magic/Curse +40
+ウイークネス(WN:weakness)・・・敵の攻撃力低下\n
+Weakness(WN) - Weakens damages from enemies' attack\n
+キングスカルアーチャー7（10～15分経過）
+Orc Archer7(after 10~15min)
+キングスカルアーチャー7（5～10分経過）
+Orc Archer7(after 5~10min)
+キングスカルアーチャー1（10～15分経過)
+Orc Archer1(after 10~15min)
+キングスカルアーチャー2（10～15分経過)
+Orc Archer2(after 10~15min)
+キングスカルアーチャー3（10～15分経過)
+Orc Archer3(after 10~15min)
+キングスカルアーチャー4（10～15分経過)
+Orc Archer4(after 10~15min)
+キングスカルアーチャー5（10～15分経過)
+Orc Archer5(after 10~15min)
+キングスカルアーチャー6（10～15分経過)
+Orc Archer6(after 10~15min)
+キングスカルアーチャー7（0～5分経過）
+Orc Archer7(after 0~5min)
+キングスカルアーチャー1（5～10分経過)
+Orc Archer1(after 5~10min)
+キングスカルアーチャー2（5～10分経過)
+Orc Archer2(after 5~10min)
+キングスカルアーチャー3（5～10分経過)
+Orc Archer3(after 5~10min)
+キングスカルアーチャー4（5～10分経過)
+Orc Archer4(after 5~10min)
+キングスカルアーチャー5（5～10分経過)
+Orc Archer5(after 5~10min)
+キングスカルアーチャー6（5～10分経過)
+Orc Archer6(after 5~10min)
+ダークスカルアーマー7（10～15分経過）
+Spirit Soldier7(after 10~15min)
+レッドスカルアーマー7（10～15分経過）
+Spirit Knight7(after 10~15min)
+キングスカルアーチャー1（0～5分経過)
+Orc Archer1(after 0~5min)
+キングスカルアーチャー2（0～5分経過)
+Orc Archer2(after 0~5min)
+キングスカルアーチャー3（0～5分経過)
+Orc Archer3(after 0~5min)
+キングスカルアーチャー4（0～5分経過)
+Orc Archer4(after 0~5min)
+キングスカルアーチャー5（0～5分経過)
+Orc Archer5(after 0~5min)
+キングスカルアーチャー6（0～5分経過)
+Orc Archer6(after 0~5min)
+ダークスカルアーマー7（5～10分経過）
+Spirit Soldier7(after 5~10min)
+レッドスカルアーマー7（5～10分経過）
+Spirit Knight7(after 5~10min)
+絆のエンブレムを3人PTで使用　→　210%
+-
+Error:データの保存に失敗しました。　
+Error:Failed to store data.
+ダークスカルアーマー1（10～15分経過)
+Spirit Soldier1(after 10~15min)
+ダークスカルアーマー2（10～15分経過)
+Spirit Soldier2(after 10~15min)
+ダークスカルアーマー3（10～15分経過)
+Spirit Soldier3(after 10~15min)
+ダークスカルアーマー4（10～15分経過)
+Spirit Soldier4(after 10~15min)
+ダークスカルアーマー5（10～15分経過)
+Spirit Soldier5(after 10~15min)
+ダークスカルアーマー6（10～15分経過)
+Spirit Soldier6(after 10~15min)
+ダークスカルアーマー7（0～5分経過）
+Spirit Soldier7(after 0~5min)
+ダークスカルアーマー8（10～15分経過)
+Spirit Soldier8(after 10~15min)
+レッドスカルアーマー1（10～15分経過)
+Spirit Knight1(after 10~15min)
+レッドスカルアーマー2（10～15分経過)
+Spirit Knight2(after 10~15min)
+レッドスカルアーマー3（10～15分経過)
+Spirit Knight3(after 10~15min)
+レッドスカルアーマー4（10～15分経過)
+Spirit Knight4(after 10~15min)
+レッドスカルアーマー5（10～15分経過)
+Spirit Knight5(after 10~15min)
+レッドスカルアーマー6（10～15分経過)
+Spirit Knight6(after 10~15min)
+レッドスカルアーマー7（0～5分経過）
+Spirit Knight7(after 0~5min)
+レッドスカルアーマー8（10～15分経過)
+Spirit Knight8(after 10~15min)
+保存されているデータがありません。
+There is no data being saved.
+備考：SL = (体力/100)+(エナ/20)+(PT人数-1)
+Note:SL = (vit/100)+(ene/20)+([PT member]-1)
+ダークスカルアーマー1（5～10分経過)
+Spirit Soldier1(after 5~10min)
+ダークスカルアーマー2（5～10分経過)
+Spirit Soldier2(after 5~10min)
+ダークスカルアーマー3（5～10分経過)
+Spirit Soldier3(after 5~10min)
+ダークスカルアーマー4（5～10分経過)
+Spirit Soldier4(after 5~10min)
+ダークスカルアーマー5（5～10分経過)
+Spirit Soldier5(after 5~10min)
+ダークスカルアーマー6（5～10分経過)
+Spirit Soldier6(after 5~10min)
+ダークスカルアーマー8（5～10分経過)
+Spirit Soldier8(after 5~10min)
+レッドスカルアーマー1（5～10分経過)
+Spirit Knight1(after 5~10min)
+レッドスカルアーマー2（5～10分経過)
+Spirit Knight2(after 5~10min)
+レッドスカルアーマー3（5～10分経過)
+Spirit Knight3(after 5~10min)
+レッドスカルアーマー4（5～10分経過)
+Spirit Knight4(after 5~10min)
+レッドスカルアーマー5（5～10分経過)
+Spirit Knight5(after 5~10min)
+レッドスカルアーマー6（5～10分経過)
+Spirit Knight6(after 5~10min)
+レッドスカルアーマー8（5～10分経過)
+Spirit Knight8(after 5~10min)
+ダークスカルアーマー1（0～5分経過)
+Spirit Soldier1(after 0~5min)
+ダークスカルアーマー2（0～5分経過)
+Spirit Soldier2(after 0~5min)
+ダークスカルアーマー3（0～5分経過)
+Spirit Soldier3(after 0~5min)
+ダークスカルアーマー4（0～5分経過)
+Spirit Soldier4(after 0~5min)
+ダークスカルアーマー5（0～5分経過)
+Spirit Soldier5(after 0~5min)
+ダークスカルアーマー6（0～5分経過)
+Spirit Soldier6(after 0~5min)
+ダークスカルアーマー8（0～5分経過)
+Spirit Soldier8(after 0~5min)
+パンダ変化の指輪　攻撃力+30/魔力+30
+Panda Ring Damage/Magic/Curse +30
+レッドスカルアーマー1（0～5分経過)
+Spirit Knight1(after 0~5min)
+レッドスカルアーマー2（0～5分経過)
+Spirit Knight2(after 0~5min)
+レッドスカルアーマー3（0～5分経過)
+Spirit Knight3(after 0~5min)
+レッドスカルアーマー4（0～5分経過)
+Spirit Knight4(after 0~5min)
+レッドスカルアーマー5（0～5分経過)
+Spirit Knight5(after 0~5min)
+レッドスカルアーマー6（0～5分経過)
+Spirit Knight6(after 0~5min)
+レッドスカルアーマー8（0～5分経過)
+Spirit Knight8(after 0~5min)
+対人ダメージ+200　対人攻撃成功率+10
+PvP Attack+200 PvP Attack Success Rate+10
+セメデンのレッドウイングアーマー
+Sedemen Red Wing Armor
+データの保存を許可してください。
+Please allow storage of data.
+バンガイオンのケルベロスアーマー
+Gaion Storm Crow Armor
+バンガイオンのケルベロスガーダー
+Gaion Storm Crow Pants
+スペルエンハンス(最小魔力20%上昇)
+Expansion of Wizardry(Minimum Dmg+20%)
+対人防御力+200　対人防御成功率+10
+PvP Defense+200 PvP Defense Success Rate+10
+アグニスのダークソウルアーマー
+Agnis Adamantine Armor
+アグニスのダークソウルガーダー
+Agnis Adamantine Pants
+アヌビスのオーディーンのグラブ
+Anubis Legendary Gloves
+イシスのオーディーンのガーダー
+Enis Legendary Pants
+オークアーチャー8（10～15分経過)
+Orc Archer8(after 10~15min)
+ガウェインのスキルのネックレス
+Gywen Pendant Ability
+クロノのレッドウイングガーダー
+Chrono Red Wing Pants
+セメデンのレッドウインググラブ
+Sedemen Red Wing Gloves
+セメデンのレッドウイングブーツ
+Sedemen Red Wing Boots
+セメデンのレッドウイングヘルム
+Sedemen Red Wing Helm
+バンガイオンのケルベロスブーツ
+Gaion Storm Crow Boots
+ヘラスのスフィンクスのガーダー
+Heras Sphinx Pants
+オークアーチャー8（5～10分経過)
+Orc Archer8(after 5~10min)
+IV = (エナ/90)+20 | WN = (エナ/65)+7 \n
+IV = (ene/90)+20 | WN = (ene/65)+7 \n
+オークアーチャー8（0～5分経過)
+Orc Archer8(after 0~5min)
+モンスターkill時マナ回復(マナ/)
+Monster Attack Mana Increment(Mana/)
+モンスターkill時生命回復(生命/)
+Monster Attack Life Increment(HP/)
+最大生命+200　対人防御成功率+10
+Max Life+200 PvP Defense Success Rate+10
+アグニスのダークソウルマスク
+Agnis Adamantine Helm
+アプルナスのスケイルアーマー
+Eplete Scale Armor
+アプルナスのスケイルガーダー
+Eplete Scale Pants
+アプルナスの稲妻のネックレス
+Eplete Pendant Lightning
+アルアンのパルテナのガーダー
+Aruan Guardian Pants
+イシスのオーディーンのブーツ
+Enis Legendary Boots
+ガウェインのパルテナのグラブ
+Gywen Guardian Gloves
+ガウェインのパルテナのブーツ
+Gywen Guardian Boots
+クロノのレッドウインググラブ
+Chrono Red Wing Gloves
+クロノのレッドウイングヘルム
+Chrono Red Wing Helm
+データをインポートしました。
+Imported data.
+ドッペルゲンガー・ヴィシャス
+Knight Doppleganger
+ハイペリオンの青銅のガーダー
+Hyperion Bronze Pants
+バンガイオンの水のネックレス
+Gaion Pendant Water
+ブロイのダークソウルガーダー
+Broy Adamantine Pants
+ヘラスのスフィンクスのグラブ
+Heras Sphinx Gloves
+ヘラスのスフィンクスのブーツ
+Heras Sphinx Boots
+ミネのスフィンクスのガーダー
+Minet Sphinx Pants
+ミュレンのケルベロスアーマー
+Muren Storm Crow Armor
+ミュレンのケルベロスガーダー
+Muren Storm Crow Pants
+ヴィシャスのドラゴンアーマー
+Vicious Dragon Armor
+ヴィシャスのドラゴンガーダー
+Vicious Dragon Pants
+以下のタイトルで保存します。
+Save the following titles.
+A+,G+共にMLVでの上昇値は未検証
+A+,G+ is Untested in MLV
+SD回復量+20　対人防御成功率+10
+SD Increment+20 PvP Defense Success Rate+10
+SD自動回復　対人防御成功率+10
+SD Auto Increment  PvP Defense Success Rate+10
+\n現在保存されているデータ：
+\nThe data is currently stored:
+アークエンジェルスタッフ(新)
+Staff of Archangel(new)
+アークエンジェルスタッフ(旧)
+Staff of Archangel(old)
+アークエンジェルセプター(新)
+Scepter of Archangel(new)
+アークエンジェルセプター(旧)
+Scepter of Archangel(old)
+エクセレントダメージ確率 +10%
+Excellent Damage rate increase+10%
+エクセレントダメージ確率 +15%
+Excellent Damage rate increase+15%
+クリティカルダメージ確率 +10%
+Critical Damage success rate increase+10%
+クリティカルダメージ確率 +15%
+Critical Damage success rate increase+15%
+クリティカルダメージ確率 +20%
+Critical Damage success rate increase+20%
+両手剣装備時ダメージ増加 +20%
+Increase Two-handed Weapon Equipment Damage +20%
+両手剣装備時ダメージ増加 +30%
+Increase Two-handed Weapon Equipment Damage +30%
+暗黒のオウガ7（10～15分経過）
+Spirit Beast7(after 10~15min)
+エクセレントダメージ確率 +5%
+Excellent Damage rate increase+5%
+クリティカルダメージ確率 +5%
+Critical Damage success rate increase+5%
+暗黒のオウガ7（5～10分経過）
+Spirit Beast7(after 5~10min)
+第二師団長 烈火のベルモント
+Vermont
+2人200% 3人210% 4人220% 5人230%\n\n
+-\n\n
+アヌビスのオーディーンの兜
+Anubis Legendary Helm
+アヌビスのオーディーンの鎧
+Anubis Legendary Armor
+アプルナスのスケイルヘルム
+Eplete Scale Helm
+アルアンのパルテナのブーツ
+Aruan Guardian Boots
+エクスプロージョンブレード
+Explosion Blade
+エターナルウイングアーマー
+Eternal Wing Armor
+エターナルウイングガーダー
+Eternal Wing Pants
+オーディーンの風のガーダー
+Odin Wind Pants
+ガルーダのミスリルアーマー
+Garuda Brass Armor
+ガルーダのミスリルガーダー
+Garuda Brass Pants
+クラウドのミスリルガーダー
+Cloud Brass Pants
+クリスタルモーニングスター
+Crystal Morning Star
+グリードのスケイルアーマー
+Berserker Scale Armor
+グリードのスケイルガーダー
+Berserker Scale Pants
+ドッペルゲンガー・アヌビス
+Doppleganger Wizard
+ドッペルゲンガー・ミュレン
+Doppleganger Magic
+ドラークのエルフのガーダー
+Drake Vine Pants
+ハイペリオンの青銅のブーツ
+Hyperion Bronze Boots
+フェイズのシルクのガーダー
+Fase Silk Pants
+フェニックスソウルアーマー
+Soul Phoenix Star Armor
+フェニックスソウルガーダー
+Soul Phoenix Star Pants
+ブラッティウィッチクイーン
+Bloody Witch Queen
+ブロイのダークソウルグラブ
+Broy Adamantine Gloves
+ブロイのダークソウルブーツ
+Broy Adamantine Boots
+ヘラスのスフィンクスの仮面
+Heras Sphinx Helm
+ミネのスフィンクスのブーツ
+Minet Sphinx Boots
+ミュレンのケルベロスグラブ
+Muren Storm Crow Gloves
+ヴィシャスのドラゴンヘルム
+Vicious Dragon Helm
+以下のタイトルを開きます。
+Open the following title.
+暗黒のオウガ1（10～15分経過)
+Spirit Beast1(after 10~15min)
+暗黒のオウガ2（10～15分経過)
+Spirit Beast2(after 10~15min)
+暗黒のオウガ3（10～15分経過)
+Spirit Beast3(after 10~15min)
+暗黒のオウガ4（10～15分経過)
+Spirit Beast4(after 10~15min)
+暗黒のオウガ5（10～15分経過)
+Spirit Beast5(after 10~15min)
+暗黒のオウガ6（10～15分経過)
+Spirit Beast6(after 10~15min)
+暗黒のオウガ7（0～5分経過）
+Spirit Beast7(after 0~5min)
+暗黒のオウガ8（10～15分経過)
+Spirit Beast8(after 10~15min)
+最大SD+700　対人防御成功率+10
+Max SD+700 PvP Defense Success Rate+10
+アークエンジェルソード(新)
+Divine Sword of Archangel(new)
+アークエンジェルソード(旧)
+Divine Sword of Archangel(old)
+暗黒のオウガ1（5～10分経過)
+Spirit Beast1(after 5~10min)
+暗黒のオウガ2（5～10分経過)
+Spirit Beast2(after 5~10min)
+暗黒のオウガ3（5～10分経過)
+Spirit Beast3(after 5~10min)
+暗黒のオウガ4（5～10分経過)
+Spirit Beast4(after 5~10min)
+暗黒のオウガ5（5～10分経過)
+Spirit Beast5(after 5~10min)
+暗黒のオウガ6（5～10分経過)
+Spirit Beast6(after 5~10min)
+暗黒のオウガ8（5～10分経過)
+Spirit Beast8(after 5~10min)
+骸骨の戦士7（10～15分経過）
+Orc Warrior7(after 10~15min)
+髑髏メイジ7（10～15分経過）
+Spirit Sorcerer7(after 10~15min)
+備考：C+ = (エナ/30)+(統率/25)
+note: C+ = (ene/30)+(rec/25)
+副司令官 雷撃のレイモンド
+Raymond
+暗黒のオウガ1（0～5分経過)
+Spirit Beast1(after 0~5min)
+暗黒のオウガ2（0～5分経過)
+Spirit Beast2(after 0~5min)
+暗黒のオウガ3（0～5分経過)
+Spirit Beast3(after 0~5min)
+暗黒のオウガ4（0～5分経過)
+Spirit Beast4(after 0~5min)
+暗黒のオウガ5（0～5分経過)
+Spirit Beast5(after 0~5min)
+暗黒のオウガ6（0～5分経過)
+Spirit Beast6(after 0~5min)
+暗黒のオウガ8（0～5分経過)
+Spirit Beast8(after 0~5min)
+石造破壊シミュレータ(β版)
+Blood Castle AA Getter Simulator(beta)
+第一師団長 月光のデスラー
+Destler
+骸骨の戦士7（5～10分経過）
+Orc Warrior7(after 5~10min)
+髑髏メイジ7（5～10分経過）
+Spirit Sorcerer7(after 5~10min)
+アタックプラス強化(エナ/)
+Greater Damage Increse(ene/)
+アルゴスの精霊のガーダー
+Argo Spirit Pants
+アルビアンの風のガーダー
+Elvian Wind Pants
+イシスのオーディーンの兜
+Enis Legendary Helm
+イシスのオーディーンの鎧
+Enis Legendary Armor
+エクセレントダメージ確率
+Excellent Damage rate increase
+エターナルウインググラブ
+Eternal Wing Gloves
+エターナルウイングブーツ
+Eternal Wing Boots
+エターナルウイングヘルム
+Eternal Wing Helm
+エターナルウイングロッド
+Eternal Wing Stick
+オーク戦士8（10～15分経過)
+Orc Warrior8(after 10~15min)
+オーディーンの風のグラブ
+Odin Wind Gloves
+オーディーンの風のブーツ
+Odin Wind Boots
+カオティックディセイアー
+Chaotic Diseier
+カンタータの鋼鉄のグラブ
+Kantata Plate Gloves
+カンタータの鋼鉄のブーツ
+Kantata Plate Boots
+ガイアのシルクのガーダー
+Gaia Silk Pants
+ガウェインのパルテナの鎧
+Gywen Guardian Armor
+ガウェインのプラチナボウ
+Gywen Silver Bow
+ガルーダのミスリルグラブ
+Garuda Brass Gloves
+ガルーダのミスリルブーツ
+Garuda Brass Boots
+ガルーダの炎のネックレス
+Garuda Pendant Fire
+クリティカルダメージ確率
+Critical Damage success rate increase
+グリードのスケイルグラブ
+Berserker Scale Gloves
+グリードのスケイルブーツ
+Berserker Scale Boots
+グリードのスケイルヘルム
+Berserker Scale Helm
+グレートドラゴンアーマー
+Great Dragon Armor
+グレートドラゴンガーダー
+Great Dragon Pants
+シャイニングブラスト強化
+Cometfall Increase
+ジェノサイダーウォーリア
+Genocider Warrior
+スケルトンパージドラゴン
+Skeleton Budge Dragon
+ストームブリッツアーマー
+Storm Blitz Armor
+ストームブリッツガーダー
+Storm Blitz Pants
+ダークブリザードアーマー
+Dark Steel Armor
+ダークブリザードガーダー
+Dark Steel Pants
+チェーンライトニング強化
+Chain Lightning Increase
+ディメンションウォーカー
+Ice Walker
+ディメンションプリズナー
+Slaughterer
+デススピリット（訓練兵）
+Death Spirit (Training)
+データを読み込みました。
+Loaded data.
+トルネードクラッシュ強化
+Twisting Slash Increase
+ドッペルゲンガー・カリス
+Elf Doppleganger
+ドッペルゲンガー・クロノ
+Summoner Doppleganger
+ドッペルゲンガー・ブロイ
+Lord Doppleganger
+ドラークのエルフのブーツ
+Drake Vine Boots
+ハイオンのドラゴングラブ
+Hyon Dragon Gloves
+ハイオンのドラゴンブーツ
+Hyon Dragon Boots
+ハイオンのドラゴンヘルム
+Hyon Dragon Helm
+フェイズのシルクのグラブ
+Fase Silk Gloves
+フェイズのシルクのブーツ
+Fase Silk Boots
+フェニックスソウルクロー
+Soul Phoenix Star Claw
+フェニックスソウルブーツ
+Soul Phoenix Star Boots
+フェニックスソウルヘルム
+Soul Phoenix Star Helm
+ブラックドラゴンアーマー
+Black Dragon Armor
+ブラックドラゴンガーダー
+Black Dragon Pants
+ヘラスのスフィンクスの鎧
+Heras Sphinx Armor
+ライトニングショック強化
+Lightning Shock Increase
+レイジファイターアーマー
+Rage Fighter Armor
+レイジファイターガーダー
+Rage Fighter Pants
+レッドスピリットアーマー
+Red Spirit Armor
+レッドスピリットガーダー
+Red Spirit Pants
+両手剣装備時ダメージ増加
+Increase Two-handed Weapon Equipment Damage
+狂戦士のモーニングスター
+Warrior Morning Star
+骸骨の戦士1（10～15分経過)
+Orc Warrior1(after 10~15min)
+骸骨の戦士2（10～15分経過)
+Orc Warrior2(after 10~15min)
+骸骨の戦士3（10～15分経過)
+Orc Warrior3(after 10~15min)
+骸骨の戦士4（10～15分経過)
+Orc Warrior4(after 10~15min)
+骸骨の戦士5（10～15分経過)
+Orc Warrior5(after 10~15min)
+骸骨の戦士6（10～15分経過)
+Orc Warrior6(after 10~15min)
+骸骨の戦士7（0～5分経過）
+Orc Warrior7(after 0~5min)
+髑髏メイジ1（10～15分経過)
+Spirit Sorcerer1(after 10~15min)
+髑髏メイジ2（10～15分経過)
+Spirit Sorcerer2(after 10~15min)
+髑髏メイジ3（10～15分経過)
+Spirit Sorcerer3(after 10~15min)
+髑髏メイジ4（10～15分経過)
+Spirit Sorcerer4(after 10~15min)
+髑髏メイジ5（10～15分経過)
+Spirit Sorcerer5(after 10~15min)
+髑髏メイジ6（10～15分経過)
+Spirit Sorcerer6(after 10~15min)
+髑髏メイジ7（0～5分経過）
+Spirit Sorcerer7(after 0~5min)
+髑髏メイジ8（10～15分経過)
+Spirit Sorcerer8(after 10~15min)
+アークエンジェルボウ(新)
+Bow of Archangel(new)
+アークエンジェルボウ(旧)
+Bow of Archangel(old)
+オーク戦士8（5～10分経過)
+Orc Warrior8(after 5~10min)
+モンスターkill時SD回復(SD/)
+Monster Attack SD Increment(SD/)
+備考：SB = (敏/50)+(エナ/200)
+note:SB = (agi/50)+(ene/200)
+骸骨の戦士1（5～10分経過)
+Orc Warrior1(after 5~10min)
+骸骨の戦士2（5～10分経過)
+Orc Warrior2(after 5~10min)
+骸骨の戦士3（5～10分経過)
+Orc Warrior3(after 5~10min)
+骸骨の戦士4（5～10分経過)
+Orc Warrior4(after 5~10min)
+骸骨の戦士5（5～10分経過)
+Orc Warrior5(after 5~10min)
+骸骨の戦士6（5～10分経過)
+Orc Warrior6(after 5~10min)
+髑髏メイジ1（5～10分経過)
+Spirit Sorcerer1(after 5~10min)
+髑髏メイジ2（5～10分経過)
+Spirit Sorcerer2(after 5~10min)
+髑髏メイジ3（5～10分経過)
+Spirit Sorcerer3(after 5~10min)
+髑髏メイジ4（5～10分経過)
+Spirit Sorcerer4(after 5~10min)
+髑髏メイジ5（5～10分経過)
+Spirit Sorcerer5(after 5~10min)
+髑髏メイジ6（5～10分経過)
+Spirit Sorcerer6(after 5~10min)
+髑髏メイジ8（5～10分経過)
+Spirit Sorcerer8(after 5~10min)
+アルゴスの 精霊のグラブ
+Argo Spirit Gloves
+エクスポート/インポート
+Export/Import
+エクセレントダメージ +10
+Excellent Damage+10
+エクセレントダメージ +20
+Excellent Damage+20
+エクセレントダメージ +30
+Excellent Damage+30
+オーク戦士8（0～5分経過)
+Orc Warrior8(after 0~5min)
+クリティカルダメージ +20
+Critical Damage+20
+クリティカルダメージ +50
+Critical Damage+50
+シーズン5PVに映ってたBOSS
+-
+参謀長 漆黒のジェリント
+Jerint
+第四師団長 疾風のガリア
+Gaul
+骸骨の戦士1（0～5分経過)
+Orc Warrior1(after 0~5min)
+骸骨の戦士2（0～5分経過)
+Orc Warrior2(after 0~5min)
+骸骨の戦士3（0～5分経過)
+Orc Warrior3(after 0~5min)
+骸骨の戦士4（0～5分経過)
+Orc Warrior4(after 0~5min)
+骸骨の戦士5（0～5分経過)
+Orc Warrior5(after 0~5min)
+骸骨の戦士6（0～5分経過)
+Orc Warrior6(after 0~5min)
+髑髏メイジ1（0～5分経過)
+Spirit Sorcerer1(after 0~5min)
+髑髏メイジ2（0～5分経過)
+Spirit Sorcerer2(after 0~5min)
+髑髏メイジ3（0～5分経過)
+Spirit Sorcerer3(after 0~5min)
+髑髏メイジ4（0～5分経過)
+Spirit Sorcerer4(after 0~5min)
+髑髏メイジ5（0～5分経過)
+Spirit Sorcerer5(after 0~5min)
+髑髏メイジ6（0～5分経過)
+Spirit Sorcerer6(after 0~5min)
+髑髏メイジ8（0～5分経過)
+Spirit Sorcerer8(after 0~5min)
+アッシュクローアーマー
+Ashcrow Armor
+アッシュクローガーダー
+Ashcrow Pants
+アブソリュートセプター
+Absolute Scepter
+アポロの氷のネックレス
+Apollo Pendant Ice
+アポロの魔導のガーダー
+Apollo Pad Pants
+アルアンのパルテナの兜
+Aruan Guardian Helm
+アルアンのパルテナの鎧
+Aruan Guardian Armor
+アルビアンの風のブーツ
+Elvian Wind Boots
+アークエンジェルクロー
+Claw of Archangel
+アークエンジェルロッド
+Stick of Archangel
+エレクトリックスパーク
+Electric Spike
+オーディーンのガーダー
+Legendary Pants
+カオスサンダースタッフ
+Chaos Lightning Staff
+カオスドラゴンアックス
+Chaos Dragon Axe
+カリスの精霊のガーダー
+Karis Spirit Pants
+カンタータの毒のリング
+Kantata Ring of Poison
+カンタータの風のリング
+Kantata Ring of Wind
+ガイアのシルクのグラブ
+Gaia Silk Gloves
+ガイオンディフェンダー
+Bodyguard
+ガードプラス強化(エナ/)
+Great Defense Increase (ene/)
+ギガンティスウォーリア
+Gigantis Warrior
+ギガンティックストーム
+Gigantic Storm
+クラウドのミスリルの兜
+Cloud Brass Helm
+グランドソウルシールド
+Grand Soul Shield
+グランドヴァイパーの杖
+Grand Viper Staff
+グレートドラゴングラブ
+Great Dragon Gloves
+グレートドラゴンブーツ
+Great Dragon Boots
+グレートドラゴンヘルム
+Great Dragon Helm
+グレートロードセプター
+Great Lord Scepter
+ケンタウロスウォーリア
+Kentarus Warrior
+シリオンの骸骨のグラブ
+Sylion Bone Gloves
+シリオンの骸骨のブーツ
+Sylion Bone Boots
+ストームブリッツグラブ
+Storm Blitz Gloves
+ストームブリッツブーツ
+Storm Blitz Boots
+ストームブリッツヘルム
+Storm Blitz Helm
+ストームブリッツロッド
+Storm Blitz Stick
+スフィンクスのガーダー
+Sphinx Pants
+セトのエルフのガーダー
+Ceto Vine Pants
+ダークエルフ（訓練兵）
+Dark Elf (Training)
+ダークブリザードグラブ
+Dark Steel Gloves
+ダークブリザードブーツ
+Dark Steel Boots
+ダークブリザードマスク
+Dark Steel Helm
+ダークマスターアーマー
+Dark Master Armor
+ダークマスターガーダー
+Dark Master Pants
+ディメンションウイング
+Wing of Dimensions
+データを保存しました。
+Saved data.
+ドラゴンナイトアーマー
+Dragon Knight Armor
+ドラゴンナイトガーダー
+Dragon Knight Pants
+ハイペリオンの青銅の鎧
+Hyperion Bronze Armor
+バネクの魔導のガーダー
+Barnake Pad Pants
+バルガスの兵営・安息所
+Barracks of Balgass
+ファイアスクリーム強化
+Fire Scream Increase
+フェニックスのガーダー
+Dark Phoenix Pants
+ブラックソウルアーマー
+Dark Soul Armor
+ブラックソウルガーダー
+Dark Soul Pants
+ブラックドラゴングラブ
+Black Dragon Gloves
+ブラックドラゴンブーツ
+Black Dragon Boots
+ブラックドラゴンヘルム
+Black Dragon Helm
+ブラッティデスライダー
+Bloody Death Rider
+ブロイの氷のネックレス
+Broy Pendant Ice
+ミストの青銅のガーダー
+Mist Bronze Pants
+ミネのスフィンクスの鎧
+Minet Sphinx Armor
+レイジファイタークロー
+Rage Fighter Claw
+レイジファイターブーツ
+Rage Fighter Boots
+レイジファイターヘルム
+Rage Fighter Helm
+レイブの鋼鉄のガーダー
+Rave Plate Pants
+レッドウイングアーマー
+Red Wing Armor
+レッドウイングガーダー
+Red Wing Pants
+レッドスピリットグラブ
+Red Spirit Gloves
+レッドスピリットブーツ
+Red Spirit Boots
+レッドスピリットヘルム
+Red Spirit Helm
+ヴィシャスの地のリング
+Vicious Ring of Earth
+備考：※A+の要求エナ92\n
+note:A+ is required 92 ene.\n
+無名のレザーバックラー
+Anonymous Large Shield
+阿修羅の風のネックレス
+Evis Bone Pendant Wind
+阿修羅の骸骨のガーダー
+Evis Bone Pants
+LVを400にしてください。
+Please levels 400.
+インナーベーション：0%
+Innovation:0%
+ダブルダメージ確率 +10%
+Double Damage Rate+10%
+ダブルダメージ確率 +15%
+Double Damage Rate+15%
+ダブルダメージ確率 +20%
+Double Damage Rate+20%
+ダブルダメージ確率 +5%
+Double Damage Rate+5%
+修練のエンブレム:150%\n
+-\n
+第三師団長 激流のカト
+Kato
+豊穣のエンブレム:200%\n
+-\n
+軍団長 大地のエルカン
+Erkanne
+アグニスの毒のリング
+Agnis Ring of Poison
+アックスウォーリアー
+Axe Warrior
+アッシュクローグラブ
+Ashcrow Gloves
+アッシュクローブーツ
+Ashcrow Boots
+アッシュクローヘルム
+Ashcrow Helm
+アヌビスの炎のリング
+Anubis Ring of Fire
+アプルナスの鋼鉄の盾
+Eplete Shield Plate
+アポロの魔導のグラブ
+Apollo Pad Gloves
+アポロの魔法のリング
+Apollo Ring of Magic
+アーティクルマスター
+Grand Wizard
+インナーベーション：
+Innovation:
+インベリアルスタッフ
+Imberial Staff
+ウェアウルフヒーロー
+Werewolf (Hero)
+エクセレントダメージ
+Excellent Damage
+エレメンタルシールド
+Elemental Shield
+エンシェントアーマー
+Ancient Armor
+エンシェントガーダー
+Ancient Pants
+オメガインパクト強化
+Earth Break Increase
+オーディーンのグラブ
+Legendary Gloves
+オーディーンのブーツ
+Legendary Boots
+オーディーンの風の兜
+Odin Wind Helm
+オーディーンの風の鎧
+Odin Wind Armor
+カウンターリベリオン
+Imperial Guardian
+カオスネイチャーボウ
+Chaos Nature Bow
+カリスの精霊のブーツ
+Karis Spirit Boots
+カンタータの鋼鉄の鎧
+Kantata Plate Armor
+ガーディアンシールド
+Guardian Shield
+キャプテングリズリー
+Captain Grizzly
+クリティカルダメージ
+Critical Damage
+クリムゾングローリー
+Crimson Glory Shield
+クロノの魔法のリング
+Chrono Ring of Magic
+クロマチックスタッフ
+Chromatic Staff
+サラマンダーシールド
+Salamander Shield
+シャイニングセプター
+Shining Scepter
+シャイニングブラスト
+Cometfall
+シルフィードアーマー
+Sylphid Ray Armor
+シルフィードガーダー
+Sylphid Ray Pants
+ジェノサイドアーマー
+Phantom Armor
+ジェノサイドガーダー
+Phantom Pants
+ジャイアントマンモス
+Giant Mammoth
+スウェルライフ強化(%)
+Swell Life Increase(%)
+ストライカーセプター
+Striker Scepter
+スフィンクスのグラブ
+Sphinx Gloves
+スフィンクスのブーツ
+Sphinx Boots
+セイクリッドアーマー
+Sacred Armor
+セイクリッドガーダー
+Sacred Pants
+セトのエルフのグラブ
+Ceto Vine Gloves
+セトのエルフのブーツ
+Ceto Vine Boots
+ダークアイアンナイト
+Dark Iron Knight
+ダークソウルアーマー
+Adamantine Armor
+ダークソウルガーダー
+Adamantine Pants
+ダークマスターグラブ
+Dark Master Gloves
+ダークマスターブーツ
+Dark Master Boots
+ダークマスターマスク
+Dark Master Helm
+チェーンライトニング
+Chain Lightning
+データがありません。
+Not found data.
+トルネードクラッシュ
+Twisting Slash
+ドラゴンナイトグラブ
+Dragon Knight Gloves
+ドラゴンナイトブーツ
+Dragon Knight Boots
+ドラゴンナイトヘルム
+Dragon Knight Helm
+ドラークのエルフの兜
+Drake Vine Helm
+ドラークのエルフの鎧
+Drake Vine Armor
+バネクの魔導のブーツ
+Barnake Pad Boots
+パワースラッシュ強化
+Power Slash Increase
+ファイアバースト強化
+Fire Burst Increase
+ファイナルスラッシュ
+Slash
+フェニックスのグラブ
+Dark Phoenix Gloves
+フェニックスのブーツ
+Dark Phoenix Boots
+フェニックスショット
+Phoenix Shot
+ブラックソウルグラブ
+Dark Soul Gloves
+ブラックソウルブーツ
+Dark Soul Boots
+ブラックソウルヘルム
+Dark Soul Helm
+ブラッドアタック強化
+Fire Slash Increase
+ベノムミストアーマー
+Venom Mist Armor
+ベノムミストガーダー
+Venom Mist Pants
+ベルセルクウォーリア
+Berserker Warrior
+ミストの青銅のグラブ
+Mist Bronze Gloves
+ミュレンの炎のリング
+Muren Ring of Fire
+ライトニングショック
+Lightning Shock
+ルシファーのガーダー
+Grand Soul Pants
+レッドウインググラブ
+Red Wing Gloves
+レッドウイングブーツ
+Red Wing Boots
+レッドウイングヘルム
+Red Wing Helm
+レッドウイングロッド
+Red Wing Stick
+ロードセンチュリオン
+Lord Centurion
+ヴァリアントアーマー
+Valiant Armor
+ヴァリアントガーダー
+Valiant Pants
+不明なスキル名です。
+Error Skill.
+狂戦士の革のガーダー
+Warrior Leather Pants
+石造破壊シミュレータ
+Blood Castle AA Getter Simulator
+計算フォームから追加
+Add from MUDamage Form
+阿修羅の骸骨のブーツ
+Evis Bone Boots
+クライウルフ(攻防戦)
+Crywolf(event)
+フレイムハンド(単体)
+Raven Attack(Single)
+フレイムハンド(範囲)
+Raven Attack(All)
+盾装備時、防御力 +25%
+Increase defensive Skill When Using Shield Weapons +25%
+インナーベーション:
+Innovation:
+ブラッドキャッスル1
+Blood Castle 1
+ブラッドキャッスル2
+Blood Castle 2
+ブラッドキャッスル3
+Blood Castle 3
+ブラッドキャッスル4
+Blood Castle 4
+ブラッドキャッスル5
+Blood Castle 5
+ブラッドキャッスル6
+Blood Castle 6
+ブラッドキャッスル7
+Blood Castle 7
+ブラッドキャッスル8
+Blood Castl e8
+以下入力例です。\n\n
+-\n\n
+最大攻撃力/魔力上昇
+Max Damage Increase
+最小攻撃力/魔力上昇
+Min Damage Increase
+盾装備時、防御力 +5%
+Increase defensive Skill When Using Shield Weapons +5%
+アイスジャイアント
+Ice Giant
+アブソリュートゼロ
+Strike of Destruction
+アルゴスの精霊の鎧
+Argo Spirit Armor
+アースシェイク強化
+Earthquake Increase
+イクリプスアーマー
+Eclipse Armor
+イクリプスガーダー
+Eclipse Pants
+イノセントアーマー
+Seraphim Armor
+イノセントガーダー
+Seraphim Pants
+エウロパのガーダー
+Divine Pants
+エクスプロージョン
+Explosion
+エレメンタルメイス
+Elemental Mace
+エンシェントグラブ
+Ancient Gloves
+エンシェントブーツ
+Ancient Boots
+エンシェントヘルム
+Ancient Helm
+エンシェントロッド
+Ancient Stick
+ガイアのシルクの兜
+Gaia Silk Helm
+ガイアのシルクの鎧
+Gaia Silk Armor
+ガイオンプリースト
+Medic
+ガイオン・カレイン
+Gaion Kharein
+クォーターマスター
+Quartermaster
+クレイジーラビット
+Hideous Rabbit
+グレートレインボウ
+Great Reign Crossbow
+グロリアスアーマー
+Glorious Armor
+グロリアスガーダー
+Glorious Pants
+ケルベロスアーマー
+Storm Crow Armor
+ケルベロスガーダー
+Storm Crow Pants
+コンバットマスター
+Combat Instructor
+サイクロンアーマー
+Violent Wing Armor
+サイクロンガーダー
+Violent Wing Pants
+サドゥンアイス強化
+Ice Storm Increase
+シリオンの骸骨の兜
+Sylion Bone Helm
+シリオンの骸骨の鎧
+Sylion Bone Armor
+シルバーバルキリー
+Silver Valkyrie
+シルフィードグラブ
+Sylphid Ray Gloves
+シルフィードブーツ
+Sylphid Ray Boots
+シルフィードヘルム
+Sylphid Ray Helm
+ジェノサイドグラブ
+Phantom Gloves
+ジェノサイドブーツ
+Phantom Boots
+スカウトアーチャー
+Bow Scout
+ストームクラッカー
+Twister
+スパイクバックラー
+Horn Shield
+スフィンクスの仮面
+Sphinx Helm
+スプリンターウルフ
+Splinter Wolf
+スプリームウイング
+Wing of Destruction
+スモールバックラー
+Buckler
+セイクリッドクロー
+Sacred Claw
+セイクリッドブーツ
+Sacred Boots
+セイクリッドヘルム
+Sacred Helm
+ソウルジエンド強化
+Evil Spirits Increase
+ソウルバリア強化(%)
+Soul Barrier Increase (%)
+タイラントアーマー
+Royal Armor
+タイラントガーダー
+Royal Pants
+ダブルダメージ確率
+Double Damage Rate
+ダーククールティン
+Dark Coolutin
+ダークジャイアント
+Dark Giant
+ダークスティンガー
+Dark Stinger Bow
+ダークソウルグラブ
+Adamantine Gloves
+ダークソウルブーツ
+Adamantine Boots
+ダークソウルマスク
+Adamantine Helm
+ティターンアーマー
+Titan Armor
+ティターンガーダー
+Titan Pants
+テンペストウイング
+Wing of Storm
+ディバインアーマー
+Divino Armor
+ディバインガーダー
+Divino Pants
+デスセンチュリオン
+Death Centurion
+デストロイアーマー
+Destroy Armor
+デストロイガーダー
+Destroy Pants
+デスペアーウイング
+Wing of Despair
+デッドリースタッフ
+Deadly Staff
+デモニックアーマー
+Demonic Armor
+デモニックガーダー
+Demonic Pants
+ドレッドフィアーDS7
+Dread Fear DS7
+ハイオンの稲妻の剣
+Hyon Lightning Sword
+ハーデスのガーダー
+Thunder Hawk Pants
+バルラム（訓練兵）
+Valam (Training)
+バーニングハンマー
+Flame
+パルテナのガーダー
+Guardian Pants
+パージミノタウロス
+Bull Fighter
+ピアシングアーマー
+Piercing Armor
+ピアシングガーダー
+Piercing Pants
+ファイアスクリーム
+Fire Scream
+ファントムウイング
+Wing of Illusion
+フレイムストライク
+Flame Strike
+ブラッティゴーレム
+Bloody Blue Golem
+ブラッドキャッスル
+Blood Castle
+ブラッドソルジャー
+Bloody Soldier
+ベノムミストグラブ
+Venom Mist Gloves
+ベノムミストブーツ
+Venom Mist Boots
+ベノムミストヘルム
+Venom Mist Helm
+ホーリーサイトボウ
+Celestial Bow
+ボルケーノアーマー
+Volcano Armor
+ボルケーノガーダー
+Volcano Pants
+ライジングウイング
+Wing of Dimension
+ライフドレイン強化
+Drain Life Increase
+ルシファーのグラブ
+Grand Soul Gloves
+ルシファーのブーツ
+Grand Soul Boots
+ヴァリアントグラブ
+Valiant Gloves
+ヴァリアントブーツ
+Valiant Boots
+無名の革のガーダー
+Anonymous Leather Pants
+狂戦士の氷のリング
+Warrior Ring of Ice
+狂戦士の革のグラブ
+Warrior Leather Gloves
+狂戦士の革のブーツ
+Warrior Leather Boots
+猛毒のミノタウロス
+Poison Bull Fighter
+異形のミュータント
+Mutant
+Error:エンチャントOP
+Error:Enchant Option
+敵の防御力無視 +5%
+Ignore Defence +5%
+を削除しました。
+removed.
+アイアンホイール
+Iron Wheel
+アイアンライダー
+Iron Rider
+アイスウォーカー
+Ice Walker
+アイリスアーマー
+Iris Armor
+アイリスガーダー
+Iris Pants
+アサシンマスター
+Master Assassin
+アスリルアーマー
+Hurricane Armor
+アスリルガーダー
+Hurricane Pants
+アポロの骸骨の杖
+Apollo Skull Staff
+アポロの魔導の兜
+Apollo Pad Helm
+アポロの魔導の鎧
+Apollo Pad Armor
+アルバトロスボウ
+Albatross Bow
+イクリプスグラブ
+Eclipse Gloves
+イクリプスブーツ
+Eclipse Boots
+イクリプスヘルム
+Eclipse Helm
+イノセントグラブ
+Seraphim Gloves
+イノセントブーツ
+Seraphim Boots
+イノセントヘルム
+Seraphim Helm
+ウィッチクイーン
+Witch Queen
+エウロパのグラブ
+Divine Gloves
+エウロパのブーツ
+Divine Boots
+エルフのガーダー
+Vine Pants
+オメガインパクト
+Earth Break
+オークアーチャー
+Orc Archer
+オーディーンの兜
+Legendary Helm
+オーディーンの杖
+Legendary Staff
+オーディーンの盾
+Legendary Shield
+オーディーンの鎧
+Legendary Armor
+カリスの精霊の兜
+Karis Spirit Helm
+ガイアのガストラ
+Gaia Golden Crossbow
+クィーンレイナー
+Queen Rainer
+クイーンレイナー
+Queen Rainer
+グレートセプター
+Great Scepter
+グレートハンマー
+Great Hammer
+グロリアスグラブ
+Glorious Gloves
+グロリアスブーツ
+Glorious Boots
+グロリアスマスク
+Glorious Helm
+ケルベロスグラブ
+Storm Crow Gloves
+ケルベロスブーツ
+Strom Crow Boots
+ゴッドブロー強化
+Death Stab Increase
+ゴールドアックス
+Larkan Axe
+サイクロングラブ
+Violent Wing Gloves
+サイクロンブーツ
+Violent Wing Boots
+サイクロンヘルム
+Violent Wing Helm
+サイクロンロッド
+Violent Wing Stick
+シャドウアスター
+Shadow Master
+シルクのガーダー
+Silk Pants
+シルバーアックス
+Nikkea Axe
+シルフィードボウ
+Sylph Wind Bow
+スカウトヒーロー
+Hammer Scout (Hero)
+スカルアーチャー
+Skeleton Archer
+スケイルアーマー
+Scale Armor
+スケイルガーダー
+Scale Pants
+ストームアーマー
+Storm Armor
+ストームガーダー
+Storm Pants
+スパイクシールド
+Spike Shield
+スフィンクスの鎧
+Sphinx Armor
+スペルエンハンス
+Expansion of Wizardry
+セトのエルフの兜
+Ceto Vine Helm
+セトの地のリング
+Ceto Ring Earth
+ソラム（訓練兵）
+Solam (Training)
+ソレイユアーマー
+Sunlight Armor
+ソレイユガーダー
+Sunlight Pants
+ソレイユセプター
+Soleil Scepter
+ソードブレイカー
+Sword Breaker
+タイラントグラブ
+Royal Gloves
+タイラントブーツ
+Royal Boots
+タイラントマスク
+Royal Helm
+ダークブレイカー
+Dark Breaker
+チェーンドライブ
+Chain Driver
+ティターングラブ
+Titan Gloves
+ティターンブーツ
+Titan Boots
+ティターンヘルム
+Titan Helm
+ディバイングラブ
+Divino Gloves
+ディバインブーツ
+Divino Boots
+ディバインヘルム
+Divino Helm
+デストロイグラブ
+Destroy Gloves
+デストロイブーツ
+Destroy Boots
+デスビームナイト
+Death Vim Knight
+デモニックグラブ
+Demonic Gloves
+デモニックブーツ
+Demonic Boots
+デモニックヘルム
+Demonic Helm
+デモニックロッド
+Demonic Stick
+トーテムゴーレム
+Totem Golem
+ドッペルゲンガー
+Doppleganger
+ドラゴンアーマー
+Dragon Armor
+ドラゴンガーダー
+Dragon Pants
+ドラゴンシールド
+Dragon Shield
+ドラゴンスピアー
+Dragon Spear
+ドレッドフィアー
+Dread Fear
+ハンマースカウト
+Hammer Scout
+ハーデスのグラブ
+Thunder Hawk Gloves
+ハーデスのブーツ
+Thunder Hawk Boots
+バネクの魔導の兜
+Barnake Pad Helm
+パルテナのグラブ
+Guardian Gloves
+パルテナのブーツ
+Guardian Boots
+パワースラッシュ
+Power Slash
+パージバハムート
+Bahamut
+ビーストアッパー
+Upper Beast
+ビーストマスター
+Cavalry Captain
+ピアシングクロー
+Piercing Claw
+ピアシングブーツ
+Piercing Boots
+ピアシングヘルム
+Piercing Helm
+ファイアゴーレム
+Fire Golem
+ファイアバースト
+Fire Burst
+フェニックスの兜
+Dark Phoenix Helm
+フェニックスの鎧
+Dark Phoenix Armor
+フォレストオーク
+Forest Orc
+フォースウェーブ
+Force Wave
+ブラックブレード
+Dark Reign Blade
+ブラッティオーク
+Bloody Orc
+ブラッドアタック
+Fire Slash
+ブレイブアーマー
+Brave Armor
+ブレイブガーダー
+Brave Pants
+ブレードハンター
+Blade Hunter
+プラズマストーム
+Plasma Storm
+プラチナスタッフ
+Platina Wing Staff
+ヘラスの骸骨の盾
+Heras Skull Shield
+ヘルファイア強化
+Hellfire Increase
+ホーリーウイング
+Wing of Spirit
+ボルケーノグラブ
+Volcano Gloves
+ボルケーノブーツ
+Volcano Boots
+ポイズンゴーレム
+Veneno Golem
+ポイズンシャドー
+Poison Shadow
+マジックマスター
+Grand Wizard
+マスターセプター
+Master Scepter
+マスターレベル：
+Master LV:
+ミザリーウイング
+Wing of Mistery
+ミステリーロッド
+Mistery Stick
+ミストの青銅の兜
+Mist Bronze Helm
+ミスリルアーマー
+Brass Armor
+ミスリルガーダー
+Brass Pants
+メタルバルロック
+Metal Barlog
+モーニングスター
+Morning Star
+ライトニングボウ
+Light Crossbow
+ラウンドシールド
+Large Round Shield
+ルーンバスタード
+Rune Bastard
+レイジファイター
+Rage Fighter
+レイブの鋼鉄の兜
+Rave Plate Helm
+レイブの鋼鉄の鎧
+Rave Plate Armor
+レザーバックラー
+Small Shield
+無名の革のブーツ
+Anonymous Leather Boots
+盾装備時、防御力
+Increase defensive Skill When Using Shield Weapons
+絆のエンブレム:\n
+-\n
+防御成功率向上：
+Guard Success Rate Increase:
+阿修羅の骸骨の鎧
+Evis Bone Armor
+A+MLv3[(ｴﾅ/5.9)+12]
+A+MLv3[(ene/5.9)+12]
+A+MLv4[(ｴﾅ/5.6)+15]
+A+MLv4[(ene/5.6)+15]
+A+MLv5[(ｴﾅ/5.3)+18]
+A+MLv5[(ene/5.3)+18]
+G+MLv4[(ｴﾅ/6.4)+10]
+G+MLv4[(ene/6.4)+10]
+SD回復速度上昇(%)
+Increase Recovery Speed SD(%)
+ウイークネス：0%
+Weakness:0%
+血戦(敵Def10%低下)
+Fire Slash (Def -10%)
+A+MLv1[(ｴﾅ/6.7)+6]
+A+MLv1[(ene/6.7)+6]
+A+MLv2[(ｴﾅ/6.2)+9]
+A+MLv2[(ene/6.2)+9]
+G+MLv1[(ｴﾅ/7.6)+4]
+G+MLv1[(ene/7.6)+4]
+G+MLv2[(ｴﾅ/7.2)+6]
+G+MLv2[(ene/7.2)+6]
+G+MLv3[(ｴﾅ/6.8)+8]
+G+MLv3[(ene/6.8)+8]
+クンドンの幻影4
+Illusion of Kundun 4
+スキル攻撃力 +10
+Skill Dmg +10
+スキル攻撃力 +15
+Skill Dmg +15
+スキル攻撃力 +20
+Skill Dmg +20
+スキル攻撃力 +25
+Skill Dmg +25
+スキル攻撃力 +30
+Skill Dmg +30
+スキル攻撃力 +40
+Skill Dmg +40
+ダメージ増加 +10
+Damage Increase +10
+ダメージ増加 +15
+Damage Increase +15
+ダメージ増加 +20
+Damage Increase +20
+ダメージ増加 +25
+Damage Increase +25
+ダメージ増加 +30
+Damage Increase +30
+デスエンジェル4
+Death Angel 4
+デビルスクエア1
+Devil Square 1
+デビルスクエア2
+Devil Square 2
+デビルスクエア3
+Devil Square 3
+デビルスクエア4
+Devil Square 4
+デビルスクエア5
+Devil Square 5
+デビルスクエア6
+Devil Square 6
+デビルスクエア7
+Devil Square 7
+G+MLv5[(ｴﾅ/6)+12]
+G+MLv5[(ene/6)+12]
+※IV 要求エナ912
+*IV require ene912
+を削除します。
+will remove.
+アイアンナイト
+Iron Knight
+アイスクイーン
+Ice Queen
+アイリスグラブ
+Iris Gloves
+アイリスブーツ
+Iris Boots
+アイリスヘルム
+Iris Helm
+アスリルグラブ
+Hurricane Gloves
+アスリルブーツ
+Hurricane Boots
+アビスアーマー
+Hades Armor
+アビスガーダー
+Hades Pants
+アースシェイク
+Earthquake
+ウイークネス：
+Weakness:
+ウォーアックス
+Battle Axe
+エルフのグラブ
+Vine Gloves
+エルフのブーツ
+Vine Boots
+カイトシールド
+Kite Shield
+カースドリッチ
+Cursed Lich
+ガイオンガード
+Bodyguard
+ガイオンナイト
+Knights
+ギガンティスDS7
+Gigantis DS7
+クリングブロー
+Large Ring Blower
+クロスシールド
+Cross Shield
+クンドンの幻影
+Illusion of Kundun
+グレートサイド
+Great Scythe
+ゴーストナピン
+Ghost Napin
+サドゥンアイス
+Ice Storm
+サハムットの書
+Book of Samut
+サンダーナピン
+Thunder Napin
+シャドウナイト
+Shadow Knight
+シャドウポーン
+Shadow Pawn
+シャドウロック
+Shadow Look
+シルクのグラブ
+Silk Gloves
+シルクのブーツ
+Silk Boots
+ジェノサイダー
+Genocider
+スケイルグラブ
+Scale Gloves
+スケイルブーツ
+Scale Boots
+スケイルヘルム
+Scale Helm
+ストームクロー
+Storm Claw
+ストームブーツ
+Storm Boots
+ストームヘルム
+Storm Helm
+セトのレイピア
+Ceto Rapier
+ソウルウイング
+Wing of Soul
+ソウルジエンド
+Evil Spirits
+ソレイユグラブ
+Sunlight Gloves
+ソレイユブーツ
+Sunlight Boots
+ソレイユマスク
+Sunlight Helm
+ソードダンサー
+Sword of Dancer
+タワーシールド
+Tower Shield
+ダブルブレード
+Double Blade
+ダークウイング
+Wing of Darkness
+ダークエルフDS7
+Dark Elf DS7
+ダークマンモス
+Dark Mammoth
+デスエンジェル
+Death Angel
+デススピリット
+Death Spirit
+デビルウイング
+Wing of Dragon
+ドラゴングラブ
+Dragon Gloves
+ドラゴンブーツ
+Dragon Boots
+ドラゴンヘルム
+Dragon Helm
+ドラゴンランス
+Dragon Lance
+ドラゴンロアー
+Dragon Lore
+ナイトのエナ：
+DK's ene:
+ナイトの体力：
+DK's vit:
+ナイトブレード
+Knight Blade
+ハンドアックス
+Hand Axe
+バトルアックス
+Double Axe
+バトルセプター
+Battle Scepter
+バルディッシュ
+Berdysh
+バルロックの鎌
+Bill of Balrog
+パージゴブリン
+Goblin
+パージドラゴン
+Budge Dragon
+フェンリルの杖
+Staff of Resurrenction
+フランベルジュ
+Flamberge Sword
+フロストバリア
+Frost Barrier Shield
+フロストメイス
+Frost Mace
+ブルーゴーレム
+Blue Golem
+ブレイズナピン
+Blaze Napin
+ブレイブグラブ
+Brave Gloves
+ブレイブブーツ
+Brave Boots
+ブレイブヘルム
+Brave Helm
+ブービーワーム
+Doppleganger
+ペット耐久減少
+Increase Pet Available Duration 
+ボーンブレード
+Bone Blade
+ポリューション
+Pollution
+マスターレベル
+Master LV
+マヤの手（右）
+Hands of Maya (Right)
+マヤの手（左）
+Hands of Maya (Left)
+マルチショット
+Multi-Shot
+ミスリルグラブ
+Brass Gloves
+ミスリルブーツ
+Brass Boots
+メタルクラスト
+Alpha Crust
+ライフドレイン
+Drain Life
+ランススカウト
+Lance Scout
+リザードキング
+Lizard King
+ルシファーの兜
+Grand Soul Helm
+ルシファーの杖
+Dragon Soul Staff
+ルシファーの鎧
+Grand Soul Armor
+ルーンブレード
+Blade
+レイドショット
+Raid Skill
+レイブンロッド
+Raven Stick
+ロンギヌスの槍
+Serpent Spear
+ロードアーマー
+Light Plate Armor
+ロードガーダー
+Light Plate Pants
+ロードセプター
+Lord Scepter
+召喚師のエナ：
+Summoner's ene:
+対人攻撃成功率
+PvP Dmg Rate
+対人防御成功率
+PvP Defence Rate
+攻撃成功率上昇
+Dmg Success Rate Increase
+敵の防御力無視
+Ignore Defence
+最大攻撃力上昇
+Max Dmg Increase
+最小攻撃力上昇
+Min Attack Increase
+消費マナ減少(%)
+Consumption Mana Decrease (%)
+灼熱のゴルゴン
+Death Gorgon
+狂戦士の革の兜
+Warrior Leather Helm
+狂戦士の革の鎧
+Warrior Leather Armor
+狂暴な溶岩巨人
+Ruthless Lava Giant
+白と黒のポンガ
+Pet Panda
+白銀のアリオン
+Arion
+精霊のガーダー
+Spirit Panta
+経験値増加(%)：
+Exp Increase (%)
+鋼鉄のガーダー
+Plate Pants
+青銅のガーダー
+Bronze Pants
+骸骨のガーダー
+Bone Pants
+魔将軍ゴルゴン
+Gorgon
+魔導のガーダー
+Pad Pants
+ｽｸﾛｰﾙなし
+none scroll
+ ダメージ増加:
+ Dmg Increase:
+1HITダメージ/秒
+1Hit Dmg/sec
+A+MLv0[(ｴﾅ/7)+3]
+A+MLv0[(ene/7)+3]
+Error:ソケットOP
+Error:Socket Option
+G+MLv0[(ｴﾅ/8)+2]
+G+MLv0[(ene/8)+2]
+ダメージ吸収+5
+Damage Decrease+5
+ウイークネス:
+Weakness:
+バーサーカー:
+Berserker:
+攻撃成功率 +50
+Dmg Success Rate +50
+最大攻撃力 +10
+Max Dmg +10
+最大攻撃力 +20
+Max Dmg +20
+最大攻撃力 +30
+Max Dmg +30
+最大攻撃力 +40
+Max Dmg +40
+最小攻撃力 +20
+Min Attack +20
+要求エナジー 
+require Energy
+　ソケットOP:
+ Socket OP:
+アイスアロー
+Ice Arrow
+アイスナピン
+Ice Napin
+アイスバーン
+Ice Monster
+アイテム耐久
+Duration Reduction
+アビスグラブ
+Hades Gloves
+アビスブーツ
+Hades Boots
+アビスヘルム
+Hades Helm
+インフェルノ
+Inferno
+ウェアウルフ
+Werewolf
+エアリンボウ
+Aileen Bow
+エウロパの兜
+Divine Helm
+エウロパの鎧
+Divine Armor
+エクスポート
+Export
+エルベランド
+Elbeland
+オーディーン
+Odin
+ガーディアン
+Defense
+キングオーク
+Elite Orc
+キングフット
+Elite Yeti
+ギガンティス
+Gigantis
+クイーンビー
+Queen Bee
+クライウルフ
+Crywolf
+クリティカル
+Critical
+クンドンの杖
+Kundun Staff
+クールティン
+Coolutin
+グラディウス
+Gladius
+ケンタウロス
+Kentarus
+ゴッドブロー
+Death Stab
+ゴルゴンの杖
+Gorgon Staff
+サイクロプス
+Cyclops
+サピクイーン
+Sapi-Queen
+サラマンダー
+Salamander Sword
+ショートボウ
+Short Bow
+スキル攻撃力
+Skill Dmg
+スティンガー
+Penetration
+スリープ強化
+Sleep Increase
+ソーサリアン
+Lich
+タランチュラ
+Hell Spider
+ダメージ増加
+Damage Increase
+ダークエルフ
+Dark Elf
+ダークサイド
+Dark Side
+ダークナイト
+Dark Knight
+ダークホース
+Dark Horse
+ダークホーン
+Death Cow
+ダークロード
+Dark Lord
+ツインテール
+Twin Tail
+ディアボロス
+Devil
+ディノラント
+Dinorant
+デイブレイク
+Daybreak Sword
+デスブレード
+Rune Blade
+デスプラント
+Poison
+デスポイズン
+Decay
+デスライダー
+Death Ride
+トライデント
+Giant Trident
+ハイペリオン
+Hyperion
+ハーデスの鎧
+Thunder Hawk Armor
+バンガイオン
+Gaion
+バーサーカー
+Berserker
+パルテナの兜
+Guardian Helm
+パルテナの鎧
+Guardian Armor
+ヒール強化(%)
+Heal Increase(%)
+ビックフット
+Yeti
+ビームナイト
+Vim Knight
+ファルシオン
+Falchion
+ファルネウス
+Vepar
+プラチナボウ
+Silver Bow
+ヘルハウンド
+Hell Hound
+ヘルバースト
+Nova
+ヘルファイア
+Hellfire
+ベルセルクDS7
+Berserker DS7
+マナ完全回復
+Mana Completion
+マンドレイク
+Forest Monster
+ミスリルの兜
+Brass Helm
+ミノタウロス
+Elite Bull Fighter
+メガクラスト
+Mega Crust
+リザードマン
+Lizard Warrior
+ロストタワー
+Losttower
+ロードグラブ
+Light Plate Gloves
+ロードブーツ
+Light Plate Boots
+ロードマスク
+Light Plate Helm
+ヴォルカノス
+Vulcanus
+乱れ撃ち強化
+Triple Shot Increase
+乱暴な処刑人
+Ash Slaughterer
+君主のマント
+Cape of Lord
+君臨のマント
+Lord of the Cape
+吸血の暗殺者
+Blood Assassin
+吸魂の暗殺者
+Cruel Blood Assassin
+呪いの魔法師
+Curse Wizard
+天空の不死鳥
+Phoenix of Darkness
+守護天使の羽
+Wing of Heaven
+対人防御成功
+PvP Defence Rate
+帝王のマント
+Cloak of Emperor
+攻撃魔力増加
+Dmg/Magic Increase
+最大マナ増加
+Max Mana Increase
+最大攻撃魔力
+Max Dmg/Magic Increase
+最大生命上昇
+Max Life Increase
+最大生命増加
+Max Life Increase
+最大魔力上昇
+Max Magic Increase
+最小攻撃魔力
+Min Damage
+最小魔力上昇
+Min Magic Increase
+武人のマント
+Cloak of Warrior
+無名の革の兜
+Anonymous Leather Helm
+生命完全回復
+Life Completion
+盾装備時増加
+Increase defensive Skill When Using Shield Weapons
+精霊のグラブ
+Spirit Gloves
+精霊のブーツ
+Spirit Boots
+経験値上昇(%)
+Exp Increase (%)
+自動マナ回復
+Mana Auto Increment
+自動生命回復
+HP Auto Increment
+計算フォーム
+Calc Form
+鋼鉄のグラブ
+Plate Gloves
+鋼鉄のブーツ
+Plate Boots
+青銅のグラブ
+Bronze Gloves
+青銅のブーツ
+Bronze Boots
+革のガーダー
+Leather Pants
+風のガーダー
+Wind Pants
+骸骨のグラブ
+Bone Gloves
+骸骨のブーツ
+Bone Boots
+魔導のグラブ
+Pad Gloves
+魔導のブーツ
+Pad Boots
+魔法師の指輪
+Ring of Wizard
+魔界ハンター
+Hunter
+Error:セットOP
+Error:Set Option
+エナジー +10
+energy +10
+エナジー +15
+energy +15
+エナジー +20
+energy +20
+エナジー +30
+energy +30
+エナジー +50
+energy +50
+クリダメ+20%
+Critical Dmg +20%
+シュリカー2
+Schriker 2
+ディレイ(ms)
+Delay(ms)
+ポイント 0/0
+Point 0/0
+耐久減少1(%)
+Duration Reduction 1 (%)
+耐久減少2(%)
+Duration Reduction 2 (%)
+防御成功率 
+Guard Success Rate
+AG 増加量 +5
+AG Value Increase +5
+WIZのエナ：
+DW's ene:
+WIZの敏捷：
+DW's agi:
+あいうえお
+abcde
+アキュバス
+Arquebus
+アクセサリ
+Accessory
+アトランス
+Atlans
+アプルナス
+Eplete
+アルカモス
+Alquamos
+アルテミス
+Saint Crossbow
+アルビアン
+Elvian
+インポート
+Import
+ウィザード
+Dark Wizard
+エナジー：
+energy:
+エルフの兜
+Vine Helm
+エルフの弓
+Elven Bow
+エルフの斧
+Elven Axe
+エルフの盾
+Elven Shield
+エルフの鎧
+Vine Armor
+カンタータ
+Kantata
+ガウェイン
+Gywen
+キャンセル
+Cancel
+ギガンテス
+Giant
+クレイモア
+Giant Sword
+クレセント
+Crescent Axe
+クロスボウ
+Cross Bow
+グリズリー
+Grizzly
+サタンの羽
+Wing of Satan
+サテュロス
+Satyros
+サピウンス
+Sapi-Unus
+サピデュオ
+Sapi-Duo
+サピトレス
+Sapi-Tres
+シュリカー
+Schriker
+シルクの兜
+Silk Helm
+シルクの鎧
+Silk Armor
+スキル増加
+Skill Dmg Increase
+スケルトン
+Skeleton Ring
+スパイダー
+Spider
+セイレーン
+Bluewing Crossbow
+セラフィー
+Elf Soldier
+ゼウスの剣
+Legendary Sword
+ゼン増加(%)
+Zen Increase (%)
+ゾンビ剣士
+Zombie Gladiator
+ゾンビ闘士
+Zombie Fighter
+タルタロス
+Tantalos
+ダイダロス
+Aquagold Crossbow
+ダンジョン
+Dungeon
+デスツリー
+Death Tree
+トマホーク
+Tomahawk
+ナイトメア
+Nightmare
+ニールの書
+Book of Neil
+ネックレス
+Necklace
+ハルベルト
+Halberd
+バスタード
+Sword of Assassin
+バハムート
+Great Bahamut
+バルキリー
+Valkyrie
+バルラムDS7
+Valam DS7
+バルロック
+Balrog
+パルチザン
+Spear
+パンダ変化
+Panda Ring
+フェンリル
+Fenrir
+ヘルマイネ
+Hellmaine
+ベルセルク
+Berserker
+ペルソナDS7
+Persona DS7
+メデューサ
+Medusa
+ラクリオン
+La Cleon
+ラグルの書
+Book of Lagle
+レクイエム
+Requiem
+ロレンシア
+Lorencia
+ロングボウ
+Bow
+ワイアーム
+Great Drakan
+ワイバーン
+Drakan
+ヴァイパー
+Arrow Viper Bow
+ヴィシャス
+Vicious
+一角うさぎ
+Strange Rabbit
+体力向上：
+Stamina Increase:
+対人攻撃率
+PvP Dmg Rate
+平穏の沼地
+Swamp of Peace
+攻撃成功率
+Dmg Success Rate
+最大攻撃力
+Max Dmg
+最大生命+29
+Max Life +29
+最小攻撃力
+Min Attack
+最小～最大
+Min - Max
+死霊の騎士
+Death Knight
+破壊の化身
+Furios Slaughterer
+稲妻抵抗力
+Resist Lightning
+閃光の薙刀
+Light Spear
+防御力上昇
+Defence Increase
+防御力増加
+Defence Increase
+青銅の魔人
+Hommerd
+革のグラブ
+Leather Gloves
+革のブーツ
+Leather Boots
+風のグラブ
+Wind Gloves
+風のブーツ
+Wind Boots
+骸骨の戦士
+Elite Skeleton
+骸骨の騎士
+Skeleton
+ 消費マナ:
+ Mana Consumption:
+AG増加量 +5
+AG Value Increase +5
+AG消費減少
+AG Consumption Reduction
+BC門・石造
+BC Gate & Coffin
+DLのエナ：
+DL's ene:
+DLの統率：
+DL's com:
+EEのエナ：
+EE's ene:
+EXソケット
+EX Socket
+SD比率上昇
+SD Rate Increase
+ダメージ\n
+Damage\n
+攻撃速度+5
+Speed +5
+攻撃魔力lv
+Dmg lv
+最大AG上昇
+Max AG Increase
+最大AG増加
+Max AG Increase
+最大HP上昇
+Max HP Increase
+最大SD上昇
+Max SD Increase
+自動AG回復
+AG Auto Increment
+防御力 +100
+Defence +100
+防御無視3%
+Ignore +3%
+防御無視5%
+Ignore +5%
+EXDダメ+20%
+EXD Dmg +20%
+HTMLコード
+HTML Code
+エナジー:
+energy:
+カルリマ1
+Kalima1
+カルリマ2
+Kalima2
+カルリマ3
+Kalima3
+カルリマ4
+Kalima4
+カルリマ5
+Kalima5
+カルリマ6
+Kalima6
+カルリマ7
+Kalima7
+タイトル:
+Title:
+ポイント 
+Point 
+作成状況:
+Status:
+勝利回数 
+Win Count
+攻撃回数 
+Attack Count
+攻撃速度:
+Speed:
+要求敏捷 
+require Agility
+防御力 +20
+Defence +20
+防御力 +25
+Defence +25
+防御力 +30
+Defence +30
+防御力 +40
+Defence +40
+防御力 +60
+Defence +60
+防御力+100
+Defence +100
+魔法速度:
+Magic Speed
+AG 増加量
+AG Value Increase
+アエギス
+Aegis
+アグニス
+Agnis
+アサシン
+Assassin
+アックス
+Small Axe
+アヌビス
+Anubis
+アルアン
+Aruan
+アルゴス
+Argo
+イカロス
+Icarus
+エナジー
+energy
+エロヒム
+Erohim
+カントル
+Kanturu
+ガストラ
+Golden Crossbow
+ガルーダ
+Garuda
+クラウド
+Cloud
+クラス：
+Character:
+クリ増加
+Critical Dmg Increase
+クリ確率
+Critical Rate
+クンドン
+Kundun
+グリード
+Berserker
+グレイヴ
+Double Poleaxe
+ゴブリン
+Elite Goblin
+ゴースト
+Ghost
+ゴーレム
+Stone Golem
+ザイカン
+Zaikan
+シャドー
+Shadow
+シリオン
+Sylion
+スキル+11
+Skill +11
+スキル名
+Skill Name
+セプター
+Scepter
+セメデン
+Sedemen
+セルパン
+Selupan
+ソケット
+Socket
+ソラムDS7
+Solam DS7
+タイトル
+Title
+タルカン
+Tarkan
+デビアス
+Devias
+デーモン
+Damon
+ドラーク
+Drake
+ネクロン
+Necron
+ノーマル
+Normal
+ハイオン
+Hyon
+ハウンド
+Hound
+バリスタ
+Death Trineo
+バルガス
+Balgass
+バルラム
+Valam
+フェイズ
+Fase
+フォース
+Force
+フレイル
+Flail
+ブロバー
+Brova
+ペット：
+Pet:
+ペルソナ
+Persona
+ポイント
+Point
+マナ増加
+Mana Increase
+ミュレン
+Muren
+ムラサメ
+Katana
+モスマン
+Beetle Monster
+ユニリア
+Uniria
+ラムダオ
+Serpent Borg
+リカント
+Werewolf
+レイピア
+Rapier
+乱れ撃ち
+Triple Shot
+体力増加
+Stamina Increase
+入力値：
+Input Value:
+入力支援
+Input Support
+呪いの王
+Cursed King
+大魔法師
+Ring of Great Wizard
+天使の杖
+Angelic Staff
+妖精の羽
+Wing of Elven
+守護天使
+Guardian Angel
+守護精霊
+Spirit of Guardian
+攻撃力+11
+Dmg +11
+攻撃力+25
+Dmg +25
+攻撃力+30
+Dmg +30
+攻撃力+40
+Dmg +40
+攻撃速度
+Speed
+毒抵抗力
+Resist Poison
+水晶の剣
+Crystal Sword
+氷抵抗力
+Resist Ice
+溶岩巨人
+Burning Lava Giant
+獲得マナ
+Getting Mana
+獲得生命
+Getting Life
+生命増加
+Life Increase
+白虎の弓
+Tiger Bow
+真空斬り
+Cyclone
+破壊の剣
+Sword of Destruction
+破壊の杖
+Staff of Destruction
+秘薬なし
+None Miracle Potion
+稲妻の剣
+Lightning Sword
+稲妻の杖
+Thunder Staff
+精霊の兜
+Spirit Helm
+精霊の鎧
+Spirit Armor
+統率増加
+Command Increase
+蒼龍の盾
+Dragon Slayer Shield
+虹色の蠍
+CHain Scorpion
+蛇神の杖
+Serpent Staff
+蛇神の盾
+Serpent Shield
+要求力減
+require Strength Decrease
+要求敏減
+require Agility Decrease
+試練の地
+Land of Trials
+速度増加
+Speed Increase
+鋼鉄の兜
+Plate Helm
+鋼鉄の盾
+Plate Shield
+鋼鉄の鎧
+Plate Armor
+防御力+24
+Defence +24
+防御力+60
+Defence +60
+防御成功
+Guard Success Rate
+防御無視
+Ignore
+青銅の兜
+Bronze Helm
+青銅の盾
+Bronze Shield
+青銅の鎧
+Bronze Armor
+飛燕斬り
+Uppercut
+骸骨の兜
+Bone Helm
+骸骨の杖
+Skull Staff
+骸骨の盾
+Skull Shield
+骸骨の鎧
+Bone Armor
+魔力上昇
+Magic Increase
+魔導の兜
+Pad Helm
+魔導の鎧
+Pad Armor
+) 防御力
+) Defence
+AG回復+10
+AG Increase Rate +10
+AG増加量
+AG Value Increase
+EXネック
+EX Necklace
+EXリング
+EX Ring
+SD比率減
+SD Rate Reduction
+マナ +100
+Mana +100
+生命 +100
+Life +100
+魔力 +10%
+Magic +10%
+魔力 +15%
+Magic +15%
+    生成
+    Create
+ 攻撃力
+ Damage
+ 消費AG:
+ AG Consumption:
+ 経験値
+ Exp
+1HIT平均
+1Hit Average
+HTML出力
+HTML Output
+ネック:
+Necklace:
+ペット 
+Pet
+マナ +25
+Mana +25
+マナ +30
+Mana +30
+マナ +50
+Mana +50
+マナ+300
+Mana +300
+マナ+500
+Mana +500
+マナ+700
+Mana +700
+リング1
+Ring1
+リング2
+Ring2
+体力 +20
+Stamina +20
+体力 +30
+Stamina +30
+体力 +50
+Stamina +50
+攻撃lv20
+Dmg lv/20
+攻撃力 
+Dmg 
+攻撃力:
+Dmg:
+敏捷 +10
+Agility +10
+敏捷 +15
+Agility +15
+敏捷 +20
+Agility +20
+敏捷 +30
+Agility +30
+敏捷 +40
+Agility +40
+敏捷 +50
+Agility +50
+生命 +30
+Life +30
+生命 +50
+Life +50
+生命+200
+Life +200
+生命+500
+Life +500
+生命+700
+Life +700
+統率 +30
+Command +30
+要求力 
+require Strength
+速度(ms)
+Speed(ms)
+防御力 
+Defence 
+防御力:
+Defence:
+魔力 +5%
+Magic +5%
+魔力lv20
+Magic lv/20
+ 威力:+
+ Power:+
+14分の1
+1/14
+17分の1
+1/17
+18分の1
+1/18
+19分の1
+1/19
+20分の1
+1/20
+EXD増加
+EXD Dmg Increase
+EXD確率
+EXD Rate
+アイダ
+Aida
+アゴン
+Agon
+アポロ
+Apollo
+イシス
+Enis
+エナ+50
+ene+50
+エルフ
+Elf
+カリス
+Karis
+ガイア
+Gaia
+ガルム
+Bloody Wolf
+クリア
+clear
+クリス
+Kris
+クロノ
+Chrono
+サタン
+Imp
+スキル
+Skill
+セット
+Set Ancient
+ソラム
+Solam
+ダガー
+Short Sword
+ダメ反
+Damage Reflection
+ダメ減
+Damage Decrease
+ナイト
+Dark Knight
+ノリア
+Noria
+バネク
+Barnake
+ヒドラ
+Hydra
+ブロイ
+Broy
+ヘラス
+Heras
+マナ増
+Mana Increase
+ミスト
+Mist
+メイジ
+Thunder Lich
+メイス
+Mace
+リング
+Ring
+レイブ
+Rave
+ワーム
+Worm
+体力+50
+Stamina +50
+体力：
+Stamina:
+全選択
+All
+召喚師
+Summoner
+命中率
+Hit Rate
+大毒蛾
+Polluted Butterfly
+太陽剣
+Helical Sword
+攻撃力
+Dmg
+敏捷+50
+Agility +50
+敏捷：
+Agility:
+槌の子
+Larva
+機神兵
+Panthom Knight
+狂戦士
+Warrior
+生命増
+Life Increase
+神臂弓
+Serpent Crossbow
+統率+50
+Command +50
+統率：
+Command:
+要求LV 
+require LV
+速度+10
+Speed +10
+速度+15
+Speed +15
+閃光剣
+Light Saber
+閉じる
+Close
+防御力
+Defence
+阿修羅
+Evis
+雷神剣
+Thunder Blade
+革の兜
+Leather Helm
+革の鎧
+Leather Armor
+風の兜
+Wind Helm
+風の鎧
+Wind Armor
+飛冴弓
+Battle Bow
+魔剣士
+Magic Gradiator
+魔力+30
+Magic +30
+魔法師
+Wizard
+ 呪い:
+ Curse:
+ 範囲:
+ Range:
+4分の1
+1/4
+5分の1
+1/5
+6分の1
+1/6
+7分の1
+1/7
+8分の1
+1/8
+SD無視
+SD Ignore
+WD確率
+WD Rate
+opなし
+op None
+　EXOP:
+ EXOP:
+呪いop
+Curse Op
+攻撃2%
+Dmg 2%
+攻撃op
+Dmg op
+速度+7
+Speed +7
+防御op
+Guard option
+魔力+5
+Magic +5
+魔力2%
+Magic +2%
+魔力op
+Magic option
+/対人
+/PvP
+Cダメ
+C Dmg
+PT:1人
+PT:1 person
+PT:2人
+PT:2 person
+PT:3人
+PT:3 person
+PT:4人
+PT:4 person
+PT:5人
+PT:5 person
+SB：0%
+SB:0%
+SL：0%
+SL:0%
+クリ:
+cri:
+マナ:
+Mana:
+体力:
+Stamina:
+力 +10
+Strength +10
+力 +15
+Strength +15
+力 +20
+Strength +20
+力 +25
+Strength +25
+力 +30
+Strength +30
+力 +40
+Strength +40
+力 +50
+Strength +50
+呪い 
+Curse 
+回/分
+count/min
+平均 
+Average
+敏捷:
+Agility:
+無視:
+Ignore:
+統率:
+Command:
+通常:
+Normal:
+速度 
+Speed
+魔力 
+Magic 
+魔力:
+Magic:
+A+：0
+A+:0
+C+：0
+C+:0
+G+：0
+G+:0
+なし
+None
+クリ
+Critical
+セト
+Ceto
+マナ
+Mana
+ミネ
+Minet
+両手
+Two-handed
+体力
+Stamina
+保存
+Save
+保護
+Protection
+信念
+Belief
+信頼
+Trust
+停止
+Stop
+入力
+Input
+削除
+Remove
+力+50
+Strength +50
+力：
+Strength:
+加護
+Divine
+勇名
+Fame
+勝利
+Win
+勝率
+Win Rate
+右手
+Right Hand
+名誉
+Honor
+呪い
+Curse
+堅固
+Strong
+妙薬
+Miracle Potion
+守護
+Protect
+左手
+Left Hand
+平穏
+Peace
+幸運
+Luck
+征服
+Conquest
+憤怒
+Rage
+拡大
+zoom in
+攻撃
+Dmg
+敏捷
+Agility
+救援
+Relief
+断固
+Firm
+最大
+Max
+最小
+Min
+栄光
+Glory
+正義
+Justice
+武器
+Weapon
+混沌
+Chaos
+烈斬
+Falling Slash
+無名
+Anonymous
+片手
+One Hand
+牙突
+Lunge
+生命
+Life
+疾風
+Gale
+知恵
+Wisdom
+破壊
+Destruction
+確認
+Confirm
+神秘
+Mystery
+移動
+Move
+稲妻
+Lightning
+究極
+Ultimate
+統率
+Command
+縮小
+zoom out
+羽：
+Wing:
+英雄
+Hero
+血戦
+Fire Slash
+計算
+Calc
+超越
+Over
+追加
+Add
+通常
+Normal
+連続
+Repeat
+開く
+Open
+開始
+Start
+闘志
+Warrior
+防具
+Protect
+防御
+Guard
+魔力
+Magic
+魔法
+Magic
+黄金
+Gold
+A+：
+A+:
+C+：
+C+:
+G+：
+G+:
+IV：
+IV:
+LV：
+LV:
+SB：
+SB:
+SL：
+SL:
+WN：
+WN:
+回\n
+count
+矢+1
+Arrow +1
+矢+2
+Arrow +2
+矢+3
+Arrow +3
+矢+N
+Arrow +0
+(率
+(rate
+兜:
+Helm:
+力:
+Strength:
+右:
+Right:
+左:
+Left:
+手:
+Gloves:
+腰:
+Pants:
+足:
+Boots:
+鎧:
+Armor:
+鷹 
+Dark Raver 
+ ×
+ ×
+→
+->
+▲
+||
+▼
+||
+　
+ 
+の
+of
+兜
+Helm
+剣
+Sword
+力
+Strength
+地
+Earth
+守
+Guard
+弓
+Bow
+手
+Gloves
+攻
+Attack
+書
+Book
+杖
+Staff
+槍
+Spear
+毒
+Poison
+水
+Water
+氷
+Ice
+炎
+Fire
+盾
+Shield
+腰
+Pants
+足
+Boots
+酒
+Ale
+鎧
+Armor
+風
+Wind
+鷹
+Dark Raver
+～
+-

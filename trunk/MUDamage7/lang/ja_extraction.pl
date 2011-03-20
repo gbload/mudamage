@@ -1,10 +1,11 @@
 #!/usr/bin/perl -w
 $filename = $ARGV[0];
+
 open(FH,$filename);
 @dat = <FH>;
 close(FH);
 
-open(FH,"result.txt");
+open(FH,"result3.txt");
 @dat2 = <FH>;
 close(FH);
 
@@ -17,7 +18,11 @@ my @ja2;
 
 foreach(@dat){
 	my @tmp = ($_=~/\"([^"]+)\"/g);
-	push(@ja,@tmp);
+	foreach $tmp2 (@tmp){
+		if($tmp2 =~ /[^\w\=\!\#\$\%\&\'\(\)\-\s\.\,\/\?\_\*\+\;\:\]\[\\\<\>]/){
+			push(@ja,$tmp2);
+		}
+	}
 }
 
 push(@ja,@dat2);
@@ -31,7 +36,7 @@ foreach(@ja){
 	push(@ja2,$_);
 }
 
-open(FH,">result.txt");
+open(FH,">result3.txt");
 foreach(@ja2){
 	print FH $_,"\n\n";
 }

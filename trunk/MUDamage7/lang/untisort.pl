@@ -11,16 +11,17 @@ foreach(@dat){
 
 my $len = @dat;
 
-@dat2 = ();
-
+%dat2 = ();
 # 2行ごとにデータを扱う
 for($i=0;$i<$len;$i+=2){
-	$dat2[$i/2] = $dat[$i] . "\n" . $dat[$i+1];
+	$dat2{$dat[$i]} = $dat[$i+1];
 }
-@dat2 = sort(@dat2);
+@ja = keys(%dat2);
 
-foreach(@dat2){
-	print $_,"\n";
+@ja = sort {length $b <=> length $a || $a cmp $b} @ja;
+
+foreach(@ja){
+	print $_,"\n",$dat2{$_},"\n";
 }
 
 exit;
