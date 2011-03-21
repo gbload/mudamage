@@ -259,7 +259,7 @@ Vicious Dragon Pants
 以下のタイトルで保存します。
 Save the following titles.
 A+,G+共にMLVでの上昇値は未検証
-A+,G+ is Untested in MLV
+Greater Defense and Damage is untested in Master Level
 SD回復量+20　対人防御成功率+10
 SD Increment+20 PvP Defense Success Rate+10
 SD自動回復　対人防御成功率+10
@@ -485,7 +485,7 @@ Cometfall Increase
 ジェノサイダーウォーリア
 Genocider Warrior
 スケルトンパージドラゴン
-Skeleton Budge Dragon
+Pet Skeleton
 ストームブリッツアーマー
 Storm Blitz Armor
 ストームブリッツガーダー
@@ -1145,7 +1145,7 @@ Wing of Destruction
 スモールバックラー
 Buckler
 セイクリッドクロー
-Sacred Claw
+Sacred Gloves
 セイクリッドブーツ
 Sacred Boots
 セイクリッドヘルム
@@ -1211,9 +1211,9 @@ Guardian Pants
 パージミノタウロス
 Bull Fighter
 ピアシングアーマー
-Piercing Armor
+Piercing Grove Armor
 ピアシングガーダー
-Piercing Pants
+Piercing Grove Pants
 ファイアスクリーム
 Fire Scream
 ファントムウイング
@@ -1345,7 +1345,7 @@ Glorious Helm
 ケルベロスグラブ
 Storm Crow Gloves
 ケルベロスブーツ
-Strom Crow Boots
+Storm Crow Boots
 ゴッドブロー強化
 Death Stab Increase
 ゴールドアックス
@@ -1375,9 +1375,9 @@ Scale Armor
 スケイルガーダー
 Scale Pants
 ストームアーマー
-Storm Armor
+Storm Jahard Armor
 ストームガーダー
-Storm Pants
+Storm Jahard Pants
 スパイクシールド
 Spike Shield
 スフィンクスの鎧
@@ -1469,11 +1469,11 @@ Upper Beast
 ビーストマスター
 Cavalry Captain
 ピアシングクロー
-Piercing Claw
+Piercing  Blade Gloves
 ピアシングブーツ
-Piercing Boots
+Piercing Grove Boots
 ピアシングヘルム
-Piercing Helm
+Piercing Grove Helm
 ファイアゴーレム
 Fire Golem
 ファイアバースト
@@ -1557,7 +1557,7 @@ Increase defensive Skill When Using Shield Weapons
 絆のエンブレム:\n
 -\n
 防御成功率向上：
-Guard Success Rate Increase:
+Defense Success Rate Increase:
 阿修羅の骸骨の鎧
 Evis Bone Armor
 A+MLv3[(ｴﾅ/5.9)+12]
@@ -1703,11 +1703,11 @@ Scale Boots
 スケイルヘルム
 Scale Helm
 ストームクロー
-Storm Claw
+Holly Storm Crow
 ストームブーツ
-Storm Boots
+Storm Jahard Boots
 ストームヘルム
-Storm Helm
+Storm Jahard Helm
 セトのレイピア
 Ceto Rapier
 ソウルウイング
@@ -1861,7 +1861,7 @@ Ruthless Lava Giant
 白と黒のポンガ
 Pet Panda
 白銀のアリオン
-Arion
+Pet Unicorn
 精霊のガーダー
 Spirit Panta
 経験値増加(%)：
@@ -1909,7 +1909,7 @@ Min Attack +20
 要求エナジー 
 require Energy
 　ソケットOP:
- Socket OP:
+ Socket OPT:
 アイスアロー
 Ice Arrow
 アイスナピン
@@ -2177,7 +2177,7 @@ Duration Reduction 1 (%)
 耐久減少2(%)
 Duration Reduction 2 (%)
 防御成功率 
-Guard Success Rate
+Defense Success Rate
 AG 増加量 +5
 AG Value Increase +5
 WIZのエナ：
@@ -2281,7 +2281,7 @@ Nightmare
 ニールの書
 Book of Neil
 ネックレス
-Necklace
+Pendant
 ハルベルト
 Halberd
 バスタード
@@ -2385,7 +2385,7 @@ DL's com:
 EEのエナ：
 EE's ene:
 EXソケット
-EX Socket
+EXE Socket
 SD比率上昇
 SD Rate Increase
 ダメージ\n
@@ -2393,7 +2393,7 @@ Damage\n
 攻撃速度+5
 Speed +5
 攻撃魔力lv
-Dmg lv
+Dmg Level
 最大AG上昇
 Max AG Increase
 最大AG増加
@@ -2411,7 +2411,7 @@ Ignore +3%
 防御無視5%
 Ignore +5%
 EXDダメ+20%
-EXD Dmg +20%
+XDMG +20%
 HTMLコード
 HTML Code
 エナジー:
@@ -2533,7 +2533,7 @@ Tarkan
 デビアス
 Devias
 デーモン
-Damon
+Demon
 ドラーク
 Drake
 ネクロン
@@ -2671,7 +2671,7 @@ Defence +24
 防御力+60
 Defence +60
 防御成功
-Guard Success Rate
+Defense Success Rate
 防御無視
 Ignore
 青銅の兜
@@ -2703,9 +2703,9 @@ AG Increase Rate +10
 AG増加量
 AG Value Increase
 EXネック
-EX Necklace
+EXE Pendant
 EXリング
-EX Ring
+EXE Ring
 SD比率減
 SD Rate Reduction
 マナ +100
@@ -2755,7 +2755,7 @@ Stamina +30
 体力 +50
 Stamina +50
 攻撃lv20
-Dmg lv/20
+Dmg Level/20
 攻撃力 
 Dmg 
 攻撃力:
@@ -2795,7 +2795,7 @@ Defence:
 魔力 +5%
 Magic +5%
 魔力lv20
-Magic lv/20
+Magic Level/20
  威力:+
  Power:+
 14分の1
@@ -2809,9 +2809,9 @@ Magic lv/20
 20分の1
 1/20
 EXD増加
-EXD Dmg Increase
+XDMG Increase
 EXD確率
-EXD Rate
+XDMG Rate
 アイダ
 Aida
 アゴン
@@ -2823,7 +2823,7 @@ Enis
 エナ+50
 ene+50
 エルフ
-Elf
+Fairy Elf
 カリス
 Karis
 ガイア
@@ -2881,7 +2881,7 @@ Stamina +50
 体力：
 Stamina:
 全選択
-All
+All Select
 召喚師
 Summoner
 命中率
@@ -2911,7 +2911,7 @@ Command +50
 統率：
 Command:
 要求LV 
-require LV
+require Level
 速度+10
 Speed +10
 速度+15
@@ -2961,15 +2961,15 @@ SD Ignore
 WD確率
 WD Rate
 opなし
-op None
+opt None
 　EXOP:
- EXOP:
+ EXE OPT:
 呪いop
-Curse Op
+Curse Opt
 攻撃2%
 Dmg 2%
 攻撃op
-Dmg op
+Dmg opt
 速度+7
 Speed +7
 防御op
@@ -3194,12 +3194,14 @@ A+：
 A+:
 C+：
 C+:
+EXD
+XDMG
 G+：
 G+:
 IV：
 IV:
 LV：
-LV:
+Level:
 SB：
 SB:
 SL：
@@ -3218,6 +3220,8 @@ Arrow +3
 Arrow +0
 (率
 (rate
+EX
+EXE
 兜:
 Helm:
 力:
