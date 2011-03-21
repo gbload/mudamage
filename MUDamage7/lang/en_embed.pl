@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 $filename = $ARGV[0];
-$datafile = "result7.txt";
+$datafile = "ja2en.txt";
 
 open(FH,$filename);
 @dat = <FH>;
