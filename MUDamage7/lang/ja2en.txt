@@ -1,3 +1,41 @@
+ゴールドパージドラゴン
+Golden Budge Dragon
+ゴールドゴブリン
+Golden Goblin
+ゴールドタイタン
+Golden Titan
+ゴールドソルジャー
+Golden Soldier
+ゴールドドラゴン
+Golden Dragon
+ゴールドリザードキング
+Golden Lizard King
+ゴールドファルネウス
+Golden Vepar
+ゴールドタルタロス
+Golden Tantalos
+ゴールドホイール
+Golden Wheel
+ゴールドラビット
+Golden Rabbit
+ゴールドダークナイト
+Golden Knight
+ゴールドディアボロス
+Golden Devil
+ゴールドブルーゴーレム
+Golden Stone Golem
+ゴールドクラスト
+Golden Crust
+ゴールドサテュロス
+Golden Satyros
+ゴールドツインテール
+Golden Twin Tail
+ゴールドナピン
+Golden Napin
+ゴールドアイアンナイト
+Golden Iron Knight
+ゴールドグレートドラゴン
+Golden Great Dragon
 すでのそのタイトルのデータが存在します。上書きしますか？
 Data for the title already exists. Overwrite?
 備考：インナーベーション(IV:innervation)・・・敵の防御力低下\n
@@ -2729,7 +2767,7 @@ Magic +15%
 HTML出力
 HTML Output
 ネック:
-Necklace:
+Pendant:
 ペット 
 Pet
 マナ +25
@@ -2784,6 +2822,8 @@ Life +500
 Life +700
 統率 +30
 Command +30
+黄金軍団
+Golden Monster
 要求力 
 require Strength
 速度(ms)
@@ -2937,7 +2977,7 @@ Wind Armor
 飛冴弓
 Battle Bow
 魔剣士
-Magic Gradiator
+Magic Gladiator
 魔力+30
 Magic +30
 魔法師
