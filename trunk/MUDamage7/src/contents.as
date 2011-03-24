@@ -35,19 +35,15 @@ private function show(obj:UIComponent):void{
 		obj.visible = true;
 	}
 }
-click function changeMapLv(event:Event):void{
-	//LVの値のチェック
-	var lv:int = parseInt(event.target.text);
-	if(lv < 1) lv = 1;
-	if(lv > 600) lv = 600;
-	event.target.text = lv.toString();
-}
 click function changeMap(event:Event):void{
 	//マップ変更に伴うサブフォームの表示
 	var map:String = event.target.selectedLabel;
-	if(map == "ドッペルゲンガー" || map == "カウンターリベリオン")
+	hide(form::mapBox);
+	hide(form::mapBox2);
+	if(map == "ドッペルゲンガー")
 		show(form::mapBox);
-	else hide(form::mapBox);
+	if(map == "カウンターリベリオン")
+		show(form::mapBox2);
 }
 click function focusEvent(event:Event):void{
 	//全選択にする

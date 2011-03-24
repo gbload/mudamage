@@ -51,7 +51,9 @@ package Csv
 		public var s_scroll:ComboBox;//課金スクロール
 		public var s_hiyaku:ComboBox;//課金秘薬
 		public var f_map:ComboBox;
-		public var f_mapLv:TextInput;
+		public var f_map_doublegoer_lv:ComboBox;
+		public var f_map_doublegoer_ptm:ComboBox;
+		public var f_map_imperialguardian_lv:ComboBox;
 		
 		public var aa_skill:ComboBox;//石造破壊シミュレータに渡すスキル
 		

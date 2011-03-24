@@ -30,7 +30,11 @@ damage function table(muc:MuChar,canvas:Container):void{
 	use namespace calc;
 	use namespace damage;
 	
-	var mon:Array = c.getMonster(d.f_map.selectedLabel,parseInt(d.f_mapLv.text));
+	var mon:Array = c.getMonster(
+		d.f_map.selectedLabel,
+		d.f_map_doublegoer_lv.selectedIndex,
+		d.f_map_doublegoer_ptm.selectedIndex,
+		d.f_map_imperialguardian_lv.selectedIndex);
 	//防御無視
 	//モンスター情報を表示
 	var mtext:Label = new Label();

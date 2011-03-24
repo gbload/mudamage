@@ -294,7 +294,7 @@ menu function getdata(title:String):Array{
 	a[20][1] = d.f_petsub2.selectedIndex;
 	//2009/12/03
 	//カウンターリベリオン、ドッペルゲンガー用
-	a[21] = d.f_mapLv.text;
+	a[21] = d.f_map_doublegoer_lv.selectedIndex;
 	//2010/03/02
 	//エンブレム・イベントでの経験値増加入力フォーム
 	a[22] = d.f_exp.text;
@@ -304,6 +304,11 @@ menu function getdata(title:String):Array{
 	a[23][0] = d.s_ignore.selected;
 	a[23][1] = d.s_vit.selected;
 	a[23][2] = d.s_avoid.selected;
+	//2011/03/24
+	//ドッペルゲンガーとカウンターリベリオン
+	a[24] = new Array();
+	a[24][0] = d.f_map_doublegoer_ptm.selectedIndex;
+	a[24][1] = d.f_map_imperialguardian_lv.selectedIndex;
 	return a;
 }
 menu function open(event:Event):Boolean{
@@ -511,7 +516,7 @@ menu function setdata(a:Array):void{
 	
 	//2009/12/03
 	//カウンターリベリオン、ドッペルゲンガー用
-	d.f_mapLv.text = a[21];
+	d.f_map_doublegoer_lv.selectedIndex = a[21];
 	
 	//2010/03/02
 	//エンブレム・イベントでの経験値増加入力フォーム
@@ -522,6 +527,11 @@ menu function setdata(a:Array):void{
 	d.s_ignore.selected = a[23][0];
 	d.s_vit.selected = a[23][1];
 	d.s_avoid.selected = a[23][2];
+	
+	//2011/03/24
+	//ドッペルゲンガーとカウンターリベリオン
+	d.f_map_doublegoer_ptm.selectedIndex = a[24][0];
+	d.f_map_imperialguardian_lv.selectedIndex = a[24][1];
 	
 	//Alert.show(a.toString());
 }
@@ -700,5 +710,10 @@ menu function exportdata(a2:Array):Array{
 	a[23][0] = a2[index++];
 	a[23][1] = a2[index++];
 	a[23][2] = a2[index++];
+	//2011/03/24
+	//ドッペルゲンガーとカウンターリベリオン
+	a[24] = new Array();
+	a[24][0] = a2[index++];
+	a[24][1] = a2[index++];
 	return a;
 }

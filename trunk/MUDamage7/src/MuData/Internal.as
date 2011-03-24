@@ -119,8 +119,8 @@ package MuData
 		//スキルデータの取得
 		public var skill:Array = Interface.getSkill();
 		//モンスターデータの取得
-		public function getMonster(map:String,lv:int=1):Array{
-			return Interface.getMonster(map,lv);
+		public function getMonster(map:String,lv:int=1,ptm:int=1,ilv:int=1):Array{
+			return Interface.getMonster(map,lv,ptm,ilv);
 		}
 		//マップデータの取得
 		public var map:Array = Interface.getMap();
