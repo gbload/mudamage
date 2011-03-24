@@ -9,6 +9,7 @@ package Csv
 		//アイテムのデータ
 		public var f_kind:ComboBox;
 		public var f_item:ComboBox;
+		public var f_shopitem:ComboBox;
 		public var f_luck:CheckBox;
 		public var f_luck_label:Label;
 		public var f_plus:ComboBox;

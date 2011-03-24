@@ -302,8 +302,8 @@ menu function getdata(title:String):Array{
 	//レイジファイターサポートスキル
 	a[23] = new Array();
 	a[23][0] = d.s_ignore.selected;
-	a[23][1] = d.s_vit.text;
-	a[23][2] = d.s_avoid.text;
+	a[23][1] = d.s_vit.selected;
+	a[23][2] = d.s_avoid.selected;
 	return a;
 }
 menu function open(event:Event):Boolean{
@@ -520,8 +520,8 @@ menu function setdata(a:Array):void{
 	//2010/09/28
 	//レイジファイターサポートスキル
 	d.s_ignore.selected = a[23][0];
-	d.s_vit.text = a[23][1];
-	d.s_avoid.text = a[23][2];
+	d.s_vit.selected = a[23][1];
+	d.s_avoid.selected = a[23][2];
 	
 	//Alert.show(a.toString());
 }

@@ -422,6 +422,20 @@ calc function getForm():void{
 	equipExop(d.f_ring1);
 	equipExop(d.f_ring2);
 	
+	//ショップアイテムの場合
+	for each(var shopitem:Item in [d.f_neck,d.f_ring1,d.f_ring2]){
+		if(shopitem.f_kind.selectedLabel == "ショップ"){
+			e = shopitem.f_shopitem.selectedLabel;
+			if(e == "アメジストリング")exop_dec++;
+			if(e == "トパーズリング");
+			if(e == "ルビーリング")exop_hp++;
+			if(e == "サファイアリング")exop_mana++;
+			if(e == "サファイアネックレス");
+			if(e == "エメラルドネックレス")exopacspeed=true;
+			if(e == "ルビーネックレス")exopacexd=true;
+		}
+	}
+	
 	//セットOP
 	var a:Array = [d.f_neck,d.f_right,d.f_left,d.f_helm,d.f_armor,d.f_glove,d.f_garter,d.f_boots,d.f_ring1,d.f_ring2];
 	var a2:Array = new Array();//セット名をスタックする

@@ -103,11 +103,18 @@ package MuData
 		public var socket_equip:Array = Interface.getSocketOption(1);
 		//セットOPの取得
 		public var setop:Array = Interface.getSetOption();
+		//アクセサリの取得
 		public function getSetNeck():Array{
 			return Interface.getSetNeck();
 		}
 		public function getSetRing():Array{
 			return Interface.getSetRing();
+		}
+		public function getShopNeck():Array{
+			return Interface.getShopNeck();
+		}
+		public function getShopRing():Array{
+			return Interface.getShopRing();
 		}
 		//スキルデータの取得
 		public var skill:Array = Interface.getSkill();

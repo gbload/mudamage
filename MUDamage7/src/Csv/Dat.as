@@ -38,8 +38,8 @@ package Csv
 		public var s_cplus:TextInput;//C+
 		public var s_inner:TextInput;//召喚師のインナーベーション
 		public var s_weak:TextInput;//召喚師のウイークネス
-		public var s_vit:TextInput;//体力上昇
-		public var s_avoid:TextInput;//防御成功率上昇
+		public var s_vit:CheckBox;//体力上昇
+		public var s_avoid:CheckBox;//防御成功率上昇
 		public var s_ba:CheckBox;//血戦
 		public var s_se:CheckBox;//スペルエンハンス
 		public var s_berserker:CheckBox;//召喚師のバーサーカー

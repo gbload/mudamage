@@ -262,18 +262,27 @@ click function kindChangeAcc(event:Event):void{
 		default:
 			hide(form::exbox[item.name]);
 			hide(form::setbox[item.name]);
+			hide(form::shopbox[item.name]);
 			p.setStyle("borderColor","#EEEEEE");
 			break;
 		case "EX":
 			hide(form::setbox[item.name]);
+			hide(form::shopbox[item.name]);
 			show(form::exbox[item.name]);
 			p.setStyle("borderColor","#99CC99");
 			break;
 		case "セット":
 			hide(form::exbox[item.name]);
+			hide(form::shopbox[item.name]);
 			show(form::setbox[item.name]);
 			change::setitem(item);
 			p.setStyle("borderColor","#99DDFF");
+			break;
+		case "ショップ":
+			hide(form::exbox[item.name]);
+			hide(form::setbox[item.name]);
+			show(form::shopbox[item.name]);
+			p.setStyle("borderColor","#EEEEEE");
 			break;
 	}
 }
