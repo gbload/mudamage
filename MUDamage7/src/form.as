@@ -7,6 +7,7 @@ import MuCalc.MLV;
 import MuCalc.MLVcount;
 
 import MuData.Internal;
+import MuData.DoubleGoer;
 
 import flash.events.Event;
 import flash.events.FocusEvent;
@@ -58,7 +59,8 @@ form var mlvBox:Box;//MLV
 form var sebox:Container;//スペルエンハンス
 form var berserkerbox:Container;//バーサーカー
 form var ignorebox:Container;//敵の防御力無視
-form var mapBox:Container;
+form var mapBox:Container;//ドッペルゲンガー
+form var mapBox2:Container;//カウンターリベリオン
 
 form var supportpanel:Panel;//入力支援のパネル
 
@@ -98,7 +100,7 @@ form function init():void{
 	
 	//バージョン情報
 	var la:Label = new Label();
-	la.text = "MUDamage7 ver2.04";
+	la.text = "MUDamage7 ver2.05";
 	hbox.addChild(la);
 	
 	//拡大縮小ボタン
@@ -831,18 +833,24 @@ private function formCalc():HBox{
 	hbox.addChild(h);
 	hide(h);
 	form::mapBox = h;
-	var fi:FormItem = new FormItem();
-	fi.label = "Lv";
-	h.addChild(fi);
-	var ti:TextInput = new TextInput();
-	dat::d.f_mapLv = ti;
-	ti.addEventListener(FocusEvent.FOCUS_OUT,click::changeMapLv);
-	ti.text = "1";
-	ti.addEventListener(FocusEvent.FOCUS_IN,click::focusEvent);
-	ti.restrict = "0-9";
-	ti.maxChars = 3;
-	ti.width = 42;
-	fi.addChild(ti);
+
+	co = new ComboBox();//DoubleGoer LV
+	co.dataProvider = DoubleGoer.getLvOptions();
+	dat::d.f_map_doublegoer_lv = co;
+	h.addChild(co);
+	co = new ComboBox();//DoubleGoer PTM
+	co.dataProvider = DoubleGoer.getPTMOptions();
+	dat::d.f_map_doublegoer_ptm = co;
+	h.addChild(co);
+	
+	h = new HBox();
+	hbox.addChild(h);
+	hide(h);
+	form::mapBox2 = h;
+	co = new ComboBox();//ImperialGuardian LV
+	co.dataProvider = MuData.ImperialGuardian.getLvOptions();
+	dat::d.f_map_imperialguardian_lv = co;
+	h.addChild(co);
 	
 	//計算ボタン
 	var b:Button = new Button();
