@@ -2629,7 +2629,7 @@ Input Support
 呪いの王
 Cursed King
 大魔法師
-Ring of Great Wizard
+Critical Ring Wizard's
 天使の杖
 Angelic Staff
 妖精の羽

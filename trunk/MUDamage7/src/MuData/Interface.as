@@ -238,5 +238,8 @@ static public function getMap():Array{return Etc.map;}
 static public function getSpeed():Array{return Etc.speed;}
 
 static public function getExp():Array{return Exp.exp;}
+
+static public function getShopNeck():Array{return Shop.neck;}
+static public function getShopRing():Array{return Shop.ring;}
 	}
 }

@@ -256,6 +256,9 @@ calc function panel():void{
 	}else if(d.f_neck.f_kind.selectedLabel == "セット"){
 		text(d.f_neck.f_item.selectedLabel,"cyan");
 		text(d.f_neck.f_cop.selectedLabel,"cyan");
+	}else if(d.f_neck.f_kind.selectedLabel == "ショップ"){
+			text("ショップ","purple");
+			text(d.f_neck.f_shopitem.selectedLabel,"purple");
 	}
 	
 	//4行目～10行目
@@ -374,6 +377,9 @@ calc function panel():void{
 			text("パンダ変化の指輪　攻撃力+30/魔力+30");
 		}else if(ia[i].f_kind.selectedLabel == "スケルトン"){
 			text("スケルトン変身の指輪　攻撃力+40/魔力+40/呪い+40");
+		}else if(ia[i].f_kind.selectedLabel == "ショップ"){
+			text("ショップ","purple");
+			text(ia[i].f_shopitem.selectedLabel,"purple");
 		}
 	}
 	//計算テーブル

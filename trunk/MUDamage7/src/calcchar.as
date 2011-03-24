@@ -74,8 +74,10 @@ calcchar function Support(muc:MuChar):MuChar{
 	muc.support_weak = parseInt(dat::d.s_weak.text);//ウイークネス
 	if(dat::d.s_berserker.selected)
 		muc.support_berserker = Math.floor(ene/30);//バーサーカー
-	muc.support_vit = parseInt(dat::d.s_vit.text);//体力上昇
-	muc.support_avoid = parseInt(dat::d.s_avoid.text);//体力上昇
+	if(dat::d.s_vit.selected)
+		muc.support_vit = 16 + Math.ceil(ene/10);//体力上昇
+	if(dat::d.s_avoid.selected)
+		muc.support_avoid = Math.min(Math.ceil(ene/10),100);//防御成功率上昇
 	if(dat::d.s_ignore.selected)
 		muc.support_ignore = Math.floor(vit/200);//敵の防御力無視
 	return muc;
@@ -238,6 +240,7 @@ calcchar function Def(muc:MuChar):MuChar{
 			avoid += d.f_left.f_item.selectedItem[12][d.f_left.f_plus.selectedIndex][4];
 		avoid += d.f_left.f_op.selectedItem.value;
 	}
+	var avoid_ori:int = avoid;
 	if(uniform)avoid += Math.floor(avoid * 0.1);//統一ボーナス
 	for(var j:int=0;j<exop_avoid;j++)//EXOPの防御成功
 		avoid += Math.floor(avoid * 0.1);
@@ -247,7 +250,7 @@ calcchar function Def(muc:MuChar):MuChar{
 	//MLVの対人防御成功率
 	if(mlvcount.pvpavoid)pvpavoid += MLV.inf_pvpavoid[mlvcount.pvpavoid];
 	//サポートスキル
-	avoid += muc.support_avoid;
+	avoid += Math.floor((avoid_ori * muc.support_avoid) / 100);
 	
 	//代入
 	muc.def = de;

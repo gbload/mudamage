@@ -48,6 +48,7 @@ form var formbox:Array = new Array();//装備フォーム
 form var exbox:Array = new Array();//EXオプション
 form var setbox:Array = new Array();//セットステータス
 form var sobox:Array = new Array();//ソケットオプション
+form var shopbox:Array = new Array();//アイテムショップ
 form var box380:Array = new Array();//380OP
 form var helmbox:Container;//兜
 form var glovebox:Container;//兜
@@ -568,7 +569,7 @@ private function formNeck():FormItem{
 	d.f_neck.f_kind = kind;
 	kind.name = f_name;
 	kind.addEventListener(ListEvent.CHANGE,click::kindChangeAcc);
-	var data:ArrayCollection = new ArrayCollection(["なし","EX","セット"]);
+	var data:ArrayCollection = new ArrayCollection(["なし","EX","セット","ショップ"]);
 	kind.dataProvider = data;
 	kind.rowCount = 6;
 	fi.addChild(kind);
@@ -611,6 +612,21 @@ private function formNeck():FormItem{
 	d.f_neck.f_cop = cop;
 	change::setop(d.f_neck);//OPの作成
 	
+	//MuItemShopの作成
+	hbox = new HBox();
+	hide(hbox);
+	form::shopbox[f_name] = hbox;
+	fi.addChild(hbox);
+	//ShopItemの作成
+	si = new ComboBox();
+	hbox.addChild(si);
+	si.addEventListener(ListEvent.CHANGE,click::accitemChange);
+	si.name = f_name;
+	si.rowCount = 20;
+	si.dataProvider = c.getShopNeck();
+	si.labelFunction = form::labelfunc;
+	d.f_neck.f_shopitem = si;
+	
 	return fi;
 }
 private function formRing(name:String,item:Item,f_name:String):FormItem{
@@ -625,7 +641,7 @@ private function formRing(name:String,item:Item,f_name:String):FormItem{
 	item.f_kind = kind;
 	kind.name = f_name;
 	kind.addEventListener(ListEvent.CHANGE,click::kindChangeAcc);
-	var data:ArrayCollection = new ArrayCollection(["なし","EX","セット","魔法師","大魔法師","パンダ変化","スケルトン"]);
+	var data:ArrayCollection = new ArrayCollection(["なし","EX","セット","魔法師","大魔法師","パンダ変化","スケルトン","ショップ"]);
 	kind.dataProvider = data;
 	kind.rowCount = 6;
 	fi.addChild(kind);
@@ -661,12 +677,28 @@ private function formRing(name:String,item:Item,f_name:String):FormItem{
 	si.dataProvider = c.getSetRing();
 	si.labelFunction = form::labelfunc;
 	item.f_item = si;
+	
 	//ステータスOPの作成
 	var cop:ComboBox = new ComboBox();
 	cop.name = f_name;
 	hbox.addChild(cop);
 	item.f_cop = cop;
 	change::setop(item);//OPの作成
+	
+	//MuItemShopの作成
+	hbox = new HBox();
+	hide(hbox);
+	form::shopbox[f_name] = hbox;
+	fi.addChild(hbox);
+	//ShopItemの作成
+	si = new ComboBox();
+	hbox.addChild(si);
+	si.addEventListener(ListEvent.CHANGE,click::accitemChange);
+	si.name = f_name;
+	si.rowCount = 20;
+	si.dataProvider = c.getShopRing();
+	si.labelFunction = form::labelfunc;
+	item.f_shopitem = si;
 	
 	return fi;
 }
@@ -936,6 +968,24 @@ private function formSupport():Container{
 		hbox.addChild(box);
 		form::ignorebox = box;
 		hide(box);//隠す
+		//体力向上
+		box = new HBox();
+		ch = new CheckBox();
+		d.s_vit = ch;
+		box.addChild(ch);
+		la = new Label();
+		la.text = "体力向上";
+		box.addChild(la);
+		hbox.addChild(box);
+		//防御成功率向上
+		box = new HBox();
+		ch = new CheckBox();
+		d.s_avoid = ch;
+		box.addChild(ch);
+		la = new Label();
+		la.text = "防御成功率向上";
+		box.addChild(la);
+		hbox.addChild(box);
 		//インナーベーション
 		fi = new FormItem();
 		hbox.addChild(fi);
@@ -959,30 +1009,6 @@ private function formSupport():Container{
 		te.restrict = "0-9";
 		te.maxChars = 2;
 		te.width = 32;
-		te.addEventListener(FocusEvent.FOCUS_IN,click::focusEvent);
-		//体力向上
-		fi = new FormItem();
-		hbox.addChild(fi);
-		fi.setStyle("fontSize","13");
-		fi.label = "体力向上：";
-		te = new TextInput();
-		fi.addChild(te);
-		d.s_vit = te;
-		te.restrict = "0-9";
-		te.maxChars = 3;
-		te.width = 42;
-		te.addEventListener(FocusEvent.FOCUS_IN,click::focusEvent);
-		//防御成功率向上
-		fi = new FormItem();
-		hbox.addChild(fi);
-		fi.setStyle("fontSize","13");
-		fi.label = "防御成功率向上：";
-		te = new TextInput();
-		fi.addChild(te);
-		d.s_avoid = te;
-		te.restrict = "0-9";
-		te.maxChars = 3;
-		te.width = 42;
 		te.addEventListener(FocusEvent.FOCUS_IN,click::focusEvent);
 	//2行目
 	hbox = new HBox();
