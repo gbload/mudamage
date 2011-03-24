@@ -1,41 +1,3 @@
-ゴールドパージドラゴン
-Golden Budge Dragon
-ゴールドゴブリン
-Golden Goblin
-ゴールドタイタン
-Golden Titan
-ゴールドソルジャー
-Golden Soldier
-ゴールドドラゴン
-Golden Dragon
-ゴールドリザードキング
-Golden Lizard King
-ゴールドファルネウス
-Golden Vepar
-ゴールドタルタロス
-Golden Tantalos
-ゴールドホイール
-Golden Wheel
-ゴールドラビット
-Golden Rabbit
-ゴールドダークナイト
-Golden Knight
-ゴールドディアボロス
-Golden Devil
-ゴールドブルーゴーレム
-Golden Stone Golem
-ゴールドクラスト
-Golden Crust
-ゴールドサテュロス
-Golden Satyros
-ゴールドツインテール
-Golden Twin Tail
-ゴールドナピン
-Golden Napin
-ゴールドアイアンナイト
-Golden Iron Knight
-ゴールドグレートドラゴン
-Golden Great Dragon
 すでのそのタイトルのデータが存在します。上書きしますか？
 Data for the title already exists. Overwrite?
 備考：インナーベーション(IV:innervation)・・・敵の防御力低下\n
@@ -518,6 +480,8 @@ Berserker Scale Helm
 Great Dragon Armor
 グレートドラゴンガーダー
 Great Dragon Pants
+ゴールドグレートドラゴン
+Golden Great Dragon
 シャイニングブラスト強化
 Cometfall Increase
 ジェノサイダーウォーリア
@@ -537,6 +501,10 @@ Chain Lightning Increase
 ディメンションウォーカー
 Ice Walker
 ディメンションプリズナー
+Slaughterer
+ディメンジョンウォーカー
+Ice Walker
+ディメンジョンプリズナー
 Slaughterer
 デススピリット（訓練兵）
 Death Spirit (Training)
@@ -762,6 +730,14 @@ Great Dragon Helm
 Great Lord Scepter
 ケンタウロスウォーリア
 Kentarus Warrior
+ゴールドアイアンナイト
+Golden Iron Knight
+ゴールドパージドラゴン
+Golden Budge Dragon
+ゴールドブルーゴーレム
+Golden Stone Golem
+ゴールドリザードキング
+Golden Lizard King
 シリオンの骸骨のグラブ
 Sylion Bone Gloves
 シリオンの骸骨のブーツ
@@ -902,6 +878,8 @@ Imberial Staff
 Werewolf (Hero)
 エクセレントダメージ
 Excellent Damage
+エメラルドネックレス
+Emerald Necklace
 エレメンタルシールド
 Elemental Shield
 エンシェントアーマー
@@ -938,6 +916,16 @@ Crimson Glory Shield
 Chrono Ring of Magic
 クロマチックスタッフ
 Chromatic Staff
+ゴールドダークナイト
+Golden Knight
+ゴールドツインテール
+Golden Twin Tail
+ゴールドディアボロス
+Golden Devil
+ゴールドファルネウス
+Golden Vepar
+サファイアネックレス
+Sapphire Necklace
 サラマンダーシールド
 Salamander Shield
 シャイニングセプター
@@ -1146,6 +1134,12 @@ Storm Crow Armor
 Storm Crow Pants
 コンバットマスター
 Combat Instructor
+ゴールドサテュロス
+Golden Satyros
+ゴールドソルジャー
+Golden Soldier
+ゴールドタルタロス
+Golden Tantalos
 サイクロンアーマー
 Violent Wing Armor
 サイクロンガーダー
@@ -1276,6 +1270,8 @@ Celestial Bow
 Volcano Armor
 ボルケーノガーダー
 Volcano Pants
+ボーンスコーピオン
+Bone Scorpion
 ライジングウイング
 Wing of Dimension
 ライフドレイン強化
@@ -1328,6 +1324,8 @@ Apollo Skull Staff
 Apollo Pad Helm
 アポロの魔導の鎧
 Apollo Pad Armor
+アメジストリング
+Amethyst Ring
 アルバトロスボウ
 Albatross Bow
 イクリプスグラブ
@@ -1388,6 +1386,18 @@ Storm Crow Boots
 Death Stab Increase
 ゴールドアックス
 Larkan Axe
+ゴールドクラスト
+Golden Crust
+ゴールドゴブリン
+Golden Goblin
+ゴールドタイタン
+Golden Titan
+ゴールドドラゴン
+Golden Dragon
+ゴールドホイール
+Golden Wheel
+ゴールドラビット
+Golden Rabbit
 サイクロングラブ
 Violent Wing Gloves
 サイクロンブーツ
@@ -1396,6 +1406,8 @@ Violent Wing Boots
 Violent Wing Helm
 サイクロンロッド
 Violent Wing Stick
+サファイアリング
+Sapphire Ring
 シャドウアスター
 Shadow Master
 シルクのガーダー
@@ -1578,6 +1590,8 @@ Morning Star
 Light Crossbow
 ラウンドシールド
 Large Round Shield
+ルビーネックレス
+Ruby Necklace
 ルーンバスタード
 Rune Bastard
 レイジファイター
@@ -1716,6 +1730,8 @@ Illusion of Kundun
 Great Scythe
 ゴーストナピン
 Ghost Napin
+ゴールドナピン
+Golden Napin
 サドゥンアイス
 Ice Storm
 サハムットの書
@@ -1776,6 +1792,8 @@ Death Angel
 Death Spirit
 デビルウイング
 Wing of Dragon
+トパーズリング
+Topaz Ring
 ドラゴングラブ
 Dragon Gloves
 ドラゴンブーツ
@@ -1906,6 +1924,8 @@ Spirit Panta
 Exp Increase (%)
 鋼鉄のガーダー
 Plate Pants
+防御成功率向上
+Defense Success Rate Increase
 青銅のガーダー
 Bronze Pants
 骸骨のガーダー
@@ -1992,6 +2012,10 @@ Queen Bee
 Crywolf
 クリティカル
 Critical
+クリフォース
+Crypos
+クリブッター
+Crypta
 クンドンの杖
 Kundun Staff
 クールティン
@@ -2054,6 +2078,8 @@ Decay
 Death Ride
 トライデント
 Giant Trident
+ナルコンドラ
+Narcondra
 ハイペリオン
 Hyperion
 ハーデスの鎧
@@ -2098,6 +2124,8 @@ Elite Bull Fighter
 Mega Crust
 リザードマン
 Lizard Warrior
+ルビーリング
+Ruby Ring
 ロストタワー
 Losttower
 ロードグラブ
@@ -2150,6 +2178,8 @@ Min Magic Increase
 Cloak of Warrior
 無名の革の兜
 Anonymous Leather Helm
+猛毒鉤サソリ
+Poisonuos Scorpion
 生命完全回復
 Life Completion
 盾装備時増加
@@ -2243,7 +2273,7 @@ Import
 ウィザード
 Dark Wizard
 エナジー：
-energy:
+Energy:
 エルフの兜
 Vine Helm
 エルフの弓
@@ -2270,6 +2300,8 @@ Crescent Axe
 Cross Bow
 グリズリー
 Grizzly
+ゴルロック
+Golog
 サタンの羽
 Wing of Satan
 サテュロス
@@ -2367,7 +2399,7 @@ Vicious
 一角うさぎ
 Strange Rabbit
 体力向上：
-Stamina Increase:
+Vitality Increase:
 対人攻撃率
 PvP Dmg Rate
 平穏の沼地
@@ -2452,6 +2484,8 @@ EXDダメ+20%
 XDMG +20%
 HTMLコード
 HTML Code
+PT内最小Lv
+Min Lv
 エナジー:
 energy:
 カルリマ1
@@ -2518,6 +2552,10 @@ Icarus
 energy
 エロヒム
 Erohim
+オルカス
+Orcus
+カルタン
+Kalutan
 カントル
 Kanturu
 ガストラ
@@ -2538,6 +2576,8 @@ Kundun
 Berserker
 グレイヴ
 Double Poleaxe
+コンドラ
+Condra
 ゴブリン
 Elite Goblin
 ゴースト
@@ -2548,6 +2588,8 @@ Stone Golem
 Zaikan
 シャドー
 Shadow
+ショップ
+Shop
 シリオン
 Sylion
 スキル+11
@@ -2620,8 +2662,10 @@ Werewolf
 Rapier
 乱れ撃ち
 Triple Shot
+体力向上
+Vitality Increase
 体力増加
-Stamina Increase
+Vitality Increase
 入力値：
 Input Value:
 入力支援
@@ -2734,6 +2778,8 @@ Magic Increase
 Pad Helm
 魔導の鎧
 Pad Armor
+黄金軍団
+Golden Monster
 ) 防御力
 ) Defence
 AG回復+10
@@ -2787,11 +2833,11 @@ Ring1
 リング2
 Ring2
 体力 +20
-Stamina +20
+Vitality +20
 体力 +30
-Stamina +30
+Vitality +30
 体力 +50
-Stamina +50
+Vitality +50
 攻撃lv20
 Dmg Level/20
 攻撃力 
@@ -2822,8 +2868,6 @@ Life +500
 Life +700
 統率 +30
 Command +30
-黄金軍団
-Golden Monster
 要求力 
 require Strength
 速度(ms)
@@ -2917,9 +2961,9 @@ Rave
 ワーム
 Worm
 体力+50
-Stamina +50
+Vitality +50
 体力：
-Stamina:
+Vitality:
 全選択
 All Select
 召喚師
@@ -3043,7 +3087,7 @@ cri:
 マナ:
 Mana:
 体力:
-Stamina:
+Vitality:
 力 +10
 Strength +10
 力 +15
@@ -3097,7 +3141,7 @@ Minet
 両手
 Two-handed
 体力
-Stamina
+Vitality
 保存
 Save
 保護
@@ -3234,8 +3278,6 @@ A+：
 A+:
 C+：
 C+:
-EXD
-XDMG
 G+：
 G+:
 IV：
@@ -3260,8 +3302,6 @@ Arrow +3
 Arrow +0
 (率
 (rate
-EX
-EXE
 兜:
 Helm:
 力:
@@ -3282,6 +3322,8 @@ Armor:
 Dark Raver 
  ×
  ×
+EXD
+XDMG
 →
 ->
 ▲
@@ -3292,6 +3334,8 @@ Dark Raver
  
 の
 of
+人
+people
 兜
 Helm
 剣
@@ -3338,3 +3382,5 @@ Wind
 Dark Raver
 ～
 -
+EX
+EXE
