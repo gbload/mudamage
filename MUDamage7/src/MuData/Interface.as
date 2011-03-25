@@ -191,7 +191,7 @@ static public function getSkill():Array{return Etc.skill;}
 static public function getMonster(map:String,lv:int=1,ptm:int=1,ilv:int=1):Array{//mapのモンスターの配列を返す
 	var a:Array = [];
 	if(map == "ドッペルゲンガー"){
-		var doublegoer:DoubleGoer = new DoubleGoer(lv,1);
+		var doublegoer:DoubleGoer = new DoubleGoer(lv,ptm);
 		a = doublegoer.getMonster();
 	}else if(map == "カウンターリベリオン"){
 		var imperialguardian:ImperialGuardian = new ImperialGuardian(ilv);

@@ -240,17 +240,18 @@ calcchar function Def(muc:MuChar):MuChar{
 			avoid += d.f_left.f_item.selectedItem[12][d.f_left.f_plus.selectedIndex][4];
 		avoid += d.f_left.f_op.selectedItem.value;
 	}
-	var avoid_ori:int = avoid;
-	if(uniform)avoid += Math.floor(avoid * 0.1);//統一ボーナス
 	for(var j:int=0;j<exop_avoid;j++)//EXOPの防御成功
 		avoid += Math.floor(avoid * 0.1);
 	for each(i in soop_avoid)//ソケットOPの防御成功
 		avoid += Math.floor(avoid * (i as int)/100);
+	var avoid_ori:int = avoid;
+	//サポートスキル
+	avoid += Math.floor((avoid_ori * muc.support_avoid) / 100);
+	if(uniform)avoid += Math.floor(avoid_ori * 0.1);//統一ボーナス
+	
 	pvpavoid += enop_pvpavoid;//エンチャントOPの対人防御成功
 	//MLVの対人防御成功率
 	if(mlvcount.pvpavoid)pvpavoid += MLV.inf_pvpavoid[mlvcount.pvpavoid];
-	//サポートスキル
-	avoid += Math.floor((avoid_ori * muc.support_avoid) / 100);
 	
 	//代入
 	muc.def = de;
