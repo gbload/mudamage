@@ -426,16 +426,16 @@ damage function calcDamage(muc:MuChar,d:int,elf:Boolean=false,cri:Boolean=false,
     if(muc.fenrir==2)d += Math.floor(d*10/100);//フェンリル
     
     //スキル%
-    if(muc.now_skill[0] == "プラズマストーム")
+    if(muc.now_skill[0] == "プラズマストーム"){
     	d += Math.floor(d * 1.2);
-	else if(muc.job == 0)//ナイトのとき
+	}else if(muc.job == 0){//ナイトのとき
     	d += Math.floor(d * Math.floor((100 + muc.ene/10))/100);//スキル%
-    else if(muc.job == 4){//ダークロードのとき
+    }else if(muc.job == 4){//ダークロードのとき
     	if(muc.now_skill[5] == 5) d += Math.floor(d * Math.floor((100 + muc.ene/25))/100);//スキル%
     	else d += Math.floor(d * Math.floor((100 + muc.ene/20))/100);//スキル%
-    }else if(elf)
+    }else if(elf){
     	d += 0;//乱れ打ちとか　スキル%なし
-    else if(muc.job == 6)//レイジファイターのとき
+    }else if(muc.job == 6){//レイジファイターのとき
     	if(muc.now_skill[5] == 10)//チェーンドライブ
     		d += Math.floor(d * Math.floor((50 + muc.vit/10))/100);//スキル%
     	else if(muc.now_skill[5] == 11)//ダークサイド
@@ -444,8 +444,9 @@ damage function calcDamage(muc:MuChar,d:int,elf:Boolean=false,cri:Boolean=false,
     		d += Math.floor(d * Math.floor((50 + muc.ene/10))/100);//スキル%
     	else if(muc.now_skill[5] == 13)//フェニックスショット
     		d += Math.floor(d * Math.floor((120 + muc.vit/10))/100);//スキル%
-    else
+    }else{
     	d += d;//スキル200%
+    }
     
     //[セットOP]ダメージ増加
     d += muc.op_damage;
