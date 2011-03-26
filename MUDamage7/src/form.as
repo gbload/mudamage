@@ -100,7 +100,7 @@ form function init():void{
 	
 	//バージョン情報
 	var la:Label = new Label();
-	la.text = "MUDamage7 ver2.06";
+	la.text = "MUDamage7 ver2.07";
 	hbox.addChild(la);
 	
 	//拡大縮小ボタン
