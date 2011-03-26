@@ -767,7 +767,7 @@ Dark Master Armor
 ダークマスターガーダー
 Dark Master Pants
 ディメンションウイング
-Wing of Eternal
+Wings of Dimension
 データを保存しました。
 Saved data.
 ドラゴンナイトアーマー
@@ -1273,7 +1273,7 @@ Volcano Pants
 ボーンスコーピオン
 Bone Scorpion
 ライジングウイング
-Wing of Dimension
+Wing of Eternal
 ライフドレイン強化
 Drain Life Increase
 ルシファーのグラブ
