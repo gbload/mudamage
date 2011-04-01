@@ -436,20 +436,24 @@ damage function calcDamage(muc:MuChar,d:int,elf:Boolean=false,cri:Boolean=false,
     }else if(elf){
     	d += 0;//乱れ打ちとか　スキル%なし
     }else if(muc.job == 6){//レイジファイターのとき
-    	if(muc.now_skill[5] == 10)//チェーンドライブ
+    	if(muc.now_skill[5] == 10)//武器スキル、チェーンドライブ
     		d += Math.floor(d * Math.floor((50 + muc.vit/10))/100);//スキル%
     	else if(muc.now_skill[5] == 11)//ダークサイド
     		d += Math.floor(d * Math.floor((100 + muc.agi/8 + muc.ene/10))/100);//スキル%
     	else if(muc.now_skill[5] == 12)//ドラゴンロアー
     		d += Math.floor(d * Math.floor((50 + muc.ene/10))/100);//スキル%
-    	else if(muc.now_skill[5] == 13)//フェニックスショット
-    		d += Math.floor(d * Math.floor((120 + muc.vit/10))/100);//スキル%
+//    	else if(muc.now_skill[5] == 13)//フェニックスショット
+//    		d += Math.floor(d * Math.floor((120 + muc.vit/10))/100);//スキル%
     }else{
     	d += d;//スキル200%
     }
     
     //[セットOP]ダメージ増加
     d += muc.op_damage;
+    //コンボスキル
+    if(muc.now_skill[5] == 7){
+    	d += Math.floor((muc.str + muc.agi + muc.ene)/2);
+    }
     
     return d;
 }

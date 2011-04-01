@@ -925,11 +925,17 @@ calcchar function calcMinMax(muc:MuChar,cri:Boolean,exd:Boolean,min:Boolean):int
     	}
 	
     //二刀流攻撃力1.1倍
-    if(muc.lefthund)
-    	if(muc.job == 6)//レイジファイターのみ1.3倍
-    		d = Math.floor(d * 0.65);
-		else
+    if(muc.lefthund){
+    	if(muc.job == 6){
+    		if(min){//レイジファイターの場合最小1.2倍
+    			d = Math.floor(d * 0.60);
+    		}else{//レイジファイターの場合最大1.3倍
+    			d = Math.floor(d * 0.65);
+    		}
+		}else{
 			d = Math.floor(d * 0.55);
+		}
+	}
 
     return d;
 }
