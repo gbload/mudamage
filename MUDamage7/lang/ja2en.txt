@@ -1,11 +1,3 @@
-トルネードクラッシュ(コンボ)
-Twisting Slash (Combo)
-ゴッドブロー(コンボ)
-Death Stab (Combo)
-オメガインパクト(コンボ)
-Earth Break (Combo)
-ドラゴンスラッシャー
-Dragon Slayer
 すでのそのタイトルのデータが存在します。上書きしますか？
 Data for the title already exists. Overwrite?
 備考：インナーベーション(IV:innervation)・・・敵の防御力低下\n
@@ -176,6 +168,10 @@ PvP Attack+200 PvP Attack Success Rate+10
 Sedemen Red Wing Armor
 データの保存を許可してください。
 Please allow storage of data.
+ネメシスのレッドウイングアーマー
+Nemesis Red Wing Armor
+ネメシスのレッドウイングガーダー
+Nemesis Red Wing Pants
 バンガイオンのケルベロスアーマー
 Gaion Storm Crow Armor
 バンガイオンのケルベロスガーダー
@@ -190,12 +186,18 @@ Agnis Adamantine Armor
 Agnis Adamantine Pants
 アヌビスのオーディーンのグラブ
 Anubis Legendary Gloves
+アビスのスフィンクスのガーダー
+Hade Sphinx Pants
 イシスのオーディーンのガーダー
 Enis Legendary Pants
 オークアーチャー8（10～15分経過)
 Orc Archer8(after 10~15min)
 ガウェインのスキルのネックレス
 Gywen Pendant Ability
+キャメルのセイクリッドアーマー
+Chamereuui Sacred Armor
+キャメルのセイクリッドガーダー
+Chamereuui Sacred Pants
 クロノのレッドウイングガーダー
 Chrono Red Wing Pants
 セメデンのレッドウインググラブ
@@ -204,6 +206,14 @@ Sedemen Red Wing Gloves
 Sedemen Red Wing Boots
 セメデンのレッドウイングヘルム
 Sedemen Red Wing Helm
+タロスのオーディーンのガーダー
+Taroseu Legendary Pants
+ネメシスのレッドウインググラブ
+Nemesis Red Wing Gloves
+ネメシスのレッドウイングブーツ
+Nemesis Red Wing Boots
+ネメシスのレッドウイングヘルム
+Nemesis Red Wing Helm
 バンガイオンのケルベロスブーツ
 Gaion Storm Crow Boots
 ヘラスのスフィンクスのガーダー
@@ -222,6 +232,10 @@ Monster Attack Life Increment(HP/)
 Max Life+200 PvP Defense Success Rate+10
 アグニスのダークソウルマスク
 Agnis Adamantine Helm
+アビスのスフィンクスのグラブ
+Hade Sphinx Gloves
+アビスのスフィンクスのブーツ
+Hade Sphinx Boots
 アプルナスのスケイルアーマー
 Eplete Scale Armor
 アプルナスのスケイルガーダー
@@ -232,14 +246,30 @@ Eplete Pendant Lightning
 Aruan Guardian Pants
 イシスのオーディーンのブーツ
 Enis Legendary Boots
+オピオンのサイクロンアーマー
+Office Violent Wing Armor
+オピオンのサイクロンガーダー
+Office Violent Wing Pants
+カストルのパルテナのガーダー
+Kass Guardian Pants
 ガウェインのパルテナのグラブ
 Gywen Guardian Gloves
 ガウェインのパルテナのブーツ
 Gywen Guardian Boots
+キャメルのセイクリッドクロー
+Chamereuui Sacred Gloves
+キャメルのセイクリッドブーツ
+Chamereuui Sacred Boots
 クロノのレッドウインググラブ
 Chrono Red Wing Gloves
 クロノのレッドウイングヘルム
 Chrono Red Wing Helm
+タロスのオーディーンのグラブ
+Taroseu Legendary Gloves
+タロスのオーディーンのブーツ
+Taroseu Legendary Boots
+ディオーネのシルクのガーダー
+Four Silk Pants
 データをインポートしました。
 Imported data.
 ドッペルゲンガー・ヴィシャス
@@ -260,6 +290,10 @@ Minet Sphinx Pants
 Muren Storm Crow Armor
 ミュレンのケルベロスガーダー
 Muren Storm Crow Pants
+メテルのダークソウルアーマー
+Metereuui Adamantine Armor
+メテルのダークソウルガーダー
+Metereuui Adamantine Pants
 ヴィシャスのドラゴンアーマー
 Vicious Dragon Armor
 ヴィシャスのドラゴンガーダー
@@ -292,6 +326,8 @@ Critical Damage success rate increase+10%
 Critical Damage success rate increase+15%
 クリティカルダメージ確率 +20%
 Critical Damage success rate increase+20%
+トルネードクラッシュ(コンボ)
+Twisting Slash (Combo)
 両手剣装備時ダメージ増加 +20%
 Increase Two-handed Weapon Equipment Damage +20%
 両手剣装備時ダメージ増加 +30%
@@ -312,8 +348,14 @@ Vermont
 Anubis Legendary Helm
 アヌビスのオーディーンの鎧
 Anubis Legendary Armor
+アビスのスフィンクスの仮面
+Hade Sphinx Helm
 アプルナスのスケイルヘルム
 Eplete Scale Helm
+アミスのケルベロスアーマー
+Army Storm Crow Armor
+アミスのケルベロスガーダー
+Army Storm Crow Pants
 アルアンのパルテナのブーツ
 Aruan Guardian Boots
 エクスプロージョンブレード
@@ -322,8 +364,18 @@ Explosion Blade
 Eternal Wing Armor
 エターナルウイングガーダー
 Eternal Wing Pants
+オピオンのサイクロングラブ
+Office Violent Wing Gloves
+オピオンのサイクロンブーツ
+Office Violent Wing Boots
+オピオンのサイクロンヘルム
+Office Violent Wing Helm
 オーディーンの風のガーダー
 Odin Wind Pants
+カストルのパルテナのグラブ
+Kass Guardian Gloves
+カストルのパルテナのブーツ
+Kass Guardian Boots
 ガルーダのミスリルアーマー
 Garuda Brass Armor
 ガルーダのミスリルガーダー
@@ -336,6 +388,10 @@ Crystal Morning Star
 Berserker Scale Armor
 グリードのスケイルガーダー
 Berserker Scale Pants
+ディオーネのシルクのグラブ
+Four Silk Gloves
+ディオーネのシルクのブーツ
+Four Silk Boots
 ドッペルゲンガー・アヌビス
 Doppleganger Wizard
 ドッペルゲンガー・ミュレン
@@ -356,12 +412,26 @@ Bloody Witch Queen
 Broy Adamantine Gloves
 ブロイのダークソウルブーツ
 Broy Adamantine Boots
+ヘガトンのドラゴンアーマー
+Hagatonui Dragon Armor
+ヘガトンのドラゴンガーダー
+Hagatonui Dragon Pants
 ヘラスのスフィンクスの仮面
 Heras Sphinx Helm
+ベガのセイクリッドアーマー
+Vega Sacred Armor
+ベガのセイクリッドガーダー
+Vega Sacred Pants
 ミネのスフィンクスのブーツ
 Minet Sphinx Boots
 ミュレンのケルベロスグラブ
 Muren Storm Crow Gloves
+メテルのダークソウルグラブ
+Metereuui Adamantine Gloves
+メテルのダークソウルブーツ
+Metereuui Adamantine Boots
+メテルのダークソウルヘルム
+Metereuui Adamantine Helm
 ヴィシャスのドラゴンヘルム
 Vicious Dragon Helm
 以下のタイトルを開きます。
@@ -434,6 +504,12 @@ Orc Warrior7(after 5~10min)
 Spirit Sorcerer7(after 5~10min)
 アタックプラス強化(エナ/)
 Greater Damage Increse(ene/)
+アビスのスフィンクスの鎧
+Hade Sphinx Armor
+アミスのケルベロスグラブ
+Army Storm Crow Gloves
+アミスのケルベロスブーツ
+Army Storm Crow Boots
 アルゴスの精霊のガーダー
 Argo Spirit Pants
 アルビアンの風のガーダー
@@ -500,6 +576,10 @@ Pet Skeleton
 Storm Blitz Armor
 ストームブリッツガーダー
 Storm Blitz Pants
+タロスのオーディーンの兜
+Taroseu Legendary Helm
+タロスのオーディーンの鎧
+Taroseu Legendary Armor
 ダークブリザードアーマー
 Dark Steel Armor
 ダークブリザードガーダー
@@ -518,6 +598,10 @@ Slaughterer
 Death Spirit (Training)
 データを読み込みました。
 Loaded data.
+トリテのストームアーマー
+Tree  Storm Jahard Armor
+トリテのストームガーダー
+Tree  Storm Jahard Pants
 トルネードクラッシュ強化
 Twisting Slash Increase
 ドッペルゲンガー・カリス
@@ -548,8 +632,22 @@ Soul Phoenix Star Helm
 Black Dragon Armor
 ブラックドラゴンガーダー
 Black Dragon Pants
+ヘガトンのドラゴングラブ
+Hagatonui Dragon Gloves
+ヘガトンのドラゴンブーツ
+Hagatonui Dragon Boots
+ヘガトンのドラゴンヘルム
+Hagatonui Dragon Helm
 ヘラスのスフィンクスの鎧
 Heras Sphinx Armor
+ベガのセイクリッドクロー
+Vega Sacred Gloves
+ベガのセイクリッドヘルム
+Vega Sacred Helm
+モロスのスケイルアーマー
+Moro Scale Armor
+モロスのスケイルガーダー
+Moro Scale Pants
 ライトニングショック強化
 Lightning Shock Increase
 レイジファイターアーマー
@@ -598,6 +696,8 @@ Spirit Sorcerer8(after 10~15min)
 Bow of Archangel(new)
 アークエンジェルボウ(旧)
 Bow of Archangel(old)
+オメガインパクト(コンボ)
+Earth Break (Combo)
 オーク戦士8（5～10分経過)
 Orc Warrior8(after 5~10min)
 モンスターkill時SD回復(SD/)
@@ -636,14 +736,20 @@ Argo Spirit Gloves
 Export/Import
 エクセレントダメージ +10
 Excellent Damage+10
+エクセレントダメージ +15
+Excellent Damage +15
 エクセレントダメージ +20
 Excellent Damage+20
 エクセレントダメージ +30
 Excellent Damage+30
 オーク戦士8（0～5分経過)
 Orc Warrior8(after 0~5min)
+クリティカルダメージ +10
+Critical Damage +10
 クリティカルダメージ +20
 Critical Damage+20
+クリティカルダメージ +30
+Critical Damage +30
 クリティカルダメージ +50
 Critical Damage+50
 シーズン5PVに映ってたBOSS
@@ -706,6 +812,10 @@ Legendary Pants
 Chaos Lightning Staff
 カオスドラゴンアックス
 Chaos Dragon Axe
+カストルのパルテナの兜
+Kass Guardian Helm
+カストルのパルテナの鎧
+Kass Guardian Armor
 カリスの精霊のガーダー
 Karis Spirit Pants
 カンタータの毒のリング
@@ -774,10 +884,18 @@ Dark Steel Helm
 Dark Master Armor
 ダークマスターガーダー
 Dark Master Pants
+ディオーネのシルクの兜
+Four Silk Helm
+ディオーネのシルクの鎧
+Four Silk Armor
 ディメンションウイング
 Wings of Dimension
 データを保存しました。
 Saved data.
+トリテのストームブーツ
+Tree Storm Jahard Boots
+トリテのストームヘルム
+Tree  Storm Jahard Helm
 ドラゴンナイトアーマー
 Dragon Knight Armor
 ドラゴンナイトガーダー
@@ -810,6 +928,12 @@ Broy Pendant Ice
 Mist Bronze Pants
 ミネのスフィンクスの鎧
 Minet Sphinx Armor
+モロスのスケイルグラブ
+Moro Scale Gloves
+モロスのスケイルブーツ
+Moro Scale Boots
+モロスのスケイルヘルム
+Moro Scale Helm
 レイジファイタークロー
 Rage Fighter Claw
 レイジファイターブーツ
@@ -984,6 +1108,8 @@ Chain Lightning
 Not found data.
 トルネードクラッシュ
 Twisting Slash
+ドラゴンスラッシャー
+Dragon Slayer
 ドラゴンナイトグラブ
 Dragon Knight Gloves
 ドラゴンナイトブーツ
@@ -1056,6 +1182,8 @@ Add from MUDamage Form
 Evis Bone Boots
 クライウルフ(攻防戦)
 Crywolf(event)
+ゴッドブロー(コンボ)
+Death Stab (Combo)
 フレイムハンド(単体)
 Raven Attack(Single)
 フレイムハンド(範囲)
@@ -2248,6 +2376,8 @@ Schriker 2
 Delay(ms)
 ポイント 0/0
 Point 0/0
+ラッキー LV2
+Lucky LVL2
 耐久減少1(%)
 Duration Reduction 1 (%)
 耐久減少2(%)
@@ -2390,6 +2520,10 @@ Medusa
 La Cleon
 ラグルの書
 Book of Lagle
+ラッキーLV1
+LuckyLVL1
+ラッキーLV2
+LuckyLVL2
 レクイエム
 Requiem
 ロレンシア
@@ -2532,6 +2666,8 @@ Defence +25
 Defence +30
 防御力 +40
 Defence +40
+防御力 +50
+Defense +50
 防御力 +60
 Defence +60
 防御力+100
@@ -2570,6 +2706,8 @@ Kanturu
 Golden Crossbow
 ガルーダ
 Garuda
+キャメル
+Chamereuui
 クラウド
 Cloud
 クラス：
@@ -3142,6 +3280,8 @@ None
 Critical
 セト
 Ceto
+ベガ
+Vega
 マナ
 Mana
 ミネ
