@@ -1,3 +1,11 @@
+トルネードクラッシュ(コンボ)
+Twisting Slash (Combo)
+ゴッドブロー(コンボ)
+Death Stab (Combo)
+オメガインパクト(コンボ)
+Earth Break (Combo)
+ドラゴンスラッシャー
+Dragon Slayer
 すでのそのタイトルのデータが存在します。上書きしますか？
 Data for the title already exists. Overwrite?
 備考：インナーベーション(IV:innervation)・・・敵の防御力低下\n
