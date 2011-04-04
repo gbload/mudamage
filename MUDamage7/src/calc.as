@@ -657,7 +657,7 @@ calc function getForm():void{
 	string = "";
 	v = 0;
 	for(i=0;i<a.length;i++){
-		if(a[i].f_kind.selectedLabel == "通常" || a[i].f_kind.selectedLabel == "EX"){
+		if(a[i].f_enop.visible){
 			if(a[i].f_enop.selectedLabel == "")continue;
 			v = parseInt(a[i].f_enop_value.selectedLabel);//数値取得
 			//武器類
