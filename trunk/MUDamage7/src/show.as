@@ -321,7 +321,7 @@ calc function panel():void{
 			//アイテム名　+13 op16
 			text(ia[i].f_item.selectedLabel + ia[i].f_plus.selectedLabel + op,color,specstr);
 			//エンチャントの表示
-			if(ia[i].f_kind.selectedLabel == "通常" || ia[i].f_kind.selectedLabel == "EX")
+			if(ia[i].f_enop.visible)
 				if(ia[i].f_enop.selectedIndex > 0)
 					text(ia[i].f_enop.selectedLabel + "+" + ia[i].f_enop_value.selectedLabel,color);
 			//幸運の表示

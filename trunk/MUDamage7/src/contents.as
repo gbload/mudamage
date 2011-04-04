@@ -353,8 +353,18 @@ click function itemChange(event:Event):void{
 			show(d.f_left.f_kind);
 			hide(d.f_right.f_arrow);
 		}
+		//ラッキーアイテム用エンチャント表示
+		if(item.f_kind.selectedLabel == "セット"){
+			if(item.f_item.selectedItem[10] == "ラッキーLV1" || item.f_item.selectedItem[10] == "ラッキーLV2" || item.f_item.selectedItem[10] == "ラッキー LV2"){
+				show(item.f_enop);
+				show(item.f_enop_value);
+			}else{
+				hide(item.f_enop);
+				hide(item.f_enop_value);
+			}
+		}
 		//エンチャントOP変更
-		if(item.f_kind.selectedLabel == "通常" || item.f_kind.selectedLabel == "EX"){
+		if(item.f_enop.visible){
 			change::en(item);
 			change::enop(item);
 		}
@@ -522,7 +532,7 @@ click function en(event:Event):void{
 click function plus(event:Event):void{
 	use namespace dat;
 	var item:Item = d.getItemByName(event.target.name);
-	if(item.f_kind.selectedLabel == "通常" || item.f_kind.selectedLabel == "EX"){
+	if(item.f_enop.visible){
 		change::en(item);
 		change::enop(item);
 	}
