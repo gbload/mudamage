@@ -158,7 +158,7 @@ menu function savebutton(event:Event):Boolean{
 			}
 		}
 		if(ch == true){
-			Alert.show("すでのそのタイトルのデータが存在します。上書きしますか？"
+			Alert.show("すでにそのタイトルのデータが存在します。上書きしますか？"
 						,"確認",(Alert.YES | Alert.NO),null,menu::savebutton);
 			return false;
 		}

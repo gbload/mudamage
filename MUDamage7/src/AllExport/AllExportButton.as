@@ -7,12 +7,14 @@ package AllExport {
 	 * 一括エクスポート/インポートの機能を提供するボタン
 	 */
 	public class AllExportButton extends Button {
+		private var main:Container;
 		/**
 		 * コンストラクタ
 		 * @param main:Container
 		 */
-		public function AllExportButton() {
+		public function AllExportButton(main:Container) {
 			super();
+			this.main = main;
 			this.addEventListener(MouseEvent.CLICK,click);
 		}
 		
@@ -20,7 +22,7 @@ package AllExport {
 		 * ボタンをクリックした時のイベント
 		 */
 		private function click(event:Event):Boolean{
-			this.parent.addChild(new AllExportPanel());
+			this.main.addChild(new AllExportPanel());
 			return true;
 		}
 	}
