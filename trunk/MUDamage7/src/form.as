@@ -2,6 +2,8 @@
 import AAgetter.AAgetter;
 
 import Csv.*;
+import AllExport.*;
+import FileIO.*;
 
 import MuCalc.MLV;
 import MuCalc.MLVcount;
@@ -75,6 +77,8 @@ form function init():void{
 	//大枠から
 	use namespace form;
 	use namespace dat;
+	// 初期化
+	StaticFormIO.init(d,mlv,mlvcount);
 	//
 	this.setStyle("backgroundColor","#FFFFFF");
 	this.setStyle("fontSize","13");
@@ -100,7 +104,7 @@ form function init():void{
 	
 	//バージョン情報
 	var la:Label = new Label();
-	la.text = "MUDamage7 ver2.11";
+	la.text = "MUDamage7 ver2.12";
 	hbox.addChild(la);
 	
 	//拡大縮小ボタン
@@ -133,6 +137,12 @@ form function init():void{
 	b.height = 20;
 	b.label = "エクスポート/インポート";
 	b.addEventListener(MouseEvent.CLICK,menu::export);
+	hbox.addChild(b);
+	
+	//一括インポートとエクスポート
+	b = new AllExportButton(this);
+	b.height = 20;
+	b.label = "一括エクスポート/インポート";
 	hbox.addChild(b);
 	
 	//石造破壊シミュレータ
