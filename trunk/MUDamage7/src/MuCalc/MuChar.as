@@ -82,7 +82,7 @@ package MuCalc
 		//ダークスピリットの能力
 		//0 単体最小 1 単体最大 2 範囲最小 3 範囲最大 4 攻撃成功率 5 Lv(クリ率)
 		public var darkspirit:Array=new Array();
-		//オプション関連
+		//攻撃オプション関連
 		public var op_skill:int=0;//スキル攻撃力増加
 		public var op_cri:int=0;//クリダメ増加
 		public var op_exd:int=0;//EXD増加
@@ -91,6 +91,11 @@ package MuCalc
 		public var op_hands:int=0;//両手武器装備時ダメージ増加
 		public var etc_cri:int=0;//クリダメ増加%
 		public var etc_exd:int=0;//EXDダメ増加%
+		//防御オプション関連
+		public var guard_op_exop_dec:int=0;//EXダメ減
+		public var guard_op_enop_dec:int=0;//エンチャントダメ減
+		public var guard_op_soop_dec:int=0;//ソケットダメ減
+		
 		//セットOP
 		public var setop_names:Array=new Array();//セットOP名の配列
 		//対人オプション関連

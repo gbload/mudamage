@@ -688,6 +688,10 @@ calcchar function Option(muc:MuChar):MuChar{
     muc.etc_exd = etc_exd;
     //セットOP名
     muc.setop_names = setop_array;
+    //ダメ減
+    muc.guard_op_exop_dec = exop_dec;
+    muc.guard_op_enop_dec = enop_dec;
+    muc.guard_op_soop_dec = soop_dec;
     return muc;
 }
 /*
