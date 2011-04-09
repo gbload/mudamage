@@ -686,6 +686,8 @@ calcchar function Option(muc:MuChar):MuChar{
     muc.etc_cri = etc_cri;
     //EXDダメ増加%
     muc.etc_exd = etc_exd;
+    //セットOP名
+    muc.setop_names = setop_array;
     return muc;
 }
 /*

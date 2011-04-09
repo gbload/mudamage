@@ -4,8 +4,12 @@ package MuData
 	
 	public class Internal
 	{
+		private static var instance:Internal;
+		private static function getInstance():Internal{return instance;}
+		
 		public function Internal()
 		{
+			instance = this;
 		}
 		//アイテムレベルの配列を取得
 		public var plus:Array = ["N","+1","+2","+3","+4","+5","+6","+7","+8","+9","+10","+11","+12","+13","+14","+15"];
