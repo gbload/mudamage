@@ -91,6 +91,8 @@ package MuCalc
 		public var op_hands:int=0;//両手武器装備時ダメージ増加
 		public var etc_cri:int=0;//クリダメ増加%
 		public var etc_exd:int=0;//EXDダメ増加%
+		//セットOP
+		public var setop_names:Array=new Array();//セットOP名の配列
 		//対人オプション関連
 		public var op_pvpdamage:int=0;//対人ダメージ
 		//一時保存用
