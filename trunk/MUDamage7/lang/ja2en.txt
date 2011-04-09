@@ -1,4 +1,4 @@
-すでのそのタイトルのデータが存在します。上書きしますか？
+すでにそのタイトルのデータが存在します。上書きしますか？
 Data for the title already exists. Overwrite?
 備考：インナーベーション(IV:innervation)・・・敵の防御力低下\n
 Note:Innovation(IV) - Lowers enemies' defense\n
@@ -218,6 +218,8 @@ Nemesis Red Wing Helm
 Gaion Storm Crow Boots
 ヘラスのスフィンクスのガーダー
 Heras Sphinx Pants
+一括インポートが完了しました。
+completed all import.
 オークアーチャー8（5～10分経過)
 Orc Archer8(after 5~10min)
 IV = (エナ/90)+20 | WN = (エナ/65)+7 \n
@@ -338,6 +340,8 @@ Spirit Beast7(after 10~15min)
 Excellent Damage rate increase+5%
 クリティカルダメージ確率 +5%
 Critical Damage success rate increase+5%
+一括エクスポート/インポート
+All Export/Import
 暗黒のオウガ7（5～10分経過）
 Spirit Beast7(after 5~10min)
 第二師団長 烈火のベルモント
@@ -1738,6 +1742,8 @@ Rave Plate Helm
 Rave Plate Armor
 レザーバックラー
 Small Shield
+一括エクスポート
+All Export
 無名の革のブーツ
 Anonymous Leather Boots
 盾装備時、防御力
@@ -2026,6 +2032,8 @@ Light Plate Armor
 Light Plate Pants
 ロードセプター
 Lord Scepter
+一括インポート
+All Import
 召喚師のエナ：
 Summoner's ene:
 対人攻撃成功率
@@ -2358,6 +2366,8 @@ Ring of Wizard
 Hunter
 Error:セットOP
 Error:Set Option
+対人計算(仮)
+PVP calc(alpha ver)
 エナジー +10
 energy +10
 エナジー +15
@@ -2552,6 +2562,8 @@ Dmg Success Rate
 Max Dmg
 最大生命+29
 Max Life +29
+最小〜最大
+min - max
 最小攻撃力
 Min Attack
 最小～最大
