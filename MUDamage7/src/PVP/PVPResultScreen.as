@@ -2,6 +2,9 @@ package PVP {
 	import MuCalc.MuChar;
 	
 	import mx.containers.*;
+	import mx.controls.*;
+	import mx.core.*;
+	import flash.events.*;
 	/**
 	 * PVPダメージ計算の結果を表示する画面
 	 */
@@ -23,7 +26,8 @@ package PVP {
 		 * 初期化
 		 */
 		private function init():void{
-			// それぞれのキャラクターに対してスキル毎にダメージ計算
+			// 閉じるボタン
+			this.addChild(createCloseButton());
 			
 			// キャラクターステータス表示
 			this.addChild(new PVPCharacterScreen(muc1));
@@ -36,19 +40,33 @@ package PVP {
 			this.addChild(new PVPDamageGrid(calcSkills(muc2,muc1)));
 		}
 		/**
+		 * 閉じるボタン
+		 */
+		private function createCloseButton():Button{
+			var button:Button = new Button();
+			button.label = "閉じる";
+			//button.name = click::tabindex.toString();
+			var container:Container = this;
+			button.addEventListener(MouseEvent.CLICK,
+					function(event:Event):void{
+						container.parent.removeChild(container);
+					});
+			
+			return button;
+		}
+		/**
 		 * ダメージを計算します。
 		 */
 		private function calcSkills(muc1:MuChar, muc2:MuChar):Array{
 			var a:Array = new Array();
 			//命中率計算
 			var hit:int=0;
-//			if(muc1.hit < muc2.avoid)hit=5;
-//			else if(muc1.hit == m[7])hit=0;
-//			else hit = 10000 - (m[7]*10000/muc1.hit);
-//			var hitdarkspirit:int=0;
-//			if(muc.darkspirit[4] < m[7])hitdarkspirit=5;
-//			else if(muc.darkspirit[4]  == m[7])hitdarkspirit=0;
-//			else hitdarkspirit = 10000 - (m[7]*10000/muc.darkspirit[4] );
+		
+			var tmp_hit1:int = muc1.pvphit * muc1.lv;
+			var tmp_hit2:int = muc2.pvphit * muc2.lv;
+		
+			hit = (tmp_hit1 / (tmp_hit1 + tmp_hit2))*100;
+			
 			//ダメージ計算
 			var hit1array:Array = new Array();
 			var minutearray:Array = new Array();
@@ -63,18 +81,17 @@ package PVP {
 			var x_exd:int = 0;
 			for(var j:int = 0;j<muc1.skill.length;j++){
 				muc1.now_skill = muc1.skill[j];
-//				if(muc1.skill[j][5] == 4){//ダークスピリット
-//					if(muc1.skill[j][0] == "フレイムハンド(単体)"){
-//						x_min = Math.max(muc1.darkspirit[0] - muc1.monster_def,muc1.darkspirit[5]/10);
-//						x_max = Math.max(muc1.darkspirit[1] - muc1.monster_def,muc1.darkspirit[5]/10);
-//					}else{
-//						x_min = Math.max(muc1.darkspirit[2] - muc1.monster_def,muc1.darkspirit[5]/10);
-//						x_max = Math.max(muc1.darkspirit[3] - muc1.monster_def,muc1.darkspirit[5]/10);
-//					}
-//					x_cri=x_max;
-//					x_exd=0;
-//				}else 
-				if(muc1.skill[j][3] == "魔法"){//魔法
+				if(muc1.skill[j][5] == 4){//ダークスピリット
+					if(muc1.skill[j][0] == "フレイムハンド(単体)"){
+						x_min = PVPDamageCalculator.calcMagicDamage(muc1,muc2,muc1.darkspirit[0]);
+						x_max = PVPDamageCalculator.calcMagicDamage(muc1,muc2,muc1.darkspirit[1]);
+					}else{
+						x_min = PVPDamageCalculator.calcMagicDamage(muc1,muc2,muc1.darkspirit[2]);
+						x_max = PVPDamageCalculator.calcMagicDamage(muc1,muc2,muc1.darkspirit[3]);
+					}
+					x_cri=x_max;
+					x_exd=0;
+				}else if(muc1.skill[j][3] == "魔法"){//魔法
 				    x_min = PVPDamageCalculator.calcMagicDamage(muc1,muc2,muc1.skill_minmax[j][0]);//最小
 				    x_cri = PVPDamageCalculator.calcMagicDamage(muc1,muc2,muc1.skill_minmax[j][2]);//クリ
 				    x_exd = PVPDamageCalculator.calcMagicDamage(muc1,muc2,muc1.skill_minmax[j][3]);//EXD
@@ -87,18 +104,18 @@ package PVP {
 				}
 				//1HIT当たりのダメージを計算
 				var hit1:int=0;//1hit当たりのダメージ
-//				if(muc1.skill[j][0] == "フレイムハンド(単体)"){//ダークスピリット
-//					hit1 += x_max * muc1.darkspirit[5]/100;//クリティカル率
-//					hit1 += ((x_min + x_max)/2) * (100 - muc1.darkspirit[5]) / 100;//通常
-//				}else if(muc1.skill[j][0] == "フレイムハンド(範囲)"){//フレイムハンド範囲
-//					//クリティカル確率0%
-//					hit1 += ((x_min + x_max)/2);//通常
-//				}else{//通常
+				if(muc1.skill[j][0] == "フレイムハンド(単体)"){//ダークスピリット
+					hit1 += x_max * muc1.darkspirit[5]/100;//クリティカル率
+					hit1 += ((x_min + x_max)/2) * (100 - muc1.darkspirit[5]) / 100;//通常
+				}else if(muc1.skill[j][0] == "フレイムハンド(範囲)"){//フレイムハンド範囲
+					//クリティカル確率0%
+					hit1 += ((x_min + x_max)/2);//通常
+				}else{//通常
 					hit1 += x_exd * muc1.exd / 100;//EXD
 					hit1 += x_cri * muc1.cri / 10000;//クリ
 					hit1 += ((x_min + x_max)/2) * muc1.normal / 10000;//通常
 					hit1 += hit1 * muc1.wd/100;//WD
-//				}
+				}
 				hit1array.push(hit1);
 				//1分当たりの攻撃回数を計算
 				var minute:String;
@@ -116,7 +133,7 @@ package PVP {
 					,speed:minute
 					,even:hit1
 					,minmax:x_min + "～" + x_max
-					,hit:hit/100 + "%"
+					,hit:hit + "%"
 					,cri:x_cri,exd:x_exd});
 			}
 			return a;

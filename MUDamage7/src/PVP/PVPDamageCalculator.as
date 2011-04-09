@@ -17,14 +17,17 @@ package PVP {
 			var d2:int = 0;
 		    //[セットOP]両手武器装備時ダメージ増加%用
 		    if(muc1.op_hands){
-			    d2 = Math.max(
-			    		(d - muc1.op_miracle) - muc1.monster_def,
-			    		Math.floor((muc1.lv - muc1.add_lv)/10));//モンスDEF
-				d2 = Math.floor(d2 * muc1.op_hands / 100);
+				d2 = calcGuard1(muc1,muc2,(d - muc1.op_miracle));
+			    d2 = Math.max(d2,Math.floor((muc1.lv - muc1.add_lv)/10));//モンスDEF
+			    d2 = calcGuard2(muc1,muc2,d2);
+			    
+			    d2 = Math.floor(d2 * muc1.op_hands / 100);
 		    }
 			
 		    //ダメージ計算
-		    d = Math.max(d - muc1.monster_def,Math.floor((muc1.lv - muc1.add_lv)/10));//モンスDEF
+			d = calcGuard1(muc1,muc2,d);
+		    d = Math.max(d,Math.floor((muc1.lv - muc1.add_lv)/10));//モンスDEF
+		    d = calcGuard2(muc1,muc2,d);
 		    
 		    //[セットOP]両手武器装備時ダメージ増加%
 		    if(muc1.op_hands)d += d2;
@@ -77,7 +80,9 @@ package PVP {
 				muc2:MuChar,
 				d:int):int{
 		    //ダメージ計算===========================
-		    d = Math.max(d - muc1.monster_def,Math.floor((muc1.lv - muc1.add_lv)/10));//max[攻撃力-モンス,lv/10]
+			d = calcGuard1(muc1,muc2,d);
+		    d = Math.max(d,Math.floor((muc1.lv - muc1.add_lv)/10));//max[攻撃力-モンス,lv/10]
+		    d = calcGuard2(muc1,muc2,d);
 		    
 		    if(muc1.dinolunt[0])d += Math.floor(d*15/100);//ディノラント
 		    if(muc1.satan)d += Math.floor(d*30/100);//サタン
@@ -94,49 +99,65 @@ package PVP {
 		    return d;
 			
 		}
+		private static function calcDarkSpritDamage(
+				muc1:MuChar,
+				muc2:MuChar,
+				d:int):int{
+			d = calcGuard1(muc1,muc2,d);
+			d = Math.max(d,Math.floor(muc1.darkspirit[5]/10));
+			d = calcGuard2(muc1,muc2,d);
+			return d;
+		}
 		/**
-		 * 防御計算を行ないます。
+		 * 最低ダメ判定前の防御計算を行ないます。
 		 */
-//		private static function calcGuard1(
-//				muc1:MuChar,
-//				muc2:MuChar,
-//				d:int):int{
-//			var s:int=0;
-//			//引き算
-//			s = d - muc2.def/2;//(モンス攻撃 - DEF)
-//			s = s - muc2.support_g;//G+
-//			s = s - muc2.support_sera_g;//セラフィー
-//			//モンスターの攻撃力低下
-//			s -= Math.floor(s * muc2.support_weak/100);//ウイークネス
-//			//ダメ減加算
-//			var dec:int = 0;
-//			dec += exop_dec * 4;//EXOPダメ減
-//			dec += enop_dec;//エンチャントOPダメ減
-//			dec += soop_dec;//ソケットOPダメ減
-//			s = s - Math.floor(s * dec/100);
-//			//カスリダメージ
-////			if(avoided)
-////				s = Math.floor(s * 30/100);//30%
-//			//最低ダメ判定
-//			s = Math.max(s,monsterLv/10);
-//			//天使の吸収
-//			if(muc2.angel)s = (s * 80 / 100);//20%吸収
-//			//守護精霊の吸収
-//			if(muc2.spirit)s = (s * 70 / 100);//30%吸収
-//			//ディノラントの吸収
-//			if(muc2.dinolunt[0]){
-//				if(muc2.dinolunt[1]==3 || muc2.dinolunt[2]==3)s = (s * 85 / 100);//15%吸収
-//				else s = (s * 90 / 100);//10%吸収
-//			}
-//			//フェンリルの吸収
-//			if(muc2.fenrir==3)s = (s * 90/100);//10%吸収
-//			//ダークホースの吸収
-//			if(muc2.darkhorse)s = (s * (100 - Math.floor((15 + muc2.darkhorse/2))) /100);// 15+Lv/2
-//			//羽の吸収
-//			s = (s * (100 - wing_dec) / 100);
-//			//SBの減少
-//			s = s - Math.floor(s * support_sb/100);
-//			return s;
-//		}
+		private static function calcGuard1(
+				muc1:MuChar,
+				muc2:MuChar,
+				s:int):int{
+			//引き算
+			s = s - muc2.def/2;//(モンス攻撃 - DEF)
+			s = s - muc2.support_g;//G+
+			s = s - muc2.support_sera_g;//セラフィー
+			//モンスターの攻撃力低下
+			s -= Math.floor(s * muc2.support_weak/100);//ウイークネス
+			//ダメ減加算
+			var dec:int = 0;
+			dec += muc2.guard_op_exop_dec * 4;//EXOPダメ減
+			dec += muc2.guard_op_enop_dec;//エンチャントOPダメ減
+			dec += muc2.guard_op_soop_dec;//ソケットOPダメ減
+			s = s - Math.floor(s * dec/100);
+			//カスリダメージ
+//			if(avoided)
+//				s = Math.floor(s * 30/100);//30%
+			return s;
+		}
+		/**
+		 * 最低ダメ判定後の防御計算を行ないます。
+		 */
+		private static function calcGuard2(
+				muc1:MuChar,
+				muc2:MuChar,
+				s:int):int{
+			//天使の吸収
+			if(muc2.angel)s = (s * 80 / 100);//20%吸収
+			//守護精霊の吸収
+			if(muc2.spirit)s = (s * 70 / 100);//30%吸収
+			//ディノラントの吸収
+			if(muc2.dinolunt[0]){
+				if(muc2.dinolunt[1]==3 || muc2.dinolunt[2]==3)s = (s * 85 / 100);//15%吸収
+				else s = (s * 90 / 100);//10%吸収
+			}
+			//フェンリルの吸収
+			if(muc2.fenrir==3)s = (s * 90/100);//10%吸収
+			//ダークホースの吸収
+			if(muc2.darkhorse)s = (s * (100 - Math.floor((15 + muc2.darkhorse/2))) /100);// 15+Lv/2
+			//羽の吸収
+			s = (s * (100 - muc2.wing_dec) / 100);
+			//SBの減少
+			s = s - Math.floor(s * muc2.support_sb/100);
+			
+			return s;
+		}
 	}
 }

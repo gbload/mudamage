@@ -16,25 +16,10 @@ import flash.events.FocusEvent;
 import flash.events.MouseEvent;
 
 import mx.collections.ArrayCollection;
-import mx.containers.ApplicationControlBar;
-import mx.containers.Box;
-import mx.containers.Canvas;
-import mx.containers.Form;
-import mx.containers.FormItem;
-import mx.containers.HBox;
-import mx.containers.Panel;
-import mx.containers.VBox;
-import mx.containers.ViewStack;
-import mx.controls.Button;
-import mx.controls.CheckBox;
-import mx.controls.ComboBox;
-import mx.controls.Label;
-import mx.controls.ProgressBar;
-import mx.controls.TextArea;
-import mx.controls.TextInput;
-import mx.core.Container;
-import mx.core.UIComponent;
-import mx.events.ListEvent;
+import mx.containers.*;
+import mx.controls.*;
+import mx.core.*;
+import mx.events.*;
 
 dat var d:Dat = new Dat();
 dat var mlv:MLV = new MLV();
@@ -104,7 +89,7 @@ form function init():void{
 	
 	//バージョン情報
 	var la:Label = new Label();
-	la.text = "MUDamage7 ver2.12";
+	la.text = "MUDamage7 ver2.13";
 	hbox.addChild(la);
 	
 	//拡大縮小ボタン
@@ -277,6 +262,9 @@ form function init():void{
 	
 	//計算ボタンの作成
 	f.addChild(formCalc());
+	
+	//対人計算ボタンの作成
+	f.addChild(formPVPCalc());
 	
 	//MLVキャンバスの作成
 	formMLV();
@@ -1769,4 +1757,94 @@ private function formMLV():void{
 				h.addChild(click::treeRow(35));
 				h.addChild(click::treeRow());
 				h.addChild(click::treeRow());
+}
+
+private function formPVPCalc():Container{
+	var hbox:HBox = new HBox();
+	
+	var ti:TextInput = new TextInput();
+	hbox.addChild(ti);
+
+	var button:Button = new Button();
+	hbox.addChild(button);
+	button.label = "対人計算(仮)";
+	button.addEventListener(MouseEvent.CLICK,
+			function(event:Event):void{
+				use namespace calcform;
+				use namespace dat;
+				use namespace calc;
+				
+				/*
+				 * MUC1
+				 */
+				//フォームの値を取得
+				getForm();
+				//MLVのチェック
+				var tmpcount:MLVcount;
+				if(dat::d.f_lv.text != "400"){
+					tmpcount = dat::mlvcount;
+					dat::mlvcount = new MLVcount();
+				}
+				//MuChar
+				var muc1:MuChar = calcchar::main();
+				//MLVのチェック
+				if(dat::d.f_lv.text != "400"){
+					dat::mlvcount = tmpcount;
+				}
+				/*
+				 * MUC2
+				 */
+				//データを読み込む
+				menu::setdata(StaticFileIO.open(ti.text));
+				//フォームの値を取得
+				getForm();
+				//MLVのチェック
+				if(dat::d.f_lv.text != "400"){
+					tmpcount = dat::mlvcount;
+					dat::mlvcount = new MLVcount();
+				}
+				//MuChar
+				var muc2:MuChar = calcchar::main();
+				//MLVのチェック
+				if(dat::d.f_lv.text != "400"){
+					dat::mlvcount = tmpcount;
+				}
+		
+				/*
+				 * 計算結果画面の作成
+				 */
+				var result:Container = new PVPResultScreen(muc1,muc2);
+				form::tab.addChild(result);
+				click::tabindex++;
+				result.name = click::tabindex.toString();
+		
+				//ボタンの作成
+				var frame:Canvas = new Canvas();//×印つけるため
+				frame.name = click::tabindex.toString();
+				var button:Button = new Button();//上のメニューバーに追加するボタン
+				button.height = 20;
+				button.name = click::tabindex.toString();
+				if(d.f_title.text != "")//ボタンのラベル
+					button.label = "　" + d.f_title.text;//タイトル
+				else
+					button.label = "　" + d.f_map.selectedLabel;//マップ名
+				button.addEventListener(MouseEvent.CLICK,click::tab);
+				frame.addChild(button);//フレームに追加
+				form::acb.addChild(frame);//メニューバーに追加
+					//×印の作成
+					var peke:Canvas = new Canvas();
+					var peketext:Label = new Label();
+					peketext.text = " ×";
+					frame.addChild(peketext);
+					peke.width = 20;
+					peke.height = 20;
+					peke.name = click::tabindex.toString();//タブインデックスの名前
+					peke.addEventListener(MouseEvent.CLICK,click::closeCalc);//閉じるイベント
+					frame.addChild(peke);
+				//ボタンイベントの実行
+				button.dispatchEvent(new MouseEvent(MouseEvent.CLICK) as Event);
+			}
+	);
+	
+	return hbox;
 }

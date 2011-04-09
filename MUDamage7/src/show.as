@@ -93,12 +93,12 @@ calc function panel():void{
 	button.addEventListener(MouseEvent.CLICK,click::closeCalc);
 	hbox.addChild(button);
 	//HTML出力ボタン
-	button = new Button();
-	button.label = "HTML出力";
-	button.name = click::tabindex.toString();
-	//button.addEventListener(MouseEvent.CLICK,calc::showHTMLTimer);
-	button.addEventListener(MouseEvent.CLICK,calcform::showHTML);
-	hbox.addChild(button);
+//	button = new Button();
+//	button.label = "HTML出力";
+//	button.name = click::tabindex.toString();
+//	//button.addEventListener(MouseEvent.CLICK,calc::showHTMLTimer);
+//	button.addEventListener(MouseEvent.CLICK,calcform::showHTML);
+//	hbox.addChild(button);
 	//外枠
 	hbox = new HBox();
 	cow = new VBox();
