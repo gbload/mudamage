@@ -5,7 +5,7 @@ package MuData
 	public class Internal
 	{
 		private static var instance:Internal;
-		private static function getInstance():Internal{return instance;}
+		public static function getInstance():Internal{return instance;}
 		
 		public function Internal()
 		{
