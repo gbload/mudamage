@@ -19,7 +19,7 @@ package PVP {
 		public function PVPCharacterScreen(muc:MuChar) {
 			super();
 			this.muc = muc;
-			this.c = c;
+			this.c = Internal.getInstance();
 			
 			init();
 		}

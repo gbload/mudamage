@@ -77,7 +77,7 @@ calcchar function Support(muc:MuChar):MuChar{
 	if(dat::d.s_vit.selected)
 		muc.support_vit = 16 + Math.ceil(ene/10);//体力上昇
 	if(dat::d.s_avoid.selected)
-		muc.support_avoid = Math.min(Math.ceil(ene/10),100);//防御成功率上昇
+		muc.support_avoid = Math.min(Math.ceil(agi/3),200);//防御成功率上昇
 	if(dat::d.s_ignore.selected)
 		muc.support_ignore = Math.floor(vit/200);//敵の防御力無視
 	return muc;
@@ -246,7 +246,7 @@ calcchar function Def(muc:MuChar):MuChar{
 		avoid += Math.floor(avoid * (i as int)/100);
 	var avoid_ori:int = avoid;
 	//サポートスキル
-	avoid += Math.floor((avoid_ori * muc.support_avoid) / 100);
+	avoid += muc.support_avoid;
 	if(uniform)avoid += Math.floor(avoid_ori * 0.1);//統一ボーナス
 	
 	pvpavoid += enop_pvpavoid;//エンチャントOPの対人防御成功

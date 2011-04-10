@@ -4,6 +4,7 @@ import AAgetter.AAgetter;
 import Csv.*;
 import AllExport.*;
 import FileIO.*;
+import PVP.*;
 
 import MuCalc.MLV;
 import MuCalc.MLVcount;
@@ -89,7 +90,7 @@ form function init():void{
 	
 	//バージョン情報
 	var la:Label = new Label();
-	la.text = "MUDamage7 ver2.13";
+	la.text = "MUDamage7 ver2.14";
 	hbox.addChild(la);
 	
 	//拡大縮小ボタン
