@@ -8,6 +8,6 @@ This tool has many issues. But I am not putting effort into this english tool, s
 
 This tool detail has as follow:(but in Japanese)
 
-[http://execution.s3.zmx.jp/mud/index.html MUDamage]
+[http://mudamage.web.fc2.com/ MUDamage]
 
 [http://mudamage.blog58.fc2.com/ MUDamage Blog]
