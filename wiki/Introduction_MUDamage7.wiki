@@ -14,10 +14,8 @@ MUDamage7はFlashです。ソースコードはActionScriptで書かれており
 また、deploy.shは、
   * "mudamage.zip"
   * "mudamage_src.zip"
-  * "mudamage_export.zip"
   * "mudamage_ver000.zip"
   * "mudamage_src_ver000.zip"
-  * "mudamage_export_ver000.zip"
 を生成します。
 
 deploy.shは引数にversionを取ります。
