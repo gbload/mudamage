@@ -1,5 +1,6 @@
 package Csv
 {
+	import mx.core.Container;
 	import mx.controls.CheckBox;
 	import mx.controls.ComboBox;
 	import mx.controls.TextInput;
@@ -54,6 +55,16 @@ package Csv
 		public var f_map_doublegoer_lv:ComboBox;
 		public var f_map_doublegoer_ptm:ComboBox;
 		public var f_map_imperialguardian_lv:ComboBox;
+		
+		public var formbox:Array = new Array();//装備フォーム
+		public var exbox:Array = new Array();//EXオプション
+		public var setbox:Array = new Array();//セットステータス
+		public var sobox:Array = new Array();//ソケットオプション
+		public var shopbox:Array = new Array();//アイテムショップ
+		public var box380:Array = new Array();//380OP
+		public var helmbox:Container;//兜
+		public var glovebox:Container;//兜
+		public var fruitpoint:Array = new Array();//実のポイント
 		
 		public var aa_skill:ComboBox;//石造破壊シミュレータに渡すスキル
 		
