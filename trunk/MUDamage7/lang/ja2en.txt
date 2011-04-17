@@ -194,9 +194,9 @@ Enis Legendary Pants
 Orc Archer8(after 10~15min)
 ガウェインのスキルのネックレス
 Gywen Pendant Ability
-キャメルのセイクリッドアーマー
+チャメルのセイクリッドアーマー
 Chamereuui Sacred Armor
-キャメルのセイクリッドガーダー
+チャメルのセイクリッドガーダー
 Chamereuui Sacred Pants
 クロノのレッドウイングガーダー
 Chrono Red Wing Pants
@@ -258,9 +258,9 @@ Kass Guardian Pants
 Gywen Guardian Gloves
 ガウェインのパルテナのブーツ
 Gywen Guardian Boots
-キャメルのセイクリッドクロー
+チャメルのセイクリッドクロー
 Chamereuui Sacred Gloves
-キャメルのセイクリッドブーツ
+チャメルのセイクリッドブーツ
 Chamereuui Sacred Boots
 クロノのレッドウインググラブ
 Chrono Red Wing Gloves
@@ -2718,7 +2718,7 @@ Kanturu
 Golden Crossbow
 ガルーダ
 Garuda
-キャメル
+チャメル
 Chamereuui
 クラウド
 Cloud
