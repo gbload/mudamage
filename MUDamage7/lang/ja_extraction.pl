@@ -27,7 +27,7 @@ foreach(@dat){
 
 push(@ja,@dat2);
 
-#@ja = sort {length $b <=> length $a || $a cmp $b} @ja;
+@ja = sort {length $b <=> length $a || $a cmp $b} @ja;
 
 my $t="";
 foreach(@ja){
