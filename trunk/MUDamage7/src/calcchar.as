@@ -137,7 +137,7 @@ calcchar function Def(muc:MuChar):MuChar{
 	}else if(d.f_job.selectedLabel == "レイジファイター"){
 		de += muc.agi/8;
 		avoid = muc.agi/10;
-		pvpavoid = lv*2 + muc.agi/2;
+		pvpavoid = lv*1.5 + muc.agi/5;
 	}
 	bde = de;//純粋なDEF
 	//防御力=============================================================
@@ -282,8 +282,8 @@ calcchar function Hit(muc:MuChar):MuChar{
 		muc.hit = lv*5 + muc.agi*1.5 + muc.str/4;
 		muc.pvphit = lv*3 + muc.agi*3.5;
 	}else if(d.f_job.selectedLabel == "レイジファイター"){
-		muc.hit = lv*5 + muc.agi*2.5 + muc.str/6;
-		muc.pvphit = lv*3 + muc.agi*4;
+		muc.hit = lv*3 + muc.agi*1.25 + muc.str/6;
+		muc.pvphit = lv*2.6 + muc.agi*3.6;
 	}
 	muc.hit += setop_hit;//セットOP攻撃成功率
 	muc.hit += soop_hit;//ソケットOP攻撃成功率
