@@ -79,7 +79,7 @@ calcchar function Support(muc:MuChar):MuChar{
 	if(dat::d.s_avoid.selected)
 		muc.support_avoid = Math.min(Math.ceil(agi/3),200);//防御成功率上昇
 	if(dat::d.s_ignore.selected)
-		muc.support_ignore = Math.floor(vit/200);//敵の防御力無視
+		muc.support_ignore = Math.floor(ene/100);//敵の防御力無視
 	return muc;
 }
 calcchar function Status(muc:MuChar):MuChar{
@@ -264,26 +264,26 @@ calcchar function Hit(muc:MuChar):MuChar{
 	use namespace calc;
 	//攻撃成功率
 	if(d.f_job.selectedLabel == "ナイト"){
-		muc.hit = lv*5 + muc.agi*1.5 + muc.str/4;
+		muc.hit = lv*5 + Math.floor(muc.agi*1.5) + muc.str/4;
 		muc.pvphit = lv*3 + muc.agi*4.5;
 	}else if(d.f_job.selectedLabel == "ウィザード"){
-		muc.hit = lv*5 + muc.agi*1.5 + muc.str/4;
+		muc.hit = lv*5 + Math.floor(muc.agi*1.5) + muc.str/4;
 		muc.pvphit = lv*3 + muc.agi*4;
 	}else if(d.f_job.selectedLabel == "エルフ"){
-		muc.hit = lv*5 + muc.agi*1.5 + muc.str/4;
+		muc.hit = lv*5 + Math.floor(muc.agi*1.5) + muc.str/4;
 		muc.pvphit = lv*3 + muc.agi*0.6;//ここまで完了
 	}else if(d.f_job.selectedLabel == "魔剣士"){
-		muc.hit = lv*5 + muc.agi*1.5 + muc.str/4;
+		muc.hit = lv*5 + Math.floor(muc.agi*1.5) + muc.str/4;
 		muc.pvphit = lv*3 + muc.agi*3.5;
 	}else if(d.f_job.selectedLabel == "ダークロード"){
-		muc.hit = lv*5 + muc.agi*2.5 + muc.str/6 + muc.rec/10;
+		muc.hit = lv*5 + Math.floor(muc.agi*2.5) + Math.floor(muc.str/6) + muc.rec/10;
 		muc.pvphit = lv*3 + muc.agi*4;
 	}else if(d.f_job.selectedLabel == "召喚師"){
-		muc.hit = lv*5 + muc.agi*1.5 + muc.str/4;
+		muc.hit = lv*5 + Math.floor(muc.agi*1.5) + muc.str/4;
 		muc.pvphit = lv*3 + muc.agi*3.5;
 	}else if(d.f_job.selectedLabel == "レイジファイター"){
-		muc.hit = lv*3 + muc.agi*1.25 + muc.str/6;
-		muc.pvphit = lv*2.6 + muc.agi*3.6;
+		muc.hit = lv*3 + Math.floor(muc.agi*1.25) + muc.str/6;
+		muc.pvphit = Math.floor(lv*2.6) + muc.agi*3.6;
 	}
 	muc.hit += setop_hit;//セットOP攻撃成功率
 	muc.hit += soop_hit;//ソケットOP攻撃成功率
@@ -337,7 +337,7 @@ calcchar function HP(muc:MuChar):MuChar{
 		bmana = 40 + (ene - c.getJobPoint(5,"ene"))*1.5 + (muc.lv-1)*1.5;//ベースとなるマナ
 		mana += (setop_ene + etc_ene) * 1.5;//セットのエナ＋
 	}else if(d.f_job.selectedLabel == "レイジファイター"){
-		bhp = 100 + (vit - c.getJobPoint(6,"vit")) * 2 + (muc.lv-1) * 1;//ベースとなるHP
+		bhp = 100 + (vit - c.getJobPoint(6,"vit")) * 2 + (muc.lv-1) * 1.3;//ベースとなるHP
 		hp += muc.add_vit * 2;//セットとソケットの体力＋
 		bmana = 40 + (ene - c.getJobPoint(6,"ene"))*1.3 + (muc.lv-1)*1;//ベースとなるマナ
 		mana += (setop_ene + etc_ene) * 1.3;//セットのエナ＋
@@ -367,11 +367,9 @@ calcchar function HP(muc:MuChar):MuChar{
 	if(muc.fenrir == 4)hp += muc.lv/2;//黄金のフェンリルの生命増加
 	
 	//SD
-	var sd:int = Math.floor((muc.lv * muc.lv / 30));
-	sd += Math.floor(muc.str*1.2) + Math.floor(muc.agi*1.2) + Math.floor(muc.vit*1.2) +
-			Math.floor(muc.ene*1.2) + Math.floor(muc.rec*1.2);
-	//sd += Math.floor((muc.str+muc.agi+muc.vit+muc.ene+muc.rec)*1.2);
-	sd += muc.def/2;
+	var sd:int = (muc.lv * muc.lv / 30) + 
+					((muc.str+muc.agi+muc.vit+muc.ene+muc.rec)*1.2) +
+					muc.def/2;
 	if(mlvcount.sd)sd += MLV.inf_sd[mlvcount.sd];//MLV
 	if(dat::d.f_boots.f_380.visible && dat::d.f_boots.f_380.selected)
 		sd += 700;//380OP
@@ -934,7 +932,7 @@ calcchar function calcMinMax(muc:MuChar,cri:Boolean,exd:Boolean,min:Boolean):int
     if(muc.lefthund){
     	if(muc.job == 6){
     		if(min){//レイジファイターの場合最小1.2倍
-    			d = Math.floor(d * 0.60);
+    			d = Math.floor(d * 0.6);
     		}else{//レイジファイターの場合最大1.3倍
     			d = Math.floor(d * 0.65);
     		}
@@ -1030,11 +1028,17 @@ calcchar function calcMinMaxLeft(muc:MuChar,cri:Boolean,exd:Boolean,min:Boolean)
     if(muc.fenrir==4)d += muc.lv/12;//黄金のフェンリル　攻撃力増加
 
     //二刀流攻撃力1.1倍
-    if(muc.lefthund)
-    	if(muc.job == 6)//レイジファイターのみ1.3倍
-    		d = Math.floor(d * 0.65);
-		else
+    if(muc.lefthund){
+    	if(muc.job == 6){
+    		if(min){//レイジファイターの場合最小1.2倍
+    			d = Math.floor(d * 0.6);
+    		}else{//レイジファイターの場合最大1.3倍
+    			d = Math.floor(d * 0.65);
+    		}
+		}else{
 			d = Math.floor(d * 0.55);
+		}
+	}
 	//後半ダメージ計算=============================================
 	//スキル攻撃力増加
 	d += muc.op_skill;

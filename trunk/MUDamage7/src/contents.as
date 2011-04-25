@@ -783,7 +783,7 @@ change function statusChange():void{
 	    var vit:int = parseInt(d.f_vit.text);
 	    var ene:int = parseInt(d.f_ene.text);
 	    var rec:int = 0;
-	    if(d.f_job.selectedLabel == "魔剣士" || d.f_job.selectedLabel == "レイジファイター"){//mの計算
+	    if(d.f_job.selectedLabel == "魔剣士"){//mの計算
 	        //ポイント計算
 	        point = (lv-1)*7;
 	        if(lv>=380)point += 20;
@@ -804,6 +804,17 @@ change function statusChange():void{
 	        if(lv>250)fruitmax += Math.floor((lv-250)/10);
 	        //統率
 	        rec = parseInt(d.f_rec.text);
+	    }else if(d.f_job.selectedLabel == "レイジファイター"){
+	        //ポイント計算
+	        point = (lv-1)*7;
+	        if(lv>=380)point += 20;
+	        if(lv==400)point += 50;
+	        //実のポイント計算
+	        if(lv>=10)fruitmax += 2;
+	        fruitmax += Math.floor(lv/10) * 2;
+	        if(lv>=130)fruitmax += Math.floor((lv-120)/10);
+	        if(lv>=260)fruitmax += Math.floor((lv-250)/10);
+	        if(lv>=390)fruitmax += Math.floor((lv-380)/10);
 	    }else{//k w e sの計算
 	        //ポイント計算
 	        point = (lv-1)*5;
