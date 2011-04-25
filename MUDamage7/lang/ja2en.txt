@@ -142,7 +142,7 @@ Giant Sword
 Brave Boots
 G+MLv2[(ｴﾅ/7.2)+6]
 G+MLv2[(ene/7.2)+6]
-セイクリッドブーツ
+セイクリッドファイアブーツ
 Sacred Boots
 風
 Wind
@@ -430,7 +430,7 @@ Spirit Gloves
 Forest Monster
 ベノムミストブーツ
 Venom Mist Boots
-チャメルのセイクリッドクロー
+チャメルのセイクリッドグローブ
 Chamereuui Sacred Gloves
 タルカン
 Tarkan
@@ -454,7 +454,7 @@ Minet Sphinx Pants
 Win
 カルリマ3
 Kalima3
-トリテのストームアーマー
+トリテのストームハザードアーマー
 Tree  Storm Jahard Armor
 ミスト
 Mist
@@ -522,7 +522,7 @@ Solam (Training)
 Spirit Panta
 グロリアスアーマー
 Glorious Armor
-ストームブーツ
+ストームハザードブーツ
 Storm Jahard Boots
 デスエンジェル4
 Death Angel 4
@@ -760,7 +760,7 @@ Elite Yeti
 Wing of Soul
 アポロの氷のネックレス
 Apollo Pendant Ice
-ストームアーマー
+ストームハザードアーマー
 Storm Jahard Armor
 エターナルウイングロッド
 Eternal Wing Stick
@@ -824,7 +824,7 @@ Death Ride
 Inferno
 インポート
 Import
-ベガのセイクリッドアーマー
+ベガのセイクリッドファイアアーマー
 Vega Sacred Armor
 断固
 Firm
@@ -1064,7 +1064,7 @@ Max Dmg +20
 Ceto Vine Helm
 対人防御成功
 PvP Defence Rate
-ストームクロー
+ホーリーストームクロー
 Holly Storm Crow
 ギガンティスDS7
 Gigantis DS7
@@ -1114,7 +1114,7 @@ SB：
 SB:
 ライフドレイン強化
 Drain Life Increase
-セイクリッドクロー
+セイクリッドグローブ
 Sacred Gloves
 ボーンスコーピオン
 Bone Scorpion
@@ -1340,7 +1340,7 @@ Speed
 Dmg opt
 キングスカルアーチャー2（5～10分経過)
 Orc Archer2(after 5~10min)
-ストームヘルム
+ストームハザードヘルム
 Storm Jahard Helm
 防御力 +100
 Defence +100
@@ -1364,7 +1364,7 @@ Fire Slash Increase
 Spirit Soldier5(after 0~5min)
 石造破壊シミュレータ
 Blood Castle AA Getter Simulator
-トリテのストームヘルム
+トリテのストームハザードヘルム
 Tree  Storm Jahard Helm
 フェニックスのグラブ
 Dark Phoenix Gloves
@@ -1488,7 +1488,7 @@ Tiger Bow
 Metereuui Adamantine Gloves
 レイブの鋼鉄の鎧
 Rave Plate Armor
-ベガのセイクリッドガーダー
+ベガのセイクリッドファイアガーダー
 Vega Sacred Pants
 レッドスカルアーマー6（0～5分経過)
 Spirit Knight6(after 0~5min)
@@ -1556,7 +1556,7 @@ Ring
 Fase Silk Gloves
 レイブンロッド
 Raven Stick
-ベガのセイクリッドクロー
+ベガのセイクリッドグローブ
 Vega Sacred Gloves
 アイリスグラブ
 Iris Gloves
@@ -1842,7 +1842,7 @@ Kass Guardian Helm
 Magic Increase
 ダークスカルアーマー6（10～15分経過)
 Spirit Soldier6(after 10~15min)
-チャメルのセイクリッドガーダー
+チャメルのセイクリッドファイアガーダー
 Chamereuui Sacred Pants
 フェニックスソウルヘルム
 Soul Phoenix Star Helm
@@ -1914,7 +1914,7 @@ Lightning Shock Increase
 Brave Helm
 ｽｸﾛｰﾙなし
 none scroll
-チャメルのセイクリッドブーツ
+チャメルのセイクリッドファイアブーツ
 Chamereuui Sacred Boots
 キングオーク
 Elite Orc
@@ -1974,7 +1974,7 @@ Doppleganger
 Solam DS7
 バネクの魔導のブーツ
 Barnake Pad Boots
-トリテのストームガーダー
+トリテのストームハザードガーダー
 Tree  Storm Jahard Pants
 ルシファーの杖
 Dragon Soul Staff
@@ -2684,7 +2684,7 @@ Bronze Armor
 Divine
 サピデュオ
 Sapi-Duo
-ベガのセイクリッドヘルム
+ベガのセイクリッドファイアヘルム
 Vega Sacred Helm
 左手
 Left Hand
@@ -2752,7 +2752,7 @@ Spirit Beast7(after 0~5min)
 Explosion
 狂戦士
 Warrior
-セイクリッドガーダー
+セイクリッドファイアガーダー
 Sacred Pants
 クィーンレイナー
 Queen Rainer
@@ -2886,7 +2886,7 @@ A+MLv2[(ｴﾅ/6.2)+9]
 A+MLv2[(ene/6.2)+9]
 アッシュクローグラブ
 Ashcrow Gloves
-ストームガーダー
+ストームハザードガーダー
 Storm Jahard Pants
 スカウトヒーロー
 Hammer Scout (Hero)
@@ -2950,7 +2950,7 @@ Grand Soul Helm
 Great Defense Increase (ene/)
 敏捷:
 Agility:
-ピアシングクロー
+ピアシングブレードグローブ
 Piercing  Blade Gloves
 エアリンボウ
 Aileen Bow
@@ -2974,7 +2974,7 @@ All Export
 Damage Reflection
 速度(ms)
 Speed(ms)
-チャメルのセイクリッドアーマー
+チャメルのセイクリッドファイアアーマー
 Chamereuui Sacred Armor
 ドラゴンロアー
 Dragon Lore
@@ -3308,7 +3308,7 @@ Thunder Hawk Pants
 Weapon
 グレートロードセプター
 Great Lord Scepter
-セイクリッドアーマー
+セイクリッドファイアアーマー
 Sacred Armor
 最小攻撃魔力
 Min Damage
@@ -3536,7 +3536,7 @@ Agility
 Elemental Shield
 ダメージ増加 +30
 Damage Increase +30
-セイクリッドヘルム
+セイクリッドファイアヘルム
 Sacred Helm
 ペット：
 Pet:
@@ -3582,7 +3582,7 @@ Kantata Plate Armor
 Warrior Morning Star
 エルフのガーダー
 Vine Pants
-トリテのストームブーツ
+トリテのストームハザードブーツ
 Tree Storm Jahard Boots
 ダメージ吸収+5
 Damage Decrease+5

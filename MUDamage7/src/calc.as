@@ -307,6 +307,7 @@ calc function getForm():void{
 			if(d.f_wing.f_cop.selectedLabel == "防御無視5%")wing_ignore = 5;
 		}else if(c.getWingType(d.f_wing.f_item.selectedLabel) == 4){//マント
 			wing_inc = c.getWingInc(d.f_wing.f_item.selectedLabel) + 2*d.f_wing.f_plus.selectedIndex;
+			wing_dec = c.getWingDec(d.f_wing.f_item.selectedLabel)+ 2*d.f_wing.f_plus.selectedIndex;
 			wing_def = c.getWingDef(d.f_wing.f_item.selectedLabel) + 2*d.f_wing.f_plus.selectedIndex + Math.max(0,d.f_wing.f_plus.selectedIndex - 9) + calc::fact(d.f_wing.f_plus.selectedIndex - 9);
 			if(d.f_wing.f_cop.selectedLabel == "生命増加")wing_hp = 50 + d.f_wing.f_plus.selectedIndex * 5;
 			if(d.f_wing.f_cop.selectedLabel == "マナ増加")wing_mana = 50 + d.f_wing.f_plus.selectedIndex * 5;
