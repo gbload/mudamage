@@ -1,0 +1,45 @@
+# This is documents for developers.
+= About MUDamage7 =
+mudamage is the damage calculation tool for mu online.
+MUDamage7 is Flash, and developed in ActionScript.
+MUDamage8 stopped developing.
+
+= Envrionment =
+ * Flex 3 SDK (required) Stable Build 3.4.1.10084
+
+It is downloaded from Adobe site.
+
+Adobe Flex3SDK:http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+3
+
+= Build =
+You can build MUDamage7 in Japanese as follow:
+{{{
+$ {Flex 3 SDK}/flex_sdk_3.4.1.10084/bin/mxmlc {MUDamage7}/src/MUDamage7.mxml  -output {MUDamage7}/bin-debug/MUDamage7.swf
+}}}
+{Flex 3 SDK} : The folder installed "Flex 3 SDK".
+
+{MUDamage7} : The folder downloaded "MUDamage7".
+
+MUDamage7.swf will be generated in "{MUDamage7}/bin-debug/".
+----
+You can build MUDamage7 in English as follow:
+{{{
+$ {Flex 3 SDK}/flex_sdk_3.4.1.10084/bin/mxmlc {MUDamage7}/lang/src_en/MUDamage7.mxml -output {MUDamage7}/lang/bin-debug/MUDamage7.swf
+}}}
+
+= Translation =
+If you translate it then you use translation tool as follow:
+
+1. You edit "{MUDamage7}/lang/etc/ja2etc.txt". Its first line is Japanese string, second line is English string, third line is Other language string and repeat, so you must edit third line. If third line is empty then second line is used, i.e. translate to English.
+
+2. You embed it to MUDamage7 Japanese source code as follow:
+{{{
+$ perl etc_embed_sh.pl
+}}}
+If your OS is Windows, this script may not run. You edit filepath from "/" to "\\" in this script.
+
+3. The embedded source code is "src_etc". You build it as follow:
+{{{
+$ {Flex 3 SDK}/flex_sdk_3.4.1.10084/bin/mxmlc {MUDamage7}/lang/etc/src_etc/MUDamage7.mxml -output {MUDamage7}/lang/etc/bin-debug/MUDamage7.swf
+}}}
+MUDamage7.swf is in "bin-debug".
