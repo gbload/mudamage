@@ -34,6 +34,7 @@ If you translate it then you use translation tool as follow:
 
 2. You embed it to MUDamage7 Japanese source code as follow:
 {{{
+$ cd {MUDamage7}/lang/etc
 $ perl etc_embed_sh.pl
 }}}
 If your OS is Windows, this script may not run. You edit filepath from "/" to "\\" in this script.
