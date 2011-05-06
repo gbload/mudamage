@@ -30,7 +30,7 @@ $ {Flex 3 SDK}/flex_sdk_3.4.1.10084/bin/mxmlc {MUDamage7}/lang/src_en/MUDamage7.
 = Translation =
 If you translate it then you use translation tool as follow:
 
-1. You edit "{MUDamage7}/lang/etc/ja2etc.txt". Its first line is Japanese string, second line is English string, third line is Other language string and repeat, so you must edit third line. If third line is empty then second line is used, i.e. translate to English.
+1. You edit "{MUDamage7}/lang/etc/ja2etc.txt". Its first line is Japanese string, second line is English string, third line is Other language string and repeat, so you should edit third line. If third line is empty then second line is used, i.e. translate to English.
 
 2. You embed it to MUDamage7 Japanese source code as follow:
 {{{
