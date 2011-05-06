@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:DataGridItemRenderer xmlns:mx="http://www.adobe.com/2006/mxml"
+	 dataChange="onDataChenged()"
+	 enterFrame="onRollOut()">
+
+
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+		
+/*
+	 mouseOut="onRollOut()"
+	 mouseOver="onRollOut()"
+	 rollOut="onRollOut()"
+	 rollOver="onRollOver()"
+	 focusIn="onRollOut()"
+	 focusOut="onRollOut()"
+	 mouseUp="onRollOut()"
+	 mouseFocusChange="onRollOut()"
+	 mouseMove="onRollOut()"
+	 activate="onRollOut()"
+	 added="onRollOut()"
+	 addedToStage="onRollOut()"
+	 change="onRollOut()"
+	 click="onRollOut()"
+	 deactivate="onRollOut()"
+	 doubleClick="onRollOut()"
+	 keyDown="onRollOut()"
+	 keyFocusChange="onRollOut()"
+	 keyUp="onRollOut()"
+	 textInput="onRollOut()"
+	 link="onRollOut()"
+*/
+			private var _rollOutColor:uint = 0xff66cc;
+			private var _rollOverColor:uint = 0xffffff;
+			
+			private var _red:Boolean;
+			
+			// data属性が変更されたタイミングで背景と表示文字をセット
+			private function onDataChenged():void
+			{
+				if(data){
+					if(data.speed != null && (data.speed as String).indexOf("?") != -1){
+						_red=true;
+						text = "テキスト";//ダミー
+						background = false;
+						drawRollOutColor();
+					}
+				}
+			}
+			
+			// マウスが合わさった時
+			private function onRollOver():void
+			{
+				if(_red)drawRollOverColor();
+			}
+			
+			// マウスが離れた時
+			private function onRollOut():void
+			{
+				if(_red)drawRollOutColor();
+			}
+			
+			
+			// マウスが合わさった時用の背景色を描画
+			private function drawRollOutColor():void
+			{
+				//backgroundColor = _rollOutColor;
+				textColor = _rollOutColor;
+			}
+			
+			// マウスが離れた時用の背景色を描画
+			private function drawRollOverColor():void
+			{
+				//backgroundColor = _rollOverColor;
+				textColor = _rollOutColor;
+			}
+			
+		]]>
+	</mx:Script>
+	
+	
+</mx:DataGridItemRenderer>
