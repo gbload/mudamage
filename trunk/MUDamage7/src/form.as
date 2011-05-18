@@ -90,7 +90,7 @@ form function init():void{
 	
 	//バージョン情報
 	var la:Label = new Label();
-	la.text = "MUDamage7 ver2.19";
+	la.text = "MUDamage7 ver2.20";
 	hbox.addChild(la);
 	
 	//拡大縮小ボタン
@@ -344,6 +344,7 @@ private function formWing():FormItem{
 	var item:ComboBox = new ComboBox();
 	item.addEventListener(ListEvent.CHANGE,click::wingChange);
 	item.dataProvider = dat::c.getWing(dat::d.f_job.selectedIndex);
+	item.labelFunction = form::labelfunc0;
 	//item.labelField = "name";
 	dat::d.f_wing.f_item = item;
 	fi.addChild(item);
@@ -1485,7 +1486,7 @@ private function formInputSupport():void{
 	hbox = new HBox();
 	v.addChild(hbox);
 	ta = new TextArea();
-	ta.text = "備考：SB = (敏/50)+(エナ/200)";
+	ta.text = "備考：SB = 10+(敏/50)+(エナ/200)";
 	ta.percentWidth = 100;
 	ta.height = 20;
 	v.addChild(ta);

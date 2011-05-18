@@ -23,7 +23,7 @@ static public function getWing(job:int):Array{//job:int 羽の名前の配列を
 
 	var a:Array = [];//Array 結果を返すための配列
 	for(i=0;i<Etc.wing.length;i++)
-		if(Etc.wing[i][1][job])a.push(Etc.wing[i][0]);//1.職を確認し、羽の0.名前だけ配列に収める
+		if(Etc.wing[i][1][job])a.push(Etc.wing[i]);//1.職を確認し、羽を配列に収める
 	return a;
 }
 static public function getWingDef(name:String):int{
