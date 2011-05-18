@@ -236,10 +236,22 @@ calc function panel():void{
 	//2行目
 	ln();//羽
 	if(d.f_wing.f_item.selectedLabel != "なし"){
+		// スペック
+		var wing_spec:String = "";
+		var wing_lv:int = d.f_wing.f_item.selectedItem[4];
+		if(d.f_wing.f_item.selectedItem[3] == 1)
+			wing_lv += d.f_wing.f_plus.selectedIndex * 4;
+		else if(d.f_wing.f_item.selectedItem[3] == 2)
+			wing_lv += d.f_wing.f_plus.selectedIndex * 5;
+		else if(d.f_wing.f_item.selectedItem[3] == 4)
+			wing_lv += d.f_wing.f_plus.selectedIndex * 5;
+		wing_spec += "要求LV " + wing_lv + "\n";
+		wing_spec += "防御力 " + wing_def + "\n";
+		// テキスト表示
 		var op:String = d.f_wing.f_op.selectedLabel;
 		if(op == "opなし")op = "N";
 		text(d.f_wing.f_item.selectedLabel + d.f_wing.f_plus.selectedLabel
-				+ op);
+				+ op,"",wing_spec);
 		if(d.f_wing.f_luck.selected)text("幸運");
 		text("攻" + wing_inc +"%");
 		if(wing_dec)text("守" + wing_dec + "%");
