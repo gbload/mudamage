@@ -60,8 +60,29 @@ package Form.MUDamage.SubForm {
 		public function setOptionData(type:String):void {
 			
 		}
+		/**
+		 * Plusフォームにイベントを追加
+		 */
 		public function addPlusEventListener(func:Function):void {
-//			item.addEventListener(ListEvent.CHANGE, func);
+			plus.addEventListener(ListEvent.CHANGE, func);
+		}
+		/**
+		 * 幸運の有無を返す
+		 */
+		public function getLuck():Boolean{
+			return luck.selected;
+		}
+		/**
+		 * オプションフォームを返す
+		 */
+		public function getOption():ComboBox{
+			return option;
+		}
+		/**
+		 * アイテムレベルを返す
+		 */
+		public function getPlus():int{
+			return plus.selectedIndex;
 		}
 	}
 }
