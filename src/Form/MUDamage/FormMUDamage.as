@@ -14,6 +14,18 @@ package Form.MUDamage {
 		private var form_job:ComboBox;
 		private var form_pet:FormPet;
 		private var form_wing:FormWing;
+//		private var form_neck:FormNeck;
+		private var form_right:FormEquip;
+		private var form_left:FormEquip;
+		private var form_helm:FormEquip;
+		private var form_armor:FormEquip;
+		private var form_glove:FormEquip;
+		private var form_garter:FormEquip;
+		private var form_boots:FormEquip;
+//		private var form_ring1:FormRing;
+//		private var form_ring2:FormRing;
+//		private var form_status:FormStatus;
+//		private var form_support:FormSupport;
 		/**
 		 * コンストラクタ
 		 */
@@ -28,6 +40,9 @@ package Form.MUDamage {
 			// 羽
 			form_wing = new FormWing(this);
 			this.addChild(form_wing);
+			// 左手
+			form_left = new FormEquip(this,"left");
+			this.addChild(form_left);
 		}
 		/**
 		 * コントローラを登録する
@@ -66,6 +81,9 @@ package Form.MUDamage {
 		public function getJob():ComboBox {
 			return form_job;
 		}
+		/**
+		 * 職をセットする
+		 */
 		public function setJob(job:int):void{
 			form_job.selectedIndex = job;
 			old_job = job;
@@ -75,6 +93,12 @@ package Form.MUDamage {
 		 */
 		public function getOldJob():int{
 			return old_job;
+		}
+		/**
+		 * 左手フォームを返す
+		 */
+		public function getFormLeft():FormEquip{
+			return form_left;
 		}
 	}
 }

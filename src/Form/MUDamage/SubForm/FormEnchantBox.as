@@ -1,58 +1,93 @@
 package Form.MUDamage.SubForm {
+	import mx.controls.*;
+	import mx.containers.*;
+	import mx.core.*;
+	import mx.collections.*;
+	import mx.events.*;
+	import flash.events.*;
+
+	import Form.MUDamage.*;
+	import Data.Database.*;
+	/**
+	 * エンチャントフォーム
+	 * @author sinlion
+	 *
+	 */
 	public class FormEnchantBox extends HBox {
-		private var name:ComboBox;
+		private var c:Internal;
+		private var item:ComboBox;
+		private var item_attr:FormItemAttributeBox;
+	
+		private var type:ComboBox;
 		private var value:ComboBox;
 		/**
 		 * EnchantBoxの作成
 		 */
-		public function FormEnchantBox() {
-			// 
-			internal = Internal.getInstance();
+		public function FormEnchantBox(item:ComboBox, item_attr:FormItemAttributeBox) {
+			c = Internal.getInstance();
+			this.item = item;
+			this.item_attr = item_attr;
+			// アイテムレベルフォームにイベントを登録
+			item.addEventListener(ListEvent.CHANGE, eventChangePlus);
+			item_attr.addPlusEventListener(eventChangePlus);
 			// エンチャントOPの作成
-			item.f_enop = new ComboBox();
-			name = item.f_enop;
-			item.f_enop.name = item.name;
-			item.f_enop.labelFunction = FormCommon.labelfunc0;
-			item.f_enop.addEventListener(ListEvent.CHANGE,click::en);
-			hide(item.f_enop);
-			hbox.addChild(item.f_enop);
-			item.f_enop_value = new ComboBox();
-			value = item.f_enop_value;
-			item.f_enop_value.name = item.name;
-			item.f_enop_value.width = 80;
-			hide(item.f_enop_value);
-			hbox.addChild(item.f_enop_value);
+			// エンチャントの種類
+			type = new ComboBox();
+			type.labelFunction = FormCommon.labelfunc0;
+			type.addEventListener(ListEvent.CHANGE, eventChange);
+			this.addChild(type);
+			// エンチャントの値
+			value = new ComboBox();
+			this.addChild(value);
 		}
 		/**
 		 * クリックイベント
+		 * エンチャントの値フォームのデータを変更
 		 */
-		private function eventClick(Event event):boolean {
-			if(!name.selectedItem)return false;//インポート対策
-			var sel:int = value.selectedIndex;
-			var a:Array = new Array();
-			for(var i:int=name.selectedItem[2];i<=item.f_plus.selectedIndex,i<=13;i++){
-				a.push(item.f_enop.selectedItem[3][i - item.f_enop.selectedItem[2]]);
-			}
-			value.dataProvider = a;
-			value.selectedIndex = sel;
-			return true;
+		private function eventChange(event:Event):void {
+			changeEnchantValue();
 		}
 		/**
-		 * エンチャントの種類をセット
+		 * アイテムレベルの変更時イベント及びアイテムの変更時イベント
+		 * エンチャントの種類を変更
 		 */
-		private function setData(internal:Internal,item:Object,plus:int):void {
-			if(!item)return false;//インポート対策
-			var sel:int = name.selectedIndex;
-			name.dataProvider = internal.getEnchaunt(
-					internal.getEnchauntKind(item),
-					plus);
-			name.selectedIndex = sel;
-			
-			return true;
+		private function eventChangePlus(event:Event):void{
+			changeEnchant();
 		}
-		public function getName():ComboBox {
-			return name;
+		private function changeEnchantValue():void{
+			var index:int = value.selectedIndex;
+			var a:Array = new Array();
+			for(var i:int=type.selectedItem[2];i<=item_attr.getPlus(),i<=13;i++){
+				a.push(type.selectedItem[3][i - type.selectedItem[2]]);
+			}
+			value.dataProvider = a;
+			value.selectedIndex = index;
 		}
+		/**
+		 * エンチャントの種類を変更
+		 * @param item ComboBox.selectedItem
+		 */
+		public function changeEnchant():void{
+			if(this.visible){
+				// エンチャントの種類を変更
+				var index:int = type.selectedIndex;
+				type.dataProvider = c.getEnchaunt(
+						c.getEnchauntKind(item),
+						item_attr.getPlus());
+				type.selectedIndex = index;
+				// エンチャントの値を変更
+				changeEnchantValue();
+			}
+		}
+		/**
+		 * エンチャント名を返す
+		 */
+		public function getType():ComboBox {
+			return type;
+		}
+		/**
+		 * エンチャントの値を返す
+		 */
 		public function getValue():ComboBox {
 			return value;
 		}

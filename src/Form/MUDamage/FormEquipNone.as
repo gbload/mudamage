@@ -9,8 +9,14 @@ package Form.MUDamage {
 	import Form.MUDamage.SubForm.*;
 	import Data.Database.*;
 	
-	public class FormSupport {
-		public function FormSupport() {
+	public class FormEquipNone {
+		public function FormEquipNormal() {
+			
+		}
+		/**
+		 * 通常装備選択フォームを表示
+		 */
+		public function display(){
 			
 		}
 	}
