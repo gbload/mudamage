@@ -14,15 +14,20 @@ package Form.MUDamage {
 	 *
 	 */
 	public class FormNeck extends FormEquipBase {
-		private var option:ComboBox;		
+		protected var option:ComboBox;		
 	
-		private var old_type:int=-1;
+		protected var old_type:int=-1;
 		/**
 		 * コンストラクタ
 		 */
 		public function FormNeck(d:FormMUDamage) {
 			super(d);
 			this.label = "ネック:";
+		}
+		/**
+		 * kind arrayの初期化
+		 */
+		override protected function initKinds():void{
 			kinds = {
 					none 	: displayNone,
 					normal 	: displayNormal,
@@ -55,7 +60,7 @@ package Form.MUDamage {
 		/**
 		 * オプションフォーム
 		 */
-		private function createOption():void{
+		protected function createOption():void{
 			option = new ComboBox();
 			FormCommon.hide(option);
 			hbox.addChild(option);
@@ -73,7 +78,7 @@ package Form.MUDamage {
 		 * アイテムフォームのデータを変更
 		 * @param type 0:通常orEX 1:ショップ 2:セットアイテム
 		 */
-		private function changeItem(type:int):Boolean{
+		protected function changeItem(type:int):Boolean{
 			//すでに作成されていないかチェック
 			if(old_type != type){
 				// アイテムの追加
@@ -119,7 +124,7 @@ package Form.MUDamage {
 		/**
 		 * 通常を表示
 		 */
-		private function displayNormal():void{
+		protected function displayNormal():void{
 			hideAll();
 			FormCommon.show(item);
 			FormCommon.show(option);
@@ -129,7 +134,7 @@ package Form.MUDamage {
 		/**
 		 * EXを表示
 		 */
-		private function displayEx():void{
+		protected function displayEx():void{
 			hideAll();
 			FormCommon.show(item);
 			FormCommon.show(option);
@@ -140,7 +145,7 @@ package Form.MUDamage {
 		/**
 		 * セットを表示
 		 */
-		private function displaySet():void{
+		protected function displaySet():void{
 			hideAll();
 			FormCommon.show(item);
 			FormCommon.show(option);
@@ -151,7 +156,7 @@ package Form.MUDamage {
 		/**
 		 * ショップを表示
 		 */
-		private function displayShop():void{
+		protected function displayShop():void{
 			hideAll();
 			FormCommon.show(item);
 			FormCommon.show(option);

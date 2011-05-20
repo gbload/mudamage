@@ -11,17 +11,17 @@ package Form.MUDamage {
 		private var old_job:int = 0;
 	
 		private var form_title:TextInput;
-		private var form_job:ComboBox;
+		private var form_job:FormJob;
 		private var form_pet:FormPet;
 		private var form_wing:FormWing;
 		private var form_neck:FormNeck;
-		private var form_right:FormEquip;
-		private var form_left:FormEquip;
-		private var form_helm:FormEquip;
-		private var form_armor:FormEquip;
-		private var form_glove:FormEquip;
-		private var form_garter:FormEquip;
-		private var form_boots:FormEquip;
+		private var form_right:FormEquipRight;
+		private var form_left:FormEquipLeft;
+		private var form_helm:FormEquipProtect;
+		private var form_armor:FormEquipProtect;
+		private var form_glove:FormEquipProtect;
+		private var form_garter:FormEquipProtect;
+		private var form_boots:FormEquipProtect;
 //		private var form_ring1:FormRing;
 //		private var form_ring2:FormRing;
 //		private var form_status:FormStatus;
@@ -29,11 +29,13 @@ package Form.MUDamage {
 		/**
 		 * コンストラクタ
 		 */
-		public function FormMUDamage(){
+		public function FormMUDamage(c:Controller, job:int){
 			super();
 			
 			// 職
-			createJob();
+			form_job = new FormJob(c);
+			form_job.setJob(job);
+			this.addChild(form_job.getFormItem());
 			// ペット
 			form_pet = new FormPet(this);
 			this.addChild(form_pet);
@@ -44,76 +46,32 @@ package Form.MUDamage {
 			form_neck = new FormNeck(this);
 			this.addChild(form_neck);
 			// 右手
-			form_right = new FormEquip(this,"right");
+			form_right = new FormEquipRight(this);
 			this.addChild(form_right);
 			// 左手
-			form_left = new FormEquip(this,"left");
+			form_left = new FormEquipLeft(this);
 			this.addChild(form_left);
 			// 兜
-			form_helm = new FormEquip(this,"helm");
+			form_helm = new FormEquipProtect(this,"helm");
 			this.addChild(form_helm);
 			// 鎧
-			form_armor = new FormEquip(this,"armor");
+			form_armor = new FormEquipProtect(this,"armor");
 			this.addChild(form_armor);
 			// 手
-			form_glove = new FormEquip(this,"glove");
+			form_glove = new FormEquipProtect(this,"glove");
 			this.addChild(form_glove);
 			// 腰
-			form_garter = new FormEquip(this,"garter");
+			form_garter = new FormEquipProtect(this,"garter");
 			this.addChild(form_garter);
 			// 足
-			form_boots = new FormEquip(this,"boots");
+			form_boots = new FormEquipProtect(this,"boots");
 			this.addChild(form_boots);
-		}
-		/**
-		 * コントローラを登録する
-		 */
-		public function setController(c:Controller):void{
-			this.controller = c;
-		}
-		/**
-		 * 職フォームを作成
-		 */
-		private function createJob():void{
-			var fi:FormItem = new FormItem();
-			fi.direction = "horizontal";
-			fi.label = "クラス：";
-			var co:ComboBox = new ComboBox();
-			this.form_job = co;
-			co.rowCount = 10;
-			co.dataProvider = new ArrayCollection(
-				["ナイト","ウィザード","エルフ","魔剣士","ダークロード","召喚師","レイジファイター"]);
-			co.addEventListener(ListEvent.CHANGE,eventChangeJob);
-			fi.addChild(co);
-			
-			this.addChild(fi);
-		}
-		/**
-		 * 職イベント
-		 */
-		private function eventChangeJob(event:Event):Boolean{
-			this.controller.changeForm(this.getJob().selectedIndex);
-			setJob(getOldJob());
-			return true;
 		}
 		/**
 		 * 職フォームを返す
 		 */
-		public function getJob():ComboBox {
+		public function getJob():FormJob {
 			return form_job;
-		}
-		/**
-		 * 職をセットする
-		 */
-		public function setJob(job:int):void{
-			form_job.selectedIndex = job;
-			old_job = job;
-		}
-		/**
-		 * 職フォームの変更イベント直前の値を返す
-		 */
-		public function getOldJob():int{
-			return old_job;
 		}
 		/**
 		 * 右手フォームを返す

@@ -9,9 +9,15 @@ package Form.MUDamage {
 	import Form.MUDamage.SubForm.*;
 	import Data.Database.*;
 	
-	public class FormRing {
-		public function FormRing() {
-			
+	public class FormRing extends FormNeck {
+		/**
+		 * コンストラクタ
+		 * @param num 1.リング1　2.リング2
+		 */
+		public function FormRing(d:FormMUDamage,num:int) {
+			super();
+			if(num==1)this.label = "リング1:";
+			else this.label = "リング2:";
 		}
 		private function init():void{
 			this.width = 900;
