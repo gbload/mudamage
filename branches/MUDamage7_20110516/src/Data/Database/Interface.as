@@ -206,7 +206,7 @@ static public function getSpeed():Array{return Etc.speed;}
 
 static public function getExp():Array{return Exp.exp;}
 
-static public function getShopNeck():Array{return Shop.neck;}
-static public function getShopRing():Array{return Shop.ring;}
+static public function getShopNeck():Array{return Accessory.shop_neck;}
+static public function getShopRing():Array{return Accessory.shop_ring;}
 	}
 }

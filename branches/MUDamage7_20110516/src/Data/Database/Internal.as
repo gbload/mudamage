@@ -125,6 +125,12 @@ package Data.Database
 		public function getShopRing():Array{
 			return Interface.getShopRing();
 		}
+		public function getNeck():Array{
+			return Accessory.neck;
+		}
+		public function getRing():Array{
+			return Accessory.ring;
+		}
 		//スキルデータの取得
 		public var skill:Array = Interface.getSkill();
 		//モンスターデータの取得

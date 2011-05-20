@@ -25,6 +25,14 @@ package Form.MUDamage.SubForm {
 			options = new Array();
 			// アイテムフォームにイベントを登録
 			item.addEventListener(ListEvent.CHANGE,eventChangeItem);
+			// 背景色変更
+			this.setStyle("backgroundColor","#DDFFDD");//背景色を緑色に
+			// ラベルの作成
+			var la:Label = new Label();
+			la.text = "　EXOP:";
+			la.setStyle("fontWeight","bold");
+			la.width = 120;
+			this.addChild(la);
 			//exopの作成
 			for(var i:int=0;i<5;i++){
 				var e:ComboBox = new ComboBox();
@@ -56,15 +64,19 @@ package Form.MUDamage.SubForm {
 		 */
 		public function changeData():Boolean {
 			//EXOPの作成
-			if(!item)return false;//インポート対策
+			if(!item.selectedItem)return false;//インポート対策
 			var a:Array;
-			if(item[0] == "防具"){//防具
+			if(item.selectedItem[0] == "防具"){//防具
 				if(options[0].dataProvider != "" && options[0].dataProvider[1] == "防御成功")return false;
 				a = ["","防御成功","ダメ減","生命増","マナ増","ダメ反"];
-			}else if(item[3] == "杖" || item[3] == "書"){
+			}else if(item.selectedItem[3] == "杖" || item.selectedItem[3] == "書"){
 				//魔法系
 				if(options[0].dataProvider != "" && options[0].dataProvider[3] == "魔力2%")return false;
 				a = ["","EXD","速度+7","魔力2%","魔力lv20"];
+			}else if(item.selectedItem[0] == "アクセサリ"){
+				//魔法系
+				if(options[0].dataProvider != "" && options[0].dataProvider[3] == "攻撃lv20")return false;
+				a = ["","EXD","速度+7","攻撃lv20","攻撃2%","魔力lv20","魔力2%"];
 			}else{
 				//剣系
 				if(options[0].dataProvider != "" && options[0].dataProvider[3] == "攻撃2%")return false;

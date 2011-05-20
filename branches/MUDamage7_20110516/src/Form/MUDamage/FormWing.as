@@ -43,7 +43,7 @@ package Form.MUDamage {
 			//アイテムフォームの作成
 			item = new ComboBox();
 			item.addEventListener(ListEvent.CHANGE,wingChange);
-			item.dataProvider = c.getWing(d.getJob().selectedIndex);//TODO
+			item.dataProvider = c.getWing(d.getJob().selectedIndex);
 			item.labelFunction = FormCommon.labelfunc0;
 			this.addChild(item);
 		}

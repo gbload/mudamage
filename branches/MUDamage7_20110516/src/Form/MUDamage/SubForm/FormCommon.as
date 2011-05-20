@@ -17,8 +17,10 @@ package Form.MUDamage.SubForm {
 		 * コンポーネントを非表示にする
 		 */
 		public static function hide(obj:UIComponent):void{
-			obj.visible = false;
-			obj.includeInLayout = false;
+			if(obj!=null){
+				obj.visible = false;
+				obj.includeInLayout = false;
+			}
 		}
 		/**
 		 * コンポーネントを表示する
