@@ -26,11 +26,7 @@ package Form.MUDamage {
 		 * フォームを新規作成
 		 */
 		private function createForm(job:int=-1):FormMUDamage{
-			var form:FormMUDamage = new FormMUDamage();
-			// コントローラを登録
-			form.setController(this);
-			// 職を登録
-			if(job != -1)form.setJob(job);
+			var form:FormMUDamage = new FormMUDamage(this, job);
 			// 位置を調整
 			form.x = 50;
 			form.y = 100;
@@ -42,7 +38,7 @@ package Form.MUDamage {
 		 */
 		public function changeForm(job:int):void{
 			for each(var form:FormMUDamage in forms){
-				if(form.getOldJob() == job){
+				if(form.getJob().getOldJob() == job){
 					container.removeChild(now_form);
 					now_form = form;
 					container.addChild(now_form);

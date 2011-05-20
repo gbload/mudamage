@@ -34,7 +34,14 @@ package Form.MUDamage {
 			this.d = d;
 			this.c = Internal.getInstance();
 
+			initKinds();
 			initForm();
+		}
+		/**
+		 * kind arrayの初期化
+		 */
+		protected function initKinds():void{
+			
 		}
 		/**
 		 * フォームの初期化
