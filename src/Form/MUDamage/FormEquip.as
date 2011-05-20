@@ -12,9 +12,7 @@ package Form.MUDamage {
 	public class FormEquip extends FormItem {
 		private var d:FormMUDamage;
 		private var c:Internal;
-		private var type:String;
-	
-		private var kinds:Object;
+		private var f_name:String;
 	
 		private var kind:ComboBox;
 		private var item:ComboBox;
@@ -30,7 +28,7 @@ package Form.MUDamage {
 		
 		private var hbox:HBox;
 		private var vbox:VBox;
-	
+
 		private var LABELS:Object = 
 			{	right : "右:",
 				left : "左:",
@@ -39,18 +37,18 @@ package Form.MUDamage {
 				glove : "手:",
 				garter : "腰:",
 				boots : "足:"};
-		private var KIND_ARRAY:Array = 
-			["なし","通常","EX","セット","ソケット","EXソケット"];
+		private var kinds:Object;
+		private var KIND_ARRAY:Array;
 		/**
 		 * コンストラクタ
 		 * @param d
-		 * @param type [right,left,helm,armor,glove,garter,boots]
+		 * @param f_name [right,left,helm,armor,glove,garter,boots]
 		 * @param 
 		 */
-		public function FormEquip(d:FormMUDamage,type:String) {
+		public function FormEquip(d:FormMUDamage,f_name:String) {
 			this.d = d;
 			this.c = Internal.getInstance();
-			this.type = type;
+			this.f_name = f_name;
 			
 			kinds = {
 				none 	: displayNone,
@@ -73,17 +71,25 @@ package Form.MUDamage {
 		 * フォームの設定
 		 */
 		private function initForm():void{
-			this.label = this.LABELS[type];
+			this.label = this.LABELS[f_name];
 			
 			ln();
 			createKind();
 			createItem();
-			item_attr = new FormItemAttributeBox();hbox.addChild(item_attr);
-			enchant = new FormEnchantBox(item, item_attr);hbox.addChild(enchant);
+			item_attr = new FormItemAttributeBox();
+				FormCommon.hide(item_attr);
+				hbox.addChild(item_attr);
+			enchant = new FormEnchantBox(item, item_attr.getPlus());
+				FormCommon.hide(enchant);
+				hbox.addChild(enchant);
 			createSetop();
 			
-			exellent = new FormExellentBox(item);this.addChild(exellent);
-			socket = new FormSocketBox(item);this.addChild(socket);
+			exellent = new FormExellentBox(item);
+				FormCommon.hide(exellent);
+				this.addChild(exellent);
+			socket = new FormSocketBox(item);
+				FormCommon.hide(socket);
+				this.addChild(socket);
 			
 			createArrow();
 			create380op();
@@ -134,7 +140,7 @@ package Form.MUDamage {
 		 */
 		private function createArrow():void{
 			//矢のフォーム作成
-			if(type == "right"){//右手のみ
+			if(f_name == "right"){//右手のみ
 				//矢のフォーム
 				arrow = new ComboBox();
 				FormCommon.hide(arrow);
@@ -158,10 +164,9 @@ package Form.MUDamage {
 			hbox.addChild(la);
 		}
 		/**
-		 * kindを覗く全てのフォームを隠す
+		 * kindを除く全てのフォームを隠す
 		 */
 		public function hideAll():void{
-			FormCommon.hide(kind);
 			FormCommon.hide(item);
 			FormCommon.hide(item_attr);
 			FormCommon.hide(setop);
@@ -216,7 +221,7 @@ package Form.MUDamage {
 				op380.selected = false;
 			}
 			// 弓の場合、左手フォームを隠す
-			if(type == "right")
+			if(f_name == "right")
 				if(item.selectedItem[3] == "弓"){
 					d.getFormLeft().getKind().selectedIndex = 0;//左手を「なし」に設定
 					d.getFormLeft().getKind().dispatchEvent((new ListEvent(ListEvent.CHANGE)) as Event);//イベントの呼び出し
@@ -239,6 +244,7 @@ package Form.MUDamage {
 			// OPの変更
 			var a:Array;
 			var index:int = item_attr.getOption().selectedIndex;
+			if(index == -1)index = 0;
 			if(item.selectedItem[3] == "盾"){
 				a = [{label:"opなし",value:0},
 							{label:"op5",value:5},
@@ -259,6 +265,50 @@ package Form.MUDamage {
 			return true;
 		}
 		/**
+		 * アイテムフォームのデータを変更
+		 * @param type 0:通常 1:ソケット 2:セットアイテム
+		 */
+		private function changeItem(type:int):Boolean{
+			//すでに作成されていないかチェック
+			if(item.dataProvider == "" || c.getItemType(item.selectedItem) != type){
+				//アイテムの追加
+				var jobindex:int = d.getJob().selectedIndex;//職取得
+				if(f_name == "right")//右手
+					//ソケットアイテムを除く 神具を除く
+					if(type==1) item.dataProvider = c.getSocketRight(jobindex);
+					else if(type==2) item.dataProvider = c.getSetRight(jobindex);
+					else item.dataProvider = c.getRight(jobindex);
+				else if(f_name == "left")//左手
+					//ソケットアイテムを除く　両手武器を除く
+					if(type==1) item.dataProvider = c.getSocketLeft(jobindex);
+					else if(type==2) item.dataProvider = c.getSetLeft(jobindex);
+					else item.dataProvider = c.getLeft(jobindex);
+				else if(f_name == "helm")
+					if(type==1) item.dataProvider = c.getSocketEquip(jobindex,"兜");
+					else if(type==2) item.dataProvider = c.getSetEquip(jobindex,"兜");
+					else item.dataProvider = c.getEquip(jobindex,"兜");
+				else if(f_name == "armor")
+					if(type==1) item.dataProvider = c.getSocketEquip(jobindex,"鎧");
+					else if(type==2) item.dataProvider = c.getSetEquip(jobindex,"鎧");
+					else item.dataProvider = c.getEquip(jobindex,"鎧");
+				else if(f_name == "glove")
+					if(type==1) item.dataProvider = c.getSocketEquip(jobindex,"手");
+					else if(type==2) item.dataProvider = c.getSetEquip(jobindex,"手");
+					else item.dataProvider = c.getEquip(jobindex,"手");
+				else if(f_name == "garter")
+					if(type==1) item.dataProvider = c.getSocketEquip(jobindex,"腰");
+					else if(type==2) item.dataProvider = c.getSetEquip(jobindex,"腰");
+					else item.dataProvider = c.getEquip(jobindex,"腰");
+				else if(f_name == "boots")
+					if(type==1) item.dataProvider = c.getSocketEquip(jobindex,"足");
+					else if(type==2) item.dataProvider = c.getSetEquip(jobindex,"足");
+					else item.dataProvider = c.getEquip(jobindex,"足");
+			}
+			// イベントの呼び出し
+			item.dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);
+			return true;
+		}
+		/**
 		 * kind Noneを表示
 		 */
 		private function displayNone():void{
@@ -272,6 +322,8 @@ package Form.MUDamage {
 			FormCommon.show(item);
 			FormCommon.show(item_attr);
 			FormCommon.show(enchant);
+
+			changeItem(0);
 		}
 		/**
 		 * kind Exを表示
@@ -282,6 +334,8 @@ package Form.MUDamage {
 			FormCommon.show(item_attr);
 			FormCommon.show(enchant);
 			FormCommon.show(exellent);
+			
+			changeItem(0);
 		}
 		/**
 		 * kind Setを表示
@@ -291,6 +345,8 @@ package Form.MUDamage {
 			FormCommon.show(item);
 			FormCommon.show(item_attr);
 			FormCommon.show(setop);
+			
+			changeItem(2);
 		}
 		/**
 		 * kind Socketを表示
@@ -300,6 +356,8 @@ package Form.MUDamage {
 			FormCommon.show(item);
 			FormCommon.show(item_attr);
 			FormCommon.show(socket);
+			
+			changeItem(1);
 		}
 		/**
 		 * kind

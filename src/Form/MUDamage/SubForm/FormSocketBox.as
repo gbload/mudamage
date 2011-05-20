@@ -17,21 +17,31 @@ package Form.MUDamage.SubForm {
 		private var item:ComboBox;
 		private var c:Internal;
 	
-		private var names:Array;
-		private var values:Array;
-		private var bonuses:Array;
+		private var names:Array = new Array();
+		private var values:Array = new Array();
+		private var bonuses:Array = new Array();
 		/**
 		 * SocketBoxを作成
 		 */
 		public function FormSocketBox(item:ComboBox) {
 			this.item = item;
 			this.c = Internal.getInstance();
+			// イベントを登録
+			item.addEventListener(ListEvent.CHANGE, eventChangeItem);
 			
 			/*
 			 * SocketBoxを作成
 			 */
 			var hbox:HBox = new HBox();
 			this.addChild(hbox);
+			// 背景色変更
+			this.setStyle("backgroundColor","#DDCCFF");//背景色を紫色に
+			// ラベルの作成
+			var la:Label = new Label();
+			la.text = "　ソケットOP:";
+			la.setStyle("fontWeight","bold");
+			la.width = 120;
+			hbox.addChild(la);
 			//soopの作成
 			var i:int = 0;
 			var e:ComboBox;
@@ -99,11 +109,11 @@ package Form.MUDamage.SubForm {
 			for(n=0;n<bonuses.length;n++){
 				if(att[0] && att[1] && att[2])//武器のボーナス
 					if(item.selectedItem[3]=="杖" || item.selectedItem[3]=="書")
-						item.f_sobonus[n].dataProvider = ["","魔力+5","スキル+11"];//杖
+						bonuses[n].dataProvider = ["","魔力+5","スキル+11"];//杖
 					else
-						item.f_sobonus[n].dataProvider = ["","攻撃力+11","スキル+11"];//剣
+						bonuses[n].dataProvider = ["","攻撃力+11","スキル+11"];//剣
 				if(att[3] && att[4] && att[5])//防具のボーナス
-					item.f_sobonus[n].dataProvider = ["","防御力+24","最大生命+29"];
+					bonuses[n].dataProvider = ["","防御力+24","最大生命+29"];
 			}
 			//ボーナスソケットの非表示
 			for each(var bonus:ComboBox in bonuses)
@@ -140,6 +150,9 @@ package Form.MUDamage.SubForm {
 			if(FormCommon.isDuplication(bonuses))
 				event.target.selectedIndex = 0;
 		}
+		/**
+		 * アイテムフォーム変更時イベント
+		 */
 		private function eventChangeItem(event:Event):void{
 			if(this.visible)
 				changeSocket();

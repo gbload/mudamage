@@ -8,19 +8,19 @@ package Form.MUDamage {
 
 	import Form.MUDamage.SubForm.*;
 	import Data.Database.*;
+	
 	/**
-	 * ネックフォーム
+	 * 装備フォームのベース
 	 * @author sinlion
 	 *
 	 */
-	public class FormNeck extends FormItem {
+	public class FormEquipBase extends FormItem {
 		private var LABEL:String = "ネック:";
 		private var d:FormMUDamage;
 		private var c:Internal;
 	
 		private var kind:ComboBox;
 		private var item:ComboBox;
-		private var option:ComboBox;
 		private var setop:ComboBox;
 		private var exellent:FormExellentBox;
 	
@@ -34,43 +34,24 @@ package Form.MUDamage {
 		/**
 		 * コンストラクタ
 		 */
-		public function FormNeck(d:FormMUDamage) {
+		public function FormEquipBase(d:FormMUDamage) {
 			this.d = d;
 			this.c = Internal.getInstance();
 			
-//			this.width = 900;
 			this.label = this.LABEL;
 			
-			kinds = {
-					none 	: displayNone,
-					normal 	: displayNormal,
-					exellent: displayEx,
-					set: displaySet,
-					shop : displayShop
-				};
-			KIND_ARRAY = [
-			              ["なし"	,kinds.none],
-			              ["通常"	,kinds.normal],
-			           ["EX"	,kinds.exellent],
-			              ["セット"	,kinds.set],
-			              ["ショップ"	,kinds.shop],
-			            ];
-			
+			init();
 			initForm();
+		}
+		/**
+		 * 初期化
+		 */
+		private function init():void{
 		}
 		/**
 		 * フォームの初期化
 		 */
 		private function initForm():void{
-			ln();
-			createKind();
-			createItem();
-			createOption();
-			createSetop();
-			
-			exellent = new FormExellentBox(item);
-				FormCommon.hide(exellent);
-				this.addChild(exellent);
 		}
 		/**
 		 * 改行
@@ -180,77 +161,27 @@ package Form.MUDamage {
 		 * setopフォームのデータを変更
 		 */
 		private function changeSetop(str:String):void{
-			// インデックスの保持
-			var index:int = setop.selectedIndex;
-			if(index == -1)index = 0;
-			// オプションの作成
-			var a:Array = new Array();
-			if(str == ""){
-				a.push("");
-			}else{
-				a.push(str+"+5");
-				a.push(str+"+10");
+			if(setop.visible){
+				// インデックスの保持
+				var index:int = setop.selectedIndex;
+				if(index == -1)index = 0;
+				// オプションの作成
+				var a:Array = new Array();
+				if(str == ""){
+					a.push("");
+				}else{
+					a.push(str+"+5");
+					a.push(str+"+10");
+				}
+				// オプションの登録
+				setop.dataProvider = a;
+				setop.selectedIndex = index;
 			}
-			// オプションの登録
-			setop.dataProvider = a;
-			setop.selectedIndex = index;
 		}
 		/**
 		 * kindを除くフォームを全て隠す
 		 */
 		private function hideAll():void{
-			FormCommon.hide(item);
-			FormCommon.hide(option);
-			FormCommon.hide(setop);
-			FormCommon.hide(exellent);
-		}
-		/**
-		 * なしを表示
-		 */
-		private function displayNone():void{
-			hideAll();
-		}
-		/**
-		 * 通常を表示
-		 */
-		private function displayNormal():void{
-			hideAll();
-			FormCommon.show(item);
-			FormCommon.show(option);
-			
-			changeItem(0);
-		}
-		/**
-		 * EXを表示
-		 */
-		private function displayEx():void{
-			hideAll();
-			FormCommon.show(item);
-			FormCommon.show(option);
-			FormCommon.show(exellent);
-			
-			changeItem(0);
-		}
-		/**
-		 * セットを表示
-		 */
-		private function displaySet():void{
-			hideAll();
-			FormCommon.show(item);
-			FormCommon.show(option);
-			FormCommon.show(setop);
-			
-			changeItem(2);
-		}
-		/**
-		 * ショップを表示
-		 */
-		private function displayShop():void{
-			hideAll();
-			FormCommon.show(item);
-			FormCommon.show(option);
-
-			changeItem(1);
 		}
 		/**
 		 * kind
@@ -263,12 +194,6 @@ package Form.MUDamage {
 		 */
 		public function getItem():ComboBox{
 			return item;
-		}
-		/**
-		 * option
-		 */
-		public function getOption():ComboBox{
-			return option;
 		}
 		/**
 		 * setop

@@ -61,12 +61,6 @@ package Form.MUDamage.SubForm {
 			
 		}
 		/**
-		 * Plusフォームにイベントを追加
-		 */
-		public function addPlusEventListener(func:Function):void {
-			plus.addEventListener(ListEvent.CHANGE, func);
-		}
-		/**
 		 * 幸運の有無を返す
 		 */
 		public function getLuck():Boolean{
@@ -81,8 +75,8 @@ package Form.MUDamage.SubForm {
 		/**
 		 * アイテムレベルを返す
 		 */
-		public function getPlus():int{
-			return plus.selectedIndex;
+		public function getPlus():ComboBox{
+			return plus;
 		}
 	}
 }
