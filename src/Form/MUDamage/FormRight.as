@@ -9,7 +9,7 @@ package Form.MUDamage {
 	import Form.MUDamage.SubForm.*;
 	import Data.Database.*;
 	
-	public class FormEquip extends FormEquipBase {
+	public class FormRight extends FormEquip {
 		private var f_name:String;
 	
 		private var item_attr:FormItemAttributeBox;
