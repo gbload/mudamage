@@ -6,11 +6,12 @@ package Form.MUDamage {
 	import mx.events.*;
 	import flash.events.*;
 	
-	public class FormMUDamage extends Form {
+	public class FormMUDamage extends Canvas {
 		private var controller:Controller;
 		private var old_job:int = 0;
 	
 		private var form_title:TextInput;
+		private var form_exp:TextInput;
 		private var form_job:FormJob;
 		private var form_pet:FormPet;
 		private var form_wing:FormWing;
@@ -22,50 +23,84 @@ package Form.MUDamage {
 		private var form_glove:FormEquipProtect;
 		private var form_garter:FormEquipProtect;
 		private var form_boots:FormEquipProtect;
-//		private var form_ring1:FormRing;
-//		private var form_ring2:FormRing;
-//		private var form_status:FormStatus;
-//		private var form_support:FormSupport;
+		private var form_ring1:FormRing;
+		private var form_ring2:FormRing;
+		private var form_status:FormStatus;
+		private var form_support:FormSupport;
+	
+		private var main:Form;
 		/**
 		 * コンストラクタ
 		 */
 		public function FormMUDamage(c:Controller, job:int){
 			super();
 			
+			main = new Form();
+			this.addChild(main);
+			
+			// タイトル
+			form_title = createTextInput("タイトル：");
+			// 経験値
+			form_exp = createTextInput("経験値増加(%)：");
 			// 職
 			form_job = new FormJob(c);
 			form_job.setJob(job);
-			this.addChild(form_job.getFormItem());
+			main.addChild(form_job.getFormItem());
 			// ペット
 			form_pet = new FormPet(this);
-			this.addChild(form_pet);
+			main.addChild(form_pet);
 			// 羽
 			form_wing = new FormWing(this);
-			this.addChild(form_wing);
+			main.addChild(form_wing);
 			// ネック
 			form_neck = new FormNeck(this);
-			this.addChild(form_neck);
+			main.addChild(form_neck);
 			// 右手
 			form_right = new FormEquipRight(this);
-			this.addChild(form_right);
+			main.addChild(form_right);
 			// 左手
 			form_left = new FormEquipLeft(this);
-			this.addChild(form_left);
+			main.addChild(form_left);
 			// 兜
 			form_helm = new FormEquipProtect(this,"helm");
-			this.addChild(form_helm);
+			main.addChild(form_helm);
 			// 鎧
 			form_armor = new FormEquipProtect(this,"armor");
-			this.addChild(form_armor);
+			main.addChild(form_armor);
 			// 手
 			form_glove = new FormEquipProtect(this,"glove");
-			this.addChild(form_glove);
+			main.addChild(form_glove);
 			// 腰
 			form_garter = new FormEquipProtect(this,"garter");
-			this.addChild(form_garter);
+			main.addChild(form_garter);
 			// 足
 			form_boots = new FormEquipProtect(this,"boots");
-			this.addChild(form_boots);
+			main.addChild(form_boots);
+			// リング1
+			form_ring1 = new FormRing(this,1);
+			main.addChild(form_ring1);
+			// リング2
+			form_ring2 = new FormRing(this,2);
+			main.addChild(form_ring2);
+			// ステータス
+			form_status = new FormStatus(this);
+			this.addChild(form_status);
+			// サポート
+			form_support = new FormSupport(this);
+			main.addChild(form_support);
+		}
+		/**
+		 * TextInputを作成
+		 */
+		private function createTextInput(label:String):TextInput{
+			// FormItem
+			var fi:FormItem = new FormItem();
+			fi.label = label;
+			main.addChild(fi);
+			// TextInput
+			var ti:TextInput = new TextInput();
+			fi.addChild(ti);
+			return ti;
 		}
 		/**
 		 * 職フォームを返す
