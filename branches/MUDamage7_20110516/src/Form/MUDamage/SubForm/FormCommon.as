@@ -59,5 +59,12 @@ package Form.MUDamage.SubForm {
 			if(item.toString() == "")return "";
 			return item[0];
 		}
+		/**
+		 * フォーカスイベント
+		 */
+		public static function eventFocusAllSelection(event:Event):void{
+			//全選択にする
+			event.target.parent.setSelection(0,event.target.length);
+		}
 	}
 }
