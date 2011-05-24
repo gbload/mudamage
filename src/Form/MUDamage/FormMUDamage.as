@@ -88,6 +88,8 @@ package Form.MUDamage {
 			// サポート
 			form_support = new FormSupport(this);
 			main.addChild(form_support);
+			// test
+			main.addChild(new FormMasterSkillTree(this));
 		}
 		/**
 		 * TextInputを作成
