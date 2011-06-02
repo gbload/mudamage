@@ -20,6 +20,7 @@ package Form.MUDamage
 		private var d:FormMUDamage;
 		private var c:Internal = Internal.getInstance();
 		private var skills:Object;
+		private var trees:Array = new Array();
 		/**
 		 * コンストラクタ
 		 */
@@ -46,33 +47,43 @@ package Form.MUDamage
 		 */
 		private function initBox():void{
 			var job:int = d.getJob().selectedIndex;
-			createTree(MasterSkillTree.title[job][0],MasterSkillTree.left);
-			createTree(MasterSkillTree.title[job][1],MasterSkillTree.middle[job]);
-			createTree(MasterSkillTree.title[job][2],MasterSkillTree.right[job]);
+			trees[0] = createTree(MasterSkillTree.title[job][0],MasterSkillTree.left);
+			trees[1] = createTree(MasterSkillTree.title[job][1],MasterSkillTree.middle[job]);
+			trees[2] = createTree(MasterSkillTree.title[job][2],MasterSkillTree.right[job]);
 		}
-		/**
-		 * スキルツリーを作成
-		 */
-		private function createTree(title:String,tree:Array):void{
-			var vbox:VBox = new VBox();
-			this.addChild(vbox);
-			var hbox:HBox;
+		private function createTree(title:String, tree:Array):Canvas{
+			var canvas:Canvas = new Canvas();
+			canvas.width = 260;
+			this.addChild(canvas);
+			// title
+			var label:Label = new Label();
+			label.text = title;
+			label.x = 120;
+			label.y = 0;
+			canvas.addChild(label);
+			// tree
 			for(var i:int=0;i<tree.length;i++){
-				hbox = new HBox();
-				vbox.addChild(hbox);
 				for(var j:int=0;j<tree[i].length;j++){
 					if(tree[i][j] != ""){
+						// image
 						var img:Image = new Image();
 						img.source = getSkills(tree[i][j]).item[MasterSkill.IMAGE];
-						hbox.addChild(img);
-					}else{
-						var canvas:Canvas = new Canvas();
-						canvas.width = 32;
-						canvas.height = 44;
-						hbox.addChild(canvas);
+						img.x = j*65;
+						img.y = i*50 + 30;
+						canvas.addChild(img);
+						// input
+						var ti:TextInput = new TextInput();
+						ti.name = (i * tree[i].length + j).toString();
+						ti.width = 25;
+						ti.restrict = "0-9";
+						ti.maxChars = 2;
+						ti.x = j*65 + 32;
+						ti.y = i*50 + 30 + 22;
+						canvas.addChild(ti);
 					}
 				}
 			}
+			return canvas;
 		}
 		/**
 		 * Skills
@@ -81,6 +92,6 @@ package Form.MUDamage
 			if(skills[name]==null)Alert.show("Error:"+name);
 			return skills[name];
 		}
-		
+
 	}
 }

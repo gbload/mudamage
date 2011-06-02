@@ -4,6 +4,7 @@ package Form.MUDamage {
 	import mx.core.*;
 	import mx.collections.*;
 	import mx.events.*;
+	import mx.managers.*;
 	import flash.events.*;
 
 	import Form.MUDamage.SubForm.*;
@@ -21,6 +22,8 @@ package Form.MUDamage {
 		private var vit:TextInput;
 		private var ene:TextInput;
 		private var rec:TextInput;
+	
+		private var mlv:FormMasterSkillTree;
 	
 		private var hbox:HBox;
 		/**
@@ -98,10 +101,12 @@ package Form.MUDamage {
 		 */
 		private function createMLV():void{
 			//MLVボタンの作成
-//			var button:Button = new Button();
-//			button.addEventListener(MouseEvent.CLICK,click::mlv);
-//			button.label = "MLV";
-//			lvform.addChild(button);
+			var button:Button = new Button();
+			button.addEventListener(MouseEvent.CLICK,eventClickMLV);
+			button.label = "MLV";
+			hbox.addChild(button);
+			// MLVフォームの作成
+			mlv = new FormMasterSkillTree(d);
 		}
 		/**
 		 * ステータスフォームの作成
@@ -129,7 +134,8 @@ package Form.MUDamage {
 			}
 			
 			//統率フォームを非表示にする
-			rec.parent.visible = false;
+			if(d.getJob().selectedLabel != "ダークロード")
+				rec.parent.visible = false;
 			
 			//値を初期化
 			level.dispatchEvent(new FocusEvent(FocusEvent.FOCUS_OUT) as Event);
@@ -243,6 +249,35 @@ package Form.MUDamage {
 			if(points < 0)point.setStyle("color","#FF0000");
 			else point.setStyle("color","#0B333C");
 			fruit.text = fruitnow.toString() + "/" + fruitmax.toString();
+		}
+		/**
+		 * MLVボタンクリック時イベント
+		 */
+		private function eventClickMLV(event:Event):void{
+			//LV400かチェック
+//			if(dat::d.f_lv.text == "400"){
+				//PopUpManagerでモーダルON（背景をぼやかせる）
+				//PopUpはTitleWindowで作成
+				var pop:TitleWindow = PopUpManager.createPopUp(this,TitleWindow,true) as TitleWindow;
+				pop.width = 820;
+				pop.height = 500;
+				pop.setStyle("borderColor","black");
+				pop.setStyle("borderAlpha","0.3");
+				pop.showCloseButton = true;//右上の×ボタン
+				pop.addEventListener(CloseEvent.CLOSE,eventClickPopupClose);//右上の×ボタンのイベント
+				PopUpManager.centerPopUp(pop);
+				pop.title = "MasterSkillTree";//タイトル
+				
+				pop.addChild(mlv);//MLVキャンバスを載せる
+//			}else{
+//				Alert.show("LVを400にしてください。");
+//			}
+		}
+		/**
+		 * ポップアップを閉じる
+		 */
+		private function eventClickPopupClose(event:Event):void{
+			PopUpManager.removePopUp(event.target as IFlexDisplayObject);
 		}
 	}
 }
