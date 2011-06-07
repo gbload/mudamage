@@ -1,3 +1,6 @@
+package Data.Database{
+	internal class SocketProtect{
+		public static final var data:Array = [
 ["防具","ティターンアーマー","ソケット","鎧",[1,0,0,0,0,0,0],380,0,"ティターン",[
 	[81],
 	[84],
@@ -4040,3 +4043,6 @@
 	[-1,-1,-1,-1,-1],
 	[-1,-1,-1,-1,-1]
 ]]
+];
+	}
+}

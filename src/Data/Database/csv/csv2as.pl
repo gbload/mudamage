@@ -1,6 +1,8 @@
 #!/usr/bin/perl -w
 #
 # アイテムデータの再構成
+require "header.pl";
+
 sub L;
 sub printArray;
 sub inc3;
@@ -13,11 +15,16 @@ sub mul_shield;
 sub merge;
 
 $filename = $ARGV[0];
+$class = $ARGV[1];
 
 open(FH,$filename);
 @dat = <FH>;
 close(FH);
 
+# Header
+&header::header($class);
+
+# Body
 my $i=0;
 my @array=();
 for($i=1;$i<@dat;$i++){
@@ -113,7 +120,11 @@ for($i=1;$i<@dat;$i++){
 	push(@array,"[".join(",",@a)."]");
 }
 
-print join(",\n",@array);
+print "[\n".join(",\n",@array)."\n]";
+
+# Footer
+&header::footer();
+
 exit;
 
 # 数字と文字列の判別して、文字列なら""で囲む

@@ -1,3 +1,6 @@
+package Data.Database{
+	internal class SocketShield{
+		public static final var data:Array = [
 ["防具","クリムゾングローリー","ソケット","盾","左手",[1,0,0,0,0,0,0],380,0,"ガーディアン",[
 	[19,90],
 	[20,93],
@@ -342,3 +345,6 @@
 	[425,329,-1,-1,-1],
 	[433,334,-1,-1,-1]
 ]]
+];
+	}
+}

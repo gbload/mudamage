@@ -1,0 +1,72 @@
+武器データ
+0.クラス名		武器 防具
+1.アイテム名
+2.EXなど		通常,セット,ソケット,
+3.種類			剣 槍 弓 杖 書 セプター
+4.持ち手		両手 片手 右手 左手
+5.装備可能職	[K,W,E,M,D,S]
+6.要求Lv
+7.攻撃速度
+8,武器スキルorセットアイテム属性情報
+9.セット		力,敏捷,体力,エナジー,統率
+10.セット名		ハイオン,アヌビスなど
+11.シリーズ
+12.スペック		[[最小,最大,要求力,要求敏,要求エナ,魔力,ペット,呪い]*13]
+13.EXスペック
+
+武器データ
+item 0.weapon 1.protect
+name アイテム名
+kind 0.normal 1.ex 2.set 3.socket
+type 剣 ハンマー 槍 弓 ボウガン 杖 ロッド 書 セプター 爪
+sword hammer spear bow crossbow staff rod book scepter crow
+hand 両手　片手　右手　左手
+job  [K,W,E,M,D,S,R]
+speed int
+skill skill
+attr 属性
+setop セットアイテムのステータス増加
+settype ハイオン、アヌビス等
+series 革、青銅等
+spec*15
+[最小、最大、要求力、要求敏捷、要求体力、要求エナジー、要求統率、魔力、ペット、呪い]
+exspec*15
+lv 要求LV
+op OPの種類
+
+共通
+0.item
+1.label
+2.type
+3.hand
+4.job
+5.speed
+6.skill
+7.lv
+8.etc 0.none 1.380op
+9.spec
+10.exspec
+11.setspec
+12.require
+13.exrequire
+
+セット
+setname
+setop
+
+spec
+[min,max,magic,pet,curse]
+require
+[str,agi,vit,ene,rec]
+
+セット盾
+def ex*1.5の小数点以下切り上げ
+avoid exと同じ
+
+setspecの実装
+setitemのみの特殊データ構造を作成。
+
+0.name
+1.index(対応する装備データへのリンク)
+2.settype
+3.status(ステータス増加)
