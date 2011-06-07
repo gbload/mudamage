@@ -1,3 +1,6 @@
+package Data.Database{
+	internal class Protect{
+		public static final var data:Array = [
 ["防具","革の鎧","通常","鎧",[1,0,0,1,1,0,1],0,0,"革",[
 	[10],
 	[13],
@@ -19864,3 +19867,6 @@
 	[-1,-1,-1,-1,-1],
 	[-1,-1,-1,-1,-1]
 ]]
+];
+	}
+}
