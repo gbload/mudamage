@@ -33,7 +33,7 @@ package Form.MUDamage {
 			KIND_ARRAY = [
 			              ["なし"	,kinds.none],
 			              ["通常"	,kinds.normal],
-			           ["EX"	,kinds.exellent],
+			              ["EX"	,kinds.exellent],
 			              ["セット"	,kinds.set],
 			              ["ショップ"	,kinds.shop],
 			            ];
@@ -46,9 +46,9 @@ package Form.MUDamage {
 			//すでに作成されていないかチェック
 			if(old_type != type){
 				// アイテムの追加
-				if(type==1)item.dataProvider = c.getShopRing();
-				else if(type==2)item.dataProvider = c.getSetRing();
-				else item.dataProvider = c.getRing();
+				if(type==1)item.dataProvider = D.getSelect("shop_ring");
+				else if(type==2)item.dataProvider = D.getSelect("set_ring");
+				else item.dataProvider = D.getSelect("ring");
 				old_type = type;
 			}
 			// イベントの呼び出し

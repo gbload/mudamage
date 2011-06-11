@@ -9,6 +9,7 @@ sub inc3;
 sub inc3_5;
 sub inc1_5;
 sub inc_arg;
+sub inc_arg2;
 sub inc;
 sub inc_sub;
 sub mul_shield;
@@ -27,10 +28,16 @@ close(FH);
 # Body
 my $i=0;
 my @array=();
+
+my @id_tmp = split(",",$dat[$i]);
+my $id = $id_tmp[0];
+$id =~ s/"//g;
+
 for($i=1;$i<@dat;$i++){
 	my @dats = split(",",$dat[$i]);
 	foreach(@dats){
 		$_ =~ s/"//g;
+		$_ =~ s/\n//g;
 	}
 	my $j=0;
 	my @a=();
@@ -63,7 +70,7 @@ for($i=1;$i<@dat;$i++){
 			}
 		}
 	}elsif($dats[3] eq "盾"){
-		# item,label,kind,type,hand,job,lv,speed,skill,series,spec,exspec,setspec,require,exrequire
+		# item,label,kind,type,hand,job,lv,speed,skill,spec,exspec,setspec,require,exrequire
 		for($j=0;$j<@dats;$j++){
 			if($j==5){ #job
 				push(@a,&printArray(5,11,\@dats));
@@ -114,6 +121,96 @@ for($i=1;$i<@dat;$i++){
 				push(@a,&L($dats[$j]));
 			}
 		}
+	}elsif($dats[0] eq "羽"){
+		# item,name,job,op,type,spec,cop
+		for($j=0;$j<@dats;$j++){
+			if($j==2){ #job
+				push(@a,&printArray($j,$j+6,\@dats));
+				$j+=6;
+			}elsif($j==9){ # op
+				my @b=();
+				my $n=0;
+				for($n=0;$n<6;$n+=2){
+					if($dats[$j+$n] ne ""){
+						push(@b,
+						"[".&L($dats[$j+$n]).",".$dats[$j+$n+1]."]");
+					}
+				}
+				push(@a,"[".join(",",@b)."]");
+				$j+=5;
+			}elsif($j==16){ # spec:lv,def,inc,dec
+				push(@a,&merge(
+					&inc_arg($dats[$j],$dats[$j+1]),
+					&inc_arg2($dats[$j+2],$dats[$j+3]),
+					&inc_arg2($dats[$j+4],$dats[$j+5]),
+					&inc_arg2($dats[$j+6],$dats[$j+7])
+				));
+				$j+=7;
+			}elsif($j==24){ # cop:1,2,3,4
+				my @b=();
+				my $n=0;
+				push(@b,&L(""));
+				for($n=$j;$n<$j+4;$n++){
+					if($dats[$n] ne ""){push(@b,&L($dats[$n]));}
+				}
+				push(@a,"[".join(",",@b)."]");
+				$j+=3;
+			}else{
+				push(@a,&L($dats[$j]));
+			}
+		}
+	}elsif($dats[0] eq "アクセサリ"){
+		# item,name,kind,type,op,job,lv,attr
+		for($j=0;$j<@dats;$j++){
+			if($j==6){ #job
+				push(@a,&printArray($j,$j+6,\@dats));
+				$j+=6;
+			}elsif($j==4){ # op
+				my @b=();
+				my $n=0;
+				for($n=0;$n<2;$n+=2){
+					if($dats[$j+$n] ne ""){
+						push(@b,
+						"[".&L($dats[$j+$n]).",".$dats[$j+$n+1]."]");
+					}
+				}
+				push(@a,"[".join(",",@b)."]");
+				$j++;
+			}else{
+				push(@a,&L($dats[$j]));
+			}
+		}
+	}elsif($id eq "skill"){
+		# name,power,speed,type,require,job,pet,weapon,attr,special
+		for($j=0;$j<@dats;$j++){
+			if($j==2){ # speed
+				my @b=();
+				my $n=0;
+				for($n=$j;$n<$j+4;$n++){
+					if($dats[$n] ne ""){push(@b,$dats[$n]);}
+				}
+				push(@a,"[".join(",",@b)."]");
+				$j+=3;
+			}elsif($j==7){ # require
+				my @b=();
+				my $n=0;
+				for($n=$j;$n<$j+6;$n++){
+					if($dats[$n] ne ""){push(@b,$dats[$n]);}
+				}
+				push(@a,"[".join(",",@b)."]");
+				$j+=5;
+			}elsif($j==13){ #job
+				push(@a,&printArray($j,$j+6,\@dats));
+				$j+=6;
+			}else{
+				push(@a,&L($dats[$j]));
+			}
+		}
+	}elsif($id eq "map"){
+		# item,name,power,speed,type,require,job,pet,weapon,attr,special
+		for($j=0;$j<@dats;$j++){
+			push(@a,&L($dats[$j]));
+		}
 	}else{
 		print STDERR "Error!";
 	}
@@ -130,7 +227,9 @@ exit;
 # 数字と文字列の判別して、文字列なら""で囲む
 sub L(){
 	my $text = $_[0];
-	if($text !~ /\d/){$text = '"'.$text.'"';}
+	if($text !~ /\d/ || ($text =~ /\d/ && $text =~ /[^\d-]/)){
+		$text = '"'.$text.'"';
+	}
 	return $text;
 }
 
@@ -164,6 +263,10 @@ sub inc1_5(){
 sub inc_arg(){
 	return &inc($_[0],$_[1],0);
 }
+# arg
+sub inc_arg2(){
+	return &inc($_[0],$_[1],1);
+}
 # inc
 sub inc(){
 	if($_[0] !~ /\d/){return &inc_sub(-1,0,0);}
@@ -178,7 +281,7 @@ sub inc_sub(){
 	my @a=();
 	my $tmp=$init;
 	push(@a,int($tmp));
-	for($n=0;$n<=15;$n++){
+	for($n=1;$n<=15;$n++){
 		$tmp+=$inc1;
 		if($n>=10){$tmp+=($n-9)*$inc2;}
 		push(@a,int($tmp));

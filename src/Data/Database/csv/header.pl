@@ -5,7 +5,7 @@ sub header(){
 	my $package = "Data.Database";
 	print "package ".$package."{\n";
 	print "	internal class ".$class."{\n";
-	print "		public static final var data:Array = ";
+	print "		public static var data:Array = ";
 }
 
 sub footer(){

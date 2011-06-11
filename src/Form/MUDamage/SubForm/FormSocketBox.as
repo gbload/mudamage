@@ -15,7 +15,6 @@ package Form.MUDamage.SubForm {
 	 */
 	public class FormSocketBox extends VBox {
 		private var item:ComboBox;
-		private var c:Internal;
 	
 		private var names:Array = new Array();
 		private var values:Array = new Array();
@@ -25,7 +24,6 @@ package Form.MUDamage.SubForm {
 		 */
 		public function FormSocketBox(item:ComboBox) {
 			this.item = item;
-			this.c = Internal.getInstance();
 			// イベントを登録
 			item.addEventListener(ListEvent.CHANGE, eventChangeItem);
 			
@@ -161,15 +159,19 @@ package Form.MUDamage.SubForm {
 		 * ソケットの種類を変更
 		 */
 		private function changeSocket():Boolean{
+			var str:String = item.selectedItem.item;
+			var d:Object = D.getData(str)[item.selectedItem.index];
+			var k:Object = D.getKey(str);
+			var type:int = d[k.ex_en_type];
 			//ソケットOPの作成
 			var a:Array;
 			var index:int=0;
-			if(item.selectedItem[0] == "防具"){//防具
+			if(type == 2){//防具
 				if(names[0].dataProvider != "" && names[0].dataProvider[1][0] == "防御力増加")return false;
-				a = c.socket_equip;
+				a = D.getData("socket_option2") as Array;
 			}else{
 				if(names[0].dataProvider != "" && names[0].dataProvider[1][0] == "攻撃魔力lv")return false;
-				a = c.socket;
+				a = D.getData("socket_option") as Array;
 			}
 			//色分け
 			var color:Array = new Array();

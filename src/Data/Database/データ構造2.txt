@@ -70,3 +70,11 @@ setitemのみの特殊データ構造を作成。
 1.index(対応する装備データへのリンク)
 2.settype
 3.status(ステータス増加)
+
+作成するデータ
+plus
+jobstatus
+wing
+各種装備にenchant typeを追加
+モンスターデータ
+アクセサリのデータ

@@ -18,7 +18,6 @@ package Form.MUDamage
 	public class FormMasterSkillTree extends HBox
 	{
 		private var d:FormMUDamage;
-		private var c:Internal = Internal.getInstance();
 		private var skills:Object;
 		private var trees:Array = new Array();
 		/**

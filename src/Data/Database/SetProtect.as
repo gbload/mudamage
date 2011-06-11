@@ -1,6 +1,6 @@
 package Data.Database{
 	internal class SetProtect{
-		public static final var data:Array = [
+		public static var data:Array = [
 ["狂戦士の革の鎧",0,"体力","狂戦士"],
 ["狂戦士の革のガーダー",2,"体力","狂戦士"],
 ["狂戦士の革の兜",4,"体力","狂戦士"],

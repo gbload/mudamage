@@ -15,7 +15,6 @@ package Form.MUDamage {
 	public class FormPet extends FormItem {
 		private var LABEL:String = "ペット：";
 		private var d:FormMUDamage;
-		private var c:Internal;
 		private var item:ComboBox;
 		private var sub:Array = new Array();
 		/**
@@ -23,7 +22,6 @@ package Form.MUDamage {
 		 */
 		public function FormPet(d:FormMUDamage) {
 			this.d = d;
-			this.c = Internal.getInstance();
 
 			this.direction = "horizontal";
 			this.label = this.LABEL;
@@ -39,10 +37,7 @@ package Form.MUDamage {
 			//ペットを選択するフォーム
 			var co:ComboBox = new ComboBox();
 			item = co;
-			co.dataProvider = new ArrayCollection(
-				["なし","サタン","守護天使","デーモン","守護精霊"
-				,"ユニリア","ディノラント","フェンリル"
-				,"白と黒のポンガ","白銀のアリオン","スケルトンパージドラゴン"]);
+			co.dataProvider = D.getSelect("pet");
 			co.rowCount = 20;
 			co.addEventListener(ListEvent.CHANGE,eventChangeItem);
 			this.addChild(co);

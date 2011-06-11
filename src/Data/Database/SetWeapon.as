@@ -1,6 +1,6 @@
 package Data.Database{
 	internal class SetWeapon{
-		public static final var data:Array = [
+		public static var data:Array = [
 ["狂戦士のモーニングスター",40,"力","狂戦士"],
 ["ハイオンの稲妻の剣",10,"力","ハイオン"],
 ["アポロの骸骨の杖",80,"エナジー","アポロ"],

@@ -15,7 +15,6 @@ package Form.MUDamage.SubForm {
 		private var luck_label:Label;
 		private var plus:ComboBox;
 		private var option:ComboBox;
-		private var c:Internal = Internal.getInstance();
 		/**
 		 * コンストラクタ
 		 */
@@ -43,7 +42,7 @@ package Form.MUDamage.SubForm {
 		private function createPlus():void{
 			//+フォームの作成
 			plus = new ComboBox();
-			plus.dataProvider = new ArrayCollection(c.plus);
+			plus.dataProvider = D.getData("plus");
 			this.addChild(plus);
 		}
 		/**
@@ -56,9 +55,33 @@ package Form.MUDamage.SubForm {
 		}
 		/**
 		 * ItemDataのセット
+		 * @param ops [[type,value],...] type:攻撃,魔力,...
 		 */
-		public function setOptionData(type:String):void {
-			
+		public function setOptionData(ops:Array):void {
+			// old index
+			var old:int = option.selectedIndex;
+			// create
+			var a:Array = new Array();
+			a.push({
+				label:"opなし",
+				type:"",
+				value:0
+			});
+			for each(var op:Array in ops){
+				var per:String = "";
+				if(op[1]==1)per = "%";
+				var plus:String = "+";
+				if(op[1]==1)plus = "";
+				for(var i:int=1;i<=4;i++)
+					a.push({
+						label:op[0]+plus+(op[1]*i).toString()+per,
+						type:op[0],
+						value:op[1]*i
+					});
+			}
+			option.dataProvider = a;
+			// old index
+			option.selectedIndex = old;
 		}
 		/**
 		 * 幸運の有無を返す

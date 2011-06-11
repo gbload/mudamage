@@ -9,10 +9,6 @@ package Form.MUDamage.SubForm {
 	import Data.Database.*;
 	
 	public class FormCommon {
-		public function FormCommon() {
-			
-		}
-		private static var c:Internal = Internal.getInstance();
 		/**
 		 * コンポーネントを非表示にする
 		 */
