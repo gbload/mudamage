@@ -27,6 +27,7 @@ package Form.MUDamage {
 		private var form_ring2:FormRing;
 		private var form_status:FormStatus;
 		private var form_support:FormSupport;
+		private var form_calc:FormCalc;
 	
 		private var main:Form;
 		/**
@@ -88,6 +89,9 @@ package Form.MUDamage {
 			// サポート
 			form_support = new FormSupport(this);
 			main.addChild(form_support);
+			// 計算
+			form_calc = new FormCalc(this);
+			main.addChild(form_calc);
 		}
 		/**
 		 * TextInputを作成

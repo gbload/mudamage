@@ -36,8 +36,7 @@ package Form.MUDamage {
 			form_item.label = "クラス：";
 			
 			this.rowCount = 10;
-			this.dataProvider = new ArrayCollection(
-				["ナイト","ウィザード","エルフ","魔剣士","ダークロード","召喚師","レイジファイター"]);
+			this.dataProvider = D.getData("job");
 			this.addEventListener(ListEvent.CHANGE,eventChangeJob);
 			form_item.addChild(this);
 		}

@@ -37,13 +37,13 @@ package Form.MUDamage {
 					set		: displaySet,
 					socket	: displaySocket
 				};
-				KIND_ARRAY = [
-				              ["なし"	,kinds.none],
-				              ["通常"	,kinds.normal],
-				              ["EX"		,kinds.exellent],
-				              ["セット"	,kinds.set],
-				              ["ソケット",kinds.socket]
-				            ];
+			KIND_ARRAY = [
+			              ["なし"	,kinds.none],
+			              ["通常"	,kinds.normal],
+			              ["EX"		,kinds.exellent],
+			              ["セット"	,kinds.set],
+			              ["ソケット",kinds.socket]
+			            ];
 		}
 		/**
 		 * フォームの設定

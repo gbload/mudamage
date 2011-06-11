@@ -14,7 +14,6 @@ package Form.MUDamage.SubForm {
 	 *
 	 */
 	public class FormEnchantBox extends HBox {
-		private var c:Internal;
 		private var item:ComboBox;
 		private var plus:ComboBox;
 	
@@ -24,7 +23,6 @@ package Form.MUDamage.SubForm {
 		 * EnchantBoxの作成
 		 */
 		public function FormEnchantBox(item:ComboBox, plus:ComboBox) {
-			c = Internal.getInstance();
 			this.item = item;
 			this.plus = plus;
 			// アイテムレベルフォームにイベントを登録
@@ -72,10 +70,14 @@ package Form.MUDamage.SubForm {
 		 */
 		public function changeEnchant():void{
 			if(this.visible){
+				var str:String = item.selectedItem.item;
+				var d:Object = D.getData(str)[item.selectedItem.index];
+				var k:Object = D.getKey(str);
+				var type:int = d[k.ex_en_type];
 				// エンチャントの種類を変更
 				var index:int = kind.selectedIndex;
-				kind.dataProvider = c.getEnchaunt(
-						c.getEnchauntKind(item.selectedItem),
+				kind.dataProvider = D.getEnchant(
+						type,
 						plus.selectedIndex);
 				kind.selectedIndex = index;
 				// エンチャントの値を変更

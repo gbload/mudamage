@@ -11,6 +11,7 @@ package Form.MUDamage {
 	
 	public class FormEquipLeft extends FormEquip {
 		private var darkspirit_level:ComboBox;
+		protected var type:int;
 		/**
 		 * コンストラクタ
 		 * @param d
@@ -82,13 +83,15 @@ package Form.MUDamage {
 		 */
 		override protected function changeItem(type:int):Boolean{
 			//すでに作成されていないかチェック
-			if(item.dataProvider == "" || c.getItemType(item.selectedItem) != type){
+			if(item.dataProvider == "" || this.type != type){
 				//アイテムの追加
 				var jobindex:int = d.getJob().selectedIndex;//職取得
 				//ソケットアイテムを除く　両手武器を除く
-				if(type==1) item.dataProvider = c.getSocketLeft(jobindex);
-				else if(type==2) item.dataProvider = c.getSetLeft(jobindex);
-				else item.dataProvider = c.getLeft(jobindex);
+				if(type==1) item.dataProvider = D.getSelect("socket_left",jobindex);
+				else if(type==2) item.dataProvider = D.getSelect("set_left",jobindex);
+				else item.dataProvider = D.getSelect("left",jobindex);
+				// type
+				this.type = type;
 			}
 			// イベントの呼び出し
 			item.dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);

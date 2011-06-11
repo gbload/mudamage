@@ -12,7 +12,6 @@ package Form.MUDamage {
 	
 	public class FormStatus extends Form{
 		private var d:FormMUDamage;
-		private var c:Internal = Internal.getInstance();
 	
 		private var level:TextInput;
 		private var point:Label;
@@ -173,7 +172,7 @@ package Form.MUDamage {
 		private function validateStatus(obj:TextInput,obj_name:String):int{
 			//　制限
 			var i:int = parseInt(obj.text);
-			var init:int = c.getJobPoint(d.getJob().selectedIndex,obj_name);
+			var init:int = D.getData("job_status")[d.getJob().selectedIndex][D.getKey("job_status")[obj_name]];
 			if(i < init) i = init;
 			obj.text = i.toString(); 
 			return init;

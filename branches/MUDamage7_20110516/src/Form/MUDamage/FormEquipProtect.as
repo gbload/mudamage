@@ -17,6 +17,7 @@ package Form.MUDamage {
 			glove : "手:",
 			garter : "腰:",
 			boots : "足:"};
+		protected var type:int;
 		/**
 		 * コンストラクタ
 		 * @param d
@@ -32,29 +33,14 @@ package Form.MUDamage {
 		 */
 		override protected function changeItem(type:int):Boolean{
 			//すでに作成されていないかチェック
-			if(item.dataProvider == "" || c.getItemType(item.selectedItem) != type){
+			if(item.dataProvider == "" || this.type != type){
 				//アイテムの追加
 				var jobindex:int = d.getJob().selectedIndex;//職取得
-				if(f_name == "helm")
-					if(type==1) item.dataProvider = c.getSocketEquip(jobindex,"兜");
-					else if(type==2) item.dataProvider = c.getSetEquip(jobindex,"兜");
-					else item.dataProvider = c.getEquip(jobindex,"兜");
-				else if(f_name == "armor")
-					if(type==1) item.dataProvider = c.getSocketEquip(jobindex,"鎧");
-					else if(type==2) item.dataProvider = c.getSetEquip(jobindex,"鎧");
-					else item.dataProvider = c.getEquip(jobindex,"鎧");
-				else if(f_name == "glove")
-					if(type==1) item.dataProvider = c.getSocketEquip(jobindex,"手");
-					else if(type==2) item.dataProvider = c.getSetEquip(jobindex,"手");
-					else item.dataProvider = c.getEquip(jobindex,"手");
-				else if(f_name == "garter")
-					if(type==1) item.dataProvider = c.getSocketEquip(jobindex,"腰");
-					else if(type==2) item.dataProvider = c.getSetEquip(jobindex,"腰");
-					else item.dataProvider = c.getEquip(jobindex,"腰");
-				else if(f_name == "boots")
-					if(type==1) item.dataProvider = c.getSocketEquip(jobindex,"足");
-					else if(type==2) item.dataProvider = c.getSetEquip(jobindex,"足");
-					else item.dataProvider = c.getEquip(jobindex,"足");
+				if(type==1) item.dataProvider = D.getSelect("socket_protect_"+f_name,jobindex);
+				else if(type==2) item.dataProvider = D.getSelect("set_protect_"+f_name,jobindex);
+				else item.dataProvider = D.getSelect("protect_"+f_name,jobindex);
+				// type
+				this.type = type;
 			}
 			// イベントの呼び出し
 			item.dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);

@@ -11,6 +11,7 @@ package Form.MUDamage {
 	
 	public class FormEquipRight extends FormEquip {
 		protected var arrow:ComboBox;
+		protected var type:int;
 		/**
 		 * コンストラクタ
 		 * @param d
@@ -70,13 +71,15 @@ package Form.MUDamage {
 		 */
 		override protected function changeItem(type:int):Boolean{
 			//すでに作成されていないかチェック
-			if(item.dataProvider == "" || c.getItemType(item.selectedItem) != type){
+			if(item.dataProvider == "" || this.type != type){
 				//アイテムの追加
 				var jobindex:int = d.getJob().selectedIndex;//職取得
 				//ソケットアイテムを除く 神具を除く
-				if(type==1) item.dataProvider = c.getSocketRight(jobindex);
-				else if(type==2) item.dataProvider = c.getSetRight(jobindex);
-				else item.dataProvider = c.getRight(jobindex);
+				if(type==1) item.dataProvider = D.getSelect("socket_right",jobindex);
+				else if(type==2) item.dataProvider = D.getSelect("set_right",jobindex);
+				else item.dataProvider = D.getSelect("right",jobindex);
+				// type
+				this.type = type;
 			}
 			// イベントの呼び出し
 			item.dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);

@@ -38,7 +38,7 @@ package Form.MUDamage {
 			KIND_ARRAY = [
 			              ["なし"	,kinds.none],
 			              ["通常"	,kinds.normal],
-			           ["EX"	,kinds.exellent],
+			              ["EX"	,kinds.exellent],
 			              ["セット"	,kinds.set],
 			              ["ショップ"	,kinds.shop],
 			            ];
@@ -69,10 +69,42 @@ package Form.MUDamage {
 		 * アイテムフォーム変更時イベント
 		 */
 		override protected function eventChangeItem(event:Event):void{
+			var str:String = item.selectedItem.item;
+			var d:Object = D.getData(str)[item.selectedIndex];
+			var k:Object = D.getKey(str);
 			// OPの変更
-			changeOption(item.selectedItem[4]);
+			changeOption(d[k.op]);
 			// setopの変更
 			changeSetop(item.selectedItem[9]);
+		}
+		/**
+		 * オプションデータの作成
+		 */
+		protected function changeOption(ops:Array):void{
+			// old index
+			var old:int = option.selectedIndex;
+			// create
+			var a:Array = new Array();
+			a.push({
+				label:"opなし",
+				type:"",
+				value:0
+			});
+			for each(var op:Array in ops){
+				var per:String = "";
+				if(op[1]==1)per = "%";
+				var plus:String = "+";
+				if(op[1]==1)plus = "";
+				for(var i:int=1;i<=4;i++)
+					a.push({
+						label:op[0]+plus+(op[1]*i).toString()+per,
+						type:op[0],
+						value:op[1]*i
+					});
+			}
+			option.dataProvider = a;
+			// old index
+			option.selectedIndex = old;
 		}
 		/**
 		 * アイテムフォームのデータを変更
@@ -82,35 +114,14 @@ package Form.MUDamage {
 			//すでに作成されていないかチェック
 			if(old_type != type){
 				// アイテムの追加
-				if(type==1)item.dataProvider = c.getShopNeck();
-				else if(type==2)item.dataProvider = c.getSetNeck();
-				else item.dataProvider = c.getNeck();
+				if(type==1)item.dataProvider = D.getSelect("shop_neck");
+				else if(type==2)item.dataProvider = D.getSelect("set_neck");
+				else item.dataProvider = D.getSelect("neck");
 				old_type = type;
 			}
 			// イベントの呼び出し
 			item.dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);
 			return true;
-		}
-		/**
-		 * オプションフォームのデータを変更
-		 */
-		protected function changeOption(str:String):void{
-			// インデックスの保持
-			var index:int = option.selectedIndex;
-			if(index == -1)index = 0;
-			// オプションの作成
-			var a:Array = new Array();
-			if(kind.selectedLabel == "ショップ"){
-				a.push({label:str,type:"AH",value:3});
-			}else{
-				a.push({label:str+"なし",type:str,value:0});
-				for(var i:int=1; i<=4; i++){
-					a.push({label:str+i.toString()+"%",type:str,value:i});
-				}
-			}
-			// オプションの登録
-			option.dataProvider = a;
-			option.selectedIndex = index;
 		}
 		/**
 		 * kindを除くフォームを全て隠す

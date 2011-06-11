@@ -65,18 +65,20 @@ package Form.MUDamage.SubForm {
 		public function changeData():Boolean {
 			//EXOPの作成
 			if(!item.selectedItem)return false;//インポート対策
+			
+			var str:String = item.selectedItem.item;
+			var d:Object = D.getData(str)[item.selectedItem.index];
+			var k:Object = D.getKey(str);
+			var type:int = d[k.ex_en_type];
+			
 			var a:Array;
-			if(item.selectedItem[0] == "防具"){//防具
+			if(type==2){//防具
 				if(options[0].dataProvider != "" && options[0].dataProvider[1] == "防御成功")return false;
 				a = ["","防御成功","ダメ減","生命増","マナ増","ダメ反"];
-			}else if(item.selectedItem[3] == "杖" || item.selectedItem[3] == "書"){
+			}else if(type==1){
 				//魔法系
 				if(options[0].dataProvider != "" && options[0].dataProvider[3] == "魔力2%")return false;
 				a = ["","EXD","速度+7","魔力2%","魔力lv20"];
-			}else if(item.selectedItem[0] == "アクセサリ"){
-				//魔法系
-				if(options[0].dataProvider != "" && options[0].dataProvider[3] == "攻撃lv20")return false;
-				a = ["","EXD","速度+7","攻撃lv20","攻撃2%","魔力lv20","魔力2%"];
 			}else{
 				//剣系
 				if(options[0].dataProvider != "" && options[0].dataProvider[3] == "攻撃2%")return false;

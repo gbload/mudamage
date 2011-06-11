@@ -16,7 +16,6 @@ package Form.MUDamage {
 	 */
 	public class FormEquipBase extends FormItem {
 		protected var d:FormMUDamage;
-		protected var c:Internal;
 	
 		protected var kind:ComboBox;
 		protected var item:ComboBox;
@@ -32,7 +31,6 @@ package Form.MUDamage {
 		 */
 		public function FormEquipBase(d:FormMUDamage) {
 			this.d = d;
-			this.c = Internal.getInstance();
 
 			initKinds();
 			initForm();
@@ -74,7 +72,6 @@ package Form.MUDamage {
 			//アイテムフォームの作成
 			item = new ComboBox();
 			item.addEventListener(ListEvent.CHANGE,eventChangeItem);
-			item.labelFunction = FormCommon.labelfunc;
 			FormCommon.hide(item);
 			hbox.addChild(item);
 		}

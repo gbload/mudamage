@@ -14,7 +14,6 @@ package Form.MUDamage {
 	public class FormWing extends FormItem {
 		private var LABEL:String = "羽：";
 		private var d:FormMUDamage;
-		private var c:Internal;
 		private var item:ComboBox;
 		private var item_attr:FormItemAttributeBox;
 		private var cop:ComboBox;
@@ -23,7 +22,6 @@ package Form.MUDamage {
 		 */
 		public function FormWing(d:FormMUDamage) {
 			this.d = d;
-			this.c = Internal.getInstance();
 
 			this.direction = "horizontal";
 			this.label = this.LABEL;
@@ -43,8 +41,7 @@ package Form.MUDamage {
 			//アイテムフォームの作成
 			item = new ComboBox();
 			item.addEventListener(ListEvent.CHANGE,wingChange);
-			item.dataProvider = c.getWing(d.getJob().selectedIndex);
-			item.labelFunction = FormCommon.labelfunc0;
+			item.dataProvider = D.getSelect("wing",d.getJob().selectedIndex);
 			this.addChild(item);
 		}
 		/**
@@ -61,23 +58,23 @@ package Form.MUDamage {
 		 */
 		private function wingChange(event:Event):void{
 			var wingname:String = item.selectedLabel;
-			if(wingname == "なし"){
+			if(item.selectedIndex == 0){
 				//各種非表示
 				FormCommon.hide(item_attr);
 				FormCommon.hide(cop);
 			}else{
+				var d:Object = D.getData("wing")[item.selectedItem.index];
+				var k:Object = D.getKey("wing");
 				//opの作成
-//				var op_data:Array = c.getWingOp(wingname);
-//				item_attr.setOptionData(op_data);
-			// TODO
+				var op_data:Array = d[k.op];
+				item_attr.setOptionData(op_data);
 				
 				//copの作成
-				var cop_data:Array = c.getWingCop(wingname);
-				this.cop.dataProvider = cop_data;
+				this.cop.dataProvider = d[k.cop];
 				
 				//各種表示
 				FormCommon.show(this.item_attr);
-				if(cop_data.length > 1)FormCommon.show(this.cop);
+				if(d[k.cop].length > 1)FormCommon.show(this.cop);
 			}
 		}
 	}
