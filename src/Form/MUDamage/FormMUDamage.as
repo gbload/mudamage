@@ -10,24 +10,24 @@ package Form.MUDamage {
 		private var controller:Controller;
 		private var old_job:int = 0;
 	
-		private var form_title:TextInput;
-		private var form_exp:TextInput;
-		private var form_job:FormJob;
-		private var form_pet:FormPet;
-		private var form_wing:FormWing;
-		private var form_neck:FormNeck;
-		private var form_right:FormEquipRight;
-		private var form_left:FormEquipLeft;
-		private var form_helm:FormEquipProtect;
-		private var form_armor:FormEquipProtect;
-		private var form_glove:FormEquipProtect;
-		private var form_garter:FormEquipProtect;
-		private var form_boots:FormEquipProtect;
-		private var form_ring1:FormRing;
-		private var form_ring2:FormRing;
-		private var form_status:FormStatus;
-		private var form_support:FormSupport;
-		private var form_calc:FormCalc;
+		public var form_title:TextInput;
+		public var form_exp:TextInput;
+		public var form_job:FormJob;
+		public var form_pet:FormPet;
+		public var form_wing:FormWing;
+		public var form_neck:FormNeck;
+		public var form_right:FormEquipRight;
+		public var form_left:FormEquipLeft;
+		public var form_helm:FormEquipProtect;
+		public var form_armor:FormEquipProtect;
+		public var form_glove:FormEquipProtect;
+		public var form_garter:FormEquipProtect;
+		public var form_boots:FormEquipProtect;
+		public var form_ring1:FormRing;
+		public var form_ring2:FormRing;
+		public var form_status:FormStatus;
+		public var form_support:FormSupport;
+		public var form_calc:FormCalc;
 	
 		private var main:Form;
 		/**

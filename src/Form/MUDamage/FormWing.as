@@ -77,5 +77,14 @@ package Form.MUDamage {
 				if(d[k.cop].length > 1)FormCommon.show(this.cop);
 			}
 		}
+		public function getItem():ComboBox{
+			return item;
+		}
+		public function getItemAttr():FormItemAttributeBox{
+			return item_attr;
+		}
+		public function getCop():ComboBox{
+			return cop;
+		}
 	}
 }

@@ -278,5 +278,41 @@ package Form.MUDamage {
 		private function eventClickPopupClose(event:Event):void{
 			PopUpManager.removePopUp(event.target as IFlexDisplayObject);
 		}
+		/**
+		 * level
+		 */
+		public function getLevel():TextInput{
+			return level;
+		}
+		/**
+		 * str
+		 */
+		public function getStr():TextInput{
+			return str;
+		}
+		/**
+		 * agi
+		 */
+		public function getAgi():TextInput{
+			return agi;
+		}
+		/**
+		 * vit
+		 */
+		public function getVit():TextInput{
+			return vit;
+		}
+		/**
+		 * ene
+		 */
+		public function getEne():TextInput{
+			return ene;
+		}
+		/**
+		 * rec
+		 */
+		public function getRec():TextInput{
+			return rec;
+		}
 	}
 }

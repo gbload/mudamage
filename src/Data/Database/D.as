@@ -40,7 +40,16 @@ package Data.Database
 			monster: Monster.data,
 			pet:	Pet.pet,
 			job:	Job.job,
-			job_status:	Job.job_status
+			job_status:	Job.status,
+			job_life: Job.life,
+			job_mana: Job.mana,
+			job_ag: Job.ag,
+			job_min: Job.min,
+			job_max: Job.max,
+			job_hit: Job.hit,
+			job_def: Job.def,
+			job_avoid: Job.avoid,
+			job_pvp_avoid: Job.pvp_avoid
 		};
 		public static var keys:Object = {
 			wing:Key.key[4],

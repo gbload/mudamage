@@ -15,6 +15,188 @@ package Calc {
 	 *
 	 */
 	public class CharacterCalculator{
+		private var f:FormData;
+		private var i:ItemData;
+		private var c:CharacterData;
+		/**
+		 * コンストラクタ
+		 */
+		public function CharacterCalculator(obj:Object){
+			this.f = obj.f;
+			this.i = obj.i;
+			this.c = new CharacterData();
+		}
+		/**
+		 * サポートスキルの計算
+		 */
+		private function calcSupport():void{
+			if(f.job=="ナイト")c.support_a = Math.floor(f.support.getValue(f.support.aplus) * 1.1);//A+
+			else c.support_a = f.support.getValue(f.support.aplus);//A+
+			if(f.job=="ナイト")c.support_g = Math.floor(f.support.getValue(f.support.gplus) * 1.1);//G+
+			else c.support_g = f.support.getValue(f.support.aplus);//G+
+			c.support_c = f.support.getValue(f.support.cplus);//C+
+			c.support_sl = f.support.getValue(f.support.sl);//SL
+			c.support_sb = f.support.getValue(f.support.sb);//SB
+			if(f.support.getValue(f.support.sera))c.support_sera_a = Math.floor(f.lv/3) + 45;//セラ　攻撃力
+			if(f.support.getValue(f.support.sera))c.support_sera_g = Math.floor(f.lv/5) + 50;//セラ　防御力
+			if(f.support.getValue(f.support.se))c.support_se = 20;//スペルエンハンス
+			if(f.support.getValue(f.support.ba))c.support_ba = 10;//BA
+			c.support_inner = f.support.getValue(f.support.iv);//インナーベーション
+			c.support_weak = f.support.getValue(f.support.wn);//ウイークネス
+			if(f.support.getValue(f.support.ber))
+				c.support_berserker = Math.floor(ene/30);//バーサーカー
+			if(f.support.getValue(f.support.ht))
+				c.support_vit = 16 + Math.ceil(ene/10);//体力上昇
+			if(f.support.getValue(f.support.con))
+				c.support_avoid = Math.min(Math.ceil(agi/3),200);//防御成功率上昇
+			if(f.support.getValue(f.support.ig))
+				c.support_ignore = Math.floor(ene/100);//敵の防御力無視
+		}
+		/**
+		 * ステータスの計算
+		 */
+		private function calcStatus():void{
+			c.add_str = i.setop_str + i.etc_str;
+			c.add_agi = i.setop_agi + i.etc_agi;
+			c.add_vit = i.setop_vit + i.etc_vit 
+							+ i.getSocketProtects("体力増加") + c.support_vit;
+			c.add_ene = i.setop_ene + i.etc_ene;
+			c.add_rec = i.setop_rec + i.etc_rec + i.wing_rec;
+			c.lv = f.lv + f.mlv;
+			c.str = f.str + c.add_str;
+			c.agi = f.agi + c.add_agi;
+			c.vit = f.vit + c.add_vit;
+			c.ene = f.ene + c.add_ene;
+			c.rec = f.rec + c.add_rec;
+		}
+		/**
+		 * 防御力計算
+		 */
+		private var check:String = "none";
+		private function calcDef():void{
+			var inc:int = D.getData("job_def")[f.job_index];
+			// 敏捷によるDEF
+			c.def = c.agi/inc;
+			var tmp:int = c.def;
+			// 防具のDEF
+			var min_lv:int = 0;
+			for(var n:Object in i.protects){
+				// 防具のDEF
+				c.def += i.getSpec(i.protects[n],"def");
+				c.def += i.getValue(i.protects[n].option["防御"]);
+				// シリーズのチェック
+				if(n==0){
+					check = i.getItemData(i.protects[n],"series");
+					min_lv = i.protects[n].plus;
+				}else{
+					if(check != i.getItemData(i.protects[n],"series"))
+						check = "none";
+					if(min_lv > i.protects[n].plus)
+						min_lv = i.protects[n].plus;
+				}
+			}
+			// 盾のDEF
+			if(i.is_shield)
+				c.def += i.getSpec(f.left,"def");
+			// 羽のDEF
+			c.def += i.getSpec(f.wing,"def");
+			c.def += i.getValue(f.wing.option["防御"]);
+			// ダークホースのDEF
+			// 統一ボーナス
+			if(check!="none")
+				if(min_lv>9)
+					c.def += Math.floor(c.def*((min_lv-9)*0.05));
+			//MLVDEF
+			//セットの盾装備時
+//			if(shield_check)de += Math.floor(de*setop_shield/100);
+			//ソケットの盾装備時
+			if(i.is_shield)c.def += Math.floor(c.def*(i.getSocketProtects("盾装備時増加"))/100);
+			//セットのDEF増加
+//			de += setop_def;
+			//ソケットのDEF増加
+			c.def += i.getSocketProtects("防御力増加") * 2;
+			//ボーナスソケットのDEF増加
+//			de += sobonus_def * 2;
+			//エンチャントのDEF増加
+			c.def += i.getEnchantProtects("防御力上昇");
+			//かぼちゃ、課金などのでDEF増加
+//			de += etc_def * 2;
+			//ペットによるDEF増加
+			if(f.pet == "白と黒のポンガ")c.def += 100;//防御力+50 → DEF+100
+			//ペットによるDEF増加
+			if(f.pet == "白銀のアリオン")c.def += 100;//防御力+50 → DEF+100
+			//バーサーカーによるDEF減少
+			if(f.support.getValue(f.support.ber))
+				c.def -= Math.floor(tmp * (50 - Math.floor(f.ene/45))/100);
+		}
+		private function calcAvoid():void{
+			var inc:int = D.getData("job_avoid")[f.job_index];
+			// 敏捷
+			c.avoid = c.agi/inc;
+			// 盾の防御成功率
+			if(i.is_shield){
+				c.avoid += i.getSpec(f.left,"avoid");
+				c.avoid += i.getValue(f.left.option["防御率"]);
+			}
+			// EXOP,ソケットOP
+			for(var n:Object in i.protects){
+				// EXOP
+				if(i.protects[n].exop["防御成功"])
+					c.avoid += Math.floor(c.avoid * 0.1);
+				// ソケットOP
+				c.avoid += Math.floor(c.avoid * i.getSocket(i.protects[n],"防御成功"));
+			}
+			var avoid_ori:int = c.avoid;
+			// MasterSkill
+//			c.avoid += 
+			// サポートスキル、コンセントレーション
+			c.avoid += c.support_avoid;
+			// 統一ボーナス
+			if(check!="none")c.avoid += Math.floor(avoid_ori * 0.1);//統一ボーナス
+			
+			pvpavoid += enop_pvpavoid;//エンチャントOPの対人防御成功
+			//MLVの対人防御成功率
+			if(mlvcount.pvpavoid)pvpavoid += MLV.inf_pvpavoid[mlvcount.pvpavoid];
+		}
+		private function calcPVPAvoid():void{
+			var inc:Array = D.getData("job_pvp_avoid")[f.job_index];
+			// LV、敏捷
+			c.pvp_avoid = c.lv*inc[0] + c.agi/inc[1];
+			// エンチャント
+			c.pvp_avoid += i.getEnchantProtects("対人防御成功");
+			// MasterSkill
+			// 380op
+			for(var n:int in i.protects)
+				if(i.protects[n]["380op"])
+					c.pvp_avoid += 10;
+		}
+		private function calcHit():void{
+			
+		}
+		private function calcPVPHit():void{
+			
+		}
+		private function calcLife():void{
+			
+		}
+		private function calcMana():void{
+			
+		}
+		private function calcSD():void{
+			
+		}
+		private function calcAG():void{
+			
+		}
+		private function calcSpeed():void{
+			
+		}
+		private function calcNormal():void{
+			
+		}
+		private function calcSkill():void{
+			
+		}
 		calcPet(muc);
 		calcSupport(muc);
 		calcStatus(muc);
@@ -57,237 +239,6 @@ calcchar function main():MuChar{
 	muc = MinMax2(muc);
 	muc = calcDarkSpirit(muc);
 	
-	return muc;
-}
-calcchar function Pet(muc:MuChar):MuChar{
-	use namespace calc;
-	muc.satan = satan;//サタン
-	muc.angel = angel;//天使
-	muc.deamon = (dat::d.f_pet.selectedLabel == "デーモン");
-	muc.spirit = (dat::d.f_pet.selectedLabel == "守護精霊");
-	muc.uniria = (dat::d.f_pet.selectedLabel == "ユニリア");
-	if(dat::d.f_pet.selectedLabel == "ディノラント"){
-		muc.dinolunt = [1,0,0];//[有無,op1,op2]
-		if(dat::d.f_petsub1.selectedLabel == "AG+50")muc.dinolunt[1]=1;
-		if(dat::d.f_petsub1.selectedLabel == "攻撃速度+5")muc.dinolunt[1]=2;
-		if(dat::d.f_petsub1.selectedLabel == "ダメージ吸収+5")muc.dinolunt[1]=3;
-		if(dat::d.f_petsub2.selectedLabel == "AG+50")muc.dinolunt[2]=1;
-		if(dat::d.f_petsub2.selectedLabel == "攻撃速度+5")muc.dinolunt[2]=2;
-		if(dat::d.f_petsub2.selectedLabel == "ダメージ吸収+5")muc.dinolunt[2]=3;
-	}
-	if(dat::d.f_pet.selectedLabel == "フェンリル"){
-		if(dat::d.f_petsub1.selectedLabel == "ノーマル")muc.fenrir=1;
-		if(dat::d.f_petsub1.selectedLabel == "破壊")muc.fenrir=2;
-		if(dat::d.f_petsub1.selectedLabel == "守護")muc.fenrir=3;
-		if(dat::d.f_petsub1.selectedLabel == "黄金")muc.fenrir=4;
-	}
-	if(dat::d.f_pet.selectedLabel == "ダークホース")
-		muc.darkhorse = dat::d.f_petsub1.selectedIndex + 1;//LVを代入
-	muc.ponga = (dat::d.f_pet.selectedLabel == "白と黒のポンガ");
-	muc.arion = (dat::d.f_pet.selectedLabel == "白銀のアリオン");
-	muc.skelton = (dat::d.f_pet.selectedLabel == "スケルトンパージドラゴン");
-	return muc;
-}
-calcchar function Support(muc:MuChar):MuChar{
-	use namespace calc;
-	if(dat::d.f_job.selectedLabel=="ナイト")muc.support_a = Math.floor(support_a * 1.1);//A+
-	else muc.support_a = support_a;//A+
-	if(dat::d.f_job.selectedLabel=="ナイト")muc.support_g = Math.floor(support_g * 1.1);//G+
-	else muc.support_g = support_g;//G+
-	muc.support_c = support_c;//C+
-	muc.support_sl = support_sl;//SL
-	muc.support_sb = support_sb;//SB
-	if(etc_sera)muc.support_sera_a = Math.floor(lv/3) + 45;//セラ　攻撃力
-	if(etc_sera)muc.support_sera_g = Math.floor(lv/5) + 50;//セラ　防御力
-	if(dat::d.s_se.selected)muc.support_se = 20;//スペルエンハンス
-	if(dat::d.s_ba.selected)muc.support_ba = 10;//BA
-	muc.support_inner = parseInt(dat::d.s_inner.text);//インナーベーション
-	muc.support_weak = parseInt(dat::d.s_weak.text);//ウイークネス
-	if(dat::d.s_berserker.selected)
-		muc.support_berserker = Math.floor(ene/30);//バーサーカー
-	if(dat::d.s_vit.selected)
-		muc.support_vit = 16 + Math.ceil(ene/10);//体力上昇
-	if(dat::d.s_avoid.selected)
-		muc.support_avoid = Math.min(Math.ceil(agi/3),200);//防御成功率上昇
-	if(dat::d.s_ignore.selected)
-		muc.support_ignore = Math.floor(ene/100);//敵の防御力無視
-	return muc;
-}
-calcchar function Status(muc:MuChar):MuChar{
-	use namespace calc;
-	muc.job = dat::d.f_job.selectedIndex;
-	if(lv==400)muc.add_lv = parseInt(dat::d.f_mlv.text);
-	muc.add_str = setop_str + etc_str;
-	muc.add_agi = setop_agi + etc_agi;
-	muc.add_vit = setop_vit + etc_vit + soop_vit + muc.support_vit;
-	muc.add_ene = setop_ene + etc_ene;
-	muc.add_rec = setop_rec + etc_rec + wing_rec;
-	muc.lv = lv + muc.add_lv;
-	muc.str = str + muc.add_str;
-	muc.agi = agi + muc.add_agi;
-	muc.vit = vit + muc.add_vit;
-	muc.ene = ene + muc.add_ene;
-	muc.rec = rec + muc.add_rec;
-	muc.lefthund = (dat::d.f_left.f_kind.selectedLabel != "なし" && dat::d.f_left.f_item.selectedItem[0] == "武器");
-	muc.magic = weapon_magic;//魔力%
-	muc.wing_inc = wing_inc;//羽のダメージ増加
-	muc.wing_dec = wing_dec;//羽のダメージ吸収
-	return muc;
-}
-calcchar function Def(muc:MuChar):MuChar{
-	use namespace dat;
-	use namespace calc;
-	var de:int = 0;//防御力
-	var bde:int = 0;//純防御力
-	var avoid:int = 0;//防御成功率
-	var pvpavoid:int = 0;//対人防御成功率
-	if(d.f_job.selectedLabel == "ナイト"){
-		de += muc.agi/3;
-		avoid = muc.agi/3;
-		pvpavoid = lv*2 + muc.agi/2;
-	}else if(d.f_job.selectedLabel == "ウィザード"){
-		de += muc.agi/4
-		avoid = muc.agi/3;
-		pvpavoid = lv*2 + muc.agi/4;
-	}else if(d.f_job.selectedLabel == "エルフ"){
-		de += muc.agi/10;
-		avoid = muc.agi/4;
-		pvpavoid = lv*2 + muc.agi/10;
-	}else if(d.f_job.selectedLabel == "魔剣士"){
-		de += muc.agi/4;
-		avoid = muc.agi/3;
-		pvpavoid = lv*2 + muc.agi/4;
-	}else if(d.f_job.selectedLabel == "ダークロード"){
-		de += muc.agi/7;
-		avoid = muc.agi/7;
-		pvpavoid = lv*2 + muc.agi/2;
-	}else if(d.f_job.selectedLabel == "召喚師"){
-		de += muc.agi/3;
-		avoid = muc.agi/4;
-		pvpavoid = lv*2 + muc.agi/2;
-	}else if(d.f_job.selectedLabel == "レイジファイター"){
-		de += muc.agi/8;
-		avoid = muc.agi/10;
-		pvpavoid = lv*1.5 + muc.agi/5;
-	}
-	bde = de;//純粋なDEF
-	//防御力=============================================================
-	//防具のDEF
-	var a:Array = [d.f_helm,d.f_armor,d.f_glove,d.f_garter,d.f_boots];
-	var series:Array = new Array();
-	var plus:int = 15;//最も低いアイテムレベル(+10~15ボーナス確認用
-	for each(var item:Item in a)
-		if(item.f_kind.selectedLabel != "なし"){
-			//380OPの対人防御成功率加算
-			if(item.f_380.visible && item.f_380.selected)
-				pvpavoid += 10;//380OP 
-			//DEFを加算
-			if(item.f_kind.selectedLabel == "EX")
-				de += item.f_item.selectedItem[13][item.f_plus.selectedIndex][3];
-			else
-				de += item.f_item.selectedItem[12][item.f_plus.selectedIndex][3];
-			de += item.f_op.selectedItem.value;
-			//アイテムレベルの確認
-			if(plus > item.f_plus.selectedIndex)plus = item.f_plus.selectedIndex;
-			//シリーズと装備可能職をスタック
-			series.push([item.f_item.selectedItem[11],item.f_item.selectedItem[5]]);
-		}
-	
-	//統一ボーナスの確認
-	var ch:Boolean = true;//魔の装備かチェック
-	var count:int = 0;//シリーズ名をカウント
-	var uniform:Boolean = false;//統一ボーナスの有無
-	var tmp:String = "";//シリーズ名を一時的に保管
-	if(series.length >= 4)
-		tmp = series[0][0];
-		for each(var i:Object in series){
-			//魔剣士専用装備か確認
-			if((!i[1][3] && !i[1][6]) //魔剣士とレイジファイターのどちらも装備不可 
-				|| ( i[1][0] || i[1][1] || i[1][2] || i[1][4] || i[1][5] )) //それ以外の職で装備可能
-				ch=false;
-			//シリーズが統一されているか確認
-			if(tmp == i[0])count++;//同じシリーズ名のものをカウント
-		}
-	if(ch && count==4)uniform=true;//魔orレイジファイターの場合
-	if(!ch && count==5)uniform=true;
-	
-	//盾の防御力
-	var shield_check:Boolean = false;
-	if(d.f_left.f_kind.selectedLabel != "なし")
-		if(d.f_left.f_item.selectedItem[0] == "防具"){//盾
-			de += d.f_left.f_item.selectedItem[12][d.f_left.f_plus.selectedIndex][3];
-			shield_check = true;
-		}
-	
-	//羽のDEF
-	de += wing_def;
-	//ダークホースのDEF
-	if(muc.darkhorse)de += 5 + (muc.agi/20) + (muc.darkhorse * 2);//5＋（敏捷性/20）＋（ダークホースレベル×2）
-
-	//+10~15統一ボーナス
-	if(uniform){//全部装備が同じ種類
-		if(plus==10)
-			de += Math.floor(de*5/100);
-		if(plus==11)
-			de += Math.floor(de*10/100);
-		if(plus==12)
-			de += Math.floor(de*15/100);
-		if(plus==13)
-			de += Math.floor(de*20/100);
-		if(plus==14)
-			de += Math.floor(de*25/100);
-		if(plus==15)
-			de += Math.floor(de*30/100);
-	}
-	//MLVDEF
-	if(mlvcount.def)de += MLV.inf_def[mlvcount.def];
-	//セットの盾装備時
-	if(shield_check)de += Math.floor(de*setop_shield/100);
-	//ソケットの盾装備時
-	if(shield_check)de += Math.floor(de*soop_shield/100);
-	//セットのDEF増加
-	de += setop_def;
-	//ソケットのDEF増加
-	de += soop_def * 2;
-	//ボーナスソケットのDEF増加
-	de += sobonus_def * 2;
-	//エンチャントのDEF増加
-	de += enop_def;
-	//かぼちゃ、課金などのでDEF増加
-	de += etc_def * 2;
-	//ペットによるDEF増加
-	if(muc.ponga)de += 100;//防御力+50 → DEF+100
-	//ペットによるDEF増加
-	if(muc.arion)de += 100;//防御力+50 → DEF+100
-	//バーサーカーによるDEF減少
-	if(muc.support_berserker)
-		de -= Math.floor(bde * (50 - Math.floor((muc.ene - muc.add_ene)/45))/100);
-	
-	//防御成功率====================================================================
-	if(d.f_left.f_kind.selectedLabel != "なし" && d.f_left.f_item.selectedItem[0] == "防具"){
-		if(d.f_left.f_kind.selectedLabel == "EX")//盾から取得
-			avoid += d.f_left.f_item.selectedItem[13][d.f_left.f_plus.selectedIndex][4];
-		else
-			avoid += d.f_left.f_item.selectedItem[12][d.f_left.f_plus.selectedIndex][4];
-		avoid += d.f_left.f_op.selectedItem.value;
-	}
-	for(var j:int=0;j<exop_avoid;j++)//EXOPの防御成功
-		avoid += Math.floor(avoid * 0.1);
-	for each(i in soop_avoid)//ソケットOPの防御成功
-		avoid += Math.floor(avoid * (i as int)/100);
-	var avoid_ori:int = avoid;
-	//サポートスキル
-	avoid += muc.support_avoid;
-	if(uniform)avoid += Math.floor(avoid_ori * 0.1);//統一ボーナス
-	
-	pvpavoid += enop_pvpavoid;//エンチャントOPの対人防御成功
-	//MLVの対人防御成功率
-	if(mlvcount.pvpavoid)pvpavoid += MLV.inf_pvpavoid[mlvcount.pvpavoid];
-	
-	//代入
-	muc.def = de;
-	muc.avoid = avoid;
-	muc.pvpavoid = pvpavoid;
 	return muc;
 }
 calcchar function Hit(muc:MuChar):MuChar{

@@ -93,5 +93,11 @@ package Form.MUDamage {
 		public function getItem():ComboBox {
 			return item;
 		}
+		public function getSub1():ComboBox{
+			return sub[0];
+		}
+		public function getSub2():ComboBox{
+			return sub[1];
+		}
 	}
 }
