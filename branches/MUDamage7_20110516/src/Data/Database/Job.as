@@ -14,5 +14,23 @@ package Data.Database
 			[21,21,18,23],//召喚師
 			[32,27,25,20]//レイジファイター
 		];
+
+		public static var life:Array = [];
+		public static var mana:Array = [];
+		public static var ag:Array = [];
+		public static var min:Array = [];
+		public static var max:Array = [];
+		public static var hit:Array = [];
+		public static var def:Array = [3,4,10,4,7,3,8];
+		public static var avoid:Array = [3,3,4,3,7,4,10];
+		public static var pvp_avoid:Array = [
+  			[2,2],//ナイト
+			[2,4],//ウィザード
+			[2,10],//エルフ
+			[2,4],//魔剣士
+			[2,2],//ダークロード
+			[2,2],//召喚師
+			[1.5,5]//レイジファイター
+		];
 	}
 }
