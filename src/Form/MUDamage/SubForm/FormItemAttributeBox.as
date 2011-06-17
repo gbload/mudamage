@@ -60,6 +60,7 @@ package Form.MUDamage.SubForm {
 		public function setOptionData(ops:Array):void {
 			// old index
 			var old:int = option.selectedIndex;
+			if(old<0)old = 0;
 			// create
 			var a:Array = new Array();
 			a.push({
@@ -86,8 +87,8 @@ package Form.MUDamage.SubForm {
 		/**
 		 * 幸運の有無を返す
 		 */
-		public function getLuck():Boolean{
-			return luck.selected;
+		public function getLuck():CheckBox{
+			return luck;
 		}
 		/**
 		 * オプションフォームを返す

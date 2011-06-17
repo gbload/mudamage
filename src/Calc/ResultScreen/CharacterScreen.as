@@ -1,27 +1,52 @@
 package Calc.ResultScreen {
-	import MuCalc.MuChar;
-	import MuData.Internal;
-	
-	import mx.containers.*;
 	import mx.controls.*;
+	import mx.containers.*;
+	import mx.core.*;
+	import mx.collections.*;
+	import mx.events.*;
+	import flash.events.*;
+
+	import Form.MUDamage.SubForm.*;
+	import Form.MUDamage.*;
+	import Calc.*;
+	import Data.Database.*;
+	import Data.Database.MLV.*;
 	/**
 	 * キャラクターのステータスや装備を表示するCanvas
 	 */
 	public class CharacterScreen extends HBox {
-		private var muc:MuChar;
-		private var c:Internal;
+		private var d:FormMUDamage;
+		private var f:Object;
+		private var i:ItemData;
+		private var c:CharacterData;
 	
 		private var row:HBox; // 行
 		private var col:VBox; // 列
 		/**
 		 * コンストラクタ
 		 */
-		public function PVPCharacterScreen(muc:MuChar) {
+		public function CharacterScreen(d:FormMUDamage,f:Object,i:ItemData,c:CharacterData) {
 			super();
-			this.muc = muc;
-			this.c = Internal.getInstance();
+			this.d = d;
+			this.f = f;
+			this.i = i;
+			this.c = c;
 			
 			init();
+		}
+		/**
+		 * 初期化
+		 */
+		private function init():void{
+			createColumn();
+			
+			setStatus();
+			setAttack();
+			setDefense();
+			setSpecialAttackRate();
+			setSetOption();
+			setSupport();
+			
 		}
 		/**
 		 * 新しいカラム
@@ -61,20 +86,6 @@ package Calc.ResultScreen {
 			
 			row.addChild(te);
 		}
-		/**
-		 * 初期化
-		 */
-		private function init():void{
-			createColumn();
-			
-			setStatus();
-			setAttack();
-			setDefense();
-			setSpecialAttackRate();
-			setSetOption();
-			setSupport();
-			
-		}
 
 		/**
 		 * 追加ステータスのあるテキスト
@@ -89,53 +100,49 @@ package Calc.ResultScreen {
 		 * ステータス表示
 		 */
 		private function setStatus():void{
-			var job:Array = [
-				"ナイト","ウィザード","エルフ","魔剣士","ダークロード","召喚師","レイジファイター"
-			];
-		
 			ln();
 			
-			text(job[muc.job]); // 職
-			text("LV:" + muc.lv);// LV
+			text(f.job); // 職
+			text("LV:" + c.lv);// LV
 			
 			ln();
 			
-			textAddStatus("力:", muc.str, muc.add_str);
-			textAddStatus("敏捷:", muc.agi, muc.add_agi);
-			textAddStatus("体力:", muc.vit, muc.add_vit);
-			textAddStatus("エナジー:", muc.ene, muc.add_ene);
-			if(muc.job == 4) // ダークロードのみ
-				textAddStatus("統率:", muc.rec, muc.add_rec);
+			textAddStatus("力:", c.str, c.add_str);
+			textAddStatus("敏捷:", c.agi, c.add_agi);
+			textAddStatus("体力:", c.vit, c.add_vit);
+			textAddStatus("エナジー:", c.ene, c.add_ene);
+			if(f.job=="ダークロード") // ダークロードのみ
+				textAddStatus("統率:", c.rec, c.add_rec);
 			
 			ln();
 			
-			text("HP:" + muc.hp);
-			text("SD:" + muc.sd);
-			text("マナ:" + muc.mana);
-			text("AG:" + muc.ag);
+			text("HP:" + c.life);
+			text("SD:" + c.sd);
+			text("マナ:" + c.mana);
+			text("AG:" + c.ag);
 		}
 		/**
 		 * 攻撃関連のステータスを表示
 		 */
 		private function setAttack():void{
-			ln();
-			
-			if(muc.job == 0 || muc.job == 2 || muc.job == 3 || muc.job == 4 || muc.job == 6)text("攻撃速度:" + muc.speed);
-			if(muc.job == 1 || muc.job == 3 || muc.job == 5)text("魔法速度:" + muc.magicspeed);
-			
-			ln();
-			
-			if(muc.job == 0 || muc.job == 2 || muc.job == 3 || muc.job == 4 || muc.job == 6)//攻撃組み
-				text("攻撃力:" + muc.minmax[0] + "～" + muc.minmax[1]);
-			//攻撃成功率
-			text("(率" + muc.hit +"/対人" +muc.pvphit +")");
-			
-			ln();
-			
-			if(muc.job == 1 || muc.job == 3 || muc.job == 5)//魔法組み
-				text("魔力:" + muc.minmax[2] + "～" + muc.minmax[3]);
-			if(muc.job == 5)//呪い組み
-				text(" 呪い:" + muc.noroi[0] + "～" + muc.noroi[1]);
+//			ln();
+//			
+//			text("攻撃速度:" + c.speed);
+//			text("魔法速度:" + c.magicspeed);
+//			
+//			ln();
+//			
+//			if(c.job == 0 || c.job == 2 || c.job == 3 || c.job == 4 || c.job == 6)//攻撃組み
+//				text("攻撃力:" + c.minmax[0] + "～" + c.minmax[1]);
+//			//攻撃成功率
+//			text("(率" + c.hit +"/対人" +c.pvphit +")");
+//			
+//			ln();
+//			
+//			if(c.job == 1 || c.job == 3 || c.job == 5)//魔法組み
+//				text("魔力:" + c.minmax[2] + "～" + c.minmax[3]);
+//			if(c.job == 5)//呪い組み
+//				text(" 呪い:" + c.noroi[0] + "～" + c.noroi[1]);
 		}
 		/**
 		 * 防御関連のステータスを表示
@@ -143,9 +150,9 @@ package Calc.ResultScreen {
 		private function setDefense():void{
 			ln();
 			
-			text("防御力:" + muc.def);
+			text("防御力:" + c.def);
 			//防御成功率
-			text("(率" + muc.avoid +"/対人" +muc.pvpavoid +")");
+			text("(率" + c.avoid +"/対人" +c.pvp_avoid +")");
 		}
 		/**
 		 * クリティカルやEXD等の確率を表示
@@ -153,59 +160,59 @@ package Calc.ResultScreen {
 		private function setSpecialAttackRate():void{
 			ln();
 			
-			text("通常:" + (muc.normal/100) + "%");
-			text("クリ:" + (muc.cri/100) + "%");
-			text("EXD:" + muc.exd + "%");
+			text("通常:" + (c.normal/100) + "%");
+			text("クリ:" + (c.cri/100) + "%");
+			text("EXD:" + c.exd + "%");
 
 			ln();
 			//防御無視　WD
-			text("無視:" + muc.ignore + "%");
-			text("WD:" + muc.wd + "%");
+			text("無視:" + c.ignore + "%");
+			text("WD:" + c.wd + "%");
 		}
 		/**
 		 * セットオプション
 		 */
 		private function setSetOption():void{
-			ln();
-			
-			var setname:String = "";
-			var setops:String = "";
-			for each(var ii:Object in muc.setop_names)//セット名
-				if(ii.num >= 2)//2箇所以上
-					for(var j:int=0;j<c.setop.length;j++)//セットOPのデータを繰り返し確認
-						if(c.setop[j][0] == ii.label){//セット名の一致
-							setname = ii.label;
-							setops = setname + "\n";
-							for(var k:int=2;k<=ii.num;k++){
-								setops += c.setop[j][k][0] + "\n";
-								if(k == c.setop[j][1] + 1){//フルOPを取得
-									setops += "\n";
-									for(var l:int=0;l<c.setop[j][k+1].length;l++){
-										setops += c.setop[j][k+1][l][0] + "\n";
-									}
-								}
-							}
-							//表示
-							text(setname + " " + (k-1),"cyan",setops);
-							break;
-						}
+//			ln();
+//			
+//			var setname:String = "";
+//			var setops:String = "";
+//			for each(var ii:Object in c.setop_names)//セット名
+//				if(ii.num >= 2)//2箇所以上
+//					for(var j:int=0;j<c.setop.length;j++)//セットOPのデータを繰り返し確認
+//						if(c.setop[j][0] == ii.label){//セット名の一致
+//							setname = ii.label;
+//							setops = setname + "\n";
+//							for(var k:int=2;k<=ii.num;k++){
+//								setops += c.setop[j][k][0] + "\n";
+//								if(k == c.setop[j][1] + 1){//フルOPを取得
+//									setops += "\n";
+//									for(var l:int=0;l<c.setop[j][k+1].length;l++){
+//										setops += c.setop[j][k+1][l][0] + "\n";
+//									}
+//								}
+//							}
+//							//表示
+//							text(setname + " " + (k-1),"cyan",setops);
+//							break;
+//						}
 		}
 		private function setSupport():void{
 			ln();
 			
-			text("A+:" + muc.support_a);
-			text("G+:" + muc.support_g);
-			text("C+:" + muc.support_c);
-			text("SL:" + muc.support_sl + "%");
-			text("SB:" + muc.support_sb + "%");
+			text("A+:" + c.support_a);
+			text("G+:" + c.support_g);
+			text("C+:" + c.support_c);
+			text("SL:" + c.support_sl + "%");
+			text("SB:" + c.support_sb + "%");
 			ln();
-			text("インナーベーション:" + muc.support_inner + "%");
-			text("ウイークネス:" + muc.support_weak + "%");
-			if(muc.support_ba || muc.support_berserker || muc.support_se){
+			text("インナーベーション:" + c.support_inner + "%");
+			text("ウイークネス:" + c.support_weak + "%");
+			if(c.support_ba || c.support_berserker || c.support_se){
 				ln();
-				if(muc.support_ba)text("血戦(敵Def10%低下)");
-				if(muc.support_berserker)text("バーサーカー:" + muc.support_berserker + "%");
-				if(muc.support_se)text("スペルエンハンス(最小魔力20%上昇)");
+				if(c.support_ba)text("血戦(敵Def10%低下)");
+				if(c.support_berserker)text("バーサーカー:" + c.support_berserker + "%");
+				if(c.support_se)text("スペルエンハンス(最小魔力20%上昇)");
 			}
 		}
 	}

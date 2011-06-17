@@ -7,6 +7,7 @@ package Calc {
 	import flash.events.*;
 
 	import Form.MUDamage.SubForm.*;
+	import Form.MUDamage.*;
 	import Data.Database.*;
 	import Data.Database.MLV.*;
 	/**
@@ -74,7 +75,7 @@ package Calc {
 		private function initEquip():Object{
 			var obj:Object = initEquipBase();
 			obj.plus = 0;
-			option:{
+			obj.option = {
 				type:"",value:0
 			},
 			obj.enchant = {
@@ -82,7 +83,8 @@ package Calc {
 			};
 			obj.socket = {};
 			obj.socket_bonus = {};
-			obj.380op = false;
+			obj.socket_attr = "none";
+			obj.op380 = false;
 			return obj;
 		}
 		private function initEquipBase():Object{
@@ -137,10 +139,11 @@ package Calc {
 		 * コンストラクタ
 		 */
 		public function FormData(d:FormMUDamage){
+			setJob(d.form_job,data);
 			setPet(d.form_pet,data.pet);
 			setWing(d.form_wing,data.wing);
-			setWeapon(d.form_right,data.right);
-			setWeapon(d.form_left,data.left);
+			setRight(d.form_right,data.right);
+			setLeft(d.form_left,data.left);
 			setProtect(d.form_helm,data.helm);
 			setProtect(d.form_armor,data.armor);
 			setProtect(d.form_garter,data.garter);
@@ -150,6 +153,7 @@ package Calc {
 			setRing(d.form_ring1,data.ring1);
 			setRing(d.form_ring2,data.ring2);
 			setStatus(d.form_status,data.status);
+			setSupport(d.form_support);
 		}
 		public function getData():Object{
 			return data;
@@ -157,6 +161,10 @@ package Calc {
 		/**
 		 * 値のセット
 		 */
+		private function setJob(form:Object,obj:Object):void{
+			obj.job = form.selectedLabel;
+			obj.job_index = form.selectedIndex;
+		}
 		private function setPet(form:Object,obj:Object):void{
 			obj.item = form.getItem().selectedLabel;
 			obj.sub1 = form.getItem().selectedLabel;
@@ -173,24 +181,27 @@ package Calc {
 			if(form.getCop().visible)
 				obj.cop = form.getCop().selectedLabel;
 		}
-		private function setWeapon(form:Object,obj:Object):void{
-			setEquip();
+		private function setRight(form:Object,obj:Object):void{
+			setEquip(form,obj);
 			if(form.getArrow().visible)
 				obj.arrow = form.getArrow().selectedLabel;
 		}
+		private function setLeft(form:Object,obj:Object):void{
+			setEquip(form,obj);
+		}
 		private function setProtect(form:Object,obj:Object):void{
-			setEquip();
+			setEquip(form,obj);
 		}
 		private function setNeck(form:Object,obj:Object):void{
-			setEquipBase();
+			setEquipBase(form,obj);
 			if(form.getOption().visible)
 				obj.option = form.getOption().selectedItem;
 		}
 		private function setRing(form:Object,obj:Object):void{
-			setNeck();
+			setNeck(form,obj);
 		}
 		private function setEquip(form:Object,obj:Object):void{
-			setEquipBase();
+			setEquipBase(form,obj);
 			if(form.visible){
 				if(form.getItemAttr().visible){
 					obj.plus = form.getItemAttr().getPlus().selectedIndex;
@@ -205,23 +216,23 @@ package Calc {
 					var names:Array = form.getSocket().getNames();
 					var values:Array = form.getSocket().getValues();
 					for(var i:int=0;i<names.length;i++)
-						if(names[i].selectedLabel != "")
-							obj.socket[names[i].selectedLabel] = {
-								value:parseInt(values[i].selectedLabel),
-								attr:names[i].selectedItem[1]
-							};
+						if(names[i].selectedLabel != ""){
+							obj.socket[names[i].selectedLabel] = 
+								parseInt(values[i].selectedLabel);
+							obj.socket_attr = names[i].selectedItem[1]; 
+						}
 					var bonuses:Array = form.getSocket().getBonuses();
-					for(var i:int=0;i<bonuses.length;i++)
+					for(i=0;i<bonuses.length;i++)
 						if(bonuses[i].selectedLabel != "")
 							obj.socket_bonus[bonuses[i].selectedLabel.split("+")[0]] = 
 								parseInt(bonuses[i].selectedLabel.split("+")[1]);
 				}
 				if(form.getOp380().visible)
-					obj.380op = form.getOp380().selected;
+					obj.op380 = form.getOp380().selected;
 			}
 		}
 		private function setEquipBase(form:Object,obj:Object):void{
-			if(obj.visible){
+			if(form.visible){
 				obj.kind = form.getKind().selectedLabel;
 				if(form.getItem().visible){
 					obj.item = D.getData(form.getItem().selectedItem.item)[form.getItem().selectedItem.index];
@@ -230,9 +241,10 @@ package Calc {
 				if(form.getSetop().visible)
 					obj.set_status = form.getSetop().selectedItem;
 				if(form.getExellent().visible)
-					for each(var op in form.getExellent().getOptions())
+					for each(var op:ComboBox in form.getExellent().getOptions())
 						if(op.selectedLabel != "")
 							obj.exop[op.selectedLabel] = true;
+
 			}
 		}
 		private function setStatus(form:Object,obj:Object):void{
@@ -244,8 +256,8 @@ package Calc {
 			if(form.getRec().visible)
 				obj.rec = parseInt(form.getRec().text);
 		}
-		private function setSupport(form:Object,obj:Object):void{
-			obj = form.form_support;
+		private function setSupport(form:Object):void{
+			data.support = form;
 		}
 	}
 }

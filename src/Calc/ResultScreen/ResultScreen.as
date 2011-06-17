@@ -1,24 +1,34 @@
 package Calc.ResultScreen {
-	import MuCalc.MuChar;
-	
-	import mx.containers.*;
 	import mx.controls.*;
+	import mx.containers.*;
 	import mx.core.*;
+	import mx.collections.*;
+	import mx.events.*;
 	import flash.events.*;
+
+	import Form.MUDamage.SubForm.*;
+	import Form.MUDamage.*;
+	import Calc.*;
+	import Data.Database.*;
+	import Data.Database.MLV.*;
 	/**
 	 * PVPダメージ計算の結果を表示する画面
 	 */
 	public class ResultScreen extends Form {
-		private var muc1:MuChar;
-		private var muc2:MuChar;
+		private var d:FormMUDamage;
+		private var f:Object;
+		private var i:ItemData;
+		private var c:CharacterData;
 		
 		/**
 		 * コンストラクタ
 		 */
-		public function PVPResultScreen(muc1:MuChar, muc2:MuChar) {
+		public function ResultScreen(d:FormMUDamage) {
 			super();
-			this.muc1 = muc1;
-			this.muc2 = muc2;
+			this.d = d;
+			this.f = (new FormData(d)).getData();
+			this.i = new ItemData(f);
+			this.c = (new CharacterCalculator(f,i)).getData();
 			
 			init();
 		}
@@ -30,14 +40,14 @@ package Calc.ResultScreen {
 			this.addChild(createCloseButton());
 			
 			// キャラクターステータス表示
-			this.addChild(new PVPCharacterScreen(muc1));
-			// ダメージ一覧Gridを表示
-			this.addChild(new PVPDamageGrid(calcSkills(muc1,muc2)));
-			
-			// キャラクターステータス表示
-			this.addChild(new PVPCharacterScreen(muc2));
-			// ダメージ一覧Gridを表示
-			this.addChild(new PVPDamageGrid(calcSkills(muc2,muc1)));
+			this.addChild(new CharacterScreen(d,f,i,c));
+//			// ダメージ一覧Gridを表示
+//			this.addChild(new PVPDamageGrid(calcSkills(muc1,muc2)));
+//			
+//			// キャラクターステータス表示
+//			this.addChild(new PVPCharacterScreen(muc2));
+//			// ダメージ一覧Gridを表示
+//			this.addChild(new PVPDamageGrid(calcSkills(muc2,muc1)));
 		}
 		/**
 		 * 閉じるボタン
@@ -57,6 +67,7 @@ package Calc.ResultScreen {
 		/**
 		 * ダメージを計算します。
 		 */
+		/*
 		private function calcSkills(muc1:MuChar, muc2:MuChar):Array{
 			var a:Array = new Array();
 			//命中率計算
@@ -138,6 +149,6 @@ package Calc.ResultScreen {
 			}
 			return a;
 		}
-		
+		*/
 	}
 }

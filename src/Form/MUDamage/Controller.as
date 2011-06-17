@@ -52,5 +52,13 @@ package Form.MUDamage {
 			container.addChild(now_form);
 			
 		}
+		/**
+		 * 計算結果の表示
+		 */
+		public function showResult(result:Container):void{
+			result.x = 50;
+			result.y = 700;
+			container.addChild(result);
+		}
 	}
 }

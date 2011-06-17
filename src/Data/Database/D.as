@@ -44,9 +44,11 @@ package Data.Database
 			job_life: Job.life,
 			job_mana: Job.mana,
 			job_ag: Job.ag,
+			job_speed: Job.speed,
 			job_min: Job.min,
 			job_max: Job.max,
 			job_hit: Job.hit,
+			job_pvp_hit: Job.pvp_hit,
 			job_def: Job.def,
 			job_avoid: Job.avoid,
 			job_pvp_avoid: Job.pvp_avoid

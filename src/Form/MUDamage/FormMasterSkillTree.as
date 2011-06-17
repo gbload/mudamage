@@ -50,6 +50,9 @@ package Form.MUDamage
 			trees[1] = createTree(MasterSkillTree.title[job][1],MasterSkillTree.middle[job]);
 			trees[2] = createTree(MasterSkillTree.title[job][2],MasterSkillTree.right[job]);
 		}
+		/**
+		 * treeの作成
+		 */
 		private function createTree(title:String, tree:Array):Canvas{
 			var canvas:Canvas = new Canvas();
 			canvas.width = 260;
@@ -70,6 +73,8 @@ package Form.MUDamage
 						img.x = j*65;
 						img.y = i*50 + 30;
 						canvas.addChild(img);
+						// tooltip
+						setTooltip(img,getSkills(tree[i][j]).item);
 						// input
 						var ti:TextInput = new TextInput();
 						ti.name = (i * tree[i].length + j).toString();
@@ -83,6 +88,28 @@ package Form.MUDamage
 				}
 			}
 			return canvas;
+		}
+		private function setTooltip(obj:Image,item:Array):void{
+			var str:String = "";
+			// 名前
+			str += item[MasterSkill.NAME]+"\n"
+			// 表示形式 display_type 0:なし 1:% 2:秒 3:÷
+			var display_type:int = item[MasterSkill.DISPLAY_TYPE];
+			// 値の取得
+			var type:int = item[MasterSkill.VALUE_TYPE];
+			var value:Array = MasterSkillValue.value[type];
+			for(var n:Object in value){
+				if(display_type == 1)
+					str += "LV"+n+" "+value[n].toString()+"%\n";
+				else if(display_type == 2)
+					str += "LV"+n+" "+value[n].toString()+"秒\n";
+				else if(display_type == 3)
+					str += "LV"+n+" "+value[n].toString()+"\n";
+				else
+					str += "LV"+n+" "+value[n].toString()+"\n";
+			}
+			// tooltipに登録
+			obj.toolTip = str;
 		}
 		/**
 		 * Skills

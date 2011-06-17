@@ -7,7 +7,7 @@ package Form.MUDamage {
 	import flash.events.*;
 	
 	public class FormMUDamage extends Canvas {
-		private var controller:Controller;
+//		private var controller:Controller;
 		private var old_job:int = 0;
 	
 		public var form_title:TextInput;
@@ -90,7 +90,7 @@ package Form.MUDamage {
 			form_support = new FormSupport(this);
 			main.addChild(form_support);
 			// 計算
-			form_calc = new FormCalc(this);
+			form_calc = new FormCalc(this,c);
 			main.addChild(form_calc);
 		}
 		/**
@@ -153,6 +153,9 @@ package Form.MUDamage {
 		 */
 		public function getFormBoots():FormEquip{
 			return form_boots;
+		}
+		public function addMain(c:Container):void{
+			main.addChild(c);
 		}
 	}
 }
