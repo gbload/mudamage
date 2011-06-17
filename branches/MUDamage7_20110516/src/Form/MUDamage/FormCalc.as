@@ -8,9 +8,11 @@ package Form.MUDamage {
 
 	import Form.MUDamage.SubForm.*;
 	import Data.Database.*;
+	import Calc.ResultScreen.*;
 	
 	public class FormCalc extends VBox{
 		private var d:FormMUDamage;
+		private var controller:Controller;
 		
 		private var map:ComboBox;
 		private var calc:Button;
@@ -19,8 +21,9 @@ package Form.MUDamage {
 		/**
 		 * コンストラクタ
 		 */
-		public function FormCalc(d:FormMUDamage) {
+		public function FormCalc(d:FormMUDamage,controller:Controller) {
 			this.d = d;
+			this.controller = controller;
 			
 			initForm();
 		}
@@ -50,7 +53,15 @@ package Form.MUDamage {
 		private function createCalc():void{
 			calc = new Button();
 			calc.label = "計算";
+			calc.addEventListener(MouseEvent.CLICK,eventClickCalc);
 			hbox.addChild(calc);
+		}
+		/**
+		 * event click calc button
+		 */
+		private function eventClickCalc(event:Event):void{
+//			controller.showResult(new ResultScreen(d));
+			d.addMain(new ResultScreen(d));
 		}
 	}
 }

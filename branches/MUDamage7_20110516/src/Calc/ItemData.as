@@ -14,7 +14,7 @@ package Calc {
 	 * @author sinlion
 	 *
 	 */
-	public class ItemCalculator{
+	public class ItemData{
 		/**
 		 * その他
 		 */
@@ -51,7 +51,7 @@ package Calc {
 		public var wing_inc:int=0;//羽のダメージ増加%
 		public var wing_dec:int=0;//羽のダメージ吸収%
 		public var wing_def:int=0;//羽の防御力
-		public var wing_hp:int=0;//羽のCOP生命増加
+		public var wing_life:int=0;//羽のCOP生命増加
 		public var wing_mana:int=0;//羽のCOPマナ増加
 		public var wing_ignore:int=0;//羽のCOP防御無視
 		public var wing_rec:int=0;//羽のCOP統率増加
@@ -215,5 +215,100 @@ package Calc {
 		public var sobonus_magic:int=0;//魔力上昇
 		public var sobonus_def:int=0;//防御力上昇
 		public var sobonus_hp:int=0;//最大生命増加
+		/**
+		 * 
+		 */
+		private var f:Object;
+		public function ItemData(f:Object){
+			this.f = f;
+			calcFlag();
+			calcWing();
+		}
+		private function calcFlag():void{
+			// 二刀流の有無
+			if(f.right.kind != "なし" && f.left.kind != "なし")
+				if(f.left.item.item.search("weapon")!=-1)
+					is_dual_wield=true;
+			// 防具のリスト
+			protects=[f.helm,f.armor,f.garter,f.glove,f.boots];
+			if(f.left.kind != "なし")
+				if(f.left.item.item.search("shield")!=-1){
+					protects.unshift(f.left); // 盾の追加
+					is_shield=true; // 盾の有無
+				}
+		}
+		/**
+		 * 羽の計算
+		 */
+		private function calcWing():void{
+			if(f.wing.cop=="生命増加")
+				wing_life = 50 + f.wing.plus*5;
+			if(f.wing.cop=="マナ増加")
+				wing_mana = 50 + f.wing.plus*5;
+			if(f.wing.cop=="防御無視3%")
+				wing_ignore = 3;
+			if(f.wing.cop=="防御無視5%")
+				wing_ignore = 5;
+			if(f.wing.cop=="統率増加")
+				wing_rec = 10 + f.wing.plus*5;
+		}
+		/**
+		 * 補助関数
+		 */
+		public function getSpec(obj:Object,str:String):int{
+			if(obj.item != null){
+				// validate
+				if(obj.key[str]==null)
+					Alert.show("Error ItemCalculator getSpec():"+str+"");
+				// spec
+				var spec:int = obj.key.spec;
+				if(obj.item[obj.key.kind] == "EX")
+					spec = obj.key.exspec;
+				if(obj.item[obj.key.kind] == "セット")
+					spec = obj.key.setspec;
+				return obj.item[spec][obj.plus][obj.key[str]];
+			}
+			return 0;
+		}
+		public function getItemData(obj:Object,str:String):Object{
+			if(obj.item != null){
+				if(obj.key[str]==null)
+					Alert.show("Error ItemCalculator getItemData():"+str+"");
+				return obj.item[obj.key[str]];
+			}
+			return null;
+		}
+		public function getValue(obj:Object):int{
+			return validateValue(obj);
+		}
+		public function getEnchantProtects(str:String):int{
+			var value:int = 0;
+			for(var n:Object in protects)
+				value += validateValue(protects[n].enchant[str]);
+			return value;
+		}
+		public function getSocket(obj:Object,str:String):int{
+			return validateValue(obj.socket[str]);
+		}
+		public function getSocketProtects(str:String):int{
+			var value:int = 0;
+			for(var n:Object in protects)
+				value += validateValue(protects[n].socket[str]);
+			return value;
+		}
+		public function getSocketBonusProtects(str:String):int{
+			var value:int = 0;
+			for(var n:Object in protects)
+				value += validateValue(protects[n].socket[str]);
+			return value;
+		}
+		/**
+		 * validate
+		 */
+		private function validateValue(obj:Object):int{
+			if(obj!=null)
+				return obj as int;
+			return 0;
+		}
 	}
 }

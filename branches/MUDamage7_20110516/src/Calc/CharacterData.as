@@ -15,6 +15,18 @@ package Calc {
 	 *
 	 */
 	public class CharacterData{
+		//キャラクターステータス
+		public var lv:int=0;//キャラクターのレベル
+		public var str:int=0;//キャラクターの力
+		public var agi:int=0;//キャラクターの敏捷
+		public var vit:int=0;//キャラクターの体力
+		public var ene:int=0;//キャラクターのエナジー
+		public var rec:int=0;//キャラクターの統率
+		public var add_str:int=0;//キャラクターの追加力
+		public var add_agi:int=0;//キャラクターの追加敏捷
+		public var add_vit:int=0;//キャラクターの追加体力
+		public var add_ene:int=0;//キャラクターの追加エナジー
+		public var add_rec:int=0;//キャラクターの追加統率
 		//キャラクター能力
 		public var life:int=0;//Life
 		public var sd:int=0;//SD

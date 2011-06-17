@@ -15,9 +15,9 @@ package Calc {
 	 *
 	 */
 	public class ItemCalculator{
-		private var f:FormData;
+		private var f:Object;
 		public var data:ItemData;
-		public function OptionCalculator(f:FormData){
+		public function OptionCalculator(f:Object){
 			this.f = f;
 			data = new ItemData();
 		}
@@ -57,7 +57,7 @@ package Calc {
 			data.wing_dec = d[k.spec][f.wing.plus][k.dec];
 			data.wing_def = d[k.spec][f.wing.plus][k.def];
 			if(f.wing.cop=="生命増加")
-				data.wing_hp = 50 + f.wing.plus*5;
+				data.wing_life = 50 + f.wing.plus*5;
 			if(f.wing.cop=="マナ増加")
 				data.wing_mana = 50 + f.wing.plus*5;
 			if(f.wing.cop=="防御無視3%")
@@ -182,11 +182,6 @@ package Calc {
 				value += validateValue(data.protects[n].socket[str]);
 			return value;
 		}
-		public function getSocketAttr(obj:Object,str:String):Object{
-			if(obj.socket[str]!=null)
-				return obj.socket[str].attr;
-			return "";
-		}
 		public function getSocketBonusProtects(str:String):Object{
 			var value:int = 0;
 			for(var n:Object in data.protects)
@@ -198,7 +193,7 @@ package Calc {
 		 */
 		private function validateValue(obj:Object):int{
 			if(obj!=null)
-				return obj.value;
+				return obj;
 			return 0;
 		}
 
