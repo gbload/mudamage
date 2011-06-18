@@ -14,14 +14,13 @@ package Calc.ResultScreen {
 	/**
 	 * キャラクターのステータスや装備を表示するCanvas
 	 */
-	public class CharacterScreen extends HBox {
+	public class CharacterScreen extends VBox {
 		private var d:FormMUDamage;
 		private var f:Object;
 		private var i:ItemData;
 		private var c:CharacterData;
 	
 		private var row:HBox; // 行
-		private var col:VBox; // 列
 		/**
 		 * コンストラクタ
 		 */
@@ -38,23 +37,12 @@ package Calc.ResultScreen {
 		 * 初期化
 		 */
 		private function init():void{
-			createColumn();
-			
 			setStatus();
 			setAttack();
 			setDefense();
 			setSpecialAttackRate();
 			setSetOption();
 			setSupport();
-			
-		}
-		/**
-		 * 新しいカラム
-		 */
-		private function createColumn():void{
-			var vbox:VBox = new VBox();
-			col = vbox;
-			this.addChild(vbox);
 		}
 		/**
 		 * 改行
@@ -62,7 +50,7 @@ package Calc.ResultScreen {
 		private function ln():void{
 			var hbox:HBox = new HBox();
 			row = hbox;
-			col.addChild(hbox);
+			this.addChild(hbox);
 		}
 		/**
 		 * テキスト

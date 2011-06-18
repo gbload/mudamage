@@ -176,7 +176,8 @@ package Calc {
 			if(form.getItemAttr().visible){
 				obj.plus = form.getItemAttr().getPlus().selectedIndex;
 				obj.luck = form.getItemAttr().getLuck().selected;
-				obj.option = form.getItemAttr().getOption().selectedItem;
+				obj.option[form.getItemAttr().getOption().selectedItem.type] = 
+					form.getItemAttr().getOption().selectedItem.value;
 			}
 			if(form.getCop().visible)
 				obj.cop = form.getCop().selectedLabel;
@@ -195,7 +196,8 @@ package Calc {
 		private function setNeck(form:Object,obj:Object):void{
 			setEquipBase(form,obj);
 			if(form.getOption().visible)
-				obj.option = form.getOption().selectedItem;
+				obj.option[form.getOption().selectedItem.type] = 
+					form.getOption().selectedItem.value;
 		}
 		private function setRing(form:Object,obj:Object):void{
 			setNeck(form,obj);
@@ -206,6 +208,8 @@ package Calc {
 				if(form.getItemAttr().visible){
 					obj.plus = form.getItemAttr().getPlus().selectedIndex;
 					obj.luck = form.getItemAttr().getLuck().selected;
+//					obj.option[form.getOption().selectedItem.type] = 
+//						form.getOption().selectedItem.value;
 				}
 				if(form.getEnchant().visible){
 					if(form.getEnchant().getKind().selectedLabel != "")
@@ -218,7 +222,7 @@ package Calc {
 					for(var i:int=0;i<names.length;i++)
 						if(names[i].selectedLabel != ""){
 							obj.socket[names[i].selectedLabel] = 
-								parseInt(values[i].selectedLabel);
+								parseInt(values[i].selectedLabel.split("分の1")[0].split("%")[0]);
 							obj.socket_attr = names[i].selectedItem[1]; 
 						}
 					var bonuses:Array = form.getSocket().getBonuses();
