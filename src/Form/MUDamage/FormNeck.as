@@ -83,6 +83,7 @@ package Form.MUDamage {
 		protected function changeOption(ops:Array):void{
 			// old index
 			var old:int = option.selectedIndex;
+			if(old<0)old=0;
 			// create
 			var a:Array = new Array();
 			a.push({

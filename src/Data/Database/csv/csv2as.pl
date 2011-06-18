@@ -142,8 +142,8 @@ for($i=1;$i<@dat;$i++){
 				push(@a,&merge(
 					&inc_arg($dats[$j],$dats[$j+1]),
 					&inc_arg2($dats[$j+2],$dats[$j+3]),
-					&inc_arg2($dats[$j+4],$dats[$j+5]),
-					&inc_arg2($dats[$j+6],$dats[$j+7])
+					&inc_arg($dats[$j+4],$dats[$j+5]),
+					&inc_arg($dats[$j+6],$dats[$j+7])
 				));
 				$j+=7;
 			}elsif($j==24){ # cop:1,2,3,4

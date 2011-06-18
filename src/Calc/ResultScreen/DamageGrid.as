@@ -23,7 +23,7 @@ package Calc.ResultScreen {
 		/**
 		 * コンストラクタ
 		 */
-		public function PVPDamageGrid(result:Array) {
+		public function DamageGrid(result:Array) {
 			super();
 			// ヘッダの作成
 			createHeader();

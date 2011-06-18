@@ -227,12 +227,12 @@ package Calc {
 		private function calcFlag():void{
 			// 二刀流の有無
 			if(f.right.kind != "なし" && f.left.kind != "なし")
-				if(f.left.item.item.search("weapon")!=-1)
+				if((getSpec(f.left,"item") as String)=="武器")
 					is_dual_wield=true;
 			// 防具のリスト
 			protects=[f.helm,f.armor,f.garter,f.glove,f.boots];
 			if(f.left.kind != "なし")
-				if(f.left.item.item.search("shield")!=-1){
+				if((getSpec(f.left,"item") as String)=="防具"){
 					protects.unshift(f.left); // 盾の追加
 					is_shield=true; // 盾の有無
 				}
@@ -270,6 +270,21 @@ package Calc {
 			}
 			return 0;
 		}
+		public function getRequire(obj:Object,str:String):int{
+			if(obj.item != null){
+				// validate
+				if(obj.key[str]==null)
+					Alert.show("Error ItemCalculator getSpec():"+str+"");
+				// spec
+				var req:int = obj.key.require;
+				if(obj.item[obj.key.kind] == "EX")
+					req = obj.key.exrequire;
+				if(obj.item[obj.key.kind] == "セット")
+					req = obj.key.exrequire;
+				return obj.item[req][obj.plus][obj.key[str]];
+			}
+			return 0;
+		}
 		public function getItemData(obj:Object,str:String):Object{
 			if(obj.item != null){
 				if(obj.key[str]==null)
@@ -280,6 +295,12 @@ package Calc {
 		}
 		public function getValue(obj:Object):int{
 			return validateValue(obj);
+		}
+		public function getValueMap(obj:Object,str:String):int{
+			if(obj!=null)
+				return validateValue(obj[str]);
+			Alert.show("Error getValueMap():"+str+"!");
+			return 0;
 		}
 		public function getEnchantProtects(str:String):int{
 			var value:int = 0;
