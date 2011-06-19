@@ -19,17 +19,19 @@ package Calc.ResultScreen {
 		private var f:Object;
 		private var i:ItemData;
 		private var c:CharacterData;
+		private var a:AttackData;
 	
 		private var row:HBox; // 行
 		/**
 		 * コンストラクタ
 		 */
-		public function CharacterScreen(d:FormMUDamage,f:Object,i:ItemData,c:CharacterData) {
+		public function CharacterScreen(d:FormMUDamage,f:Object,i:ItemData,c:CharacterData,a:AttackData) {
 			super();
 			this.d = d;
 			this.f = f;
 			this.i = i;
 			this.c = c;
+			this.a = a;
 			
 			init();
 		}
@@ -113,24 +115,24 @@ package Calc.ResultScreen {
 		 * 攻撃関連のステータスを表示
 		 */
 		private function setAttack():void{
-//			ln();
-//			
-//			text("攻撃速度:" + c.speed);
-//			text("魔法速度:" + c.magicspeed);
-//			
-//			ln();
-//			
-//			if(c.job == 0 || c.job == 2 || c.job == 3 || c.job == 4 || c.job == 6)//攻撃組み
-//				text("攻撃力:" + c.minmax[0] + "～" + c.minmax[1]);
-//			//攻撃成功率
-//			text("(率" + c.hit +"/対人" +c.pvphit +")");
-//			
-//			ln();
-//			
-//			if(c.job == 1 || c.job == 3 || c.job == 5)//魔法組み
-//				text("魔力:" + c.minmax[2] + "～" + c.minmax[3]);
-//			if(c.job == 5)//呪い組み
-//				text(" 呪い:" + c.noroi[0] + "～" + c.noroi[1]);
+			ln();
+			
+			text("攻撃速度:" + c.speed);
+			text("魔法速度:" + c.magic_speed);
+			
+			ln();
+			
+//			if(f.job_index == 0 || f.job_index == 2 || f.job_index == 3 || f.job_index == 4 || f.job_index == 6)//攻撃組み
+				text("攻撃力:" + a.attack.min + "～" + a.attack.max);
+			//攻撃成功率
+			text("(率" + c.hit +"/対人" +c.pvp_hit +")");
+			
+			ln();
+			
+//			if(f.job_index == 1 || f.job_index == 3 || f.job_index == 5)//魔法組み
+				text("魔力:" + a.magic.min + "～" + a.magic.max);
+			if(f.job_index == 5)//呪い組み
+				text(" 呪い:" + a.curse.min + "～" + a.curse.min);
 		}
 		/**
 		 * 防御関連のステータスを表示

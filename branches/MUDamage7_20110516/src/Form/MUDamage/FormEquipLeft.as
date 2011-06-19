@@ -37,7 +37,7 @@ package Form.MUDamage {
 				KIND_ARRAY = [
 				              ["なし"	,kinds.none],
 				              ["通常"	,kinds.normal],
-				           ["EX"	,kinds.exellent],
+				              ["EX"	,kinds.exellent],
 				              ["セット"	,kinds.set],
 				              ["ソケット",kinds.socket],
 				              ["鷹",kinds.darkspirit]

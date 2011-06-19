@@ -31,10 +31,12 @@ package Data.Database
 			set_weapon:		SetWeapon.data,
 			set_shield:		SetShield.data,
 			accessory:		Accessory.data,
+			set_accessory:	SetAccessory.data,
 			plus:	Etc.plus,
 			enchant:	Option.enchant,
 			socket_option:	Option.socket,
 			socket_option2:	Option.socket2,
+			set_option: Option.set_option,
 			skill: Skill.data,
 			map:	Etc.map,
 			monster: Monster.data,
@@ -61,13 +63,14 @@ package Data.Database
 			socket_weapon:Key.key[0],
 			socket_shield:Key.key[1],
 			socket_protect:Key.key[2],
-			set_protect:null,
-			set_weapon:null,
-			set_shield:null,
+			set_protect:Key.key[7],
+			set_weapon:Key.key[7],
+			set_shield:Key.key[7],
+			set_accessory:Key.key[7],
 			accessory:Key.key[5],
 			plus:null,
 			job_status:Key.key[3],
-			skill:null,
+			skill:Key.key[6],
 			monster:null
 			
 		};
@@ -99,8 +102,10 @@ package Data.Database
 			pet:	[getSelectSub,["pet"]],
 			wing:	[getSelectWing,[]],
 			neck:		[getSelectAccessory,["通常","ネックレス"]],
+			set_neck:	[getSelectAccessory,["セット","ネックレス"]],
 			shop_neck:	[getSelectAccessory,["ショップ","ネックレス"]],
 			ring:		[getSelectAccessory,["通常","リング"]],
+			set_ring:	[getSelectAccessory,["セット","リング"]],
 			shop_ring:	[getSelectAccessory,["ショップ","リング"]]
 		};
 		/**
@@ -176,10 +181,21 @@ package Data.Database
 			var a:Array = [];
 			var d:Object = getData(item);
 			var k:Object = getKey(item);
-			for(var i:int=0;i<d.length;i++)
-				if(d[i][k.job][job])//装備可能職かチェック
-					if(d[i][k.hand] != "左手")
-						a.push({label:d[i][k.name],index:i,item:item});//持ち手を確認し、
+			for(var i:int=0;i<d.length;i++){
+				var d2:Object = d[i];
+				var k2:Object = k;
+				if(item=="set_weapon"){
+					d2 = getData("weapon")[d[i][k.index]];
+					k2 = getKey("weapon");
+				}
+				if(d2[k2.job][job])//装備可能職かチェック
+					if(d2[k2.hand] != "左手")//持ち手を確認
+						if(item=="set_weapon")
+							a.push({label:d[i][k.name],index:d[i][k.index],item:"weapon"
+							  ,set_index:i,set_item:item});
+						else
+							a.push({label:d2[k2.name],index:i,item:item});
+			}
 			return a;
 		}
 		/**
@@ -195,18 +211,38 @@ package Data.Database
 			var d:Object = getData(item);
 			var k:Object = getKey(item);
 			if(job == 0 || job == 3 || job == 5 || job == 6)//ナイト、魔剣士、召喚師のみ左手に武器を持てる
-				for(i=0;i<d.length;i++)
-					if(d[i][k.job][job])//装備可能職かチェック
-						if(!(job == 5 && d[i][k.type] == "杖"))//召喚師は左手にロッドは持てない
-						if(d[i][k.hand] == "片手" || d[i][k.hand] == "左手")//持ち手を確認
-							a.push({label:d[i][k.name],index:i,item:item});//持ち手を確認し、
+				for(i=0;i<d.length;i++){
+					var d2:Object = d[i];
+					var k2:Object = k;
+					if(item=="set_weapon"){
+						d2 = getData("weapon")[d[i][k.index]];
+						k2 = getKey("weapon");
+					}
+					if(d2[k2.job][job])//装備可能職かチェック
+						if(d2[k2.type] != "ロッド")//召喚師は左手にロッドは持てない
+						if(d2[k2.hand] == "片手" || d[i][k2.hand] == "左手")//持ち手を確認
+							if(item=="set_weapon")
+								a.push({label:d[i][k.name],index:d[i][k.index],item:"weapon"
+								  ,set_index:i,set_item:item});
+							else
+								a.push({label:d2[k2.name],index:i,item:item});
+				}
 			// 盾
 			items = ["shield","set_shield","socket_shield"];
 			item = items[kind];
 			d = getData(item);
 			k = getKey(item);
-			for(i=0;i<d.length;i++)//盾
-				if(d[i][k.job][job])a.push({label:d[i][k.name],index:i+1000});
+			if(item=="set_shield")
+				for(i=0;i<d.length;i++){//盾
+					d2 = getData("shield")[d[i][k.index]];
+					k2 = getKey("shield");
+					if(d2[k2.job][job])
+						a.push({label:d[i][k.name],index:d[i][k.index],item:"shield"
+							,set_index:i,set_item:item});
+				}
+			else
+				for(i=0;i<d.length;i++)//盾
+					if(d[i][k.job][job])a.push({label:d[i][k.name],index:i,item:item});
 			return a;
 		}
 		/**
@@ -219,10 +255,21 @@ package Data.Database
 			var a:Array = [];
 			var d:Object = getData(item);
 			var k:Object = getKey(item);
-			for(var i:int=0;i<d.length;i++)
-				if(d[i][k.job][job])
-					if(d[i][k.type] == type)
-						a.push({label:d[i][k.name],index:i,item:item});//部位を確認し、
+			for(var i:int=0;i<d.length;i++){
+				var d2:Object = d[i];
+				var k2:Object = k;
+				if(item=="set_protect"){
+					d2 = getData("protect")[d[i][k.index]];
+					k2 = getKey("protect");
+				}
+				if(d2[k2.job][job])
+					if(d2[k2.type] == type)
+						if(item=="set_protect")
+							a.push({label:d[i][k.name],index:d[i][k.index],item:"protect"
+							  ,set_index:i,set_item:item});
+						else
+							a.push({label:d2[k2.name],index:i,item:item});//部位を確認し、
+			}
 			return a;
 		}
 		/**
@@ -230,13 +277,23 @@ package Data.Database
 		 */
 		private static function getSelectAccessory(job:int,kind:String,type:String):Array{
 			var item:String = "accessory";
+			if(kind=="セット")
+				item = "set_accessory";
 			var a:Array = [];
 			var d:Object = getData(item);
 			var k:Object = getKey(item);
-			for(var i:int=0;i<d.length;i++)
-				if(d[i][k.kind] == kind)
-					if(d[i][k.type] == type)
-						a.push({label:d[i][k.name],index:i,item:item});//部位を確認し、
+			for(var i:int=0;i<d.length;i++){
+				if(item=="set_accessory"){
+					var d2:Object = getData("accessory")[d[i][k.index]];
+					var k2:Object = getKey("accessory");
+					if(d2[k2.type] == type)
+						a.push({label:d[i][k.name],index:d[i][k.index],item:"accessory"
+						  ,set_index:i,set_item:item});
+				}else
+					if(d[i][k.kind] == kind)
+						if(d[i][k.type] == type)
+							a.push({label:d[i][k.name],index:i,item:item});//部位を確認し、
+			}
 			return a;
 		}
 		/**

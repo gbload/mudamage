@@ -44,16 +44,11 @@ package Calc.ResultScreen {
 			var hbox:HBox = new HBox();
 			this.addChild(hbox);
 			// キャラクターステータス表示
-			hbox.addChild(new CharacterScreen(d,f,i,c));
+			hbox.addChild(new CharacterScreen(d,f,i,c,a));
 			// キャラクター装備表示
 			hbox.addChild(new ItemScreen(d,f,i,c));
 			// ダメージ一覧Gridを表示
 			this.addChild(new DamageGrid(calcSkills()));
-//			
-//			// キャラクターステータス表示
-//			this.addChild(new PVPCharacterScreen(muc2));
-//			// ダメージ一覧Gridを表示
-//			this.addChild(new PVPDamageGrid(calcSkills(muc2,muc1)));
 		}
 		/**
 		 * 閉じるボタン
@@ -97,10 +92,10 @@ package Calc.ResultScreen {
 				if(a.skills[n].skill[a.key.type]=="魔法"){
 					func = dc.calcMagicDamage;
 				}
-				x_min = func(a.skills[n].min);
-				x_max = func(a.skills[n].max);
-				x_cri = func(a.skills[n].cri);
-				x_exd = func(a.skills[n].exd);
+				x_min = func(a.skills[n],a.skills[n].min,false,false);
+				x_max = func(a.skills[n],a.skills[n].max,false,false);
+				x_cri = func(a.skills[n],a.skills[n].cri,true,false);
+				x_exd = func(a.skills[n],a.skills[n].exd,false,true);
 				//1HIT当たりのダメージを計算
 				var hit1:int=0;//1hit当たりのダメージ
 				if(a.skills[n].skill[a.key.name] == "フレイムハンド(単体)"){//ダークスピリット

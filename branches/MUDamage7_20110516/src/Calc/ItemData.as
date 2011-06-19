@@ -21,49 +21,13 @@ package Calc {
 		public var is_dual_wield:Boolean=false;//二刀流の有無
 		public var protects:Array=new Array();//防具候補
 		public var is_shield:Boolean=false;//盾の有無
-		/*
-		 * 武器
-		 */
-		public var weapon_min:int=0;//武器の最小攻撃力
-		public var weapon_max:int=0;//武器の最大攻撃力
-		public var weapon_op:int=0;//武器の追加攻撃力
-		public var weapon_magic:int=0;//武器の魔力%
-		public var weapon_magicop:int=0;//武器の追加魔力
-		public var weapon_pet:int=0;//武器のペット攻撃力上昇
-		public var left_weapon_min:int=0;//左手武器の最小攻撃力
-		public var left_weapon_max:int=0;//左手武器の最大攻撃力
-		public var left_weapon_op:int=0;//左手武器の追加攻撃力
-		public var left_weapon_magicop:int=0;//左手の追加魔力
-		public var left_weapon_noroi:int=0;//武器の呪い上昇
-		public var left_weapon_noroiop:int=0;//武器の呪いOP
-		/*
-		 * 
-		 */
-		public var pet_inc:int=0;//ペットのダメージ増加%
-		public var pet_dec:int=0;//ペットのダメージ吸収%
-		public var pet_fen_inc:int=0;//フェンリルのダメージ増加%
-		public var pet_fen_dec:int=0;//フェンリルのダメージ吸収%
-		public var satan:Boolean=false;//サタン
-		public var angel:Boolean=false;//守護天使
 		/**
 		 * 羽
 		 */
-		public var wing_inc:int=0;//羽のダメージ増加%
-		public var wing_dec:int=0;//羽のダメージ吸収%
-		public var wing_def:int=0;//羽の防御力
-		public var wing_life:int=0;//羽のCOP生命増加
-		public var wing_mana:int=0;//羽のCOPマナ増加
-		public var wing_ignore:int=0;//羽のCOP防御無視
-		public var wing_rec:int=0;//羽のCOP統率増加
-		//スキル
-		public var skill:int=0;//スキル威力
-		public var magic_skill:int=0;//魔法スキル威力
-		//サポート
-		public var support_a:Number=0.0;//A+
-		public var support_g:int=0;//G+
-		public var support_c:int=0;//C+
-		public var support_sb:int=0;//SB
-		public var support_sl:int=0;//SL
+		public var wing_life:int=0;//生命増加
+		public var wing_mana:int=0;//マナ増加
+		public var wing_rec:int=0;//統率増加
+		public var wing_ignore:int=0;//防御無視
 		/**
 		 * その他アイテム
 		 */
@@ -90,39 +54,9 @@ package Calc {
 		public var etc_ene:int=0;//エナジー
 		public var etc_rec:int=0;//統率
 		/**
-		 * EXOP
-		 */
-		//EXOP右手
-		public var exop2per:Boolean=false;//EXOP攻撃力2%
-		public var exoplv20:Boolean=false;//EXOP攻撃力LV/20
-		public var exopmagic2per:Boolean=false;//EXOP魔力2%
-		public var exopmagiclv20:Boolean=false;//EXOP魔力LV/20
-		public var exopexd:Boolean=false;//EXOPEXD
-		public var exopspeed:Boolean=false;//EXOP速度
-		//EXOP左手
-		public var exopleft2per:Boolean=false;//EXOP攻撃力2%
-		public var exopleftlv20:Boolean=false;//EXOP攻撃力LV/20
-		public var exopleftmagic2per:Boolean=false;//EXOP魔力2%
-		public var exopleftmagiclv20:Boolean=false;//EXOP魔力LV/20
-		public var exopleftexd:Boolean=false;//EXOPEXD
-		public var exopleftspeed:Boolean=false;//EXOP速度
-		//EXOPアクセ
-		public var exopac2per:Boolean=false;//EXOP攻撃力2%
-		public var exopaclv20:Boolean=false;//EXOP攻撃力LV/20
-		public var exopacmagic2per:Boolean=false;//EXOP魔力2%
-		public var exopacmagiclv20:Boolean=false;//EXOP魔力LV/20
-		public var exopacexd:Boolean=false;//EXOPEXD
-		public var exopacspeed:Boolean=false;//EXOP速度
-		//EXOP防具
-		public var exop_dec:int=0;//EXOPダメ減4%
-		public var exop_ref:int=0;//EXOPダメージ反射5%
-		public var exop_avoid:int=0;//EXOP防御成功率増加10%
-		public var exop_hp:int=0;//EXOP最大生命増加4%
-		public var exop_mana:int=0;//EXOP最大マナ増加4%
-		/**
 		 * セットOP
 		 */
-		public var setop_array:Array=new Array();//セット名の配列でも・・・
+		public var setop_names:Object={};//セット名の配列でも・・・
 		//ステータス系
 		public var setop_str:int=0;//力+
 		public var setop_agi:int=0;//敏+
@@ -152,69 +86,7 @@ package Calc {
 		public var setop_damage:int=0;//ダメージ増加
 		public var setop_ignore:int=0;//防御無視%
 		public var setop_w:int=0;//ダブルダメージ確率%
-		/**
-		 * エンチャントOP
-		 */
-		//武器類
-		public var enop_min:int=0;//最小攻撃力上昇
-		public var enop_max:int=0;//最大攻撃力上昇
-		public var enop_attack:int=0;//攻撃力上昇
-		public var enop_cri:int=0;//クリティカルダメージ上昇
-		public var enop_skill:int=0;//スキル攻撃力上昇
-		public var enop_pvphit:int=0;//対人攻撃成功率上昇
-		public var enop_sddec:int=0;//SD減少率%
-		public var enop_sdignore:int=0;//SD無視%
-		public var enop_magic:int=0;//魔力上昇
-		public var enop_left_magic:int=0;//魔力上昇（左手）
-		//防具類
-		public var enop_def:int=0;//防御力上昇
-		public var enop_ag:int=0;//最大AG上昇
-		public var enop_hp:int=0;//最大生命上昇
-		public var enop_ah:int=0;//自動生命回復量上昇
-		public var enop_mana:int=0;//マナ自動回復量上昇
-		public var enop_pvpavoid:int=0;//対人防御成功率上昇
-		public var enop_dec:int=0;//ダメージ減少%
-		public var enop_sdrate:int=0;//SD比率上昇%
-		/**
-		 * ソケットOP
-		 */
-		//炎のシード
-		public var soop_lv20:Array=new Array();//攻撃力・魔力上昇LV/x
-		public var soop_lv20_left:Array=new Array();//左手攻撃力・魔力上昇LV/x
-		public var soop_min:int=0;//最小攻撃力・魔力上昇
-		public var soop_max:int=0;//最大攻撃力・魔力上昇
-		public var soop_attack:int=0;//攻撃力・魔力上昇
-		public var soop_speed:int=0;//攻撃速度上昇
-		public var soop_agdec:Array=new Array();//AG消耗量減少%
-		//稲妻のシード
-		public var soop_exd:int=0;//EXD増加
-		public var soop_exdper:int=0;//EXD確率増加%
-		public var soop_cri:int=0;//クリダメ増加
-		public var soop_criper:int=0;//クリ確率増加%
-		//氷のシード
-		public var soop_skill:int=0;//スキル攻撃力上昇
-		public var soop_hit:int=0;//攻撃成功率上昇
-		//水のシード
-		public var soop_def:int=0;//防御力増加
-		public var soop_shield:int=0;//盾装備時防御力増加%
-		public var soop_dec:int=0;//ダメージ減少%
-		public var soop_ref:int=0;//ダメージ反射%
-		public var soop_avoid:Array=new Array();//防御成功率増加%
-		//風のシード
-		public var soop_hp:Array=new Array();//最大生命増加%
-		public var soop_mana:Array=new Array();//最大マナ増加%
-		public var soop_ag:int=0;//最大AG増加
-		public var soop_ah:int=0;//生命自動回復増加
-		public var soop_manaah:int=0;//マナ自動回復量増加
-		public var soop_agah:int=0;//AG自動回復量増加
-		//地のシード
-		public var soop_vit:int=0;//体力増加
-		//ボーナスソケット
-		public var sobonus_attack:int=0;//攻撃力上昇
-		public var sobonus_skill:int=0;//スキル攻撃力上昇
-		public var sobonus_magic:int=0;//魔力上昇
-		public var sobonus_def:int=0;//防御力上昇
-		public var sobonus_hp:int=0;//最大生命増加
+		
 		/**
 		 * 
 		 */
@@ -223,6 +95,9 @@ package Calc {
 			this.f = f;
 			calcFlag();
 			calcWing();
+			calcSetop();
+			calcShop();
+			calcEtc();
 		}
 		private function calcFlag():void{
 			// 二刀流の有無
@@ -253,7 +128,164 @@ package Calc {
 				wing_rec = 10 + f.wing.plus*5;
 		}
 		/**
-		 * 補助関数
+		 * セットOPを計算
+		 */
+		private function calcSetop():void{
+			//セットOP
+			var a:Array = [f.neck,f.right,f.left,f.helm,f.armor,f.glove,f.garter,f.boots,f.ring1,f.ring2];
+			var names:Object = {};//セット名をスタックする
+			for(var j:int=0;j<a.length;j++){
+				if(a[j].kind == "セット" || a[j].kind == "ラッキー"){
+					//セットOPのステータス部分
+					setop_str += getValueMap(a[j].setop,"力");
+					setop_str += getValueMap(a[j].setop,"敏捷");
+					setop_str += getValueMap(a[j].setop,"体力");
+					setop_str += getValueMap(a[j].setop,"エナジー");
+					setop_str += getValueMap(a[j].setop,"統率");
+					//セット名の取得
+					if(j==2 || j==9){//左手又はリング2のとき
+						if((a[j-1].kind == "セット" || a[j-1].kind == "ラッキー")
+						 && (getSetItemData(a[j-1],"name") == getSetItemData(a[j],"name")))
+						 	continue;
+					}
+					if(names[getSetItemData(a[j],"series")]==null)
+					     names[getSetItemData(a[j],"series")] = 0;
+					else
+				         names[getSetItemData(a[j],"series")]++;
+				}
+			}
+			setop_names = names;//セット名を保存しておく
+			var setops:Array = D.getData("set_option") as Array;
+			for(var n:String in names)
+				for(j=0;j<setops.length;j++)//セットOPの一覧
+					if(n == setops[j][0])//名前の確認
+						for(var k:int=2;k<=names[n];k++){
+							if(k <= setops[j][1]+1){//k個つけたときのセットOPを取得
+								var v:int = setops[j][k][2];//セットOPの数値
+									//ステータス系
+								if(setops[j][k][1] == "力")setop_str+=v;//力+
+								else if(setops[j][k][1] == "敏捷")setop_agi+=v;//敏+
+								else if(setops[j][k][1] == "体力")setop_vit+=v;//体力+
+								else if(setops[j][k][1] == "エナジー")setop_ene+=v;//エナ+
+								else if(setops[j][k][1] == "統率")setop_rec+=v;//統率+
+								else if(setops[j][k][1] == "生命")setop_hp+=v;//HP+
+								else if(setops[j][k][1] == "マナ")setop_mana+=v;//マナ+
+								else if(setops[j][k][1] == "AG")setop_ag+=v;//AG+
+								else if(setops[j][k][1] == "AG 増加量")setop_agah+=v;//AG自動回復量+
+									//攻撃力（魔力）系
+								else if(setops[j][k][1] == "最小攻撃力")setop_min+=v;//最小攻撃力増加
+								else if(setops[j][k][1] == "最大攻撃力")setop_max+=v;//最大攻撃力増加
+								//else if(setops[j][k][1] == "")setop_attack+=v;//攻撃力増加
+								else if(setops[j][k][1] == "魔力")setop_magicper+=v;//魔力増加%
+								else if(setops[j][k][1] == "スキル攻撃力")setop_skill+=v;//スキル攻撃力増加
+								else if(setops[j][k][1] == "攻撃成功率")setop_hit+=v;//攻撃成功率増加
+								else if(setops[j][k][1] == "両手剣装備時ダメージ増加")setop_hands+=v;//両手剣装備時ダメージ増加%
+									//防御系
+								else if(setops[j][k][1] == "防御力")setop_def+=v;//防御力増加
+								else if(setops[j][k][1] == "盾装備時、防御力")setop_shield+=v;//盾装備時防御力増加%
+									//特殊系
+								else if(setops[j][k][1] == "クリティカルダメージ")setop_cri+=v;//クリティカルダメージ増加
+								else if(setops[j][k][1] == "クリティカルダメージ確率")setop_criper+=v;//クリティカル確率増加
+								else if(setops[j][k][1] == "エクセレントダメージ")setop_exd+=v;//エクセレントダメージ増加
+								else if(setops[j][k][1] == "エクセレントダメージ確率")setop_exdper+=v;//エクセレント確率増加
+								else if(setops[j][k][1] == "ダメージ増加")setop_damage+=v;//ダメージ増加
+								else if(setops[j][k][1] == "敵の防御力無視")setop_ignore+=v;//防御無視%
+								else if(setops[j][k][1] == "ダブルダメージ確率")setop_w+=v;//ダブルダメージ確率%
+								else Alert.show("Error:セットOP"+setops[j][k][1]);
+							}
+							if(k == setops[j][1]+1)//フルOPを取得
+								for(var l:int=0;l<setops[j][k+1].length;l++){
+									v = setops[j][k+1][l][2];//セットOPの数値
+										//ステータス系
+									if(setops[j][k+1][l][1] == "力")setop_str+=v;//力+
+									else if(setops[j][k+1][l][1] == "敏捷")setop_agi+=v;//敏+
+									else if(setops[j][k+1][l][1] == "体力")setop_vit+=v;//体力+
+									else if(setops[j][k+1][l][1] == "エナジー")setop_ene+=v;//エナ+
+									else if(setops[j][k+1][l][1] == "統率")setop_rec+=v;//統率+
+									else if(setops[j][k+1][l][1] == "生命")setop_hp+=v;//HP+
+									else if(setops[j][k+1][l][1] == "マナ")setop_mana+=v;//マナ+
+									else if(setops[j][k+1][l][1] == "AG")setop_ag+=v;//AG+
+									else if(setops[j][k+1][l][1] == "AG 増加量")setop_agah+=v;//AG自動回復量+
+										//攻撃力（魔力）系
+									else if(setops[j][k+1][l][1] == "最小攻撃力")setop_min+=v;//最小攻撃力増加
+									else if(setops[j][k+1][l][1] == "最大攻撃力")setop_max+=v;//最大攻撃力増加
+									//else if(setops[j][k+1][l][1] == "")setop_attack+=v;//攻撃力増加
+									else if(setops[j][k+1][l][1] == "魔力")setop_magicper+=v;//魔力増加%
+									else if(setops[j][k+1][l][1] == "スキル攻撃力")setop_skill+=v;//スキル攻撃力増加
+									else if(setops[j][k+1][l][1] == "攻撃成功率")setop_hit+=v;//攻撃成功率増加
+									else if(setops[j][k+1][l][1] == "両手剣装備時ダメージ増加")setop_hands+=v;//両手剣装備時ダメージ増加%
+										//防御系
+									else if(setops[j][k+1][l][1] == "防御力")setop_def+=v;//防御力増加
+									else if(setops[j][k+1][l][1] == "盾装備時、防御力")setop_shield+=v;//盾装備時防御力増加%
+										//特殊系
+									else if(setops[j][k+1][l][1] == "クリティカルダメージ")setop_cri+=v;//クリティカルダメージ増加
+									else if(setops[j][k+1][l][1] == "クリティカルダメージ確率")setop_criper+=v;//クリティカル確率増加
+									else if(setops[j][k+1][l][1] == "エクセレントダメージ")setop_exd+=v;//エクセレントダメージ増加
+									else if(setops[j][k+1][l][1] == "エクセレントダメージ確率")setop_exdper+=v;//エクセレント確率増加
+									else if(setops[j][k+1][l][1] == "ダメージ増加")setop_damage+=v;//ダメージ増加
+									else if(setops[j][k+1][l][1] == "敵の防御力無視")setop_ignore+=v;//防御無視%
+									else if(setops[j][k+1][l][1] == "ダブルダメージ確率")setop_w+=v;//ダブルダメージ確率%
+									else Alert.show("Error:セットOP"+setops[j][k+1][l][1]);
+								}
+						}
+		}
+		/**
+		 * ショップアクセサリを計算
+		 */
+		private function calcShop():void{
+			//ショップアイテムの場合
+			var a:Array = [f.neck,f.ring1,f.ring2];
+			for (var n:String in a){
+				if(a[n].kind == "ショップ"){
+					var e:String = getItemData(a[n],"name") as String;
+					if(e == "アメジストリング")a[n].exop["ダメ減"]=true;
+					if(e == "トパーズリング")a[n].exop["ゼン増"]=true;
+					if(e == "ルビーリング")a[n].exop["生命増"]=true;
+					if(e == "サファイアリング")a[n].exop["マナ増"]=true;
+					if(e == "サファイアネックレス")a[n].exop["獲得マナ"]=true;
+					if(e == "エメラルドネックレス")a[n].exop["速度+7"]=true;
+					if(e == "ルビーネックレス")a[n].exop["EXD"]=true;
+				}
+			}
+		}
+		/**
+		 * 補助アイテム類計算
+		 */
+		private function calcEtc():void{
+			for each(var name:String in [f.support.getValue(f.support.item)]){
+				if(name == "攻撃力+25"){etc_attack+=25;etc_magic+=25;}//かぼちゃや課金アイテムでの攻撃力上昇分
+				if(name == "攻撃力+30"){etc_attack+=30;etc_magic+=30;}//かぼちゃや課金アイテムでの攻撃力上昇分
+				if(name == "攻撃力+40"){etc_attack+=40;etc_magic+=40;}//かぼちゃや課金アイテムでの攻撃力上昇分
+				if(name == "速度+10")etc_speed+=10;//速度
+				if(name == "速度+15")etc_speed+=15;//速度
+				if(name == "防御力+60")etc_def+=60;//防御力上昇
+				if(name == "防御力+100")etc_def+=100;//防御力上昇
+				if(name == "生命+200")etc_hp+=200;//生命
+				if(name == "生命+500")etc_hp+=500;//生命
+				if(name == "生命+700")etc_hp+=700;//生命
+				if(name == "マナ+300")etc_mana+=300;//マナ
+				if(name == "マナ+500")etc_mana+=500;//マナ
+				if(name == "マナ+700")etc_mana+=700;//マナ
+				if(name == "AG回復+10")etc_agah+=10;//AG回復＋
+			}
+			for each(name in [f.support.getValue(f.support.scroll),f.support.getValue(f.support.leap)]){
+				if(name == "攻撃力+30"){etc_attack+=30;etc_attack2+=30;}//課金アイテムでの攻撃力上昇分
+				if(name == "魔力+30"){etc_magic+=30;etc_magic2+=30;}//魔力
+				if(name == "速度+15")etc_speed+=15;//速度
+				if(name == "防御力+60")etc_def+=60;//防御力上昇
+				if(name == "生命+200")etc_hp+=200;//生命
+				if(name == "マナ+300")etc_mana+=300;//マナ
+				if(name == "クリダメ+20%")etc_cri+=20;//クリダメ＋
+				if(name == "EXDダメ+20%")etc_exd+=20;//ＥＸＤダメ＋
+				if(name == "力+50")etc_str+=50;//力
+				if(name == "敏捷+50")etc_agi+=50;//敏
+				if(name == "体力+50")etc_vit+=50;//体力
+				if(name == "エナ+50")etc_ene+=50;//エナジー
+				if(name == "統率+50")etc_rec+=50;//統率
+			}
+		}
+		/**
+		 * 装備のスペックを取得
 		 */
 		public function getSpec(obj:Object,str:String):int{
 			if(obj.item != null){
@@ -270,6 +302,9 @@ package Calc {
 			}
 			return 0;
 		}
+		/**
+		 * 装備の要求を取得
+		 */
 		public function getRequire(obj:Object,str:String):int{
 			if(obj.item != null){
 				// validate
@@ -285,6 +320,9 @@ package Calc {
 			}
 			return 0;
 		}
+		/**
+		 * 装備の情報を取得
+		 */
 		public function getItemData(obj:Object,str:String):Object{
 			if(obj.item != null){
 				if(obj.key[str]==null)
@@ -293,30 +331,59 @@ package Calc {
 			}
 			return null;
 		}
+		/**
+		 * 装備の情報を取得
+		 */
+		public function getSetItemData(obj:Object,str:String):Object{
+			if(obj.set_item != null){
+				if(obj.set_key[str]==null)
+					Alert.show("Error ItemCalculator getItemData():"+str+"");
+				return obj.set_item[obj.set_key[str]];
+			}
+			return null;
+		}
+		/**
+		 * 値のバリデート
+		 */
 		public function getValue(obj:Object):int{
 			return validateValue(obj);
 		}
+		/**
+		 * 値のバリデート
+		 */
 		public function getValueMap(obj:Object,str:String):int{
 			if(obj!=null)
 				return validateValue(obj[str]);
 			Alert.show("Error getValueMap():"+str+"!");
 			return 0;
 		}
+		/**
+		 * エンチャントOPを防具で丸ごと取得
+		 */
 		public function getEnchantProtects(str:String):int{
 			var value:int = 0;
 			for(var n:Object in protects)
 				value += validateValue(protects[n].enchant[str]);
 			return value;
 		}
+		/**
+		 * ソケットOPを取得
+		 */
 		public function getSocket(obj:Object,str:String):int{
 			return validateValue(obj.socket[str]);
 		}
+		/**
+		 * ソケットOPを防具で丸ごと取得
+		 */
 		public function getSocketProtects(str:String):int{
 			var value:int = 0;
 			for(var n:Object in protects)
 				value += validateValue(protects[n].socket[str]);
 			return value;
 		}
+		/**
+		 * ソケットボーナスを防具で丸ごと取得
+		 */
 		public function getSocketBonusProtects(str:String):int{
 			var value:int = 0;
 			for(var n:Object in protects)

@@ -44,7 +44,7 @@ package Calc {
 			
 		    //ダメージ計算
 			d = calcGuard1(d);
-		    d = Math.max(d,Math.floor(f.lv/10));//モンスDEF
+		    d = Math.max(d,Math.floor(f.status.lv/10));//モンスDEF
 		    d = calcGuard2(d);
 		    
 		    //[セットOP]両手武器装備時ダメージ増加%
