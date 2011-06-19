@@ -84,11 +84,11 @@ package Calc {
 			/*
 			 * 攻撃力
 			 */
-			if((i.getSpec(f.right,"item") as String)=="武器"){
+			if((i.getItemData(f.right,"item") as String)=="武器"){
 			    r_min = calcAttack("right",true);//右手
 			    r_max = calcAttack("right",false);//右手
 			}
-		    if((i.getSpec(f.left,"item") as String)=="武器"){//左手
+		    if((i.getItemData(f.left,"item") as String)=="武器"){//左手
 		    	l_min = calcAttack("left",true);
 		    	l_max = calcAttack("left",false);
 		    }
@@ -139,11 +139,13 @@ package Calc {
 //		    	&& dat::d.f_right.f_item.selectedItem[3] == "弓"
 //		    	&& dat::d.f_right.f_item.selectedItem[4] == "片手")
 //		    		bowcheck = false;
-			
+			//武器の攻撃力
+			if(min)d += i.getSpec(f[hand],"min");
+			else d += i.getSpec(f[hand],"max");
 			//追加OP
 		    d += i.getValueMap(f[hand].option,"攻撃");//武器の追加攻撃力
 		    d += i.getValueMap(f.wing.option,"攻撃");//Ｒ ＝ Ｒ ＋ 羽追加攻撃力 
-		    
+
 //		    //マスタースキル最小最大
 //		    if(min){//最小
 //		    	d += weapon_min;
@@ -173,7 +175,7 @@ package Calc {
 		    if(bowcheck){//左手の弓のみ（ボウガンの時のみ）
 		    	if(i.getValueMap(f[hand].exop,"攻撃lv20"))d += Math.floor(c.lv/20);
 		    }else{
-		    	if(i.getValueMap(f[hand].exop,"攻撃lv20"))d += Math.floor(f.lv/20);
+		    	if(i.getValueMap(f[hand].exop,"攻撃lv20"))d += Math.floor(f.status.lv/20);
 		    }
 		    //[武器のEXOPに攻撃力増加+2%がある時]　Ｒ ＝ Ｒ ＋ int((ステータス最大攻撃力 ＋ 武器最大攻撃力) × 0.02) 
 		    if(i.getValueMap(f[hand].exop,"攻撃2%"))d += Math.floor(d*0.02);
@@ -181,14 +183,16 @@ package Calc {
 		    if(bowcheck){
 		    	if(i.getValueMap(f.neck.exop,"攻撃lv20"))d += Math.floor(c.lv/20);
 		    }else{
-		    	if(i.getValueMap(f.neck.exop,"攻撃lv20"))d += Math.floor(f.lv/20);
+		    	if(i.getValueMap(f.neck.exop,"攻撃lv20"))d += Math.floor(f.status.lv/20);
 		    }
 		    //[ソケットOP]攻撃力LV20
-		    d += Math.floor(c.lv/i.getSocket(f.right,"攻撃魔力lv"));
-		    d += Math.floor(c.lv/i.getSocket(f.left,"攻撃魔力lv"));
+		    if(i.getSocket(f.right,"攻撃魔力lv"))
+		    	d += Math.floor(c.lv/i.getSocket(f.right,"攻撃魔力lv"));
+		    if(i.getSocket(f.left,"攻撃魔力lv"))
+		    	d += Math.floor(c.lv/i.getSocket(f.left,"攻撃魔力lv"));
 		    //[アクセのEXOPに攻撃力増加+2%がある時]　Ｒ ＝ Ｒ ＋ int(Ｒ × 0.02)数
-		    if(i.getValueMap(f.neck.exop,"攻撃2%"))d += + Math.floor(d*0.02);
-		    
+		    if(i.getValueMap(f.neck.exop,"攻撃2%"))d += Math.floor(d*0.02);
+
 		    if(min){//最小
 //		        d += setop_min;//[セットOP]X = X + 最小攻撃力増加
 		        d += i.getValueMap(f[hand].enchant,"最小攻撃力");//[エンチャントOP]X = X + 最小攻撃力増加
@@ -240,30 +244,32 @@ package Calc {
 			
 			if(i.is_dual_wield)dual=2;//二刀流計算時
 			
-			//ダークロード特殊ダメージ
-			if(f.job == "ダークロード" && skill.skill[a.key.name] != "アースシェイク"){
-				d += Math.floor(c.str/25) + Math.floor(c.ene/50);
+			if(hand=="right"){
+				//ダークロード特殊ダメージ
+				if(f.job == "ダークロード" && skill.skill[a.key.name] != "アースシェイク"){
+					d += Math.floor(c.str/25) + Math.floor(c.ene/50);
+				}
+				//スキル攻撃力
+				//アースシェイク
+				if(skill.skill[a.key.name] != "アースシェイク"){
+	//				d += ((c.darkhorse * 10) + Math.floor(c.str/10) + Math.floor(c.rec/5));
+				}else if(skill.skill[a.key.name] != "カオティックディセイアー"){//カオス
+					//if(exd)d += 87;
+					//else d += Math.floor(c.rec/20);
+					d += Math.floor(c.rec/20);
+				}
+				//弓の場合、マルチショット特殊減少
+				if(!bowcheck && skill.skill[a.key.name] == "マルチショット"){
+	//				c.now_skill[1] = 32;//スキル威力40→32調整用
+	//				d -= c.op_skill - Math.floor(c.op_skill*0.8);//スキル威力２０％減少
+				}
+				//通常のスキル
+			    if(min){//最小
+			        d += skill.skill[a.key.power];//スキル威力
+			    }else{
+			        d += Math.floor(skill.skill[a.key.power]*1.5);//スキル威力
+			    }
 			}
-			//スキル攻撃力
-			//アースシェイク
-			if(skill.skill[a.key.name] != "アースシェイク"){
-//				d += ((c.darkhorse * 10) + Math.floor(c.str/10) + Math.floor(c.rec/5));
-			}else if(skill.skill[a.key.name] != "カオティックディセイアー"){//カオス
-				//if(exd)d += 87;
-				//else d += Math.floor(c.rec/20);
-				d += Math.floor(c.rec/20);
-			}
-			//弓の場合、マルチショット特殊減少
-			if(!bowcheck && skill.skill[a.key.name] == "マルチショット"){
-//				c.now_skill[1] = 32;//スキル威力40→32調整用
-//				d -= c.op_skill - Math.floor(c.op_skill*0.8);//スキル威力２０％減少
-			}
-			//通常のスキル
-		    if(min){//最小
-		        d += skill.skill[a.key.power];//スキル威力
-		    }else{
-		        d += Math.floor(skill.skill[a.key.power]*1.5);//スキル威力
-		    }
 		    //属性ダメージ
 		    //本当は左手に持っていくものだけど倍率係数で変化がないので、簡略化のためここで2倍
 //			d += c.now_skill[4]*i;

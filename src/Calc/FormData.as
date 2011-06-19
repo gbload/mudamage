@@ -54,9 +54,7 @@ package Calc {
 		}
 		private function initNeck():Object{
 			var obj:Object = initEquipBase();
-			obj.option = {
-				type:"",value:0
-			};
+			obj.option = {};
 			return obj;
 		}
 		private function initRing():Object{
@@ -75,12 +73,8 @@ package Calc {
 		private function initEquip():Object{
 			var obj:Object = initEquipBase();
 			obj.plus = 0;
-			obj.option = {
-				type:"",value:0
-			},
-			obj.enchant = {
-					type:"",value:0
-			};
+			obj.option = {},
+			obj.enchant = {};
 			obj.socket = {};
 			obj.socket_bonus = {};
 			obj.socket_attr = "none";
@@ -92,9 +86,9 @@ package Calc {
 				kind:"なし",
 				item:null,
 				key:null,
-				set_status:{
-					type:"",value:0
-				},
+				set_item:null,
+				set_key:null,
+				set_status:{},
 				exop:{}
 			};
 		}
@@ -107,30 +101,10 @@ package Calc {
 				vit:0,
 				ene:0,
 				rec:0
-			};
+			}
 		}
 		private function initSupport():Object{
-			return {
-//				aplus:0,
-//				gplus:0,
-//				cplus:0,
-//				sl:0,
-//				sb:0,
-//				iv:0, // インナーベーション
-//				wn:0, // ウィークネス
-//				ba:false,
-//				ht:false, // レイジ体力向上
-//				con:false, // レイジ防御成功率向上
-//				ber:false, // バーサーカー
-//				se:false, // スペルエンハンス
-//				ig:false, // レイジ敵の防御力無視 デモリジョン
-//				sera:false, // セラフィー
-//				ale:false, // 酒
-//				miracle:false, // 妙薬
-//				item:"", // 補助アイテム サンタ・花見・ジャックランタン
-//				scroll:"", // 課金スクロール
-//				leap:"", // 課金秘薬
-			};
+			return {};
 		}
 		private function initMasterSkill():Object{
 			return {};
@@ -152,8 +126,9 @@ package Calc {
 			setNeck(d.form_neck,data.neck);
 			setRing(d.form_ring1,data.ring1);
 			setRing(d.form_ring2,data.ring2);
-			setStatus(d.form_status,data.status);
+			setStatus(d.form_status);
 			setSupport(d.form_support);
+			setMasterSkill(d.form_status.getMasterSkillTree());
 		}
 		public function getData():Object{
 			return data;
@@ -241,9 +216,13 @@ package Calc {
 				if(form.getItem().visible){
 					obj.item = D.getData(form.getItem().selectedItem.item)[form.getItem().selectedItem.index];
 					obj.key = D.getKey(form.getItem().selectedItem.item);
+					if(form.getItem().selectedItem.set_item!=null){
+						obj.set_item = D.getData(form.getItem().selectedItem.set_item)[form.getItem().selectedItem.set_index];
+						obj.set_key = D.getKey(form.getItem().selectedItem.set_item);
+					}
 				}
 				if(form.getSetop().visible)
-					obj.set_status = form.getSetop().selectedItem;
+					obj.set_status[form.getSetop().selectedItem.type] = form.getSetop().selectedItem.value;
 				if(form.getExellent().visible)
 					for each(var op:ComboBox in form.getExellent().getOptions())
 						if(op.selectedLabel != "")
@@ -251,17 +230,21 @@ package Calc {
 
 			}
 		}
-		private function setStatus(form:Object,obj:Object):void{
-			obj.lv = parseInt(form.getLevel().text);
-			obj.str = parseInt(form.getStr().text);
-			obj.agi = parseInt(form.getAgi().text);
-			obj.vit = parseInt(form.getVit().text);
-			obj.ene = parseInt(form.getEne().text);
+		private function setStatus(form:Object):void{
+			data.status.lv = parseInt(form.getLevel().text);
+			data.status.str = parseInt(form.getStr().text);
+			data.status.agi = parseInt(form.getAgi().text);
+			data.status.vit = parseInt(form.getVit().text);
+			data.status.ene = parseInt(form.getEne().text);
 			if(form.getRec().visible)
-				obj.rec = parseInt(form.getRec().text);
+				data.status.rec = parseInt(form.getRec().text);
 		}
 		private function setSupport(form:Object):void{
 			data.support = form;
+		}
+		private function setMasterSkill(form:Object):void{
+			data.status.mlv = parseInt(form.getLevel().text);
+			data.master_skill = form;
 		}
 	}
 }

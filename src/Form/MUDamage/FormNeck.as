@@ -75,7 +75,7 @@ package Form.MUDamage {
 			// OPの変更
 			changeOption(d[k.op]);
 			// setopの変更
-			changeSetop(item.selectedItem[9]);
+			changeSetop();
 		}
 		/**
 		 * オプションデータの作成
@@ -86,22 +86,30 @@ package Form.MUDamage {
 			if(old<0)old=0;
 			// create
 			var a:Array = new Array();
-			a.push({
-				label:"opなし",
-				type:"",
-				value:0
-			});
-			for each(var op:Array in ops){
-				var per:String = "";
-				if(op[1]==1)per = "%";
-				var plus:String = "+";
-				if(op[1]==1)plus = "";
-				for(var i:int=1;i<=4;i++)
-					a.push({
-						label:op[0]+plus+(op[1]*i).toString()+per,
-						type:op[0],
-						value:op[1]*i
-					});
+			if(kind.selectedLabel=="ショップ"){
+				a.push({
+					label:"AH3%",
+					type:"AH",
+					value:3
+				});
+			}else{
+				a.push({
+					label:"opなし",
+					type:"",
+					value:0
+				});
+				for each(var op:Array in ops){
+					var per:String = "";
+					if(op[1]==1)per = "%";
+					var plus:String = "+";
+					if(op[1]==1)plus = "";
+					for(var i:int=1;i<=4;i++)
+						a.push({
+							label:op[0]+plus+(op[1]*i).toString()+per,
+							type:op[0],
+							value:op[1]*i
+						});
+				}
 			}
 			option.dataProvider = a;
 			// old index

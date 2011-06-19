@@ -65,6 +65,17 @@ for($i=1;$i<@dat;$i++){
 				}
 				push(@a,&merge(@b));
 				$j+=9;
+			}elsif($j==51){ # op
+				my @b=();
+				my $n=0;
+				for($n=0;$n<2;$n+=2){
+					if($dats[$j+$n] ne ""){
+						push(@b,
+						"[".&L($dats[$j+$n]).",".$dats[$j+$n+1]."]");
+					}
+				}
+				push(@a,"[".join(",",@b)."]");
+				$j++;
 			}else{
 				push(@a,&L($dats[$j]));
 			}
@@ -95,6 +106,17 @@ for($i=1;$i<@dat;$i++){
 				}
 				push(@a,&merge(@b));
 				$j+=9;
+			}elsif($j==42){ # op
+				my @b=();
+				my $n=0;
+				for($n=0;$n<2;$n+=2){
+					if($dats[$j+$n] ne ""){
+						push(@b,
+						"[".&L($dats[$j+$n]).",".$dats[$j+$n+1]."]");
+					}
+				}
+				push(@a,"[".join(",",@b)."]");
+				$j++;
 			}else{
 				push(@a,&L($dats[$j]));
 			}
@@ -117,6 +139,17 @@ for($i=1;$i<@dat;$i++){
 				}
 				push(@a,&merge(@b));
 				$j+=9;
+			}elsif($j==38){ # op
+				my @b=();
+				my $n=0;
+				for($n=0;$n<2;$n+=2){
+					if($dats[$j+$n] ne ""){
+						push(@b,
+						"[".&L($dats[$j+$n]).",".$dats[$j+$n+1]."]");
+					}
+				}
+				push(@a,"[".join(",",@b)."]");
+				$j++;
 			}else{
 				push(@a,&L($dats[$j]));
 			}

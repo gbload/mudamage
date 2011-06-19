@@ -95,10 +95,12 @@ package Form.MUDamage {
 		 * アイテム変更時イベント
 		 */
 		override protected function eventChangeItem(event:Event):void{
-			// OPの変更
-			changeOption();
+			var d:Object = D.getData(item.selectedItem.item)[item.selectedItem.index];
+			var k:Object = D.getKey(item.selectedItem.item);
+			//opの作成
+			item_attr.setOptionData(d[k.op]);
 			// setopの変更
-			changeSetop(item.selectedItem[9]);
+			changeSetop();
 			//380OPの変更
 			if((isNormal() || isEx())
 			 && item.selectedItem[6] == 380){
@@ -107,33 +109,6 @@ package Form.MUDamage {
 				FormCommon.hide(op380box);
 				op380.selected = false;
 			}
-		}
-		/**
-		 * オプションの変更
-		 */
-		protected function changeOption():Boolean{
-			// OPの変更
-			var a:Array;
-			var index:int = item_attr.getOption().selectedIndex;
-			if(index == -1)index = 0;
-			if(item.selectedItem[3] == "盾"){
-				a = [{label:"opなし",value:0},
-							{label:"op5",value:5},
-							{label:"op10",value:10},
-							{label:"op15",value:15},
-							{label:"op20",value:20}]
-			}else if(kind.selectedLabel == "鷹"){
-				return false;
-			}else{
-				a = [{label:"opなし",value:0},
-							{label:"op4",value:4},
-							{label:"op8",value:8},
-							{label:"op12",value:12},
-							{label:"op16",value:16}]
-			}
-			item_attr.getOption().dataProvider = a;
-			item_attr.getOption().selectedIndex = index;
-			return true;
 		}
 		/**
 		 * アイテムフォームのデータを変更

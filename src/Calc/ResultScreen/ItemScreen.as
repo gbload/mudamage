@@ -42,6 +42,13 @@ package Calc.ResultScreen {
 			setNeck();
 			setWeapon("右:",f.right,d.form_right);
 			setWeapon("左:",f.left,d.form_left);
+			setProtect("兜:",f.helm,d.form_helm);
+			setProtect("鎧:",f.armor,d.form_armor);
+			setProtect("手:",f.glove,d.form_glove);
+			setProtect("腰:",f.garter,d.form_garter);
+			setProtect("足:",f.boots,d.form_boots);
+			setRing("リング1:",f.ring1,d.form_ring1);
+			setRing("リング2:",f.ring2,d.form_ring2);
 		}
 		/**
 		 * 改行
@@ -119,14 +126,16 @@ package Calc.ResultScreen {
 			var str:String = i.getItemData(f.neck,"name") as String;
 			var tooltip:String = "";
 			if(str!=null){
+				if(f.neck.kind=="EX")
+					str = "EX"+str;
 				for(var n:String in f.neck.option)
 					if(n!="")
 						str += n+"+"+f.neck.option[n].toString()+" ";
-				// EXOP
-				text(getExellent(f.neck),getColor(f.neck.kind));
 				// tooltip
 				// 表示
 				text(str,getColor(f.neck.kind));
+				// EXOP
+				text(getExellent(f.neck),getColor(f.neck.kind));
 			}
 		}
 		/**
@@ -139,39 +148,37 @@ package Calc.ResultScreen {
 			var str:String = i.getItemData(obj,"name") as String;
 			var tooltip:String = "";
 			if(str!=null){
+				if(obj.kind=="EX")
+					str = "EX"+str;
 				str += setEquipBase(obj,form);
-//				/*
-//				 * tooltip
-//				 */
-//				// spec
-//				tooltip += "攻撃力:"+i.getSpec(obj,"min").toString()
-//							+"〜"+i.getSpec(obj,"max").toString()+"\n";
-//				if(i.getSpec(obj,"magic")>0)
-//					tooltip += "魔力:"+i.getSpec(obj,"magic").toString()+"%"+"\n";
-//				if(i.getSpec(obj,"pet")>0)
-//					tooltip += "ペット:"+i.getSpec(obj,"pet").toString()+"%"+"\n";
-//				if(i.getSpec(obj,"curse")>0)
-//					tooltip += "呪い:"+i.getSpec(obj,"curse").toString()+"%"+"\n";
-//				// require
-//				if(i.getRequire(obj,"str")>0)
-//					tooltip += "要求力:"+i.getRequire(obj,"str").toString()+"\n";
-//				if(i.getRequire(obj,"agi")>0)
-//					tooltip += "要求敏捷:"+i.getRequire(obj,"agi").toString()+"\n";
-//				if(i.getRequire(obj,"vit")>0)
-//					tooltip += "要求体力:"+i.getRequire(obj,"vit").toString()+"\n";
-//				if(i.getRequire(obj,"ene")>0)
-//					tooltip += "要求エナジー:"+i.getRequire(obj,"ene").toString()+"\n";
-//				if(i.getRequire(obj,"rec")>0)
-//					tooltip += "要求統率:"+i.getRequire(obj,"rec").toString()+"\n";
+				/*
+				 * tooltip
+				 */
+				// spec
+				tooltip += "攻撃力:"+i.getSpec(obj,"min").toString()
+							+"〜"+i.getSpec(obj,"max").toString()+"\n";
+				if(i.getSpec(obj,"magic")>0)
+					tooltip += "魔力:"+i.getSpec(obj,"magic").toString()+"%"+"\n";
+				if(i.getSpec(obj,"pet")>0)
+					tooltip += "ペット:"+i.getSpec(obj,"pet").toString()+"%"+"\n";
+				if(i.getSpec(obj,"curse")>0)
+					tooltip += "呪い:"+i.getSpec(obj,"curse").toString()+"%"+"\n";
+				// require
+				if(i.getRequire(obj,"str")>0)
+					tooltip += "要求力:"+i.getRequire(obj,"str").toString()+"\n";
+				if(i.getRequire(obj,"agi")>0)
+					tooltip += "要求敏捷:"+i.getRequire(obj,"agi").toString()+"\n";
+				if(i.getRequire(obj,"vit")>0)
+					tooltip += "要求体力:"+i.getRequire(obj,"vit").toString()+"\n";
+				if(i.getRequire(obj,"ene")>0)
+					tooltip += "要求エナジー:"+i.getRequire(obj,"ene").toString()+"\n";
+				if(i.getRequire(obj,"rec")>0)
+					tooltip += "要求統率:"+i.getRequire(obj,"rec").toString()+"\n";
 				// 表示
 				text(str,getColor(obj.kind),tooltip);
 				
 				// EXOP
-				var exop:String = getExellent(obj);
-				if(exop!=""){
-					ln();
-					text(exop,getColor(obj.kind));
-				}
+				text(getExellent(obj),getColor(obj.kind));
 				// ソケットOP
 				setSocket(obj,form);
 				// ソケットボーナス
@@ -181,9 +188,61 @@ package Calc.ResultScreen {
 		/**
 		 * 防具を表示
 		 */
-		private function setProtect():void{
+		private function setProtect(label:String,obj:Object,form:Object):void{
 			ln();
-			
+			text(label);
+			// str
+			var str:String = i.getItemData(obj,"name") as String;
+			var tooltip:String = "";
+			if(str!=null){
+				if(obj.kind=="EX")
+					str = "EX"+str;
+				str += setEquipBase(obj,form);
+				/*
+				 * tooltip
+				 */
+				// spec
+				tooltip += "防御力:"+i.getSpec(obj,"def").toString()+"\n";
+				// require
+				if(i.getRequire(obj,"str")>0)
+					tooltip += "要求力:"+i.getRequire(obj,"str").toString()+"\n";
+				if(i.getRequire(obj,"agi")>0)
+					tooltip += "要求敏捷:"+i.getRequire(obj,"agi").toString()+"\n";
+				if(i.getRequire(obj,"vit")>0)
+					tooltip += "要求体力:"+i.getRequire(obj,"vit").toString()+"\n";
+				if(i.getRequire(obj,"ene")>0)
+					tooltip += "要求エナジー:"+i.getRequire(obj,"ene").toString()+"\n";
+				if(i.getRequire(obj,"rec")>0)
+					tooltip += "要求統率:"+i.getRequire(obj,"rec").toString()+"\n";
+				// 表示
+				text(str,getColor(obj.kind),tooltip);
+				
+				// EXOP
+				text(getExellent(obj),getColor(obj.kind));
+				// ソケットOP
+				setSocket(obj,form);
+				// ソケットボーナス
+				setSocketBonus(obj,form);
+			}
+		}
+		private function setRing(label:String,obj:Object,form:Object):void{
+			ln();
+			text(label);
+			// str
+			var str:String = i.getItemData(obj,"name") as String;
+			var tooltip:String = "";
+			if(str!=null){
+				if(obj.kind=="EX")
+					str = "EX"+str;
+				for(var n:String in obj.option)
+					if(n!="")
+						str += n+"+"+obj.option[n].toString()+" ";
+				// tooltip
+				// 表示
+				text(str,getColor(obj.kind));
+				// EXOP
+				text(getExellent(obj),getColor(obj.kind));
+			}
 		}
 		/**
 		 * 装備共通の表示
@@ -210,7 +269,7 @@ package Calc.ResultScreen {
 		 */
 		private function getExellent(obj:Object):String{
 			var exop:String = "";
-			for(var n:String in obj.exellent)
+			for(var n:String in obj.exop)
 				if(n!="")
 					exop += n+" ";
 			return exop;
@@ -223,7 +282,7 @@ package Calc.ResultScreen {
 			for(var n:String in form.getSocket().getNames())
 				if(form.getSocket().getNames()[n].selectedLabel!="")
 					socket += form.getSocket().getNames()[n].selectedLabel
-					           +form.getSocket().getValues()[n].selectedLabel;
+					           +form.getSocket().getValues()[n].selectedLabel+" ";
 			if(socket!=""){
 				ln();
 				text(socket,getColor(obj.kind));
@@ -237,7 +296,7 @@ package Calc.ResultScreen {
 			var bonus:String = "";
 			for(var n:String in form.getSocket().getBonuses())
 				if(form.getSocket().getBonuses()[n].selectedLabel!="")
-					bonus += form.getSocket().getBonuses()[n].selectedLabel;
+					bonus += form.getSocket().getBonuses()[n].selectedLabel+" ";
 			if(bonus!=""){
 				ln();
 				text(bonus,getColor(obj.kind));
@@ -249,11 +308,11 @@ package Calc.ResultScreen {
 		private function getColor(kind:String):String{
 			var color:String = "";
 			if(kind=="EX")
-				color="#DDFFDD";
+				color="green";
 			else if(kind=="セット")
-				color="";
+				color="cyan";
 			else if(kind=="ソケット")
-				color="#DDCCFF";
+				color="purple";
 			return color;
 		}
 	}

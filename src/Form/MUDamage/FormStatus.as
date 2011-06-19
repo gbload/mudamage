@@ -314,5 +314,8 @@ package Form.MUDamage {
 		public function getRec():TextInput{
 			return rec;
 		}
+		public function getMasterSkillTree():FormMasterSkillTree{
+			return mlv;
+		}
 	}
 }

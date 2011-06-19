@@ -98,18 +98,21 @@ package Form.MUDamage {
 		/**
 		 * setopフォームのデータを変更
 		 */
-		protected function changeSetop(str:String):void{
+		protected function changeSetop():void{
 			if(setop.visible){
+				var d:Object = D.getData(item.selectedItem.set_item)[item.selectedItem.set_index];
+				var k:Object = D.getKey(item.selectedItem.set_item);
+				var str:String = d[k.status];
 				// インデックスの保持
 				var index:int = setop.selectedIndex;
 				if(index == -1)index = 0;
 				// オプションの作成
 				var a:Array = new Array();
 				if(str == ""){
-					a.push("");
+					a.push({label:"",type:"none",value:0});
 				}else{
-					a.push(str+"+5");
-					a.push(str+"+10");
+					a.push({label:str+"+5",type:str,value:5});
+					a.push({label:str+"+10",type:str,value:10});
 				}
 				// オプションの登録
 				setop.dataProvider = a;
