@@ -1,10 +1,10 @@
-package AllExport {
+package IO.Export {
 	import mx.containers.*;
 	import mx.controls.*;
 	import flash.events.*;
 	import mx.events.*;
 	
-	import FileIO.*;
+	import IO.FileIO.*;
 	
 	/**
 	 * 一括エクスポート/インポートの機能を提供するパネル

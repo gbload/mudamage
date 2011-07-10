@@ -4,32 +4,31 @@ package Form.Menu{
 	import mx.events.*;
 	import flash.events.*;
 	
+	import IO.Export.*;
+	
 	public class FormMenu extends MenuBar{
 		public function FormMenu(){
-			this.x=100;
-			this.y=30;
+			this.x=200;
+			this.y=40;
 			this.labelField = "@label";
 			
-			this.dataProvider = [<menuitem label="MenuItem A">
-            <menuitem label="SubMenuItem A-1" enabled="false"/>
-            <menuitem label="SubMenuItem A-2"/>
+			this.dataProvider = [<menuitem label="ファイル">
+            <menuitem label="開く" enabled="false"/>
+            <menuitem label="保存" enabled="false"/>
+            <menuitem label="エクスポート/インポート" enabled="false"/>
+            <menuitem label="一括エクスポート/インポート"/>
         </menuitem>,
-        <menuitem label="MenuItem B"/>,
-        <menuitem label="MenuItem C"/>,
-        <menuitem label="MenuItem D">
-            <menuitem label="SubMenuItem D-1" 
-                type="radio" groupName="one"/>
-            <menuitem label="SubMenuItem D-2" 
-                type="radio" groupName="one"
-                selected="true"/>
-            <menuitem label="SubMenuItem D-3" 
-                type="radio" groupName="one"/>
-        </menuitem>];
+        <menuitem label="石像破壊シミュレータ" enabled="false"/>,
+        <menuitem label="サンプルデータ" enabled="false"/>,
+        <menuitem label="不具合＆リリース" enabled="false"/>];
 			
 			this.addEventListener(MenuEvent.ITEM_CLICK,eventClick);
 		}
 		private function eventClick(e:MenuEvent):Boolean{
-			Alert.show(e.label);
+//			Alert.show(e.label);
+			if(e.label == "一括エクスポート/インポート"){
+				this.parent.addChild(new AllExportPanel());
+			}
 			return true;
 		}
 	}
