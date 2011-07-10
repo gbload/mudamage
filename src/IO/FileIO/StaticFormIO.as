@@ -1,4 +1,4 @@
-package FileIO {
+package IO.FileIO {
 	import flash.events.*;
 	import mx.events.*;
 	import mx.controls.*;

@@ -15,6 +15,7 @@ import Data.Resource.*;
 public namespace main;
 
 main function init():void{
+	this.addChild(new FormTitle());
 	this.addChild(new FormMenu());
 	// image
 //	var img:Image = new Image();

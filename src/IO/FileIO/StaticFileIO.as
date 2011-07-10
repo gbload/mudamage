@@ -1,4 +1,4 @@
-package FileIO {
+package IO.FileIO {
 	import flash.net.SharedObject;
 	import flash.net.SharedObjectFlushStatus;
 	
