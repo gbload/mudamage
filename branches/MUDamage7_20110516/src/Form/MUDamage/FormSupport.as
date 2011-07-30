@@ -142,6 +142,19 @@ package Form.MUDamage {
 				return null;
 		}
 		/**
+		 * 値を返す（データ保存用）
+		 */
+		public function getValue2(obj:Object):Object{
+			if(obj is ComboBox)
+				return (obj as ComboBox).selectedIndex;
+			if(obj is CheckBox)
+				return (obj as CheckBox).selected;
+			if(obj is TextInput)
+				return (obj as TextInput).text;
+			else
+				return null;
+		}
+		/**
 		 * 値を登録
 		 */
 		public function setValue(obj:ComboBox,value:Object):void{

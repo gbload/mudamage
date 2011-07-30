@@ -26,9 +26,9 @@ package Form.Menu{
 		}
 		private function eventClick(e:MenuEvent):Boolean{
 //			Alert.show(e.label);
-			if(e.label == "一括エクスポート/インポート"){
-				this.parent.addChild(new AllExportPanel());
-			}
+//			if(e.label == "一括エクスポート/インポート"){
+//				this.parent.addChild(new AllExportPanel());
+//			}
 			return true;
 		}
 	}

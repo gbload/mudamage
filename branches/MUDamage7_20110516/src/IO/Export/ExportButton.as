@@ -6,7 +6,7 @@ package AllExport {
 	/**
 	 * 一括エクスポート/インポートの機能を提供するボタン
 	 */
-	public class AllExportButton extends Button {
+	public class ExportButton extends Button {
 		private var main:Container;
 		/**
 		 * コンストラクタ
