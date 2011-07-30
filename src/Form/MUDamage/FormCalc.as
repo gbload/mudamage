@@ -63,5 +63,11 @@ package Form.MUDamage {
 //			controller.showResult(new ResultScreen(d));
 			d.addMain(new ResultScreen(d));
 		}
+		/**
+		 * map
+		 */
+		public function getMap():ComboBox{
+			return map;
+		}
 	}
 }

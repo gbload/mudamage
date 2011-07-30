@@ -21,6 +21,13 @@ package Form.MUDamage {
 			now_form = createForm();
 			forms.push(now_form);
 			container.addChild(now_form);
+			// あらかじめ他の職のフォームも作成しておく
+//			for(var i:int=1;i<7;i++){
+//				var form:FormMUDamage = createForm(i); 
+//				forms.push(form);
+//				container.addChild(form);
+//				form.visible = false;
+//			}
 		}
 		/**
 		 * フォームを新規作成
@@ -39,17 +46,21 @@ package Form.MUDamage {
 		public function changeForm(job:int):void{
 			for each(var form:FormMUDamage in forms){
 				if(form.getJob().getOldJob() == job){
-					container.removeChild(now_form);
+//					container.removeChild(now_form);
+					now_form.visible = false;
 					now_form = form;
-					container.addChild(now_form);
+					now_form.visible = true;
+//					container.addChild(now_form);
 					return;
 				}
 			}
 			// 新規作成
-			container.removeChild(now_form);
+//			container.removeChild(now_form);
+			now_form.visible = false;
 			now_form = createForm(job);
 			forms.push(now_form);
 			container.addChild(now_form);
+			now_form.visible = true;
 			
 		}
 		/**
