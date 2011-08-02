@@ -16,12 +16,15 @@ public namespace main;
 
 main function init():void{
 	this.addChild(new FormTitle());
-	this.addChild(new FormMenu());
+	var menu:FormMenu = new FormMenu();
+	this.addChild(menu);
 	// image
 //	var img:Image = new Image();
 //	img.source = Background.main;
 //	this.addChild(img);
 //	this.setStyle("backgroundColor","#000000");
 	
-	new Controller(this);
+	var c:Controller = new Controller(this);
+	menu.setController(c);
+	
 }
