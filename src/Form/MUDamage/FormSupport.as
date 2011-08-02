@@ -157,7 +157,7 @@ package Form.MUDamage {
 		/**
 		 * 値を登録
 		 */
-		public function setValue(obj:ComboBox,value:Object):void{
+		public function setValue(obj:Object,value:Object):void{
 			if(obj is ComboBox)
 				(obj as ComboBox).selectedIndex = (value as int);
 			if(obj is CheckBox)

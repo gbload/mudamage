@@ -71,5 +71,8 @@ package Form.MUDamage {
 			result.y = 700;
 			container.addChild(result);
 		}
+		public function getNowForm():FormMUDamage{
+			return now_form;
+		}
 	}
 }

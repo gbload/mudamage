@@ -1,40 +1,47 @@
 package IO.Export {
-	import mx.containers.*;
 	import mx.controls.*;
-	import flash.events.*;
+	import mx.containers.*;
+	import mx.core.*;
+	import mx.collections.*;
 	import mx.events.*;
+	import mx.managers.*;
+	import flash.events.*;
 	
 	import IO.FileIO.*;
+	import Form.Menu.*;
+	import Form.MUDamage.*;
 	
 	/**
 	 * エクスポート/インポートの機能を提供するパネル
 	 */
-	public class ExportPanel extends Panel {
+	public class ExportPanel extends Canvas {
+		private var c:Controller;
+		private var menu:FormMenu;
+
+		private var pop:TitleWindow;
 		private var textarea:TextArea;
 		/**
 		 * コンストラクタ
 		 */
-		public function ExportPanel() {
+		public function ExportPanel(c:Controller,menu:FormMenu) {
 			super();
+			
+			this.c = c;
+			this.menu = menu;
+			
 			init();
 			setPanel();
 		}
 		/**
-		 * パネルの設定
+		 * Canvasの設定
 		 */
 		private function init():void{
-			this.title = "エクスポート/インポート";
 			this.name = "export";
 			this.setStyle("borderAlpha","1.0");
 			
 			var f:Form = new Form();//Layout用
 			f.name = "form";
 			this.addChild(f);
-			
-			var te:Text = new Text();//案内
-			te.text = "エクスポート/インポート";
-			te.setStyle("fontWeight","bold");
-			f.addChild(te);
 			
 			textarea = new TextArea();
 			textarea.name = "data";
@@ -66,10 +73,13 @@ package IO.Export {
 			b.addEventListener(MouseEvent.CLICK,eventCancel);
 			f.addChild(b);
 		}
+		/**
+		 * Popupに登録する
+		 */
 		private function setPanel():void{
-			var pop:TitleWindow = PopUpManager.createPopUp(this,TitleWindow,true) as TitleWindow;
-			pop.width = 820;
-			pop.height = 500;
+			pop = PopUpManager.createPopUp(menu,TitleWindow,true) as TitleWindow;
+			pop.width = 350;
+			pop.height = 450;
 			pop.setStyle("borderColor","black");
 			pop.setStyle("borderAlpha","0.3");
 			pop.showCloseButton = true;//右上の×ボタン
@@ -80,14 +90,20 @@ package IO.Export {
 			pop.addChild(this);//MLVキャンバスを載せる
 		}
 		/**
-		 * このパネルを閉じます。
+		 * ポップアップを閉じる
+		 */
+		private function eventClickPopupClose(event:Event):void{
+			PopUpManager.removePopUp(event.target as IFlexDisplayObject);
+		}
+		/**
+		 * このパネルを閉じる
 		 */
 		private function eventCancel(event:Event):Boolean{
-			this.parent.removeChild(this);
+			pop.dispatchEvent(new CloseEvent(CloseEvent.CLOSE) as Event);
 			return false;
 		}
 		/**
-		 * エクスポート/インポートしたデータを全選択します。
+		 * エクスポート/インポートしたデータを全選択する
 		 */
 		private function eventAllSelect(event:Event):Boolean{
 			textarea.setFocus();
@@ -95,17 +111,18 @@ package IO.Export {
 			return true;
 		}
 		/**
-		 * エクスポートします。
+		 * エクスポートする
 		 */
 		private function eventExport(event:Event):Boolean{
-			textarea.text = StaticFormIO.getData().toString();
+			textarea.text = StaticFormIO.getData(c.getNowForm().form_title.text,c.getNowForm()).toString();
 			return true;
 		}
 		/**
-		 * インポートします。
+		 * インポートする
 		 */
 		private function eventImport(event:Event):Boolean{
-			StaticFormIO.setData(StaticFormIO.importData(textarea.text.split(",")));
+			if(StaticFormIO.setData(StaticFormIO.importData(textarea.text.split(",")),c.getNowForm()))
+				Alert.show("インポートに成功しました。");
 			return true;
 		}
 	}

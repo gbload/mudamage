@@ -56,12 +56,19 @@ package IO.FileIO {
 			//上書き保存のチェック
 			var ch:Boolean = false;
 			var soa:Array = myso.data.mud;
-			if(soa == null){soa = new Array();soa.push(a);}
-			else{
+			if(soa == null){
+				soa = new Array();
+				soa.push(a);
+			}else{
 				for(var k:int=0;k<soa.length;k++){
-					if(soa[k][0] == a[0]){soa[k] = a;ch=true;break;}
+					if(soa[k][0] == a[0]){
+						soa[k] = a;
+						ch=true;
+						break;
+					}
 				}
-				if(ch == false){soa.push(a);}
+				if(ch == false)
+						soa.push(a);
 			}
 			myso.data.mud = soa;
 		
@@ -84,6 +91,25 @@ package IO.FileIO {
 		    return false;
 		}
 		/**
+		 * データを削除します。
+		 * @param title
+		 */
+		public static function deleteData(title:String):Boolean{
+			var myso:SharedObject = SharedObject.getLocal("mud");//現在保存されてるデータ
+			var ch:Boolean = false;
+			for(var i:int=0;i<myso.data.mud.length;i++){
+				if(myso.data.mud[i][0] == title){
+					myso.data.mud.splice(i,1);
+					ch = true;
+					break;
+				}
+			}
+			if(ch)
+				return true;
+			else
+				return false;
+		}
+		/**
 		 * 指定したタイトルが既に存在していないかチェックします。
 		 * 既に存在している場合、trueになります。
 		 * @param title
@@ -100,6 +126,21 @@ package IO.FileIO {
 				}
 			}
 			return ch;
+		}
+		/**
+		 * 保存されているデータのタイトル一覧を返します。
+		 * @return array タイトル一覧
+		 */
+		public static function getTitleList():Array{
+			var myso:SharedObject = SharedObject.getLocal("mud");//現在保存されてるデータ
+			var a:Array = new Array();
+			//読み込み
+			if(myso.data.mud != null){
+				for(var i:int=0;i<myso.data.mud.length;i++){
+					a.push("-" + myso.data.mud[i][0]);
+				}
+			}
+			return a;
 		}
 	}
 }
