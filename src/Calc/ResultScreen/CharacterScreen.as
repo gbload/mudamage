@@ -25,13 +25,13 @@ package Calc.ResultScreen {
 		/**
 		 * コンストラクタ
 		 */
-		public function CharacterScreen(d:FormMUDamage,f:Object,i:ItemData,c:CharacterData,a:AttackData) {
+		public function CharacterScreen(muc:Object) {
 			super();
-			this.d = d;
-			this.f = f;
-			this.i = i;
-			this.c = c;
-			this.a = a;
+			this.d = muc.d;
+			this.f = muc.f;
+			this.i = muc.i;
+			this.c = muc.c;
+			this.a = muc.a;
 			
 			init();
 		}

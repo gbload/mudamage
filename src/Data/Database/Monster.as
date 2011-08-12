@@ -1,6 +1,7 @@
 package Data.Database{
 	internal class Monster{
 		public static var data:Array = [
+["","防御無視",0,0,0,0,0,0,0],
 ["BC門・石造","BC門・石造",0,0,0,0,0,0,0],
 ["ロレンシア","スパイダー",2,40,6,8,1,1,8],
 ["ロレンシア","パージドラゴン",4,80,12,17,3,3,18],

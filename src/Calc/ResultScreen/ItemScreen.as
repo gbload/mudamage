@@ -24,12 +24,12 @@ package Calc.ResultScreen {
 		/**
 		 * コンストラクタ
 		 */
-		public function ItemScreen(d:FormMUDamage,f:Object,i:ItemData,c:CharacterData){
+		public function ItemScreen(muc:Object){
 			super();
-			this.d = d;
-			this.f = f;
-			this.i = i;
-			this.c = c;
+			this.d = muc.d;
+			this.f = muc.f;
+			this.i = muc.i;
+			this.c = muc.c;
 			
 			init();
 		}

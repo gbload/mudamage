@@ -31,6 +31,8 @@ package Data.Database
 				lv:0,str:1,agi:2,vit:3,ene:4,rec:5},
 			//7 set
 			{name:0,index:1,status:2,series:3},
+			//8 monster
+			{map:0,name:1,lv:2,hp:3,min:4,max:5,def:6,avoid:7,hit:8}
 		];
 	}
 }
