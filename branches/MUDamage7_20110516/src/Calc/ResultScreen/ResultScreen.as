@@ -15,22 +15,23 @@ package Calc.ResultScreen {
 	 * PVPダメージ計算の結果を表示する画面
 	 */
 	public class ResultScreen extends Form {
-		private var d:FormMUDamage;
-		private var f:Object;
-		private var i:ItemData;
-		private var c:CharacterData;
-		private var a:AttackData;
+		private var muc:Object;
+	
+		private static var mk:Object = D.getKey("monster");
 		
 		/**
 		 * コンストラクタ
 		 */
 		public function ResultScreen(d:FormMUDamage) {
 			super();
-			this.d = d;
-			this.f = (new FormData(d)).getData();
-			this.i = new ItemData(f);
-			this.c = (new CharacterCalculator(f,i)).getData();
-			this.a = (new AttackCalculator(f,i,c)).getData();
+			
+			muc = {};
+			
+			muc.d = d;
+			muc.f = (new FormData(muc.d)).getData();
+			muc.i = new ItemData(muc.f);
+			muc.c = (new CharacterCalculator(muc.f,muc.i)).getData();
+			muc.a = (new AttackCalculator(muc.f,muc.i,muc.c)).getData();
 			
 			init();
 		}
@@ -44,11 +45,28 @@ package Calc.ResultScreen {
 			var hbox:HBox = new HBox();
 			this.addChild(hbox);
 			// キャラクターステータス表示
-			hbox.addChild(new CharacterScreen(d,f,i,c,a));
+			hbox.addChild(new CharacterScreen(muc));
 			// キャラクター装備表示
-			hbox.addChild(new ItemScreen(d,f,i,c));
-			// ダメージ一覧Gridを表示
-			this.addChild(new DamageGrid(calcSkills()));
+			hbox.addChild(new ItemScreen(muc));
+			// モンスター取得
+			var monsters:Array = D.getData("monster") as Array;
+			var dc:DamageCalculator = new DamageCalculator(muc);
+			for(var i:int=0;i<monsters.length;i++){
+				if(i!=0 && monsters[i][mk.map]!=muc.f.calc.map)
+					continue;
+				// モンスター情報表示
+				this.addChild(createLabel(monsters[i]));
+				// ダメージ一覧Gridを表示
+				dc.setMonster(monsters[i]);
+				var dg:DamageGrid = new DamageGrid(calcSkills(monsters[i],dc));
+				this.addChild(dg);
+				// 被ダメージの行だけ色を変える
+				var colors:Array = dg.getStyle("alternatingItemColors");
+				for(var j:int=0;j<dg.rowCount;j++)
+					colors[j] = colors[j%2];
+				colors[dg.rowCount - 1] = 0xFFDDDD;
+				dg.setStyle("alternatingItemColors", colors);
+			}
 		}
 		/**
 		 * 閉じるボタン
@@ -66,11 +84,37 @@ package Calc.ResultScreen {
 			return button;
 		}
 		/**
+		 * ラベルを作成
+		 */
+		private function createLabel(m:Object):Label{
+			var label:Label = new Label();
+			var str:String = "";
+			// モンスター名
+			str += m[mk.name];
+			// Level
+			str += " Lv" + m[mk.lv];
+			// HP
+			str += " HP" + m[mk.name];
+			// 攻撃力 & 率
+			str += " 攻撃力" + m[mk.min] + "〜" + m[mk.max] + "(" + m[mk.hit] + ")";
+			// 防御力 & 率
+			str += " 防御力" + m[mk.def] + "(" + m[mk.avoid] + ")";
+			// 経験値
+			
+			label.text = str;
+			return label;
+		}
+		/**
 		 * ダメージを計算します。
 		 */
-		private function calcSkills():Array{
+		private function calcSkills(m:Object,dc:DamageCalculator):Array{
+			var d:FormMUDamage = muc.d;
+			var f:Object = muc.f;
+			var i:ItemData = muc.i;
+			var c:CharacterData = muc.c;
+			var a:AttackData = muc.a;
+			
 			var r:Array = new Array();
-			var dc:DamageCalculator = new DamageCalculator(f,i,c,a);
 			//命中率計算
 			var hit:int=0;
 		
@@ -130,6 +174,8 @@ package Calc.ResultScreen {
 					,hit:hit + "%"
 					,cri:x_cri,exd:x_exd});
 			}
+			// 被ダメージをスタック
+			r.push({minmax:dc.calcSuffer(m[mk.min]) + "～" + dc.calcSuffer(m[mk.max])});
 			return r;
 		}
 	}

@@ -33,7 +33,8 @@ package Calc {
 			boots:initProtect(),
 			status:initStatus(),
 			support:initSupport(),
-			master_skill:initMasterSkill()
+			master_skill:initMasterSkill(),
+			calc:initCalc()
 		};
 		private function initPet():Object{
 			return {
@@ -109,6 +110,11 @@ package Calc {
 		private function initMasterSkill():Object{
 			return {};
 		}
+		private function initCalc():Object{
+			return {
+				map:""
+			};
+		}
 		/**
 		 * コンストラクタ
 		 */
@@ -129,6 +135,7 @@ package Calc {
 			setStatus(d.form_status);
 			setSupport(d.form_support);
 			setMasterSkill(d.form_status.getMasterSkillTree());
+			setCalc(d.form_calc);
 		}
 		public function getData():Object{
 			return data;
@@ -245,6 +252,9 @@ package Calc {
 		private function setMasterSkill(form:Object):void{
 			data.status.mlv = parseInt(form.getLevel().text);
 			data.master_skill = form;
+		}
+		private function setCalc(form:Object):void{
+			data.calc.map = form.getMap().selectedLabel;
 		}
 	}
 }

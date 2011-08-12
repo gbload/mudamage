@@ -29,7 +29,8 @@ package Calc.ResultScreen {
 			createHeader();
 			// データの登録
 			this.dataProvider = result;
-			
+			// 行数の指定
+			this.rowCount = result.length;
 		}
 		/**
 		 * 初期化

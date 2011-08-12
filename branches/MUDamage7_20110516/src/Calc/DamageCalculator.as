@@ -17,11 +17,23 @@ package Calc {
 		private var i:ItemData;
 		private var c:CharacterData;
 		private var a:AttackData;
-		public function DamageCalculator(f:Object,i:ItemData,c:CharacterData,a:AttackData){
-			this.f = f;
-			this.i = i;
-			this.c = c;
-			this.a = a;
+		private var m:Object;
+
+		private static var mk:Object = D.getKey("monster");
+		/**
+		 * コンストラクタ
+		 */
+		public function DamageCalculator(muc:Object){
+			this.f = muc.f;
+			this.i = muc.i;
+			this.c = muc.c;
+			this.a = muc.a;
+		}
+		/**
+		 * モンスター登録
+		 */
+		public function setMonster(m:Object):void{
+			this.m = m;
 		}
 		/**
 		 * 攻撃ダメージを計算します。
@@ -131,7 +143,7 @@ package Calc {
 		 */
 		private function calcGuard1(s:int):int{
 			//引き算
-//			s = s - muc2.def/2;//(モンス攻撃 - DEF)
+			s = s - m[mk.def];//(モンス攻撃 - DEF)
 			return s;
 		}
 		/**
@@ -156,6 +168,36 @@ package Calc {
 //			//SBの減少
 //			s = s - Math.floor(s * muc2.support_sb/100);
 //			
+			return s;
+		}
+		/**
+		 * 被ダメージを計算します。
+		 */
+		public function calcSuffer(s:int):int{
+			s = s - c.def/2;//(モンス攻撃 - DEF)
+			
+			// 固定ダメ計算
+		    s = Math.max(s,Math.floor(m[mk.lv]/10));
+			
+		    //天使の吸収
+			if(f.pet.item == "守護天使")s = (s * 80 / 100);//20%吸収
+			//守護精霊の吸収
+			if(f.pet.item == "守護精霊")s = (s * 70 / 100);//30%吸収
+			//ディノラントの吸収
+			if(f.pet.item == "ディノラント"){
+				if(f.pet.sub1 == "ダメージ吸収+5%" || f.pet.sub2 == "ダメージ吸収+5%")
+					s = (s * 85 / 100);//15%吸収
+				else s = (s * 90 / 100);//10%吸収
+			}
+			//フェンリルの吸収
+			if(f.pet.item == "フェンリル" && f.pet.sub1 == "守護")s = (s * 90/100);//10%吸収
+			//ダークホースの吸収
+			if(f.pet.item == "ダークホース")s = (s * (100 - Math.floor((15 + parseInt(f.pet.sub1.split("v")[1])/2))) /100);// 15+Lv/2
+			//羽の吸収
+			s = (s * (100 - c.wing_dec) / 100);
+			//SBの減少
+			s = s - Math.floor(s * c.support_sb/100);
+			
 			return s;
 		}
 	}

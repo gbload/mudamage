@@ -71,7 +71,7 @@ package Data.Database
 			plus:null,
 			job_status:Key.key[3],
 			skill:Key.key[6],
-			monster:null
+			monster:Key.key[8]
 			
 		};
 		/**

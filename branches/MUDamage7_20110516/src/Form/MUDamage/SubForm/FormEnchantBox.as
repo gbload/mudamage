@@ -56,6 +56,7 @@ package Form.MUDamage.SubForm {
 		 * エンチャントの値フォームのデータを変更
 		 */
 		private function changeEnchantValue():void{
+			if(kind.selectedItem == null)return;
 			var index:int = value.selectedIndex;
 			var a:Array = new Array();
 			for(var i:int=kind.selectedItem[2];i<=plus.selectedIndex && i<=13;i++){

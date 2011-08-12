@@ -137,11 +137,11 @@ package Calc {
 			for(var j:int=0;j<a.length;j++){
 				if(a[j].kind == "セット" || a[j].kind == "ラッキー"){
 					//セットOPのステータス部分
-					setop_str += getValueMap(a[j].setop,"力");
-					setop_str += getValueMap(a[j].setop,"敏捷");
-					setop_str += getValueMap(a[j].setop,"体力");
-					setop_str += getValueMap(a[j].setop,"エナジー");
-					setop_str += getValueMap(a[j].setop,"統率");
+					setop_str += getValueMap(a[j].set_status,"力");
+					setop_str += getValueMap(a[j].set_status,"敏捷");
+					setop_str += getValueMap(a[j].set_status,"体力");
+					setop_str += getValueMap(a[j].set_status,"エナジー");
+					setop_str += getValueMap(a[j].set_status,"統率");
 					//セット名の取得
 					if(j==2 || j==9){//左手又はリング2のとき
 						if((a[j-1].kind == "セット" || a[j-1].kind == "ラッキー")
@@ -351,11 +351,11 @@ package Calc {
 		/**
 		 * 値のバリデート
 		 */
-		public function getValueMap(obj:Object,str:String):int{
-			if(obj!=null)
-				return validateValue(obj[str]);
-			Alert.show("Error getValueMap():"+str+"!");
-			return 0;
+		public function getValueMap(obj:Object,str:String,ch:Boolean=true):int{
+			if(ch && obj==null)
+				return 0;
+			return validateValue(obj[str]);
+//			Alert.show("Error getValueMap():"+str+"!");
 		}
 		/**
 		 * エンチャントOPを防具で丸ごと取得
