@@ -100,8 +100,12 @@ package Form.MUDamage {
 		 */
 		protected function changeSetop():void{
 			if(setop.visible){
-				var d:Object = D.getData(item.selectedItem.set_item)[item.selectedItem.set_index];
-				var k:Object = D.getKey(item.selectedItem.set_item);
+				var d:Object = D.getData(item.selectedItem.item)[item.selectedItem.index]; // ラッキー
+				var k:Object = D.getKey(item.selectedItem.item);
+				if(kind.selectedLabel == "セット"){
+					d = D.getData(item.selectedItem.set_item)[item.selectedItem.set_index];
+					k = D.getKey(item.selectedItem.set_item);
+				}
 				var str:String = d[k.status];
 				// インデックスの保持
 				var index:int = setop.selectedIndex;

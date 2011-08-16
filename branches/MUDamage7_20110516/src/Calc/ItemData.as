@@ -149,7 +149,7 @@ package Calc {
 						 	continue;
 					}
 					if(names[getSetItemData(a[j],"series")]==null)
-					     names[getSetItemData(a[j],"series")] = 0;
+					     names[getSetItemData(a[j],"series")] = 1;
 					else
 				         names[getSetItemData(a[j],"series")]++;
 				}
@@ -308,6 +308,8 @@ package Calc {
 		public function getRequire(obj:Object,str:String):int{
 			if(obj.item != null){
 				// validate
+				if(obj.item[obj.key.kind] == "ラッキー")
+					return 0;
 				if(obj.key[str]==null)
 					Alert.show("Error ItemCalculator getSpec():"+str+"");
 				// spec
@@ -335,6 +337,12 @@ package Calc {
 		 * 装備の情報を取得
 		 */
 		public function getSetItemData(obj:Object,str:String):Object{
+			if(obj.item[obj.key.kind] == "ラッキー"){
+				if(str == "series")
+					str = "setname";
+				if(obj.item != null)
+					return obj.item[obj.key[str]];
+			}
 			if(obj.set_item != null){
 				if(obj.set_key[str]==null)
 					Alert.show("Error ItemCalculator getItemData():"+str+"");

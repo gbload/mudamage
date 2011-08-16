@@ -163,29 +163,30 @@ package Calc.ResultScreen {
 		 * セットオプション
 		 */
 		private function setSetOption():void{
-//			ln();
-//			
-//			var setname:String = "";
-//			var setops:String = "";
-//			for each(var ii:Object in c.setop_names)//セット名
-//				if(ii.num >= 2)//2箇所以上
-//					for(var j:int=0;j<c.setop.length;j++)//セットOPのデータを繰り返し確認
-//						if(c.setop[j][0] == ii.label){//セット名の一致
-//							setname = ii.label;
-//							setops = setname + "\n";
-//							for(var k:int=2;k<=ii.num;k++){
-//								setops += c.setop[j][k][0] + "\n";
-//								if(k == c.setop[j][1] + 1){//フルOPを取得
-//									setops += "\n";
-//									for(var l:int=0;l<c.setop[j][k+1].length;l++){
-//										setops += c.setop[j][k+1][l][0] + "\n";
-//									}
-//								}
-//							}
-//							//表示
-//							text(setname + " " + (k-1),"cyan",setops);
-//							break;
-//						}
+			ln();
+			
+			var setname:String = "";
+			var setop_text:String = "";
+			var setops:Array=D.getData("set_option") as Array;
+			for(var ii:String in i.setop_names)//セット名
+				if(i.setop_names[ii] >= 2)//2箇所以上
+					for(var j:int=0;j<setops.length;j++)//セットOPのデータを繰り返し確認
+						if(setops[j][0] == ii){//セット名の一致
+							setname = ii;
+							setop_text = setname + "\n";
+							for(var k:int=2;k<=i.setop_names[ii];k++){
+								setop_text += setops[j][k][0] + "\n";
+								if(k == setops[j][1] + 1){//フルOPを取得
+									setop_text += "\n";
+									for(var l:int=0;l<setops[j][k+1].length;l++){
+										setop_text += setops[j][k+1][l][0] + "\n";
+									}
+								}
+							}
+							//表示
+							text(setname + " " + (k-1),"cyan",setop_text);
+							break;
+						}
 		}
 		private function setSupport():void{
 			ln();
