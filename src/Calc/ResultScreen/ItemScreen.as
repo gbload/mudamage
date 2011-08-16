@@ -132,6 +132,9 @@ package Calc.ResultScreen {
 					if(n!="")
 						str += n+"+"+f.neck.option[n].toString()+" ";
 				// tooltip
+				// require level
+				if(i.getItemData(f.neck,"lv")>0)
+					tooltip += "要求レベル:"+i.getItemData(f.neck,"lv").toString()+"\n";
 				// 表示
 				text(str,getColor(f.neck.kind));
 				// EXOP
@@ -163,6 +166,9 @@ package Calc.ResultScreen {
 					tooltip += "ペット:"+i.getSpec(obj,"pet").toString()+"%"+"\n";
 				if(i.getSpec(obj,"curse")>0)
 					tooltip += "呪い:"+i.getSpec(obj,"curse").toString()+"%"+"\n";
+				// require level
+				if(i.getItemData(obj,"lv")>0)
+					tooltip += "要求レベル:"+i.getItemData(obj,"lv").toString()+"\n";
 				// require
 				if(i.getRequire(obj,"str")>0)
 					tooltip += "要求力:"+i.getRequire(obj,"str").toString()+"\n";
@@ -203,6 +209,9 @@ package Calc.ResultScreen {
 				 */
 				// spec
 				tooltip += "防御力:"+i.getSpec(obj,"def").toString()+"\n";
+				// require level
+				if(i.getItemData(obj,"lv")>0)
+					tooltip += "要求レベル:"+i.getItemData(obj,"lv").toString()+"\n";
 				// require
 				if(i.getRequire(obj,"str")>0)
 					tooltip += "要求力:"+i.getRequire(obj,"str").toString()+"\n";
@@ -238,6 +247,9 @@ package Calc.ResultScreen {
 					if(n!="")
 						str += n+"+"+obj.option[n].toString()+" ";
 				// tooltip
+				// require level
+				if(i.getItemData(obj,"lv")>0)
+					tooltip += "要求レベル:"+i.getItemData(obj,"lv").toString()+"\n";
 				// 表示
 				text(str,getColor(obj.kind));
 				// EXOP

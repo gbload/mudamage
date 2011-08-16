@@ -30,6 +30,7 @@ package Data.Database
 			set_protect:	SetProtect.data,
 			set_weapon:		SetWeapon.data,
 			set_shield:		SetShield.data,
+			lucky:			Lucky.data,
 			accessory:		Accessory.data,
 			set_accessory:	SetAccessory.data,
 			plus:	Etc.plus,
@@ -71,7 +72,8 @@ package Data.Database
 			plus:null,
 			job_status:Key.key[3],
 			skill:Key.key[6],
-			monster:Key.key[8]
+			monster:Key.key[8],
+			lucky:Key.key[9]
 			
 		};
 		/**
@@ -99,6 +101,11 @@ package Data.Database
 			socket_protect_garter:		[getSelectProtect,[2,"腰"]],
 			socket_protect_glove:		[getSelectProtect,[2,"手"]],
 			socket_protect_boots:		[getSelectProtect,[2,"足"]],
+			lucky_protect_helm:			[getSelectProtect,[3,"兜"]],
+			lucky_protect_armor:		[getSelectProtect,[3,"鎧"]],
+			lucky_protect_garter:		[getSelectProtect,[3,"腰"]],
+			lucky_protect_glove:		[getSelectProtect,[3,"手"]],
+			lucky_protect_boots:		[getSelectProtect,[3,"足"]],
 			pet:	[getSelectSub,["pet"]],
 			wing:	[getSelectWing,[]],
 			neck:		[getSelectAccessory,["通常","ネックレス"]],
@@ -250,7 +257,7 @@ package Data.Database
 		 * 0.normal 1.set 2.socket
 		 */
 		private static function getSelectProtect(job:int,kind:int,type:String):Array{//typeの部位の防具の一覧を返す
-			var items:Array = ["protect","set_protect","socket_protect"];
+			var items:Array = ["protect","set_protect","socket_protect","lucky"];
 			var item:String = items[kind];
 			var a:Array = [];
 			var d:Object = getData(item);

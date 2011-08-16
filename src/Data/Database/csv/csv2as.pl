@@ -240,9 +240,21 @@ for($i=1;$i<@dat;$i++){
 			}
 		}
 	}elsif($id eq "map"){
-		# item,name,power,speed,type,require,job,pet,weapon,attr,special
+		# monster
 		for($j=0;$j<@dats;$j++){
 			push(@a,&L($dats[$j]));
+		}
+	}elsif($id eq "lucky"){
+		# item,name,kind,type,job,lv,speed,setstatus,setname,spec
+		for($j=0;$j<@dats;$j++){
+			if($j==4){ #job
+				push(@a,&printArray($j,$j+6,\@dats));
+				$j+=6;
+			}elsif($j==16){ # spec
+				push(@a,&merge(&inc3($dats[$j])));
+			}else{
+				push(@a,&L($dats[$j]));
+			}
 		}
 	}else{
 		print STDERR "Error!";
