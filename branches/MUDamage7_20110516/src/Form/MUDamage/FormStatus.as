@@ -257,7 +257,7 @@ package Form.MUDamage {
 //			if(dat::d.f_lv.text == "400"){
 				//PopUpManagerでモーダルON（背景をぼやかせる）
 				//PopUpはTitleWindowで作成
-				var pop:TitleWindow = PopUpManager.createPopUp(this,TitleWindow,true) as TitleWindow;
+				var pop:TitleWindow = PopUpManager.createPopUp(d,TitleWindow,true) as TitleWindow;
 				pop.width = 820;
 				pop.height = 500;
 				pop.setStyle("borderColor","black");

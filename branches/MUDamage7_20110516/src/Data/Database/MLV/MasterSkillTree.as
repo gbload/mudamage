@@ -16,7 +16,8 @@ package Data.Database.MLV
 			["加護","救援","疾風"],// elf   
 			["堅固","闘志","究極"],// magic   
 			["断固","正義","征服"],// darkload   
-			["守護","混沌","名誉"]// summoner   
+			["守護","混沌","名誉"],// summoner    
+			["成功","迫力","剛力"]// rage fighter   
 		                                ];
 		/**
 		 * 左のツリー　4x5
@@ -73,6 +74,13 @@ package Data.Database.MLV
 		    ["fire_book_mastery","wind_book_mastery","lightning_book_mastery","sleep"],
 		    ["chain_lightning","lightning_shock","","maximum_life"],
 		    ["magic_master","","life_drain","maximum_mana"],
+		],
+		[// rage fighter
+		    ["hit","","",""],
+		    ["killing_blow","beast_upper","",""],
+		    ["killing_blow_mastery","beast_upper_mastery","",""],
+		    ["defense_success_rate","","maximum_life","weapon_master"],
+		    ["chain_drive","dark_side","maximum_mana","dragon_roar"],
 		]
 		                                 ];
 		/**
@@ -120,7 +128,14 @@ package Data.Database.MLV
   		    ["rod_mastery","book_mastery","",""],
   		    ["berserker_mind","mana_consumption","monster_kill_sd","monster_kill_life"],
   		    ["berserker_mind_mastery","minimum_magic_curse","","monster_kill_mana"],
-  		]
+  		],
+  		[// rage fighter
+		    ["pvp_hit","","",""],
+		    ["glove","concentration","",""],
+		    ["glove_mastery","concentration_mastery","high_tension",""],
+		    ["defense_switch","mana_consumption","monster_kill_sd","monster_kill_life"],
+		    ["","minimum_attack","","monster_kill_mana"],
+		]
   		                                 ];
 	}
 }

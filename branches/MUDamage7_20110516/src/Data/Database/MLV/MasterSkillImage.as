@@ -368,5 +368,44 @@ package Data.Database.MLV
 		 [Bindable]
 		 [Embed(source="../../../../resource/image/new_mlv/6_57.jpg")]
 		 public static var img6_57:Class;
+		 [Bindable]
+			 [Embed(source="../../../../resource/image/new_mlv/7_1.jpg")]
+			 public static var img7_1:Class;
+		 [Bindable]
+			 [Embed(source="../../../../resource/image/new_mlv/7_2.jpg")]
+			 public static var img7_2:Class;
+		 [Bindable]
+			 [Embed(source="../../../../resource/image/new_mlv/7_3.jpg")]
+			 public static var img7_3:Class;
+		 [Bindable]
+			 [Embed(source="../../../../resource/image/new_mlv/7_4.jpg")]
+			 public static var img7_4:Class;
+		 [Bindable]
+			 [Embed(source="../../../../resource/image/new_mlv/7_5.jpg")]
+			 public static var img7_5:Class;
+		 [Bindable]
+			 [Embed(source="../../../../resource/image/new_mlv/7_6.jpg")]
+			 public static var img7_6:Class;
+		 [Bindable]
+			 [Embed(source="../../../../resource/image/new_mlv/7_7.jpg")]
+			 public static var img7_7:Class;
+		 [Bindable]
+			 [Embed(source="../../../../resource/image/new_mlv/7_8.jpg")]
+			 public static var img7_8:Class;
+		 [Bindable]
+			 [Embed(source="../../../../resource/image/new_mlv/7_9.jpg")]
+			 public static var img7_9:Class;
+		 [Bindable]
+			 [Embed(source="../../../../resource/image/new_mlv/7_10.jpg")]
+			 public static var img7_10:Class;
+		 [Bindable]
+			 [Embed(source="../../../../resource/image/new_mlv/7_11.jpg")]
+			 public static var img7_11:Class;
+		 [Bindable]
+			 [Embed(source="../../../../resource/image/new_mlv/7_12.jpg")]
+			 public static var img7_12:Class;
+		 [Bindable]
+			 [Embed(source="../../../../resource/image/new_mlv/7_13.jpg")]
+			 public static var img7_13:Class;
 	}
 }
