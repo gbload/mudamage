@@ -29,10 +29,8 @@ package Form.MUDamage
 		 */
 		public function FormMasterSkillTree(d:FormMUDamage){
 			this.d = d;
-			if(d.getJob().selectedIndex != 6){
-				initSkills();
-				initBox();
-			}
+			initSkills();
+			initBox();
 		}
 		/**
 		 * skillsの初期化
@@ -132,7 +130,9 @@ package Form.MUDamage
 		private function setTooltip(obj:Image,item:Array):void{
 			var str:String = "";
 			// 名前
-			str += item[MasterSkill.NAME]+"\n"
+			str += item[MasterSkill.NAME]+"\n";
+			// 説明
+			str += item[MasterSkill.DESCRIPTION]+"\n";
 			// 表示形式 display_type 0:なし 1:% 2:秒 3:÷
 			var display_type:int = item[MasterSkill.DISPLAY_TYPE];
 			// 値の取得
@@ -151,6 +151,8 @@ package Form.MUDamage
 			}
 			// tooltipに登録
 			obj.toolTip = str;
+			// tooltipのスタイル変更
+			ToolTip.maxWidth = 200;
 		}
 		/**
 		 * event

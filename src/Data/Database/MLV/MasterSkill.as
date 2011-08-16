@@ -65,6 +65,10 @@ package Data.Database.MLV
 		["minimum_magic_curse","最小魔力/呪い増加",2,0,MasterSkillImage.img6_57,""],
 		["command_attack","統率攻撃力増加",10,3,MasterSkillImage.img5_51,""],
 
+		// 防御強化
+		["defense_success_rate","防御成功率増加", 8,0,MasterSkillImage.img1_17,""],		
+		["defense_switch","防御力変換",10,3,MasterSkillImage.img7_13,"体力ステータスに応じて、防御力増加"],		
+		
 		// 武器強化
 		["one_hand_sword","片手剣強化",2,0,MasterSkillImage.img1_45,""],
 		["one_hand_sword_mastery","片手剣マスタリ",17,0,MasterSkillImage.img1_49,""],
@@ -89,6 +93,8 @@ package Data.Database.MLV
 		["rod_mastery","ロッドマスタリ",8,0,MasterSkillImage.img6_48,""],
 		["book","神具強化",3,0,MasterSkillImage.img6_45,""],
 		["book_mastery","神具マスタリ",17,0,MasterSkillImage.img6_49,""],
+		["glove","グローブ強化",2,0,MasterSkillImage.img7_8,""],
+		["glove_mastery","グローブマスタリ",0,1,MasterSkillImage.img7_10,"ダブルダメージ確率増加"],
 		
 		// 防具強化
 		["shield","盾強化",5,0,MasterSkillImage.img3_46,""],
@@ -124,6 +130,13 @@ package Data.Database.MLV
 		["darkspirit1","ダークスピリット強化1",3,0,MasterSkillImage.img5_44,""],
 		["darkspirit2","ダークスピリット強化2",1,1,MasterSkillImage.img5_48,""],
 		["darkspirit3","ダークスピリット強化3",0,1,MasterSkillImage.img5_56,""],
+		["killing_blow","クリングブロー強化",2,0,MasterSkillImage.img7_1,""],
+		["killing_blow_mastery","クリングブローマスタリ",0,1,MasterSkillImage.img7_3,""],
+		["beast_upper","ビーストアッパー強化",2,0,MasterSkillImage.img7_2,""],
+		["beast_upper_mastery","ビーストアッパーマスタリ",0,1,MasterSkillImage.img7_4,""],
+		["chain_drive","チェーンドライブ強化",2,0,MasterSkillImage.img7_5,""],
+		["dark_side","ダークサイド強化",2,0,MasterSkillImage.img7_6,""],
+		["dragon_roar","ドラゴンロアー強化",2,0,MasterSkillImage.img7_7,""],
 		
 		// 魔法スキル強化
 		["burning_hammer","バーニングハンマー強化",3,0,MasterSkillImage.img2_24,""],
@@ -163,6 +176,10 @@ package Data.Database.MLV
 		["critical_plus3","クリティカルプラス強化3",1,1,MasterSkillImage.img5_37,""],
 		["berserker_mind","バーサーカーマインド強化",1,1,MasterSkillImage.img6_52,""],
 		["berserker_mind_mastery","バーサーカーマインドマスタリ",1,1,MasterSkillImage.img6_56,""],
+		["concentration","コンセントレーション強化",-1,0,MasterSkillImage.img7_9,""],
+		["concentration_mastery","コンセントレーションマスタリ",-1,0,MasterSkillImage.img7_11,""],
+		["high_tension","ハイテンション強化",8,0,MasterSkillImage.img7_12,""],
+		
 		// その他
 		["pet_endurance","ペット耐久力減少",9,1,MasterSkillImage.img5_57,""],
 		];
