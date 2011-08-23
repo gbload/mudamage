@@ -4,6 +4,7 @@ package IO.FileIO {
 	import mx.controls.*;
 	
 	import Form.MUDamage.*;
+	import Data.Resource.*;
 	
 	public class StaticFormIO {
 		/**
@@ -113,9 +114,8 @@ package IO.FileIO {
 			a[17] = new Array();//マップ
 			a[17][0] = d.form_calc.getMap().selectedIndex;
 			a[18] = d.form_status.getMasterSkillTree().getLevel().text;
-			a[19] = new Array();
-//			for(i=0;i<=MLV.num;i++)//マスターレベル
-//				a[19][i] = mlvcount.getSkill(i);
+			//バージョン情報
+			a[19] = Version.version_number;
 			//2009/11/04
 			//ペットサブフォーム
 			a[20] = new Array();
@@ -141,9 +141,16 @@ package IO.FileIO {
 			return a;
 		}
 		/**
-		 * 計算フォームからデータを取得します。
+		 * データを計算フォームに入れます。
 		 */
-		public static function setData(a:Array,d:FormMUDamage):Boolean{
+		public static function setData(a2:Array,d:FormMUDamage):Boolean{
+			var a:Array;
+			// version check
+			if(parseInt(a2[19]) >= 2.20){// latest version
+				a = a2;
+			}else{
+				a = importData(a2.toString().split(/,/g));
+			}
 			//タイトル
 			d.form_title.text = a[0];
 			//ジョブ
@@ -362,10 +369,13 @@ package IO.FileIO {
 			a[16][5] = parseInt(a2[index++]);
 			a[17] = new Array();//マップ
 			a[17][0] = parseInt(a2[index++]);
-			a[18] = a2[index++]
-			a[19] = new Array();
-//			for(i=0;i<=MLV.num;i++)//マスターレベル
-//				a[19][i] = parseInt(a2[index++]);
+			a[18] = a2[index++];
+			if(a2[index] == "")
+				a[19] = "2.20";
+			else if(a2[index].length > 1)
+				a[19] = a2[index++];
+			else
+				index+=51;
 			//2009/11/04
 			//ペットサブフォーム
 			a[20] = new Array();

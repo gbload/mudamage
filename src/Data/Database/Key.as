@@ -35,7 +35,9 @@ package Data.Database
 			{map:0,name:1,lv:2,hp:3,min:4,max:5,def:6,avoid:7,hit:8},
 			//9 lucky
 			{item:0,name:1,kind:2,type:3,job:4,lv:5,speed:6,status:7,setname:8,series:9,spec:10,
-				def:0}
+				def:0},
+			//10 speed
+			{type:0,a:1,b:2,check:3,lower:0,upper:1}
 		];
 	}
 }
