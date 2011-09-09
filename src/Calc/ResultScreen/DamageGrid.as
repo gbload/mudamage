@@ -1,4 +1,5 @@
 package Calc.ResultScreen {
+	import mx.core.ClassFactory;
 	import mx.containers.*;
 	import mx.controls.*;
 	import mx.controls.dataGridClasses.DataGridColumn;
@@ -12,9 +13,9 @@ package Calc.ResultScreen {
 		 */
 		private static var headers:Array = [
 				["skillname","スキル名",150],
-				["hitper","1HITダメージ/秒",150],
+				["averageper","1HITダメージ/秒",150],
 				["speed","回/分",0],
-				["even","1HIT平均",0],
+				["average","1HIT平均",0],
 				["minmax","最小〜最大",150],
 				["cri","クリティカル",0],
 				["exd","EXD",0],
@@ -49,6 +50,7 @@ package Calc.ResultScreen {
 				dgc.dataField = h[0];
 				dgc.headerText = h[1];
 				if(h[2] != 0)dgc.width = h[2];
+				dgc.itemRenderer = new ClassFactory(itemRenderer01);
 				a.push(dgc);
 			}
 			
