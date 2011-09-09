@@ -39,6 +39,7 @@ package Data.Database
 			socket_option2:	Option.socket2,
 			set_option: Option.set_option,
 			skill: Skill.data,
+			speed: Etc.speed,
 			map:	Etc.map,
 			monster: Monster.data,
 			pet:	Pet.pet,
@@ -73,7 +74,8 @@ package Data.Database
 			job_status:Key.key[3],
 			skill:Key.key[6],
 			monster:Key.key[8],
-			lucky:Key.key[9]
+			lucky:Key.key[9],
+			speed:Key.key[10]
 			
 		};
 		/**

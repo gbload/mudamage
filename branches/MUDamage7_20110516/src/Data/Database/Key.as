@@ -37,7 +37,7 @@ package Data.Database
 			{item:0,name:1,kind:2,type:3,job:4,lv:5,speed:6,status:7,setname:8,series:9,spec:10,
 				def:0},
 			//10 speed
-			{type:0,a:1,b:2,check:3,lower:0,upper:1}
+			{type:0,a:1,b:2,checks:3,lower:0,upper:1,speed:1,check_flags:2}
 		];
 	}
 }

@@ -200,5 +200,138 @@ package Calc {
 			
 			return s;
 		}
+		/**
+		 * ダメージを計算します。
+		 */
+		public function calcSkills():Array{
+			var r:Array = new Array();
+			//命中率計算
+			var hit:int = calcHit(c,m);
+			
+			//ダメージ計算
+			for(var n:String in a.skills){
+				var data:ResultData = new ResultData();
+				data.skillname = a.skills[n].skill[a.key.name];
+				data.hit_num = hit;
+				data.hit_check = isHit(c,m);
+				// damage calculation
+				var func:Function = calcDamage;
+				if(a.skills[n].skill[a.key.type]=="魔法"){
+					func = calcMagicDamage;
+				}
+				data.min = func(a.skills[n],a.skills[n].min,false,false);
+				data.max = func(a.skills[n],a.skills[n].max,false,false);
+				data.cri = func(a.skills[n],a.skills[n].cri,true,false);
+				data.exd = func(a.skills[n],a.skills[n].exd,false,true);
+				//1HIT当たりのダメージを計算
+				data.average = calcAverage(data,a,c);//1hit当たりのダメージ
+				//1HITダメージ/秒
+				data.averageper = calcAveragePerSecond(n,data,a);
+				//1分当たりの攻撃回数を計算
+				data.speed = calcSpeedPerMinute(n,a);
+				//データの整形
+				data.minmax = data.min + "〜" + data.max;
+				data.hit = (hit*100) + "%";
+				//計算結果をスタック
+				r.push(data);
+			}
+			// 被ダメージをスタック
+			r.push({minmax:calcSuffer(m[mk.min]) + "～" + calcSuffer(m[mk.max])});
+			return r;
+		}
+		/**
+		 * 命中率計算
+		 * @param character data
+		 * @param monster data
+		 * @return hit
+		 */
+		private function calcHit(c:CharacterData,m:Object):int{
+			var hit:int = 0;
+			if(c.hit < m[mk.avoid])
+				hit = 0.05;
+			else
+				hit = 1 - (m[mk.avoid] / c.hit);
+			return hit;
+		}
+		/**
+		 * カスリダメージの有無
+		 * @param character data
+		 * @param monster data
+		 * @return カスリダメージの場合、true
+		 */
+		private function isHit(c:CharacterData,m:Object):Boolean {
+			return (c.hit < m[mk.avoid]);
+		}
+		/**
+		 * 1hit当たりの平均ダメージ
+		 * @param result data
+		 * @param attack data
+		 * @param character data
+		 * @return average damage
+		 */
+		private function calcAverage(data:ResultData,a:AttackData,c:CharacterData):int{
+			var hit1:int=0;//1hit当たりのダメージ
+			if(data.skillname == "フレイムハンド(単体)"){//ダークスピリット
+//				hit1 += x_max * muc1.darkspirit[5]/100;//クリティカル率
+//				hit1 += ((x_min + x_max)/2) * (100 - muc1.darkspirit[5]) / 100;//通常
+			}else if(data.skillname == "フレイムハンド(範囲)"){//フレイムハンド範囲
+				//クリティカル確率0%
+//				hit1 += ((x_min + x_max)/2);//通常
+			}else{//通常
+				hit1 += data.exd * c.exd / 100;//EXD
+				hit1 += data.cri * c.cri / 10000;//クリ
+				hit1 += ((data.min + data.max)/2) * c.normal / 10000;//通常
+				hit1 += hit1 * c.wd/100;//WD
+			}
+			// 命中率計算
+			if(data.hit_check)
+				hit1 *= 0.3;
+			hit1 *= data.hit_num;
+			return hit1;
+		}
+		/**
+		 * １秒当たりの1hit平均ダメージ
+		 * @param result data
+		 * @param attack data
+		 * @return damage
+		 */
+		private function calcAveragePerSecond(n:String,data:ResultData,a:AttackData):int{
+			var second:int=0;
+			if(a.skills[n].speed[0])second = data.average * 1000/a.skills[n].speed[0];
+			else second = 0;
+			return second;
+		}
+		/**
+		 * １分当たりの攻撃回数
+		 * @param attack data
+		 * @return attack count
+		 */
+		private function calcSpeedPerMinute(n:String,a:AttackData):String{
+			var minute:String;
+			if(!a.skills[n].speed[0])minute="0";//0だった場合
+			else minute = (Math.floor(600000/a.skills[n].speed[0])/10).toString();//攻撃回数計算
+			if(!a.skills[n].speed[0] || a.skills[n].speed[1]==0)minute += "?";//不明又は未検証の場合
+			return minute;
+		}
 	}
+}
+class ResultData{
+	/**
+	 * 表示用
+	 */
+	public var skillname:String = ""; //スキル名
+	public var averageper:int = 0; //1秒当たりの1hitダメージ
+	public var speed:String = ""; //１分当たりの攻撃回数
+	public var average:int = 0; //1hit当たりの平均ダメージ
+	public var minmax:String = ""; //最小最大ダメージ
+	public var hit:String = ""; //命中率
+	public var cri:int = 0; //クリティカルダメージ
+	public var exd:int = 0; //エクセレントダメージ
+	/**
+	 * 計算用
+	 */
+	public var min:int = 0; //最小ダメージ
+	public var max:int = 0; //最大ダメージ
+	public var hit_num:int = 0; //命中率
+	public var hit_check:Boolean = false; //カスリダメージの有無
 }

@@ -65,10 +65,72 @@ package Calc {
 				// スキルを追加
 				var skill:Skill = new Skill();
 				skill.skill = s[n];
-				a.skills.push(skill);
 				// 速度を計算 TODO
+				skill.speed = calcSpeed(s[n][a.key.speed],s[n][a.key.type]);
+				a.skills.push(skill);
 				// MasterSkillを追加 TODO
 			}
+		}
+		/**
+		 * スキルの攻撃速度を計算します。
+		 * @param index of skill
+		 * @return speed
+		 */
+		private function calcSpeed(i:Object,type:String):Array{
+			var r:Array = new Array();
+			r[0] = 0;
+			r[1] = 0;
+			
+			var data:Object = D.getData("speed");
+			var key:Object = D.getKey("speed");
+			
+			var index:int = 0;
+			if(f.pet.item == "ユニリア" || f.pet.item == "ディノラント")
+				index = a.key.uni;
+			else if(f.pet.item == "フェンリル")
+				index = a.key.fenrir;
+			else if(f.pet.item == "ダークホース")
+				index = a.key.darkhorse;
+			
+			if(i[index] == -1){
+				return r;
+			}
+			var speed_data:Array = data[i[index]] as Array;
+			
+			var speed:int = c.speed;
+			if(type=="魔法")speed = c.magic_speed;
+			
+			if(speed_data[key.type] == 0){
+				r[0] = speed_data[key.speed];
+				r[1] = speed_data[key.check_flag];
+			}else if(speed_data[key.type] == 1){
+				r[0] = (Math.floor(speed_data[key.a]/(speed+speed_data[key.b]))+1)*40;
+				for(var n:Object in speed_data[key.checks]){
+					if(speed_data[key.checks][n][key.lower] <= speed
+							&& speed_data[key.checks][n][key.upper] >= speed){
+						r[1] = 1;
+					}
+				}
+			}else if(speed_data[key.type] == 2){
+				r[0] = (Math.floor(speed_data[key.a]/(speed+speed_data[key.b]))+1)*40 + 60;
+				for(var n2:Object in speed_data[key.checks]){
+					if(speed_data[key.checks][n2][key.lower] <= speed
+							&& speed_data[key.checks][n2][key.upper] >= speed){
+						r[1] = 1;
+					}
+				}	
+			}else if(speed_data[key.type] == 3){
+				for(var m:int = 0; m < speed_data[1].length ; m++){
+					if(speed_data[1][m][0] > speed){
+						if(m>=0){
+							r[0] = speed_data[1][m-1][1];
+							r[1] = speed_data[1][m-1][2];
+						}
+						break;
+					}
+				}
+			}
+			return r;
 		}
 		/**
 		 * 攻撃魔力計算

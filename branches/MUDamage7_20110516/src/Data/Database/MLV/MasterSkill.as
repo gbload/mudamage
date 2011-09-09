@@ -176,8 +176,8 @@ package Data.Database.MLV
 		["critical_plus3","クリティカルプラス強化3",1,1,MasterSkillImage.img5_37,""],
 		["berserker_mind","バーサーカーマインド強化",1,1,MasterSkillImage.img6_52,""],
 		["berserker_mind_mastery","バーサーカーマインドマスタリ",1,1,MasterSkillImage.img6_56,""],
-		["concentration","コンセントレーション強化",-1,0,MasterSkillImage.img7_9,""],
-		["concentration_mastery","コンセントレーションマスタリ",-1,0,MasterSkillImage.img7_11,""],
+		["concentration","コンセントレーション強化",2,0,MasterSkillImage.img7_9,"防御成功率向上\n10+(ene/50)+X\n※Xはマスタースキルの値"],
+		["concentration_mastery","コンセントレーションマスタリ",2,0,MasterSkillImage.img7_11,"防御力増加"],
 		["high_tension","ハイテンション強化",8,0,MasterSkillImage.img7_12,""],
 		
 		// その他

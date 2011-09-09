@@ -17,7 +17,7 @@ package Data.Database.MLV
 			["堅固","闘志","究極"],// magic   
 			["断固","正義","征服"],// darkload   
 			["守護","混沌","名誉"],// summoner    
-			["成功","迫力","剛力"]// rage fighter   
+			["根性","意志","破壊"]// rage fighter   
 		                                ];
 		/**
 		 * 左のツリー　4x5
@@ -79,7 +79,7 @@ package Data.Database.MLV
 		    ["hit","","",""],
 		    ["killing_blow","beast_upper","",""],
 		    ["killing_blow_mastery","beast_upper_mastery","",""],
-		    ["defense_success_rate","","maximum_life","weapon_master"],
+		    ["weapon_master","","maximum_life",""],
 		    ["chain_drive","dark_side","maximum_mana","dragon_roar"],
 		]
 		                                 ];
@@ -133,7 +133,7 @@ package Data.Database.MLV
 		    ["pvp_hit","","",""],
 		    ["glove","concentration","",""],
 		    ["glove_mastery","concentration_mastery","high_tension",""],
-		    ["defense_switch","mana_consumption","monster_kill_sd","monster_kill_life"],
+		    ["","mana_consumption","monster_kill_sd","monster_kill_life"],
 		    ["","minimum_attack","","monster_kill_mana"],
 		]
   		                                 ];
