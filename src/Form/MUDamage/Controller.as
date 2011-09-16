@@ -2,6 +2,8 @@ package Form.MUDamage {
 	import mx.controls.*;
 	import mx.containers.*;
 	import mx.core.*;
+	
+	import IO.FileIO.*;
 	/**
 	 * FormMUDamageをジョブ毎に管理する
 	 * @author sinlion
@@ -11,6 +13,9 @@ package Form.MUDamage {
 		private var container:Container;
 		private var forms:Array;
 		private var now_form:FormMUDamage;
+	
+//		private var init_data:Array;
+//		private var exports:Array;
 		/**
 		 * コンストラクタ
 		 */
@@ -21,6 +26,9 @@ package Form.MUDamage {
 			now_form = createForm();
 			forms.push(now_form);
 			container.addChild(now_form);
+//			// exports init
+//			exports = new Array();
+//			init_data = StaticFormIO.getData(now_form.form_title.text,now_form);
 			// あらかじめ他の職のフォームも作成しておく
 //			for(var i:int=1;i<7;i++){
 //				var form:FormMUDamage = createForm(i); 
@@ -44,6 +52,7 @@ package Form.MUDamage {
 		 * フォームの変更
 		 */
 		public function changeForm(job:int):void{
+//			for(var n:String in exports){
 			for each(var form:FormMUDamage in forms){
 				if(form.getJob().getOldJob() == job){
 //					container.removeChild(now_form);
@@ -61,7 +70,17 @@ package Form.MUDamage {
 			forms.push(now_form);
 			container.addChild(now_form);
 			now_form.visible = true;
-			
+//			// export
+//			now_form.getJob().setJob(now_form.getJob().getOldJob());
+//			exports[now_form.getJob().selectedIndex] = StaticFormIO.getData(now_form.form_title.text,now_form);
+//			// import
+//			if(exports[job]!=null){
+//				StaticFormIO.setData(exports[job],now_form);
+//			}else{
+//				StaticFormIO.setData(init_data,now_form);
+//				now_form.getJob().setJob(job);
+//				now_form.reset();
+//			}
 		}
 		/**
 		 * 計算結果の表示

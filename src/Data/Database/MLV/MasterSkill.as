@@ -103,7 +103,7 @@ package Data.Database.MLV
 		
 		// 攻撃スキル強化
 		["cyclone","真空斬り強化",0,0,MasterSkillImage.img1_24,""],
-		["slash","ファイナルスラッシュ",3,0,MasterSkillImage.img1_25,""],
+		["slash","ファイナルスラッシュ強化",3,0,MasterSkillImage.img1_25,""],
 		["falling_slash","烈斬強化",3,0,MasterSkillImage.img1_26,""],
 		["lunge","牙突強化",3,0,MasterSkillImage.img1_27,""],
 		["twisting_slash","トルネードクラッシュ強化",3,0,MasterSkillImage.img1_28,""],

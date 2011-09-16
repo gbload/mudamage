@@ -28,7 +28,8 @@ package Form.MUDamage {
 					normal 	: displayNormal,
 					exellent: displayEx,
 					set: displaySet,
-					shop : displayShop
+					shop : displayShop,
+					special : displaySpecial
 				};
 			KIND_ARRAY = [
 			              ["なし"	,kinds.none],
@@ -36,6 +37,7 @@ package Form.MUDamage {
 			              ["EX"	,kinds.exellent],
 			              ["セット"	,kinds.set],
 			              ["ショップ"	,kinds.shop],
+			              ["スペシャル"	,kinds.special]
 			            ];
 		}
 		/**
@@ -48,12 +50,23 @@ package Form.MUDamage {
 				// アイテムの追加
 				if(type==1)item.dataProvider = D.getSelect("shop_ring");
 				else if(type==2)item.dataProvider = D.getSelect("set_ring");
+				else if(type==3)item.dataProvider = D.getSelect("special_ring");
 				else item.dataProvider = D.getSelect("ring");
 				old_type = type;
 			}
 			// イベントの呼び出し
 			item.dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);
 			return true;
+		}
+		/**
+		 * 特別アイテムの表示
+		 */
+		private function displaySpecial():void{
+			hideAll();
+			FormCommon.show(item);
+
+			changeItem(3);
+			
 		}
 	}
 }

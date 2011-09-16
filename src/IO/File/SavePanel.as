@@ -164,6 +164,8 @@ package IO.File {
 				// リストを更新
 				updateList();
 				return false;
+			}else if(event.type == "close" && (event as CloseEvent).detail == Alert.NO){
+				return false;
 			}
 			//削除するデータをチェック
 			var ch:Boolean = StaticFileIO.isDuplication(title);

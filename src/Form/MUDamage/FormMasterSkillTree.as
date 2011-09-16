@@ -199,6 +199,11 @@ package Form.MUDamage
 			if(skills[name]==null)Alert.show("Error:"+name);
 			return skills[name];
 		}
+		public function getSkillValue(name:String):int{
+			var skill:Object = getSkill(name);
+			if(skill.count == null || parseInt(skill.count.text)==0)return 0;
+			else return MasterSkillValue.value[skill.item[MasterSkill.VALUE_TYPE]][parseInt(skill.count.text)-1];
+		}
 		public function getLevel():TextInput{
 			return level;
 		}

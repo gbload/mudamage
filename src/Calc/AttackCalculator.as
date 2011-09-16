@@ -65,10 +65,17 @@ package Calc {
 				// スキルを追加
 				var skill:Skill = new Skill();
 				skill.skill = s[n];
-				// 速度を計算 TODO
+				// 速度を計算
 				skill.speed = calcSpeed(s[n][a.key.speed],s[n][a.key.type]);
 				a.skills.push(skill);
-				// MasterSkillを追加 TODO
+				// MasterSkillを追加
+				var index:String = MasterSkillToSkill.getEnhancement(s[n][a.key.name]);
+				if(index!=null)
+					skill.m_attack = f.master_skill.getSkillValue(index);
+				index = MasterSkillToSkill.getMastery(s[n][a.key.name]);
+				if(index!=null)
+					skill[MasterSkillToSkill.getMasteryType(s[n][a.key.name])] 
+					      = f.master_skill.getSkillValue(index);
 			}
 		}
 		/**
@@ -208,30 +215,26 @@ package Calc {
 		    d += i.getValueMap(f[hand].option,"攻撃");//武器の追加攻撃力
 		    d += i.getValueMap(f.wing.option,"攻撃");//Ｒ ＝ Ｒ ＋ 羽追加攻撃力 
 
-//		    //マスタースキル最小最大
-//		    if(min){//最小
-//		    	d += weapon_min;
-//		        //マスタースキル
-//		        if(dat::mlvcount.min_attack)d += MLV.inf_min_attack[dat::mlvcount.min_attack];
-//		        if(dat::mlvcount.min_attack_magic)d += MLV.inf_min_attack_magic[dat::mlvcount.min_attack_magic];
-//		    }else{//最大
-//		        //マスタースキル
-//		        d += weapon_max;
-//		        if(dat::mlvcount.max_attack)d += MLV.inf_max_attack[dat::mlvcount.max_attack];
-//		        if(dat::mlvcount.max_attack_magic)d += MLV.inf_max_attack_magic[dat::mlvcount.max_attack_magic];
-//		    }
+		    //マスタースキル最小最大
+		    if(min){//最小
+		    	d += f.master_skill.getSkillValue("minimum_attack");
+		    }
+		    d += f.master_skill.getSkillValue("weapon_master");
+		    
 //		    //サンタ、かぼちゃ、桜
 //		    d += etc_attack;
 //			
-//		    //[魔法師の指輪装備時]　Ｘ ＝ int(Ｘ × 1.1)
-//		    if(etc_mahouring){d = Math.floor(d * 1.1);}
-//		    //[大魔法師の爪装備時] Y = int(Y * 1.15)
-//		    if(etc_daimahouring){d = Math.floor(d * 1.15);}
-//		    //[デーモン]
-//		    if(c.deamon){d += Math.floor(d * 0.4);}
-//		    
-//		    //[スケルトンパージドラゴン装備時] Y = int(Y * 1.2)
-//		    if(c.skelton){d = Math.floor(d * 1.2);}
+		    //[魔法師の指輪装備時]　Ｘ ＝ int(Ｘ × 1.1)
+		    if(i.getItemData(f.ring1,"name") == "魔法師の指輪" || i.getItemData(f.ring2,"name") == "魔法師の指輪")
+		    	d = Math.floor(d * 1.1);
+		    //[大魔法師の爪装備時] Y = int(Y * 1.15)
+		    if(i.getItemData(f.ring1,"name") == "大魔法師の爪" || i.getItemData(f.ring2,"name") == "大魔法師の爪")
+		    	d = Math.floor(d * 1.15);
+		    //[デーモン]
+		    if(f.pet.item == "デーモン")d += Math.floor(d * 0.4);
+
+		    //[スケルトンパージドラゴン装備時] Y = int(Y * 1.2)
+		    if(f.pet.item == "スケルトンパージドラゴン")d = Math.floor(d * 1.2);
 		    
 		    //[武器のEXOPに攻撃力増加+LV/20がある時]　Ｒ ＝ Ｒ ＋ int(レベル ÷ 20) 
 		    if(bowcheck){//左手の弓のみ（ボウガンの時のみ）
@@ -256,15 +259,15 @@ package Calc {
 		    if(i.getValueMap(f.neck.exop,"攻撃2%"))d += Math.floor(d*0.02);
 
 		    if(min){//最小
-//		        d += setop_min;//[セットOP]X = X + 最小攻撃力増加
+		        d += i.setop_min;//[セットOP]X = X + 最小攻撃力増加
 		        d += i.getValueMap(f[hand].enchant,"最小攻撃力");//[エンチャントOP]X = X + 最小攻撃力増加
 		        d += i.getSocket(f[hand],"最小攻撃魔力");//[ソケットOP]X = X + 最小攻撃力増加
 		    }else{//最大
-//		        d += setop_max;//[セットOP]X = X + 最大攻撃力増加
+		        d += i.setop_max;//[セットOP]X = X + 最大攻撃力増加
 		        d += i.getValueMap(f[hand].enchant,"最大攻撃力");//[エンチャントOP]X = X + 最大攻撃力増加
 		        d += i.getSocket(f[hand],"最大攻撃魔力");//[ソケットOP]X = X + 最大攻撃力増加
 		    }
-//		    d += setop_attack;//[セットOP]X = X + 攻撃力増加
+		    d += i.setop_attack;//[セットOP]X = X + 攻撃力増加
 		    d += i.getValueMap(f[hand].enchant,"攻撃力");//[エンチャントOP]X = X + 攻撃力増加
 		    d += i.getSocket(f[hand],"攻撃魔力増加");//[ソケットOP]X = X + 攻撃力増加
 		    d += i.getValueMap(f[hand].socket_bonus,"攻撃力");//[ソケットボーナス]X = X +攻撃力増加 
@@ -313,12 +316,12 @@ package Calc {
 				}
 				//スキル攻撃力
 				//アースシェイク
-				if(skill.skill[a.key.name] != "アースシェイク"){
-	//				d += ((c.darkhorse * 10) + Math.floor(c.str/10) + Math.floor(c.rec/5));
-				}else if(skill.skill[a.key.name] != "カオティックディセイアー"){//カオス
+				if(skill.skill[a.key.name] == "アースシェイク"){
+					d += (((f.pet.sub1_index+1) * 10) + Math.floor(c.str/10) + Math.floor(c.rec/5));
+				}else if(skill.skill[a.key.name] == "カオティックディセイアー"){//カオス
 					//if(exd)d += 87;
 					//else d += Math.floor(c.rec/20);
-					d += Math.floor(c.rec/20);
+//					d += Math.floor(c.rec/20);
 				}
 				//弓の場合、マルチショット特殊減少
 				if(!bowcheck && skill.skill[a.key.name] == "マルチショット"){
@@ -609,4 +612,7 @@ class Skill{
 	public var cri:int=0;
 	public var exd:int=0;
 	public var speed:Array=[0,0];
+	// master skill
+	public var m_attack:int=0;
+	public var m_wd:int=0;
 }

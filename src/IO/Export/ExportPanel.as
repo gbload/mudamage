@@ -121,7 +121,9 @@ package IO.Export {
 		 * インポートする
 		 */
 		private function eventImport(event:Event):Boolean{
-			if(StaticFormIO.setData(StaticFormIO.importData(textarea.text.split(",")),c.getNowForm()))
+			var data:Array = StaticFormIO.importData(textarea.text.split(","));
+			c.changeForm(data[1]);
+			if(StaticFormIO.setData(data,c.getNowForm()))
 				Alert.show("インポートに成功しました。");
 			return true;
 		}

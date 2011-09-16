@@ -36,6 +36,19 @@ package Form.MUDamage {
 			
 			initForm();
 		}
+		public function reset():void{
+			str.text = "";
+			agi.text = "";
+			vit.text = "";
+			ene.text = "";
+			rec.text = "";
+			//統率フォームを非表示にする
+			if(d.getJob().selectedLabel != "ダークロード")
+				rec.parent.visible = false;
+			//値を初期化
+			level.dispatchEvent(new FocusEvent(FocusEvent.FOCUS_OUT) as Event);
+			
+		}
 		/**
 		 * フォームを初期化
 		 */

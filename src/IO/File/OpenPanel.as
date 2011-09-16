@@ -128,6 +128,7 @@ package IO.File {
 			if(a == null){
 				return false;
 			}
+			c.changeForm(a[1]);
 			StaticFormIO.setData(a,c.getNowForm());
 			Alert.show("[" + title + "]" + "を開きました。");
 			//ウインドウを閉じる
