@@ -115,7 +115,8 @@ package Data.Database
 			shop_neck:	[getSelectAccessory,["ショップ","ネックレス"]],
 			ring:		[getSelectAccessory,["通常","リング"]],
 			set_ring:	[getSelectAccessory,["セット","リング"]],
-			shop_ring:	[getSelectAccessory,["ショップ","リング"]]
+			shop_ring:	[getSelectAccessory,["ショップ","リング"]],
+			special_ring: [getSelectAccessory,["スペシャル","リング"]]
 		};
 		/**
 		 * データを取得

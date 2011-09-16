@@ -37,7 +37,10 @@ package Form.MUDamage {
 			//ペットを選択するフォーム
 			var co:ComboBox = new ComboBox();
 			item = co;
-			co.dataProvider = D.getSelect("pet");
+			var data:Array = D.getSelect("pet") as Array;
+			if(d.getJob().selectedLabel == "ダークロード")
+				data.push("ダークホース");
+			co.dataProvider = data;
 			co.rowCount = 20;
 			co.addEventListener(ListEvent.CHANGE,eventChangeItem);
 			this.addChild(co);

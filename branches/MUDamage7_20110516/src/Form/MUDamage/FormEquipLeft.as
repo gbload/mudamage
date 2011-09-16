@@ -57,7 +57,7 @@ package Form.MUDamage {
 		protected function createDarkspiritLevel():void{
 			darkspirit_level = new ComboBox();
 			var a:Array = new Array();
-			for(var i:int=0; i<=50; i++)
+			for(var i:int=1; i<=50; i++)
 				a.push("LV"+i);
 			darkspirit_level.dataProvider = a;
 			FormCommon.hide(darkspirit_level);

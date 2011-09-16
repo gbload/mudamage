@@ -65,12 +65,16 @@ package Form.MUDamage {
 			// 兜
 			form_helm = new FormEquipProtect(this,"helm");
 			main.addChild(form_helm);
+			if(getJob().selectedLabel == "魔剣士")
+				form_helm.visible = false;
 			// 鎧
 			form_armor = new FormEquipProtect(this,"armor");
 			main.addChild(form_armor);
 			// 手
 			form_glove = new FormEquipProtect(this,"glove");
 			main.addChild(form_glove);
+			if(getJob().selectedLabel == "レイジファイター")
+				form_glove.visible = false;
 			// 腰
 			form_garter = new FormEquipProtect(this,"garter");
 			main.addChild(form_garter);
@@ -153,6 +157,12 @@ package Form.MUDamage {
 		 */
 		public function getFormBoots():FormEquip{
 			return form_boots;
+		}
+		/**
+		 * 初期化
+		 */
+		public function reset():void{
+			form_status.reset();
 		}
 		public function addMain(c:Container):void{
 			main.addChild(c);

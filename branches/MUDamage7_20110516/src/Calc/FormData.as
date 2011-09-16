@@ -150,6 +150,7 @@ package Calc {
 		private function setPet(form:Object,obj:Object):void{
 			obj.item = form.getItem().selectedLabel;
 			obj.sub1 = form.getItem().selectedLabel;
+			obj.sub1_index = form.getItem().selectedIndex;
 			obj.sub2 = form.getItem().selectedLabel;
 		}
 		private function setWing(form:Object,obj:Object):void{
