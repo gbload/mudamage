@@ -41,7 +41,10 @@ package Calc.ResultScreen {
 			setWing();
 			setNeck();
 			setWeapon("右:",f.right,d.form_right);
-			setWeapon("左:",f.left,d.form_left);
+			if(i.is_shield)
+				setProtect("左:",f.left,d.form_left,true);
+			else
+				setWeapon("左:",f.left,d.form_left);
 			setProtect("兜:",f.helm,d.form_helm);
 			setProtect("鎧:",f.armor,d.form_armor);
 			setProtect("手:",f.glove,d.form_glove);
@@ -194,7 +197,7 @@ package Calc.ResultScreen {
 		/**
 		 * 防具を表示
 		 */
-		private function setProtect(label:String,obj:Object,form:Object):void{
+		private function setProtect(label:String,obj:Object,form:Object,is_shield:Boolean=false):void{
 			ln();
 			text(label);
 			// str
@@ -209,6 +212,8 @@ package Calc.ResultScreen {
 				 */
 				// spec
 				tooltip += "防御力:"+i.getSpec(obj,"def").toString()+"\n";
+				if(is_shield)
+					tooltip += "防御成功率:"+i.getSpec(obj,"avoid").toString()+"\n";
 				// require level
 				if(i.getItemData(obj,"lv")>0)
 					tooltip += "要求レベル:"+i.getItemData(obj,"lv").toString()+"\n";
