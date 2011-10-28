@@ -46,31 +46,38 @@ package Calc {
 			
 			var d2:int = 0;
 		    //[セットOP]両手武器装備時ダメージ増加%用
-//		    if(muc1.op_hands){
-//				d2 = calcGuard1(muc1,muc2,(d - muc1.op_miracle));
-//			    d2 = Math.max(d2,Math.floor((muc1.lv - muc1.add_lv)/10));//モンスDEF
-//			    d2 = calcGuard2(muc1,muc2,d2);
-//			    
-//			    d2 = Math.floor(d2 * muc1.op_hands / 100);
-//		    }
+		    if(i.setop_hands){
+				d2 = calcGuard1(d);
+			    d2 = Math.max(d2,Math.floor(f.status.lv/10));//モンスDEF
+			    d2 = calcGuard2(d2);
+			    // 両手武器装備時ダメージ増加%用
+			    d2 = Math.floor(d2 * i.setop_hands / 100);
+		    }
 			
-		    //ダメージ計算
+		    //追加攻撃力(A+等)
+		    d += a.add;
+		    
+		    /* 
+		     * 固定ダメージ前計算
+		     */
 			d = calcGuard1(d);
+			/*
+			 * 固定ダメージ判断
+			 */
 		    d = Math.max(d,Math.floor(f.status.lv/10));//モンスDEF
-		    d = calcGuard2(d);
 		    
 		    //[セットOP]両手武器装備時ダメージ増加%
-//		    if(muc1.op_hands)d += d2;
+		    if(i.setop_hands)d += d2;
 		    //[課金アイテム]クリダメ増加%
 //		    if(cri)d += Math.floor(d * muc1.etc_cri / 100);
 		    //[課金アイテム]EXDダメ増加%
 //		    if(exd)d += Math.floor(d * muc1.etc_exd / 100);
 	
-//		    if(muc1.dinolunt[0])d += Math.floor(d*15/100);//ディノラント
+		    if(f.pet.item=="ディノラント")d += Math.floor(d*15/100);//ディノラント
 		    if(f.pet.item=="サタン")d += Math.floor(d*30/100);//サタン
 		    
 		    d += Math.floor(d * i.getSpec(f.wing,"inc")/100);//羽
-//		    if(muc1.fenrir==2)d += Math.floor(d*10/100);//フェンリル
+		    if(f.pet.item=="フェンリル" && f.pet.sub1=="破壊")d += Math.floor(d*10/100);//フェンリル
 		    
 		    //スキル%
 		    if(skill.skill[a.key.name] == "プラズマストーム"){
@@ -83,18 +90,23 @@ package Calc {
 		    }else if(f.job == "エルフ"){//エルフのとき TODO 乱れ打ちなどを特殊スキルに
 		    	d += 0;//乱れ打ちとか　スキル%なし
 		    }else if(f.job == "レイジファイター"){//レイジファイターのとき
-//		    	if(muc1.now_skill[5] == 10)//武器スキル、チェーンドライブ
-//		    		d += Math.floor(d * Math.floor((50 + muc1.vit/10))/100);//スキル%
-//		    	else if(muc1.now_skill[5] == 11)//ダークサイド
-//		    		d += Math.floor(d * Math.floor((100 + muc1.agi/8 + muc1.ene/10))/100);//スキル%
-//		    	else if(muc1.now_skill[5] == 12)//ドラゴンロアー
-//		    		d += Math.floor(d * Math.floor((50 + muc1.ene/10))/100);//スキル%
+		    	if(skill.skill[a.key.special] == "近接")//武器スキル、チェーンドライブ
+		    		d = Math.floor(d * Math.floor((50 + c.vit/10))/100);//スキル%
+		    	else if(skill.skill[a.key.special] == "広域")//ダークサイド
+		    		d = Math.floor(d * Math.floor((100 + c.agi/8 + c.ene/10))/100);//スキル%
+		    	else if(skill.skill[a.key.special] == "連続")//ドラゴンロアー
+		    		d = Math.floor(d * Math.floor((50 + c.ene/10))/100);//スキル%
 		    }else{
 		    	d += d;//スキル200%
 		    }
 		    
+		    /*
+		     * 固定ダメージ後計算
+		     */
+		    d = calcGuard2(d);
+		    
 		    //[セットOP]ダメージ増加
-//		    d += muc1.op_damage;
+		    d += i.setop_damage;
 		    //コンボスキル
 		    if(skill.skill[a.key.special] == "コンボ"){
 		    	d += Math.floor((c.str + c.agi + c.ene)/2);
@@ -114,17 +126,14 @@ package Calc {
 		    d = Math.max(d,Math.floor(f.lv/10));//max[攻撃力-モンス,lv/10]
 		    d = calcGuard2(d);
 		    
-//		    if(muc1.dinolunt[0])d += Math.floor(d*15/100);//ディノラント
+		    if(f.pet.item=="ディノラント")d += Math.floor(d*15/100);//ディノラント
 		    if(f.pet.item=="サタン")d += Math.floor(d*30/100);//サタン
-		    //[デーモン]
-//		    if(muc1.deamon){d += Math.floor(d * 0.4);}
-		    d += Math.floor(d*i.getSpec(f.wing,"inc")/100);
-//		    if(muc1.fenrir==2)d += Math.floor(d*10/100);//フェンリル
+		    
+		    d += Math.floor(d*i.getSpec(f.wing,"inc")/100);//羽
+		    if(f.pet.item=="フェンリル" && f.pet.sub1=="破壊")d += Math.floor(d*10/100);//フェンリル
 		    
 		    //[セットOP]ダメージ増加
-//		    d += muc1.op_damage;
-		    //サドゥンアイス
-//		    if(muc1.now_skill[5])d += muc1.now_skill[6];
+		    d += i.setop_damage;
 		    
 		    return d;
 			

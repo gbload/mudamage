@@ -143,29 +143,22 @@ package Calc {
 		 * 攻撃魔力計算
 		 */
 		private function calc():void{
-			var r_min:int=0;
-			var r_max:int=0;
-			var l_min:int=0;
-			var l_max:int=0;
-			// 魔法
-			var x_min:int=0;
-			var x_max:int=0;
 			/*
 			 * 攻撃力
 			 */
 			if((i.getItemData(f.right,"item") as String)=="武器"){
-			    r_min = calcAttack("right",true);//右手
-			    r_max = calcAttack("right",false);//右手
+			    a.right.min = calcAttack("right",true);//右手
+			    a.right.max = calcAttack("right",false);//右手
 			}
 		    if((i.getItemData(f.left,"item") as String)=="武器"){//左手
-		    	l_min = calcAttack("left",true);
-		    	l_max = calcAttack("left",false);
+		    	a.left.min = calcAttack("left",true);
+		    	a.left.max = calcAttack("left",false);
 		    }
 	    	// 追加攻撃力(A+など)
     		a.add = calcAddAttack();//A+とか
 		    // キャラクターの攻撃力
-		    a.attack.min = r_min + l_min;
-		    a.attack.max = r_max + l_max;
+		    a.attack.min = a.right.min + a.left.min;
+		    a.attack.max = a.right.max + a.left.max;
 			// キャラクターの魔力
 			a.magic.min = calcMagic(true);//MIN
 		    a.magic.max = calcMagic(false);//MAX
@@ -189,7 +182,9 @@ package Calc {
 		    	a.skills[n].cri = func(a.skills[n],true,false,false);// クリ
 		    	a.skills[n].exd = func(a.skills[n],false,true,false);// EXD
 		    	// スキルの場合のみ特殊計算
-		    	if(a.skills[n].skill[a.key.type]=="スキル"){
+		    	if(a.skills[n].skill[a.key.type]=="スキル" && 
+		    			(i.getItemData(f.left,"item") as String)=="武器"){
+		    		// 左手計算
 			    	a.skills[n].min += func(a.skills[n],false,false,true,"left");// 最小
 			    	a.skills[n].max += func(a.skills[n],false,false,false,"left");// 最大
 			    	a.skills[n].cri += func(a.skills[n],true,false,false,"left");// クリ
@@ -197,6 +192,9 @@ package Calc {
 		    	}
 		    }
 		}
+		/**
+		 * 攻撃力計算
+		 */
 		private function calcAttack(hand:String,min:Boolean):int{
 		    var d:int = 0;
 		
@@ -294,20 +292,25 @@ package Calc {
 			}
 		    return d;
 		}
+		/**
+		 * スキル攻撃力計算
+		 */
 		private function calcAttackSkill(skill:Skill,cri:Boolean,exd:Boolean,min:Boolean,hand:String="right"):int{
-			var d:int=a.attack.max;
-			if(min)d=a.attack.min;
-			//後半ダメージ計算=============================================
-			var s:int=0;//スキル威力保持用
-			var dual:int=1;
-			
+			// 攻撃力
+			var d:int = 0;
+			if(hand=="right"){
+				d=a.right.max;
+				if(min)d=a.right.min;
+			}else{
+				d=a.left.max;
+				if(min)d=a.left.min;
+			}
+
 		    var bowcheck:Boolean = true;//弓の場合、左手でfalse
 //		    if(c.job == 2 && dat::d.f_right.f_kind.selectedLabel != "なし"
 //		    	&& dat::d.f_right.f_item.selectedItem[3] == "弓"
 //		    	&& dat::d.f_right.f_item.selectedItem[4] == "片手")
 //		    		bowcheck = false;
-			
-			if(i.is_dual_wield)dual=2;//二刀流計算時
 			
 			if(hand=="right"){
 				//ダークロード特殊ダメージ
@@ -336,17 +339,30 @@ package Calc {
 			    }
 			}
 		    //属性ダメージ
-		    //本当は左手に持っていくものだけど倍率係数で変化がないので、簡略化のためここで2倍
-//			d += c.now_skill[4]*i;
+			var tmp_acc:Array = [f.neck,f.ring1,f.ring2];
+			for(var n:String in tmp_acc)
+				if(tmp_acc[n].set_item != null && 
+						skill.skill[a.key.attr] == i.getItemData(tmp_acc[n],"attr"))
+					d += 5;
 			
 			//スキル攻撃力増加
-//			d += c.op_skill;
+			d += i.setop_skill;//[セットOP]
+		    d += i.getValueMap(f[hand].enchant,"スキル攻撃力");//[エンチャントOP]
+		    d += i.getSocket(f[hand],"スキル増加");//[ソケットOP]
+		    d += i.getValueMap(f[hand].socket_bonus,"スキル");//[ソケットボーナス]
+			d += skill.m_attack;//[マスタースキルのスキル強化]
 			
 			// EXD
 			if(exd)d += Math.floor(d*0.2);
 		    
 		    //ダメージ増加系統
-//		    if(exd)d += c.op_exd;//EXD増加
+			if(exd){
+				// EXD増加
+		    	d += i.getSocket(f.right,"EXD増加");//ソケットOP
+		    	d += i.getSocket(f.left,"EXD増加");//ソケットOP
+//		    	d += ;//マスタースキル C+ EXD増加
+		    	d += i.setop_exd;//セットOP
+			}
 		    if(cri||exd){
 		    	//クリダメ増加
 		    	d += i.getSocket(f.right,"クリ増加");//ソケットOP
@@ -354,8 +370,8 @@ package Calc {
 		    	d += i.getValueMap(f.right.enchant,"Cダメ");//エンチャントOP
 		    	d += i.getValueMap(f.left.enchant,"Cダメ");//エンチャントOP
 		    	d += c.support_c;//C+
-//		    	if(hand == "right")
-//		    		d += setop_cri;//クリダメ増加
+		    	if(hand == "right")
+		    		d += i.setop_cri;//セットOP
 		    }
 
 		    return d;
@@ -387,6 +403,9 @@ package Calc {
 			}
 			return d;
 		}
+		/**
+		 * 追加攻撃力計算
+		 */
 		private function calcAddAttack():int{
 			var d:int=0;
 		    //妙薬・A＋・セラ
@@ -396,6 +415,9 @@ package Calc {
 		    
 			return d;
 		}
+		/**
+		 * 魔力計算
+		 */
 		private function calcMagic(min:Boolean):int{
 		    var d:int=0;
 		    //最大魔力==================================================================
@@ -470,6 +492,9 @@ package Calc {
 		    
 		    return d;
 		}
+		/**
+		 * 魔法スキル計算
+		 */
 		private function calcMagicSkill(skill:Skill,cri:Boolean,exd:Boolean,min:Boolean):int{
 		    var d:int = a.magic.max;
 			if(min)d=a.magic.min;
@@ -519,6 +544,9 @@ package Calc {
 //			}
 //			return c;
 //		}
+		/**
+		 * 呪い計算
+		 */
 		private function calcCurse(min:Boolean):int{
 			var d:int=0;
 			//エナジー
@@ -536,6 +564,9 @@ package Calc {
 			
 			return d;
 		}
+		/**
+		 * 呪いスキル計算
+		 */
 		private function calcCurseSkill(skill:Skill,cri:Boolean,exd:Boolean,min:Boolean):int{
 			var d:int=a.curse.max;
 			if(min)d=a.curse.min;
@@ -558,8 +589,11 @@ package Calc {
 			}
 			return d;
 		}
-		private function calcPlasmaStorm(d:int,skill:Skill,cri:Boolean,exd:Boolean,min:Boolean):int{
-			use namespace calc;
+		/**
+		 * プラズマストーム計算
+		 */
+		private function calcPlasmaStorm(skill:Skill,cri:Boolean,exd:Boolean,min:Boolean,hand:String="right"):int{
+			if(hand=="left")return 0;
 			var d:int=0;
 		    //攻撃力=================================================================
 			if(f.job == "ナイト"){
@@ -586,7 +620,13 @@ package Calc {
 		    //EXD
 			if(exd)d += Math.floor(d*0.2);
 		    //ダメージ増加系統
-//		    if(exd)d += c.op_exd;//EXD増加
+			if(exd){
+				// EXD増加
+		    	d += i.getSocket(f.right,"EXD増加");//ソケットOP
+		    	d += i.getSocket(f.left,"EXD増加");//ソケットOP
+//		    	d += ;//マスタースキル C+ EXD増加
+		    	d += i.setop_exd;//セットOP
+			}
 		    if(cri||exd){
 		    	//クリダメ増加
 		    	d += i.getSocket(f.right,"クリ増加");//ソケットOP
@@ -594,7 +634,7 @@ package Calc {
 		    	d += i.getValueMap(f.right.enchant,"Cダメ");//エンチャントOP
 		    	d += i.getValueMap(f.left.enchant,"Cダメ");//エンチャントOP
 		    	d += c.support_c;//C+
-//		    	d += setop_cri;//クリダメ増加
+		    	d += i.setop_cri;//クリダメ増加
 		    }
 		    
 		    return d;

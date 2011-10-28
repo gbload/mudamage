@@ -102,12 +102,12 @@ package Calc {
 		private function calcFlag():void{
 			// 二刀流の有無
 			if(f.right.kind != "なし" && f.left.kind != "なし")
-				if((getSpec(f.left,"item") as String)=="武器")
+				if((getItemData(f.left,"item") as String)=="武器")
 					is_dual_wield=true;
 			// 防具のリスト
 			protects=[f.helm,f.armor,f.garter,f.glove,f.boots];
 			if(f.left.kind != "なし")
-				if((getSpec(f.left,"item") as String)=="防具"){
+				if((getItemData(f.left,"item") as String)=="防具"){
 					protects.unshift(f.left); // 盾の追加
 					is_shield=true; // 盾の有無
 				}
@@ -291,7 +291,8 @@ package Calc {
 			if(obj.item != null){
 				// validate
 				if(obj.key[str]==null)
-					Alert.show("Error ItemCalculator getSpec():"+str+"");
+					Alert.show("Error ItemData getSpec():"+str+"");
+				obj.key[str].toString();
 				// spec
 				var spec:int = obj.key.spec;
 				if(obj.item[obj.key.kind] == "EX")
@@ -311,7 +312,8 @@ package Calc {
 				if(obj.item[obj.key.kind] == "ラッキー")
 					return 0;
 				if(obj.key[str]==null)
-					Alert.show("Error ItemCalculator getSpec():"+str+"");
+					Alert.show("Error ItemData getSpec():"+str+"");
+				obj.key[str].toString();
 				// spec
 				var req:int = obj.key.require;
 				if(obj.item[obj.key.kind] == "EX")
@@ -328,7 +330,8 @@ package Calc {
 		public function getItemData(obj:Object,str:String):Object{
 			if(obj.item != null){
 				if(obj.key[str]==null)
-					Alert.show("Error ItemCalculator getItemData():"+str+"");
+					Alert.show("Error ItemData getItemData():"+str+"");
+				obj.key[str].toString();
 				return obj.item[obj.key[str]];
 			}
 			return null;
@@ -345,7 +348,8 @@ package Calc {
 			}
 			if(obj.set_item != null){
 				if(obj.set_key[str]==null)
-					Alert.show("Error ItemCalculator getItemData():"+str+"");
+					Alert.show("Error ItemData getItemData():"+str+"");
+				obj.set_key[str].toString();
 				return obj.set_item[obj.set_key[str]];
 			}
 			return null;

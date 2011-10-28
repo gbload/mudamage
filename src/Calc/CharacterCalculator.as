@@ -103,19 +103,18 @@ package Calc {
 				c.def += i.getSpec(i.protects[n],"def");
 				c.def += i.getValue(i.protects[n].option["防御"]);
 				// シリーズのチェック
-				if(n==0){
-					check = (i.getItemData(i.protects[n],"series")) as String;
-					min_lv = i.protects[n].plus;
-				}else{
-					if(check != i.getItemData(i.protects[n],"series"))
-						check = "none";
-					if(min_lv > i.protects[n].plus)
+				if((i.getItemData(i.protects[n],"type")) as String != "盾"){
+					if(n==0){
+						check = (i.getItemData(i.protects[n],"series")) as String;
 						min_lv = i.protects[n].plus;
+					}else{
+						if(check != i.getItemData(i.protects[n],"series"))
+							check = "none";
+						if(min_lv > i.protects[n].plus)
+							min_lv = i.protects[n].plus;
+					}
 				}
 			}
-			// 盾のDEF
-			if(i.is_shield)
-				c.def += i.getSpec(f.left,"def");
 			// 羽のDEF
 			c.def += i.getSpec(f.wing,"def");
 			c.def += i.getValue(f.wing.option["防御"]);
@@ -125,16 +124,19 @@ package Calc {
 				if(min_lv>9)
 					c.def += Math.floor(c.def*((min_lv-9)*0.05));
 			//MLVDEF
+			c.def += f.master_skill.getSkillValue("defense");
+			//MLV盾強化
+			// TODO
 			//セットの盾装備時
-//			if(shield_check)de += Math.floor(de*setop_shield/100);
+			if(i.is_shield)c.def += Math.floor(c.def*i.setop_shield/100);
 			//ソケットの盾装備時
 			if(i.is_shield)c.def += Math.floor(c.def*(i.getSocketProtects("盾装備時増加"))/100);
 			//セットのDEF増加
-//			de += setop_def;
+			c.def += i.setop_def;
 			//ソケットのDEF増加
 			c.def += i.getSocketProtects("防御力増加") * 2;
 			//ボーナスソケットのDEF増加
-//			de += sobonus_def * 2;
+			c.def += i.getSocketBonusProtects("防御力") * 2;
 			//エンチャントのDEF増加
 			c.def += i.getEnchantProtects("防御力上昇");
 			//かぼちゃ、課金などのでDEF増加
@@ -159,6 +161,8 @@ package Calc {
 				c.avoid += i.getSpec(f.left,"avoid");
 				c.avoid += i.getValue(f.left.option["防御率"]);
 			}
+			// MasterSkill
+			c.avoid += f.master_skill.getSkillValue("avoidance");
 			// EXOP,ソケットOP
 			for(var n:Object in i.protects){
 				// EXOP
@@ -168,12 +172,12 @@ package Calc {
 				c.avoid += Math.floor(c.avoid * i.getSocket(i.protects[n],"防御成功"));
 			}
 			var avoid_ori:int = c.avoid;
-			// MasterSkill
-//			c.avoid += 
 			// サポートスキル、コンセントレーション
 			c.avoid += c.support_avoid;
 			// 統一ボーナス
 			if(check!="none")c.avoid += Math.floor(avoid_ori * 0.1);//統一ボーナス
+			// MasterSkill 盾強化
+			// TODO
 		}
 		/**
 		 * 対人防御成功率の計算
@@ -185,6 +189,7 @@ package Calc {
 			// エンチャント
 			c.pvp_avoid += i.getEnchantProtects("対人防御成功");
 			// MasterSkill
+			c.pvp_avoid += f.master_skill.getSkillValue("pvp_avoidance");
 			// 380op
 			for(var n:Object in i.protects)
 				if(i.protects[n]["op380"])
@@ -200,9 +205,11 @@ package Calc {
 			if(f.job=="ダークロード")
 				c.hit += c.rec/inc[3];
 			// セットOP
+			c.hit += i.setop_hit;
 			// ソケットOP
 			c.hit += i.getSocketProtects("攻撃成功率");
 			// MasterSkill
+			c.hit += f.master_skill.getSkillValue("hit");
 		}
 		/**
 		 * 対人攻撃成功率の計算
@@ -215,6 +222,7 @@ package Calc {
 			c.pvp_hit += i.getValue(f.right.enchant["対人攻撃率"]);
 			c.pvp_hit += i.getValue(f.left.enchant["対人攻撃率"]);
 			// MasterSkill
+			c.pvp_hit += f.master_skill.getSkillValue("pvp_hit");
 			// 380OP
 			if(f.right.op380)
 				c.pvp_hit += 10;
@@ -234,6 +242,8 @@ package Calc {
 			c.life = c.add_vit * inc[1];//セットとソケットの体力＋
 			//HP
 			c.life += tmp;
+			// MasterSkill
+			c.life += f.master_skill.getSkillValue("maximum_life");
 			/*
 			 * %の部分
 			 */
@@ -254,8 +264,7 @@ package Calc {
 			/*
 			 * 足し算の部分
 			 */
-//			if(mlvcount.hp)hp += MLV.inf_hp[mlvcount.hp];//MLV
-//			hp += setop_hp;//セットOPの生命
+			c.life += i.setop_hp;//セットOPの生命
 			c.life += i.getEnchantProtects("最大生命上昇");//エンチャントOPの生命
 			c.life += i.getSocketBonusProtects("最大生命");//ボーナスソケットの生命増加
 			c.life += i.wing_life;//羽の生命増加
@@ -279,6 +288,8 @@ package Calc {
 			c.mana += c.add_ene*inc[1];//セットのエナ＋
 			//マナ
 			c.mana += tmp;
+			//MasterSkill
+			c.mana += f.master_skill.getSkillValue("maximum_mana");
 			/*
 			 * %増加部分
 			 */
@@ -295,7 +306,7 @@ package Calc {
 			/*
 			 * 足し算部分
 			 */
-//			mana += setop_mana;//セットOPのマナ＋
+			c.mana += i.setop_mana;//セットOPのマナ＋
 			c.mana += i.wing_mana;//羽
 //			c.mana += etc_mana;//かぼちゃ、課金などでのマナ増加
 			if(f.pet.item=="フェンリル" && f.pet.sub1=="黄金")
@@ -309,7 +320,9 @@ package Calc {
 			c.sd = (c.lv * c.lv / 30) + 
 							((c.str+c.agi+c.vit+c.ene+c.rec)*1.2) +
 							c.def/2;
-//			if(mlvcount.sd)sd += MLV.inf_sd[mlvcount.sd];//MLV
+			
+			c.sd += f.master_skill.getSkillValue("maximum_sd");
+			
 			if(f.boots.op380)
 				c.sd += 700;//380OP
 		}
@@ -320,8 +333,8 @@ package Calc {
 			var inc:Array = D.getData("job_ag")[f.job_index];
 			// ステータス
 			c.ag = Math.floor((c.str*inc[0])+(c.agi*inc[1])+(c.vit*inc[2])+(c.ene*inc[3])+(c.rec*inc[4]));
-//			if(mlvcount.ag)ag += MLV.inf_ag[mlvcount.ag];//MLV
-//			ag += setop_ag;//セットOP
+			c.ag += f.master_skill.getSkillValue("maximum_ag");
+			c.ag += i.setop_ag;//セットOP
 			c.ag += i.getEnchantProtects("最大AG上昇");//エンチャントOP
 			c.ag += i.getSocketProtects("最大AG増加");//ソケットOP
 			if(f.pet.item=="ディノラント")
@@ -353,7 +366,9 @@ package Calc {
 			speed += i.getSocket(f.right,"速度増加");
 			speed += i.getSocket(f.left,"速度増加");
 			//その他
-//			if(f.ring1==""){speed += 10;}//魔法師
+			if((f.ring1.item=="魔法師の指輪" || f.ring2.item=="魔法師の指輪")
+			 	|| (f.ring1.item=="大魔法師の爪" || f.ring2.item=="大魔法師の爪"))
+				{speed += 10;}//魔法師
 //			if(etc_sake){speed += 20;}//酒
 //			speed += etc_speed;//かぼちゃ、課金など
 			if(f.pet.item=="デーモン"){speed += 10;}//デーモン
@@ -374,7 +389,7 @@ package Calc {
 			if(f.right.exop["EXD"])exd += 10;
 			if(f.left.exop["EXD"])exd += 10;
 			if(f.neck.exop["EXD"])exd += 10;
-//			exd += setop_exdper;//セットOPEXD
+			exd += i.setop_exdper;//セットOPEXD
 			// ソケットOP
 			exd += i.getSocket(f.right,"EXD確率");
 			exd += i.getSocket(f.left,"EXD確率");
@@ -385,7 +400,7 @@ package Calc {
 			for(var n:Object in equips)
 				if(equips[n].luck)
 					cri += 4;
-//			cri += setop_criper;//セットOPクリ
+			cri += i.setop_criper;//セットOPクリ
 			// ソケットOP
 			exd += i.getSocket(f.right,"クリ確率");
 			exd += i.getSocket(f.left,"クリ確率");
@@ -438,11 +453,11 @@ package Calc {
 			
 			//防御無視
 			c.ignore += i.wing_ignore;//羽
-//			c.ignore += setop_ignore;//セットOP
+			c.ignore += i.setop_ignore;//セットOP
 			c.ignore += c.support_ignore;//レイジファイターバフ
 			
 			//ダブルダメージ
-//			c.wd += setop_w;//セットOP
+			c.wd += i.setop_w;//セットOP
 		}
 	}
 }

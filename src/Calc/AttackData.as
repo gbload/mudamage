@@ -16,6 +16,8 @@ package Calc {
 	 */
 	public class AttackData{
 		public var attack:Attack = new Attack();
+		public var right:Attack = new Attack();//右手攻撃力
+		public var left:Attack = new Attack();//左手攻撃力
 		public var magic:Attack = new Attack();
 		public var curse:Attack = new Attack();
 		// 追加攻撃力
