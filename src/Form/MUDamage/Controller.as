@@ -4,6 +4,7 @@ package Form.MUDamage {
 	import mx.core.*;
 	
 	import IO.FileIO.*;
+	import Data.Database.*;
 	/**
 	 * FormMUDamageをジョブ毎に管理する
 	 * @author sinlion
@@ -22,10 +23,16 @@ package Form.MUDamage {
 		public function Controller(container:Container){
 			this.container = container;
 			forms = new Array();
+			// ジョブのToggleButton作成
+			container.addChild(new JobBar(this));
+			// タブナビゲーターの作成
+			var tab:TabNavigator = createTab();
+			container.addChild(tab);
 			// 新規作成
 			now_form = createForm();
 			forms.push(now_form);
-			container.addChild(now_form);
+			now_form.label = "TEST";
+			tab.addChild(now_form);
 //			// exports init
 //			exports = new Array();
 //			init_data = StaticFormIO.getData(now_form.form_title.text,now_form);
@@ -37,14 +44,24 @@ package Form.MUDamage {
 //				form.visible = false;
 //			}
 		}
+		private function createTab():TabNavigator{
+			var tab:TabNavigator = new TabNavigator();
+			// 位置を調整
+			tab.x = 5;
+			tab.y = 50;
+			// 大きさを設定
+			tab.width = 1000;
+			tab.percentHeight = 100;
+			// 境界線をなくす
+			tab.setStyle("borderStyle","none");
+			
+			return tab;
+		}
 		/**
 		 * フォームを新規作成
 		 */
 		private function createForm(job:int=-1):FormMUDamage{
 			var form:FormMUDamage = new FormMUDamage(this, job);
-			// 位置を調整
-			form.x = 50;
-			form.y = 100;
 			
 			return form;
 		}
