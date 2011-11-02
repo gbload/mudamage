@@ -269,9 +269,9 @@ package Calc.ResultScreen {
 			// plus
 			str += form.getItemAttr().getPlus().selectedLabel+" ";
 			// option
-//			for(var n:String in obj.option)
-//				if(n!="")
-//					str += n+"+"+obj.option[n].toString()+" ";
+			for(var n:String in obj.option)
+				if(n!="")
+					str += n+"+"+obj.option[n].toString()+" ";
 			// luck
 			if(obj.luck)
 				str += "幸運"+" ";

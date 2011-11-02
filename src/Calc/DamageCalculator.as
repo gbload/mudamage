@@ -69,9 +69,9 @@ package Calc {
 		    //[セットOP]両手武器装備時ダメージ増加%
 		    if(i.setop_hands)d += d2;
 		    //[課金アイテム]クリダメ増加%
-//		    if(cri)d += Math.floor(d * muc1.etc_cri / 100);
+		    if(cri)d += Math.floor(d * i.etc_cri / 100);
 		    //[課金アイテム]EXDダメ増加%
-//		    if(exd)d += Math.floor(d * muc1.etc_exd / 100);
+		    if(exd)d += Math.floor(d * i.etc_exd / 100);
 	
 		    if(f.pet.item=="ディノラント")d += Math.floor(d*15/100);//ディノラント
 		    if(f.pet.item=="サタン")d += Math.floor(d*30/100);//サタン
@@ -118,23 +118,31 @@ package Calc {
 		 * 魔法ダメージを計算します。
 		 */
 		public function calcMagicDamage(
+				skill:Object,
 				d:int,
 				cri:Boolean=false,
 				exd:Boolean=false):int{
 		    //ダメージ計算===========================
 			d = calcGuard1(d);
-		    d = Math.max(d,Math.floor(f.lv/10));//max[攻撃力-モンス,lv/10]
-		    d = calcGuard2(d);
+		    d = Math.max(d,Math.floor(f.status.lv/10));//max[攻撃力-モンス,lv/10]
 		    
 		    if(f.pet.item=="ディノラント")d += Math.floor(d*15/100);//ディノラント
 		    if(f.pet.item=="サタン")d += Math.floor(d*30/100);//サタン
-		    
+
 		    d += Math.floor(d*i.getSpec(f.wing,"inc")/100);//羽
 		    if(f.pet.item=="フェンリル" && f.pet.sub1=="破壊")d += Math.floor(d*10/100);//フェンリル
 		    
+		    //[課金アイテム]クリダメ増加%
+		    if(cri)d += Math.floor(d * i.etc_cri / 100);
+		    //[課金アイテム]EXDダメ増加%
+		    if(exd)d += Math.floor(d * i.etc_exd / 100);
+
+		    //[固定ダメージ]
+		    d = calcGuard2(d);
+		    
 		    //[セットOP]ダメージ増加
 		    d += i.setop_damage;
-		    
+
 		    return d;
 			
 		}
@@ -184,6 +192,14 @@ package Calc {
 		 */
 		public function calcSuffer(s:int):int{
 			s = s - c.def/2;//(モンス攻撃 - DEF)
+			
+			// ダメ減
+			var dec:int = 0;
+			for each(var exop:Object in i.exops)
+				if(exop["ダメ減"])
+					dec += 4;
+			dec += i.getEnchantProtects("ダメ減");
+			s -= Math.floor(s*dec/100);
 			
 			// 固定ダメ計算
 		    s = Math.max(s,Math.floor(m[mk.lv]/10));

@@ -132,7 +132,7 @@ package Calc.ResultScreen {
 //			if(f.job_index == 1 || f.job_index == 3 || f.job_index == 5)//魔法組み
 				text("魔力:" + a.magic.min + "～" + a.magic.max);
 			if(f.job_index == 5)//呪い組み
-				text(" 呪い:" + a.curse.min + "～" + a.curse.min);
+				text(" 呪い:" + a.curse.min + "～" + a.curse.max);
 		}
 		/**
 		 * 防御関連のステータスを表示

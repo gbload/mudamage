@@ -174,7 +174,7 @@ for($i=1;$i<@dat;$i++){
 			}elsif($j==16){ # spec:lv,def,inc,dec
 				push(@a,&merge(
 					&inc_arg($dats[$j],$dats[$j+1]),
-					&inc_arg2($dats[$j+2],$dats[$j+3]),
+					&inc_arg2($dats[$j+2],$dats[$j+3],$dats[0]),
 					&inc_arg($dats[$j+4],$dats[$j+5]),
 					&inc_arg($dats[$j+6],$dats[$j+7])
 				));
@@ -310,6 +310,9 @@ sub inc_arg(){
 }
 # arg
 sub inc_arg2(){
+	if($_[2] eq "羽" && $_[1] == 2){
+		return &inc_wing($_[0],$_[1]);
+	}
 	return &inc($_[0],$_[1],1);
 }
 # inc
@@ -329,6 +332,20 @@ sub inc_sub(){
 	for($n=1;$n<=15;$n++){
 		$tmp+=$inc1;
 		if($n>=10){$tmp+=($n-9)*$inc2;}
+		push(@a,int($tmp));
+	}
+	return \@a;
+}
+sub inc_wing(){
+	my $init=$_[0];
+	my $inc1=$_[1];
+	my $inc2=1;
+	my @a=();
+	my $tmp=$init;
+	push(@a,int($tmp));
+	for($n=1;$n<=15;$n++){
+		$tmp+=$inc1;
+		if($n>=10){$tmp+=(($n-9)*$inc2)+1;}
 		push(@a,int($tmp));
 	}
 	return \@a;
