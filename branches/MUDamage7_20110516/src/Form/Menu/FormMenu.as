@@ -7,12 +7,14 @@ package Form.Menu{
 	import IO.Export.*;
 	import IO.File.*;
 	import Form.MUDamage.*;
+	import Data.Resource.*;
 	
 	public class FormMenu extends MenuBar{
 		private var c:Controller;
 		public function FormMenu(){
-			this.x=200;
-			this.y=40;
+			this.x=0;
+			this.y=0;
+			this.height=30;
 			this.labelField = "@label";
 			
 			this.dataProvider = [<menuitem label="ファイル">

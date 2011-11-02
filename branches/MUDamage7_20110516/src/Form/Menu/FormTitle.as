@@ -9,8 +9,8 @@ package Form.Menu{
 	
 	public class FormTitle extends Canvas{
 		public function FormTitle(){
-			this.x=30;
-			this.y=30;
+			this.x=5;
+			this.y=5;
 			
 			createTitle();
 			createVersion();
