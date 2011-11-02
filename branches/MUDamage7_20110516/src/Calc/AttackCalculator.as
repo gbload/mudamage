@@ -47,7 +47,7 @@ package Calc {
 				if(!s[n][a.key.job][f.job_index])continue;
 				// 要求ステータス確認
 				var req:Array = s[n][a.key.require];
-				if(req[a.key.lv] > f.lv)continue;
+				if(req[a.key.lv] > f.status.lv)continue;
 				if(req[a.key.str] > c.str)continue;
 				if(req[a.key.agi] > c.agi)continue;
 				if(req[a.key.vit] > c.vit)continue;
@@ -219,9 +219,9 @@ package Calc {
 		    }
 		    d += f.master_skill.getSkillValue("weapon_master");
 		    
-//		    //サンタ、かぼちゃ、桜
-//		    d += etc_attack;
-//			
+		    //サンタ、かぼちゃ、桜
+		    d += i.etc_attack;
+		    
 		    //[魔法師の指輪装備時]　Ｘ ＝ int(Ｘ × 1.1)
 		    if(i.getItemData(f.ring1,"name") == "魔法師の指輪" || i.getItemData(f.ring2,"name") == "魔法師の指輪")
 		    	d = Math.floor(d * 1.1);
@@ -235,7 +235,7 @@ package Calc {
 		    if(f.pet.item == "スケルトンパージドラゴン")d = Math.floor(d * 1.2);
 		    
 		    //[武器のEXOPに攻撃力増加+LV/20がある時]　Ｒ ＝ Ｒ ＋ int(レベル ÷ 20) 
-		    if(bowcheck){//左手の弓のみ（ボウガンの時のみ）
+		    if(hand=="left"){//左手
 		    	if(i.getValueMap(f[hand].exop,"攻撃lv20"))d += Math.floor(c.lv/20);
 		    }else{
 		    	if(i.getValueMap(f[hand].exop,"攻撃lv20"))d += Math.floor(f.status.lv/20);
@@ -243,7 +243,7 @@ package Calc {
 		    //[武器のEXOPに攻撃力増加+2%がある時]　Ｒ ＝ Ｒ ＋ int((ステータス最大攻撃力 ＋ 武器最大攻撃力) × 0.02) 
 		    if(i.getValueMap(f[hand].exop,"攻撃2%"))d += Math.floor(d*0.02);
 		    //[アクセのEXOPに攻撃力増加+LV/20がある時]　Ｒ ＝ Ｒ ＋ int(レベル ÷ 20) 
-		    if(bowcheck){
+		    if(hand=="left"){
 		    	if(i.getValueMap(f.neck.exop,"攻撃lv20"))d += Math.floor(c.lv/20);
 		    }else{
 		    	if(i.getValueMap(f.neck.exop,"攻撃lv20"))d += Math.floor(f.status.lv/20);
@@ -347,9 +347,12 @@ package Calc {
 			
 			//スキル攻撃力増加
 			d += i.setop_skill;//[セットOP]
-		    d += i.getValueMap(f[hand].enchant,"スキル攻撃力");//[エンチャントOP]
-		    d += i.getSocket(f[hand],"スキル増加");//[ソケットOP]
-		    d += i.getValueMap(f[hand].socket_bonus,"スキル");//[ソケットボーナス]
+		    d += i.getValueMap(f.right.enchant,"スキル攻撃力");//[エンチャントOP]
+		    d += i.getSocket(f.right,"スキル増加");//[ソケットOP]
+		    d += i.getValueMap(f.right.socket_bonus,"スキル");//[ソケットボーナス]
+		    d += i.getValueMap(f.left.enchant,"スキル攻撃力");//[エンチャントOP]
+		    d += i.getSocket(f.left,"スキル増加");//[ソケットOP]
+		    d += i.getValueMap(f.left.socket_bonus,"スキル");//[ソケットボーナス]
 			d += skill.m_attack;//[マスタースキルのスキル強化]
 			
 			// EXD
@@ -360,7 +363,6 @@ package Calc {
 				// EXD増加
 		    	d += i.getSocket(f.right,"EXD増加");//ソケットOP
 		    	d += i.getSocket(f.left,"EXD増加");//ソケットOP
-//		    	d += ;//マスタースキル C+ EXD増加
 		    	d += i.setop_exd;//セットOP
 			}
 		    if(cri||exd){
@@ -409,9 +411,11 @@ package Calc {
 		private function calcAddAttack():int{
 			var d:int=0;
 		    //妙薬・A＋・セラ
-//		    d += c.op_miracle;
-//		    //課金アイテム
-//		    d += etc_attack2;
+		    d += c.support_a;
+		    if(f.support.getValue(f.support.miracle))d += 15;
+		    d += c.support_sera_a;
+		    //課金アイテム
+		    d += i.etc_attack2;
 		    
 			return d;
 		}
@@ -426,12 +430,15 @@ package Calc {
 		    //OP
 		    d += i.getValueMap(f.right.option,"魔力");
 		    d += i.getValueMap(f.wing.option,"魔力");//Y = Y ＋　羽追加魔力
-		    //[魔法師の指輪装備時] Y = int(Y * 1.1)
-//		    if(etc_mahouring){d = Math.floor(d * 1.1);}
+		    //[魔法師の指輪装備時]　Ｘ ＝ int(Ｘ × 1.1)
+		    if(i.getItemData(f.ring1,"name") == "魔法師の指輪" || i.getItemData(f.ring2,"name") == "魔法師の指輪")
+		    	d = Math.floor(d * 1.1);
 		    //[大魔法師の爪装備時] Y = int(Y * 1.15)
-//		    if(etc_daimahouring){d = Math.floor(d * 1.15);}
+		    if(i.getItemData(f.ring1,"name") == "大魔法師の爪" || i.getItemData(f.ring2,"name") == "大魔法師の爪")
+		    	d = Math.floor(d * 1.15);
 		    //[スケルトンパージドラゴン装備時] Y = int(Y * 1.2)
-//		    if(c.skelton){d = Math.floor(d * 1.2);}
+		    if(f.pet.item=="スケルトンパージドラゴン")
+		    	d = Math.floor(d * 1.2);
 		    //[エンチャントOP]魔力増加
 		    d += i.getValueMap(f.right.enchant,"魔力上昇");
 		    //[ソケットOP]魔力増加
@@ -440,8 +447,8 @@ package Calc {
 		    //[ソケットボーナス]魔力増加
 		    d += i.getValueMap(f.right.socket_bonus,"魔力");
 		    d += i.getValueMap(f.left.socket_bonus,"魔力");
-		    //黄金のフェンリル　魔力増加
-//		    if(c.fenrir==4)d += c.lv/25;
+		    //[黄金のフェンリル]　魔力増加
+		    if(f.pet.item=="フェンリル" && f.pet.sub1=="黄金")d += c.lv/25;
 		    //[武器のEXOPに魔力増加+LV/20がある時]　Ｒ ＝ Ｒ ＋ int(レベル ÷ 20) 
 		    if(i.getValueMap(f.right.exop,"魔力lv20")){d = d + Math.floor(c.lv/20);}
 		    //[ソケットOP]魔力LV20
@@ -463,32 +470,30 @@ package Calc {
 		    //[アクセのEXOPに魔力増加+2%がある時]　Ｒ ＝ Ｒ ＋ int(Ｒ × 0.02)
 		    if(i.getValueMap(f.neck.exop,"魔力2%")){d = d + Math.floor(d*0.02);}
 		    
-		    
-		    if(min){//最小
+		    if(min){//[最小]
 		        d += i.getSocket(f.right,"最小攻撃魔力");//[ソケットOP]最小魔力
 		        d += i.getSocket(f.left,"最小攻撃魔力");//[ソケットOP]最小魔力
 		        //マスタースキル
-//		        if(dat::mlvcount.min_magic)d += MLV.inf_min_magic[dat::mlvcount.min_magic];
-//		        if(dat::mlvcount.min_attack_magic)d += MLV.inf_min_attack_magic[dat::mlvcount.min_attack_magic];
-		    }else{//最大
+		    	d += f.master_skill.getSkillValue("minimum_magic");
+		    	d += f.master_skill.getSkillValue("minimum_magic_curse");
+		    }else{//[最大]
 		        d += i.getSocket(f.right,"最大攻撃魔力");//[ソケットOP]最小魔力
 		        d += i.getSocket(f.left,"最大攻撃魔力");//[ソケットOP]最小魔力
-		        //マスタースキル
-//		        if(dat::mlvcount.max_magic)d += MLV.inf_max_magic[dat::mlvcount.max_magic];
-//		        if(dat::mlvcount.max_attack_magic)d += MLV.inf_max_attack_magic[dat::mlvcount.max_attack_magic];
 		    }
+		    //[マスタースキル]
+	    	d += f.master_skill.getSkillValue("magic_master");
 		    
 		    var tmp_d:int = d;//スペルエンハンス用
+	    	//[セットOP]Y = Y + int(Y * 魔力%)
+		    d += Math.floor(d * i.setop_magicper/100);
 		    
-//		    d += Math.floor(d * setop_magicper/100);//[セットOP]Y = Y + int(Y * 魔力%);
-		    
-		    //スペルエンハンス
+		    //[スペルエンハンス]
 		    if(min)d += Math.floor(tmp_d * c.support_se/100);//20%上昇
-		    //バーサーカー エナ/30
+		    //[バーサーカー] エナ/30
 		    if(!min){d += Math.floor(c.ene/4 * c.support_berserker/100);}
 		    else{d += Math.floor(c.ene/9 * c.support_berserker/100);}
 		    
-//		    d += etc_magic;//[かぼちゃ、サンタ]魔力増加
+		    d += i.etc_magic;//[かぼちゃ、サンタ]魔力増加
 		    
 		    return d;
 		}
@@ -506,22 +511,48 @@ package Calc {
 			    if(min){d += skill.skill[a.key.power];}
 			    else{d += Math.floor(skill.skill[a.key.power]*1.5);}
 			}
-//			if(f.job!="召喚師")d += c.op_skill;
 		    //杖魔力%
-		    d += Math.floor(d * i.getSpec(f.right,"magic")/100);
-		    //[セットOP]スキル攻撃力
-//		    if(c.job==5)d += c.op_skill;
+		    if(f.job=="召喚師")
+		    	d += Math.floor(d * i.getSpec(f.right,"magic")/100);
+			//スキル攻撃力増加
+			d += i.setop_skill;//[セットOP]
+		    d += i.getValueMap(f.right.enchant,"スキル攻撃力");//[エンチャントOP]
+		    d += i.getSocket(f.right,"スキル増加");//[ソケットOP]
+		    d += i.getValueMap(f.right.socket_bonus,"スキル");//[ソケットボーナス]
+		    d += i.getValueMap(f.left.enchant,"スキル攻撃力");//[エンチャントOP]
+		    d += i.getSocket(f.left,"スキル増加");//[ソケットOP]
+		    d += i.getValueMap(f.left.socket_bonus,"スキル");//[ソケットボーナス]
+			d += skill.m_attack;//[マスタースキルのスキル強化]
+		    //杖魔力%
+		    if(f.job!="召喚師")
+		    	d += Math.floor(d * i.getSpec(f.right,"magic")/100);
 		    //EXD
 		    if(exd)d += Math.floor(d*0.2);
+
+		    //ダメージ増加系統
+			if(exd){
+				// EXD増加
+		    	d += i.getSocket(f.right,"EXD増加");//ソケットOP
+		    	d += i.getSocket(f.left,"EXD増加");//ソケットOP
+		    	d += i.setop_exd;//セットOP
+			}
+		    if(cri||exd){
+		    	//クリダメ増加
+		    	d += i.getSocket(f.right,"クリ増加");//ソケットOP
+		    	d += i.getSocket(f.left,"クリ増加");//ソケットOP
+		    	d += i.getValueMap(f.right.enchant,"Cダメ");//エンチャントOP
+		    	d += i.getValueMap(f.left.enchant,"Cダメ");//エンチャントOP
+		    	d += c.support_c;//C+
+		    	d += i.setop_cri;//セットOP
+		    }
+
+		    //妙薬・A＋・セラ
+		    d += c.support_a;
+		    if(f.support.getValue(f.support.miracle))d += 15;
+		    d += c.support_sera_a;
 		    //[課金]魔力増加(バグ？)
-//		    d += calc::etc_magic2;
-		    
-//		    if(cri)d += c.op_cri;//クリダメ増加
-//		    if(exd)d += c.op_exd;//EXD増加
-		    
-		    //妙薬・A+・セラ
-//		    d += c.op_miracle; 
-		    	
+		    d += i.etc_magic2;
+
 			return d;
 		}
 
@@ -552,15 +583,17 @@ package Calc {
 			//エナジー
 			if(min)d += Math.floor(c.ene/9);
 			else d += Math.floor(c.ene/4);
+			//武器OP　羽OP
+			d += i.getValueMap(f.left.option,"呪い") + i.getValueMap(f.wing.option,"呪い");
+		    //[スケルトンパージドラゴン装備時] Y = int(Y * 1.2)
+		    if(f.pet.item=="スケルトンパージドラゴン")
+		    	d = Math.floor(d * 1.2);
+		    if(min){//[最小]
+		    	d += f.master_skill.getSkillValue("minimum_magic_curse");
+		    }
 			//バーサーカー
 		    if(!min){d += Math.floor(c.ene/4 * c.support_berserker/100);}
 		    else{d += Math.floor(c.ene/9 * c.support_berserker/100);}
-			//スケルトン変身
-//			d += etc_noroi;
-		    //[スケルトンパージドラゴン装備時] Y = int(Y * 1.2)
-//		    if(c.skelton){d += Math.floor(d * 1.2);}
-			//武器OP　羽OP
-			d += i.getValueMap(f.left.option,"呪い") + i.getValueMap(f.wing.option,"呪い");
 			
 			return d;
 		}
@@ -575,17 +608,40 @@ package Calc {
 				if(min)d += skill.skill[a.key.power];
 				else d += Math.floor(skill.skill[a.key.power]*1.5);
 				//呪い上昇%
-				d += Math.floor(d * i.getSpec(f.left,"呪い")/100);
-			    //[セットOPなど]スキル攻撃力
-//			    d += c.op_skill;
+				d += Math.floor(d * i.getSpec(f.left,"curse")/100);
+				//スキル攻撃力増加
+				d += i.setop_skill;//[セットOP]
+			    d += i.getValueMap(f.right.enchant,"スキル攻撃力");//[エンチャントOP]
+			    d += i.getSocket(f.right,"スキル増加");//[ソケットOP]
+			    d += i.getValueMap(f.right.socket_bonus,"スキル");//[ソケットボーナス]
+			    d += i.getValueMap(f.left.enchant,"スキル攻撃力");//[エンチャントOP]
+			    d += i.getSocket(f.left,"スキル増加");//[ソケットOP]
+			    d += i.getValueMap(f.left.socket_bonus,"スキル");//[ソケットボーナス]
+				d += skill.m_attack;//[マスタースキルのスキル強化]
 			    //EXD
 			    if(exd)d += Math.floor(d*0.2);
+
+			    //ダメージ増加系統
+				if(exd){
+					// EXD増加
+			    	d += i.getSocket(f.right,"EXD増加");//ソケットOP
+			    	d += i.getSocket(f.left,"EXD増加");//ソケットOP
+			    	d += i.setop_exd;//セットOP
+				}
+			    if(cri||exd){
+			    	//クリダメ増加
+			    	d += i.getSocket(f.right,"クリ増加");//ソケットOP
+			    	d += i.getSocket(f.left,"クリ増加");//ソケットOP
+			    	d += i.getValueMap(f.right.enchant,"Cダメ");//エンチャントOP
+			    	d += i.getValueMap(f.left.enchant,"Cダメ");//エンチャントOP
+			    	d += c.support_c;//C+
+			    	d += i.setop_cri;//セットOP
+			    }
 			    
-//			    if(cri)d += c.op_cri;//クリダメ増加
-//			    if(exd)d += c.op_exd;//EXD増加
-			    
-			    //妙薬・A+・セラ
-//			    d += c.op_miracle;
+			    //妙薬・A＋・セラ
+			    d += c.support_a;
+			    if(f.support.getValue(f.support.miracle))d += 15;
+			    d += c.support_sera_a;
 			}
 			return d;
 		}
@@ -624,7 +680,6 @@ package Calc {
 				// EXD増加
 		    	d += i.getSocket(f.right,"EXD増加");//ソケットOP
 		    	d += i.getSocket(f.left,"EXD増加");//ソケットOP
-//		    	d += ;//マスタースキル C+ EXD増加
 		    	d += i.setop_exd;//セットOP
 			}
 		    if(cri||exd){

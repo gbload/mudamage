@@ -191,8 +191,8 @@ package Calc {
 				if(form.getItemAttr().visible){
 					obj.plus = form.getItemAttr().getPlus().selectedIndex;
 					obj.luck = form.getItemAttr().getLuck().selected;
-//					obj.option[form.getOption().selectedItem.type] = 
-//						form.getOption().selectedItem.value;
+					obj.option[form.getItemAttr().getOption().selectedItem.type] = 
+						form.getItemAttr().getOption().selectedItem.value;
 				}
 				if(form.getEnchant().visible){
 					if(form.getEnchant().getKind().selectedLabel != "")

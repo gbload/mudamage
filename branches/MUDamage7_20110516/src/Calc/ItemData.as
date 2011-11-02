@@ -20,6 +20,7 @@ package Calc {
 		 */
 		public var is_dual_wield:Boolean=false;//二刀流の有無
 		public var protects:Array=new Array();//防具候補
+		public var exops:Array=new Array();//防具候補
 		public var is_shield:Boolean=false;//盾の有無
 		/**
 		 * 羽
@@ -106,9 +107,11 @@ package Calc {
 					is_dual_wield=true;
 			// 防具のリスト
 			protects=[f.helm,f.armor,f.garter,f.glove,f.boots];
+			exops=[f.helm.exop,f.armor.exop,f.garter.exop,f.glove.exop,f.boots.exop,f.ring1.exop,f.ring2.exop];
 			if(f.left.kind != "なし")
 				if((getItemData(f.left,"item") as String)=="防具"){
 					protects.unshift(f.left); // 盾の追加
+					exops.unshift(f.left.exop);// 盾の追加
 					is_shield=true; // 盾の有無
 				}
 		}
@@ -138,10 +141,10 @@ package Calc {
 				if(a[j].kind == "セット" || a[j].kind == "ラッキー"){
 					//セットOPのステータス部分
 					setop_str += getValueMap(a[j].set_status,"力");
-					setop_str += getValueMap(a[j].set_status,"敏捷");
-					setop_str += getValueMap(a[j].set_status,"体力");
-					setop_str += getValueMap(a[j].set_status,"エナジー");
-					setop_str += getValueMap(a[j].set_status,"統率");
+					setop_agi += getValueMap(a[j].set_status,"敏捷");
+					setop_vit += getValueMap(a[j].set_status,"体力");
+					setop_ene += getValueMap(a[j].set_status,"エナジー");
+					setop_rec += getValueMap(a[j].set_status,"統率");
 					//セット名の取得
 					if(j==2 || j==9){//左手又はリング2のとき
 						if((a[j-1].kind == "セット" || a[j-1].kind == "ラッキー")
@@ -297,7 +300,7 @@ package Calc {
 				var spec:int = obj.key.spec;
 				if(obj.item[obj.key.kind] == "EX")
 					spec = obj.key.exspec;
-				if(obj.item[obj.key.kind] == "セット")
+				if(obj.set_item != null)
 					spec = obj.key.setspec;
 				return obj.item[spec][obj.plus][obj.key[str]];
 			}
@@ -318,7 +321,7 @@ package Calc {
 				var req:int = obj.key.require;
 				if(obj.item[obj.key.kind] == "EX")
 					req = obj.key.exrequire;
-				if(obj.item[obj.key.kind] == "セット")
+				if(obj.set_item != null)
 					req = obj.key.exrequire;
 				return obj.item[req][obj.plus][obj.key[str]];
 			}
@@ -329,6 +332,10 @@ package Calc {
 		 */
 		public function getItemData(obj:Object,str:String):Object{
 			if(obj.item != null){
+				//[セットアイテム]
+				if(obj.set_key != null && obj.set_key[str] != null)
+					return obj.set_item[obj.set_key[str]];
+				//[通常]
 				if(obj.key[str]==null)
 					Alert.show("Error ItemData getItemData():"+str+"");
 				obj.key[str].toString();
@@ -366,8 +373,8 @@ package Calc {
 		public function getValueMap(obj:Object,str:String,ch:Boolean=true):int{
 			if(ch && obj==null)
 				return 0;
+			if(obj[str] is Boolean && obj[str])return 1;
 			return validateValue(obj[str]);
-//			Alert.show("Error getValueMap():"+str+"!");
 		}
 		/**
 		 * エンチャントOPを防具で丸ごと取得

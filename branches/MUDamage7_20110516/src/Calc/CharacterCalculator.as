@@ -98,13 +98,15 @@ package Calc {
 			var tmp:int = c.def;
 			// 防具のDEF
 			var min_lv:int = 0;
+			var first_flag:Boolean = true;
 			for(var n:Object in i.protects){
 				// 防具のDEF
 				c.def += i.getSpec(i.protects[n],"def");
 				c.def += i.getValue(i.protects[n].option["防御"]);
 				// シリーズのチェック
 				if((i.getItemData(i.protects[n],"type")) as String != "盾"){
-					if(n==0){
+					if(first_flag){
+						first_flag = false;
 						check = (i.getItemData(i.protects[n],"series")) as String;
 						min_lv = i.protects[n].plus;
 					}else{
@@ -115,22 +117,31 @@ package Calc {
 					}
 				}
 			}
+			/*
+			 * 固定増加分
+			 */
+			//MLVDEF
+			c.def += f.master_skill.getSkillValue("defense");
 			// 羽のDEF
 			c.def += i.getSpec(f.wing,"def");
 			c.def += i.getValue(f.wing.option["防御"]);
 			// ダークホースのDEF
+			/*
+			 * %増加分
+			 */
 			// 統一ボーナス
 			if(check!="none")
 				if(min_lv>9)
 					c.def += Math.floor(c.def*((min_lv-9)*0.05));
-			//MLVDEF
-			c.def += f.master_skill.getSkillValue("defense");
-			//MLV盾強化
-			// TODO
 			//セットの盾装備時
 			if(i.is_shield)c.def += Math.floor(c.def*i.setop_shield/100);
 			//ソケットの盾装備時
 			if(i.is_shield)c.def += Math.floor(c.def*(i.getSocketProtects("盾装備時増加"))/100);
+			/*
+			 * 固定増加分
+			 */
+			//MLV盾強化
+			c.def += f.master_skill.getSkillValue("shield") * 2;
 			//セットのDEF増加
 			c.def += i.setop_def;
 			//ソケットのDEF増加
@@ -140,7 +151,7 @@ package Calc {
 			//エンチャントのDEF増加
 			c.def += i.getEnchantProtects("防御力上昇");
 			//かぼちゃ、課金などのでDEF増加
-//			de += etc_def * 2;
+			c.def += i.etc_def * 2;
 			//ペットによるDEF増加
 			if(f.pet == "白と黒のポンガ")c.def += 100;//防御力+50 → DEF+100
 			//ペットによるDEF増加
@@ -171,13 +182,18 @@ package Calc {
 				// ソケットOP
 				c.avoid += Math.floor(c.avoid * i.getSocket(i.protects[n],"防御成功"));
 			}
+			// リング EXOP
+			for each(var exop:Object in [f.ring1.exop,f.ring2.exop])
+				if(exop["防御成功"])
+					c.avoid += Math.floor(c.avoid * 0.1);
+			
 			var avoid_ori:int = c.avoid;
 			// サポートスキル、コンセントレーション
 			c.avoid += c.support_avoid;
 			// 統一ボーナス
 			if(check!="none")c.avoid += Math.floor(avoid_ori * 0.1);//統一ボーナス
-			// MasterSkill 盾強化
-			// TODO
+			// MasterSkill 盾マスタリ
+			c.avoid += f.master_skill.getSkillValue("shield_mastery");
 		}
 		/**
 		 * 対人防御成功率の計算
@@ -201,7 +217,7 @@ package Calc {
 		private function calcHit():void{
 			var inc:Array = D.getData("job_hit")[f.job_index];
 			// ステータス
-			c.hit = f.status.lv*inc[0] + Math.floor(c.agi/inc[1]) + Math.floor(c.str/inc[2]);
+			c.hit = f.status.lv*inc[0] + Math.floor(c.agi*inc[1]) + Math.floor(c.str/inc[2]);
 			if(f.job=="ダークロード")
 				c.hit += c.rec/inc[3];
 			// セットOP
@@ -217,7 +233,7 @@ package Calc {
 		private function calcPVPHit():void{
 			var inc:Array = D.getData("job_pvp_hit")[f.job_index];
 			// ステータス
-			c.pvp_hit = Math.floor(f.status.lv*inc[0]) + Math.floor(c.agi/inc[1]);
+			c.pvp_hit = Math.floor(f.status.lv*inc[0]) + Math.floor(c.agi*inc[1]);
 			// エンチャントOP
 			c.pvp_hit += i.getValue(f.right.enchant["対人攻撃率"]);
 			c.pvp_hit += i.getValue(f.left.enchant["対人攻撃率"]);
@@ -250,8 +266,8 @@ package Calc {
 			// SL
 			c.life += Math.floor(tmp * c.support_sl/100);
 			// EXOPの生命増加
-			for(var n:Object in i.protects)
-				if(i.protects[n].exop["生命増"])
+			for each(var exop:Object in i.exops)
+				if(exop["生命増"])
 					c.life += Math.floor(tmp * 4/100);
 			// ソケットOPの生命増加
 			c.life += Math.floor(tmp * i.getSocketProtects("最大生命増加")/100);
@@ -270,7 +286,7 @@ package Calc {
 			c.life += i.wing_life;//羽の生命増加
 			if(f.pet.item=="守護天使")c.life += 50;//天使の生命増加
 			if(f.pet.item=="守護精霊")c.life += 50;//守護精霊の生命増加
-//			hp += etc_hp;//かぼちゃ、課金などでのHP増加
+			c.life += i.etc_hp;//かぼちゃ、課金などでのHP増加
 			if(f.glove.op380)
 				c.life += 200;//380OP
 			if(f.pet.item=="フェンリル" && f.pet.sub1=="黄金")
@@ -295,8 +311,8 @@ package Calc {
 			 */
 			// スウェルマナ
 			// EXOPのマナ増加
-			for(var n:Object in i.protects)
-				if(i.protects[n].exop["マナ増"])
+			for each(var exop:Object in i.exops)
+				if(exop["マナ増"])
 					c.mana += Math.floor(tmp * 4/100);//EXOPのマナ増加
 			// ソケットOPのマナ増加
 			c.mana += Math.floor(tmp * i.getSocketProtects("最大生命増加")/100);
@@ -308,7 +324,7 @@ package Calc {
 			 */
 			c.mana += i.setop_mana;//セットOPのマナ＋
 			c.mana += i.wing_mana;//羽
-//			c.mana += etc_mana;//かぼちゃ、課金などでのマナ増加
+			c.mana += i.etc_mana;//かぼちゃ、課金などでのマナ増加
 			if(f.pet.item=="フェンリル" && f.pet.sub1=="黄金")
 				c.mana += c.lv/2;//黄金のフェンリルのマナ増加
 		}
@@ -333,7 +349,6 @@ package Calc {
 			var inc:Array = D.getData("job_ag")[f.job_index];
 			// ステータス
 			c.ag = Math.floor((c.str*inc[0])+(c.agi*inc[1])+(c.vit*inc[2])+(c.ene*inc[3])+(c.rec*inc[4]));
-			c.ag += f.master_skill.getSkillValue("maximum_ag");
 			c.ag += i.setop_ag;//セットOP
 			c.ag += i.getEnchantProtects("最大AG上昇");//エンチャントOP
 			c.ag += i.getSocketProtects("最大AG増加");//ソケットOP
@@ -366,11 +381,11 @@ package Calc {
 			speed += i.getSocket(f.right,"速度増加");
 			speed += i.getSocket(f.left,"速度増加");
 			//その他
-			if((f.ring1.item=="魔法師の指輪" || f.ring2.item=="魔法師の指輪")
-			 	|| (f.ring1.item=="大魔法師の爪" || f.ring2.item=="大魔法師の爪"))
+			if((i.getItemData(f.ring1,"name")=="魔法師の指輪" || i.getItemData(f.ring2,"name")=="魔法師の指輪")
+			 	|| (i.getItemData(f.ring1,"name")=="大魔法師の爪" || i.getItemData(f.ring2,"name")=="大魔法師の爪"))
 				{speed += 10;}//魔法師
-//			if(etc_sake){speed += 20;}//酒
-//			speed += etc_speed;//かぼちゃ、課金など
+			if(f.support.getValue(f.support.ale)){speed += 20;}//酒
+			speed += i.etc_speed;//かぼちゃ、課金など
 			if(f.pet.item=="デーモン"){speed += 10;}//デーモン
 			if(f.pet.item=="スケルトンパージドラゴン"){speed += 10;}//スケルトンパージドラゴン
 			
