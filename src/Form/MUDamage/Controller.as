@@ -2,9 +2,13 @@ package Form.MUDamage {
 	import mx.controls.*;
 	import mx.containers.*;
 	import mx.core.*;
+	import mx.events.*;
+	import flash.events.*;
+	import flash.utils.Timer;
 	
 	import IO.FileIO.*;
 	import Data.Database.*;
+	import Common.*;
 	/**
 	 * FormMUDamageをジョブ毎に管理する
 	 * @author sinlion
@@ -12,39 +16,29 @@ package Form.MUDamage {
 	 */
 	public class Controller {
 		private var container:Container;
-		private var forms:Array;
-		private var now_form:FormMUDamage;
-	
-//		private var init_data:Array;
-//		private var exports:Array;
+		private var tabs:Array;
+		private var now_tab:TabNavigator;
+		private var job_bar:ToggleButtonBar;
+
 		/**
 		 * コンストラクタ
 		 */
 		public function Controller(container:Container){
 			this.container = container;
-			forms = new Array();
+			// 初期化
+			tabs = new Array();
 			// ジョブのToggleButton作成
-			container.addChild(new JobBar(this));
+			job_bar = new JobBar(this);
+			container.addChild(job_bar);
 			// タブナビゲーターの作成
-			var tab:TabNavigator = createTab();
-			container.addChild(tab);
-			// 新規作成
-			now_form = createForm();
-			forms.push(now_form);
-			now_form.label = "TEST";
-			tab.addChild(now_form);
-//			// exports init
-//			exports = new Array();
-//			init_data = StaticFormIO.getData(now_form.form_title.text,now_form);
-			// あらかじめ他の職のフォームも作成しておく
-//			for(var i:int=1;i<7;i++){
-//				var form:FormMUDamage = createForm(i); 
-//				forms.push(form);
-//				container.addChild(form);
-//				form.visible = false;
-//			}
+			now_tab = createTab(0,true);
+			tabs[0] = now_tab;
+			container.addChild(now_tab);
 		}
-		private function createTab():TabNavigator{
+		/**
+		 * TabNavigator
+		 */
+		private function createTab(job:int=0,flag:Boolean=false):TabNavigator{
 			var tab:TabNavigator = new TabNavigator();
 			// 位置を調整
 			tab.x = 5;
@@ -54,61 +48,102 @@ package Form.MUDamage {
 			tab.percentHeight = 100;
 			// 境界線をなくす
 			tab.setStyle("borderStyle","none");
+			// タブを閉じるイベント
+			tab.addEventListener(KeyboardEvent.KEY_DOWN,eventKey);
+			tab.addEventListener(KeyboardEvent.KEY_UP,eventKey);
+			tab.addEventListener(FlexEvent.VALUE_COMMIT,eventClickClose);
+			
+			// 計算フォームの作成
+			if(flag){
+				var timer:Timer = new Timer(10,1);
+				timer.addEventListener(TimerEvent.TIMER, functionEventTimer(tab,job));
+				timer.start();
+			}else{
+				functionEventTimer(tab,job)(null);
+			}
 			
 			return tab;
+		}
+		/**
+		 * キー保存
+		 */
+		private var isShift:int = -1;
+		private var isDuplicate:Boolean = false;
+		private function eventKey(event:KeyboardEvent):void{
+			if(event.shiftKey){
+				isShift = event.target.selectedIndex;
+			}else{
+				isShift = -1;
+			}
+		}
+		/**
+		 * 閉じるイベント
+		 */
+		private function eventClickClose(event:FlexEvent):void{
+			if(!isDuplicate && isShift!=-1){
+				if(now_tab.selectedIndex!=0)
+					now_tab.removeChild(now_tab.getChildAt(now_tab.selectedIndex));
+				isDuplicate = true;
+				if(now_tab.selectedIndex<isShift)
+					isShift -= 1;
+				now_tab.selectedIndex = isShift;
+			}else{
+				isDuplicate = false;
+			}
+		}
+		/**
+		 * function event timer
+		 * 連続して処理をするとフォームのラベルがつかないため。
+		 */
+		private function functionEventTimer(tab:TabNavigator,job:int):Function{
+			return function(event:Event):void{
+				tab.addChild(createForm(job));
+			};
+		}
+		/**
+		 * Change TabNavigator
+		 */
+		public function changeTab(job:int=0):void{
+			if(now_tab!=null){
+				// 現在のタブを非表示
+				now_tab.visible = false;
+				// 新しいタブバーが未作成の場合、作成する
+				if(tabs[job]==null){
+					tabs[job] = createTab(job);
+					container.addChild(tabs[job]);
+				}
+				// 新しいタブを表示する
+				tabs[job].visible = true;
+				// 現在のタブを変更する
+				now_tab = tabs[job];
+				// job_barと同期させる
+				if(job_bar.selectedIndex != job)
+					job_bar.selectedIndex = job;
+			}
 		}
 		/**
 		 * フォームを新規作成
 		 */
 		private function createForm(job:int=-1):FormMUDamage{
 			var form:FormMUDamage = new FormMUDamage(this, job);
+			form.label = "計算フォーム";
 			
 			return form;
-		}
-		/**
-		 * フォームの変更
-		 */
-		public function changeForm(job:int):void{
-//			for(var n:String in exports){
-			for each(var form:FormMUDamage in forms){
-				if(form.getJob().getOldJob() == job){
-//					container.removeChild(now_form);
-					now_form.visible = false;
-					now_form = form;
-					now_form.visible = true;
-//					container.addChild(now_form);
-					return;
-				}
-			}
-			// 新規作成
-//			container.removeChild(now_form);
-			now_form.visible = false;
-			now_form = createForm(job);
-			forms.push(now_form);
-			container.addChild(now_form);
-			now_form.visible = true;
-//			// export
-//			now_form.getJob().setJob(now_form.getJob().getOldJob());
-//			exports[now_form.getJob().selectedIndex] = StaticFormIO.getData(now_form.form_title.text,now_form);
-//			// import
-//			if(exports[job]!=null){
-//				StaticFormIO.setData(exports[job],now_form);
-//			}else{
-//				StaticFormIO.setData(init_data,now_form);
-//				now_form.getJob().setJob(job);
-//				now_form.reset();
-//			}
 		}
 		/**
 		 * 計算結果の表示
 		 */
 		public function showResult(result:Container):void{
-			result.x = 50;
-			result.y = 700;
-			container.addChild(result);
+			now_tab.addChild(result);
 		}
+		/**
+		 * 現在表示されているフォームを取得
+		 */
 		public function getNowForm():FormMUDamage{
-			return now_form;
+			return now_tab.getChildAt(0) as FormMUDamage;
+		}
+		public function getForm(job:int):FormMUDamage{
+			return tabs[job].getChildAt(0) as FormMUDamage;
 		}
 	}
 }

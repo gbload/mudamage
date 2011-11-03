@@ -7,7 +7,6 @@ package Form.MUDamage {
 	import flash.events.*;
 	
 	public class FormMUDamage extends Canvas {
-//		private var controller:Controller;
 		private var old_job:int = 0;
 	
 		public var form_title:TextInput;
@@ -39,14 +38,15 @@ package Form.MUDamage {
 			main = new Form();
 			this.addChild(main);
 			
-			// タイトル
-			form_title = createTextInput("タイトル：");
-			// 経験値
-			form_exp = createTextInput("経験値増加(%)：");
 			// 職
 			form_job = new FormJob(c);
 			form_job.setJob(job);
 			main.addChild(form_job.getFormItem());
+			// タイトル
+			form_title = createTextInput("タイトル：");
+			form_title.text = form_job.selectedLabel;
+			// 経験値
+			form_exp = createTextInput("経験値増加(%)：");
 			// ペット
 			form_pet = new FormPet(this);
 			main.addChild(form_pet);

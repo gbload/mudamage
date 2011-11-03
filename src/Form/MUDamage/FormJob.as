@@ -15,10 +15,7 @@ package Form.MUDamage {
 	 */
 	public class FormJob extends ComboBox{
 		private var controller:Controller;
-	
 		private var form_item:FormItem;
-		
-		private var old_job:int = 0;
 		/**
 		 * コンストラクタ
 		 */
@@ -37,16 +34,8 @@ package Form.MUDamage {
 			
 			this.rowCount = 10;
 			this.dataProvider = D.getData("job");
-			this.addEventListener(ListEvent.CHANGE,eventChangeJob);
+			this.enabled = false;
 			form_item.addChild(this);
-		}
-		/**
-		 * 職イベント
-		 */
-		private function eventChangeJob(event:Event):Boolean{
-			this.controller.changeForm(this.selectedIndex);
-			setJob(getOldJob());
-			return true;
 		}
 		/**
 		 * 職をセットする
@@ -54,13 +43,6 @@ package Form.MUDamage {
 		public function setJob(job:int):void{
 			if(job == -1)return;
 			this.selectedIndex = job;
-			old_job = job;
-		}
-		/**
-		 * 職フォームの変更イベント直前の値を返す
-		 */
-		public function getOldJob():int{
-			return old_job;
 		}
 		/**
 		 * 職フォームアイテムを返す

@@ -104,7 +104,7 @@ package IO.File {
 			PopUpManager.centerPopUp(pop);
 			pop.title = "開く";//タイトル
 			
-			pop.addChild(this);//MLVキャンバスを載せる
+			pop.addChild(this);//パネルを載せる
 		}
 		/**
 		 * ポップアップを閉じる
@@ -128,8 +128,8 @@ package IO.File {
 			if(a == null){
 				return false;
 			}
-			c.changeForm(a[1]);
-			StaticFormIO.setData(a,c.getNowForm());
+			c.changeTab(a[1]);
+			StaticFormIO.setData(a,c.getForm(a[1]));
 			Alert.show("[" + title + "]" + "を開きました。");
 			//ウインドウを閉じる
 			pop.dispatchEvent(new CloseEvent(CloseEvent.CLOSE) as Event);
