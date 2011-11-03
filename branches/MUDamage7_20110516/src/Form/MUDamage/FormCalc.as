@@ -60,8 +60,8 @@ package Form.MUDamage {
 		 * event click calc button
 		 */
 		private function eventClickCalc(event:Event):void{
-//			controller.showResult(new ResultScreen(d));
-			d.addMain(new ResultScreen(d));
+			controller.showResult(new ResultScreen(d));
+//			d.addMain(new ResultScreen(d));
 		}
 		/**
 		 * map

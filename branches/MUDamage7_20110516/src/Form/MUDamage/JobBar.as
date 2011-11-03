@@ -14,10 +14,6 @@ package Form.MUDamage {
 	 */
 	public class JobBar extends ToggleButtonBar{
 		private var controller:Controller;
-	
-		private var form_item:FormItem;
-		
-		private var old_job:int = 0;
 		/**
 		 * コンストラクタ
 		 */
@@ -26,6 +22,9 @@ package Form.MUDamage {
 			
 			init();
 		}
+		/**
+		 * 初期化
+		 */
 		private function init():void{
 			// データを登録
 			this.dataProvider = D.getData("job");
@@ -37,29 +36,14 @@ package Form.MUDamage {
 			// どれも選択されてない状態を許すかどうか
 			this.toggleOnClick = false;
 			// イベントの登録
-			this.addEventListener(Event.TAB_INDEX_CHANGE,eventChangeJob);
+			this.addEventListener(FlexEvent.VALUE_COMMIT,eventChangeJob);
 		}
 		/**
 		 * 職イベント
 		 */
 		private function eventChangeJob(event:Event):Boolean{
-			this.controller.changeForm(this.selectedIndex);
-			setJob(getOldJob());
+			this.controller.changeTab(this.selectedIndex);
 			return true;
-		}
-		/**
-		 * 職をセットする
-		 */
-		public function setJob(job:int):void{
-			if(job == -1)return;
-			this.selectedIndex = job;
-			old_job = job;
-		}
-		/**
-		 * 職フォームの変更イベント直前の値を返す
-		 */
-		public function getOldJob():int{
-			return old_job;
 		}
 	}
 }

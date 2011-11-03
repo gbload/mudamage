@@ -7,6 +7,7 @@ import mx.collections.*;
 import mx.events.*;
 import flash.events.*;
 
+import Common.*;
 import Form.MUDamage.SubForm.*;
 import Data.Database.*;
 import Data.Database.MLV.*;

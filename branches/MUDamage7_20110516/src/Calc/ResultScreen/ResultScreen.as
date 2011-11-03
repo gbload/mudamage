@@ -32,6 +32,8 @@ package Calc.ResultScreen {
 			muc.i = new ItemData(muc.f);
 			muc.c = (new CharacterCalculator(muc.f,muc.i)).getData();
 			muc.a = (new AttackCalculator(muc.f,muc.i,muc.c)).getData();
+			// ラベル付
+			this.label = d.form_title.text;
 			
 			init();
 		}
