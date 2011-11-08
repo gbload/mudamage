@@ -1,39 +1,47 @@
 package IO.Export {
-	import mx.containers.*;
 	import mx.controls.*;
-	import flash.events.*;
+	import mx.containers.*;
+	import mx.core.*;
+	import mx.collections.*;
 	import mx.events.*;
+	import mx.managers.*;
+	import flash.events.*;
 	
 	import IO.FileIO.*;
+	import Form.Menu.*;
+	import Form.MUDamage.*;
 	
 	/**
 	 * 一括エクスポート/インポートの機能を提供するパネル
 	 */
-	public class AllExportPanel extends Panel {
+	public class AllExportPanel extends Canvas {
+		private var c:Controller;
+		private var menu:FormMenu;
+	
+		private var pop:TitleWindow;
 		private var textarea:TextArea;
 		/**
 		 * コンストラクタ
 		 */
-		public function AllExportPanel() {
+		public function AllExportPanel(c:Controller,menu:FormMenu) {
 			super();
+			
+			this.c = c;
+			this.menu = menu;
+			
 			init();
+			setPanel();
 		}
 		/**
 		 * パネルの設定
 		 */
 		private function init():void{
-			this.title = "一括エクスポート/インポート";
-			this.name = "allexport";
+			this.name = "export";
 			this.setStyle("borderAlpha","1.0");
 			
 			var f:Form = new Form();//Layout用
 			f.name = "form";
 			this.addChild(f);
-			
-			var te:Text = new Text();//案内
-			te.text = "一括エクスポート/インポート";
-			te.setStyle("fontWeight","bold");
-			f.addChild(te);
 			
 			textarea = new TextArea();
 			textarea.name = "data";
@@ -66,14 +74,36 @@ package IO.Export {
 			f.addChild(b);
 		}
 		/**
-		 * このパネルを閉じます。
+		 * Popupに登録する
+		 */
+		private function setPanel():void{
+			pop = PopUpManager.createPopUp(menu,TitleWindow,true) as TitleWindow;
+			pop.width = 350;
+			pop.height = 450;
+			pop.setStyle("borderColor","black");
+			pop.setStyle("borderAlpha","0.3");
+			pop.showCloseButton = true;//右上の×ボタン
+			pop.addEventListener(CloseEvent.CLOSE,eventClickPopupClose);//右上の×ボタンのイベント
+			PopUpManager.centerPopUp(pop);
+			pop.title = "一括エクスポート/インポート";//タイトル
+			
+			pop.addChild(this);//MLVキャンバスを載せる
+		}
+		/**
+		 * ポップアップを閉じる
+		 */
+		private function eventClickPopupClose(event:Event):void{
+			PopUpManager.removePopUp(event.target as IFlexDisplayObject);
+		}
+		/**
+		 * このパネルを閉じる
 		 */
 		private function eventCancel(event:Event):Boolean{
-			this.parent.removeChild(this);
+			pop.dispatchEvent(new CloseEvent(CloseEvent.CLOSE) as Event);
 			return false;
 		}
 		/**
-		 * 一括エクスポート/インポートしたデータを全選択します。
+		 * エクスポート/インポートしたデータを全選択する
 		 */
 		private function eventAllSelect(event:Event):Boolean{
 			textarea.setFocus();

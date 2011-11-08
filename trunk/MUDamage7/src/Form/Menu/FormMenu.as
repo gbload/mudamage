@@ -21,7 +21,7 @@ package Form.Menu{
             <menuitem label="開く" enabled="true"/>
             <menuitem label="保存" enabled="true"/>
             <menuitem label="エクスポート/インポート" enabled="true"/>
-            <menuitem label="一括エクスポート/インポート" enabled="false"/>
+            <menuitem label="一括エクスポート/インポート" enabled="true"/>
         </menuitem>,
         <menuitem label="石像破壊シミュレータ" enabled="false"/>,
         <menuitem label="サンプルデータ" enabled="false"/>,
@@ -43,6 +43,8 @@ package Form.Menu{
 				new SavePanel(c,this);
 			}else if(e.label == "エクスポート/インポート"){
 				new ExportPanel(c,this);
+			}else if(e.label == "一括エクスポート/インポート"){
+				new AllExportPanel(c,this);
 			}
 			return true;
 		}
