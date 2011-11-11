@@ -211,7 +211,26 @@ package Calc {
 			else d += i.getSpec(f[hand],"max");
 			//追加OP
 		    d += i.getValueMap(f[hand].option,"攻撃");//武器の追加攻撃力
-		    d += i.getValueMap(f.wing.option,"攻撃");//Ｒ ＝ Ｒ ＋ 羽追加攻撃力 
+		    d += i.getValueMap(f.wing.option,"攻撃");//Ｒ ＝ Ｒ ＋ 羽追加攻撃力
+		    
+		    //マスタースキル武器強化
+		    if(i.getItemData(f[hand],"type")=="片手剣"){
+			    d += f.master_skill.getSkillValue("one_hand_sword");
+		    }else if(i.getItemData(f[hand],"type")=="両手剣"){
+			    d += f.master_skill.getSkillValue("two_hand_sword");
+		    }else if(i.getItemData(f[hand],"type")=="ハンマー"){
+			    d += f.master_skill.getSkillValue("hammer");
+		    }else if(i.getItemData(f[hand],"type")=="槍"){
+			    d += f.master_skill.getSkillValue("spear");
+		    }else if(i.getItemData(f[hand],"type")=="弓"){
+			    d += f.master_skill.getSkillValue("bow");
+		    }else if(i.getItemData(f[hand],"type")=="ボウガン"){
+			    d += f.master_skill.getSkillValue("crossbow");
+		    }else if(i.getItemData(f[hand],"type")=="セプター"){
+			    d += f.master_skill.getSkillValue("scepter");
+		    }else if(i.getItemData(f[hand],"type")=="グローブ"){
+			    d += f.master_skill.getSkillValue("glove");
+		    }
 
 		    //マスタースキル最小最大
 		    if(min){//最小
@@ -427,6 +446,14 @@ package Calc {
 		    //最大魔力==================================================================
 		    if(!min){d = Math.floor(c.ene/4);}
 		    else{d =  Math.floor(c.ene/9);}
+		    //マスタースキル武器強化
+		    if(i.getItemData(f.right,"type")=="片手杖"){
+			    d += f.master_skill.getSkillValue("one_hand_staff");
+		    }else if(i.getItemData(f.right,"type")=="両手杖"){
+			    d += f.master_skill.getSkillValue("two_hand_staff");
+		    }else if(i.getItemData(f.right,"type")=="ロッド"){
+			    d += f.master_skill.getSkillValue("rod");
+		    }
 		    //OP
 		    d += i.getValueMap(f.right.option,"魔力");
 		    d += i.getValueMap(f.wing.option,"魔力");//Y = Y ＋　羽追加魔力
@@ -583,6 +610,10 @@ package Calc {
 			//エナジー
 			if(min)d += Math.floor(c.ene/9);
 			else d += Math.floor(c.ene/4);
+		    //マスタースキル武器強化
+		    if(i.getItemData(f.left,"type")=="書"){
+			    d += f.master_skill.getSkillValue("book");
+		    }
 			//武器OP　羽OP
 			d += i.getValueMap(f.left.option,"呪い") + i.getValueMap(f.wing.option,"呪い");
 		    //[スケルトンパージドラゴン装備時] Y = int(Y * 1.2)
