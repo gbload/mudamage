@@ -23,6 +23,7 @@ my @a=();
 foreach $set(@set){
 	if(index($set,"label")!=-1){next;}
 	$set =~ s/"//g;
+	if($set eq ""){next;}
 	my @sets = split(",",$set);
 	my @name = split("の",$sets[1]);
 	shift(@name);
