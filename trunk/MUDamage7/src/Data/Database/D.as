@@ -220,7 +220,7 @@ package Data.Database
 			var item:String = items[kind];
 			var d:Object = getData(item);
 			var k:Object = getKey(item);
-			if(job == 0 || job == 3 || job == 5 || job == 6)//ナイト、魔剣士、召喚師のみ左手に武器を持てる
+			if(job == 0 || job==2 || job == 3 || job == 5 || job == 6)//ナイト、、エルフ、魔剣士、召喚師、レイジのみ左手に武器を持てる
 				for(i=0;i<d.length;i++){
 					var d2:Object = d[i];
 					var k2:Object = k;
@@ -229,13 +229,21 @@ package Data.Database
 						k2 = getKey("weapon");
 					}
 					if(d2[k2.job][job])//装備可能職かチェック
-						if(d2[k2.type] != "ロッド")//召喚師は左手にロッドは持てない
-						if(d2[k2.hand] == "片手" || d[i][k2.hand] == "左手")//持ち手を確認
-							if(item=="set_weapon")
-								a.push({label:d[i][k.name],index:d[i][k.index],item:"weapon"
-								  ,set_index:i,set_item:item});
-							else
-								a.push({label:d2[k2.name],index:i,item:item});
+						if(job==2){//エルフの場合、左手弓のみ
+							if(d[i][k2.hand] == "左手")
+								if(item=="set_weapon")
+									a.push({label:d[i][k.name],index:d[i][k.index],item:"weapon"
+									  ,set_index:i,set_item:item});
+								else
+									a.push({label:d2[k2.name],index:i,item:item});
+						}else
+							if(d2[k2.type] != "ロッド" && d2[k2.type] != "杖")//召喚師は左手にロッドは持てない
+							if(d2[k2.hand] == "片手" || d[i][k2.hand] == "左手")//持ち手を確認
+								if(item=="set_weapon")
+									a.push({label:d[i][k.name],index:d[i][k.index],item:"weapon"
+									  ,set_index:i,set_item:item});
+								else
+									a.push({label:d2[k2.name],index:i,item:item});
 				}
 			// 盾
 			items = ["shield","set_shield","socket_shield"];

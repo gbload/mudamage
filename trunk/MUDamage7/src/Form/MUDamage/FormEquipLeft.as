@@ -9,9 +9,8 @@ package Form.MUDamage {
 	import Form.MUDamage.SubForm.*;
 	import Data.Database.*;
 	
-	public class FormEquipLeft extends FormEquip {
+	public class FormEquipLeft extends FormEquipRight {
 		private var darkspirit_level:ComboBox;
-		protected var type:int;
 		/**
 		 * コンストラクタ
 		 * @param d
@@ -19,6 +18,7 @@ package Form.MUDamage {
 		public function FormEquipLeft(d:FormMUDamage) {
 			super(d);
 			this.label = "左:";
+			this.other_hand = d.getFormRight();
 		}
 		/**
 		 * kind arrayの初期化
@@ -92,10 +92,58 @@ package Form.MUDamage {
 				else item.dataProvider = D.getSelect("left",jobindex);
 				// type
 				this.type = type;
+				// エルフの左手制限
+				setElfWeapon();
 			}
 			// イベントの呼び出し
 			item.dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);
 			return true;
+		}
+		/**
+		 * エルフの左手武器表示
+		 */
+		public function setElfWeapon():void{
+			//アイテムの追加
+			var jobindex:int = d.getJob().selectedIndex;//職取得
+			if(jobindex==2){
+				// 入れ替え後のindex変更用
+				var now:int = item.selectedIndex;
+				//右手が有効でエルフの場合、左手は盾のみ
+				if(other_hand.getKind().selectedIndex!=0){
+					var a:Array = new Array();
+					for(var n:int = item.dataProvider.length - 1 ; n >= 0 ; n--){
+						var i:Object = D.getData(item.dataProvider[n].item)[item.dataProvider[n].index];
+						var k:Object = D.getKey(item.dataProvider[n].item);
+						if(i[k.type] == "盾")
+							a.unshift(item.dataProvider[n]);
+					}
+					item.dataProvider = a;
+				//ソケットアイテムを除く　両手武器を除く
+				}else{
+					if(type==1) item.dataProvider = D.getSelect("socket_left",jobindex);
+					else if(type==2) item.dataProvider = D.getSelect("set_left",jobindex);
+					else item.dataProvider = D.getSelect("left",jobindex);
+				}
+				// 入れ替え前のindexに変更
+				item.selectedIndex = now;
+				
+				// 調整
+				if(item.visible){
+					i = D.getData(item.selectedItem.item)[item.selectedItem.index];
+					k = D.getKey(item.selectedItem.item);
+					// 弓の場合、左手フォームを隠す
+					if(i[k.type] == "弓" || i[k.type] == "ボウガン"){
+						other_hand.getKind().selectedIndex = 0;//左手を「なし」に設定
+//						other_hand.getKind().dispatchEvent((new ListEvent(ListEvent.CHANGE)) as Event);//イベントの呼び出し
+						FormCommon.hide(other_hand.getKind());//左手フォームを隠す
+						FormCommon.show(arrow);//矢のフォームを表示
+					}
+					else{//元に戻す
+						FormCommon.show(other_hand.getKind());
+						FormCommon.hide(arrow);
+					}
+				}
+			}
 		}
 		/**
 		 * darkspirit

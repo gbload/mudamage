@@ -12,6 +12,7 @@ package Form.MUDamage {
 	public class FormEquipRight extends FormEquip {
 		protected var arrow:ComboBox;
 		protected var type:int;
+		protected var other_hand:FormEquip;
 		/**
 		 * コンストラクタ
 		 * @param d
@@ -49,27 +50,35 @@ package Form.MUDamage {
 		 */
 		override protected function eventChangeItem(event:Event):void{
 			super.eventChangeItem(event);
+			var i:Object = D.getData(item.selectedItem.item)[item.selectedItem.index];
+			var k:Object = D.getKey(item.selectedItem.item);
 			// 弓の場合、左手フォームを隠す
-			if(item.selectedItem[3] == "弓"){
-				d.getFormLeft().getKind().selectedIndex = 0;//左手を「なし」に設定
-				d.getFormLeft().getKind().dispatchEvent((new ListEvent(ListEvent.CHANGE)) as Event);//イベントの呼び出し
-				FormCommon.hide(d.getFormLeft().getKind());//左手フォームを隠す
+			if(i[k.type] == "弓" || i[k.type] == "ボウガン"){
+				other_hand.getKind().selectedIndex = 0;//左手を「なし」に設定
+				other_hand.getKind().dispatchEvent((new ListEvent(ListEvent.CHANGE)) as Event);//イベントの呼び出し
+				FormCommon.hide(other_hand.getKind());//左手フォームを隠す
 				FormCommon.show(arrow);//矢のフォームを表示
+			}
 			//両手武器の場合、左手を隠す
-			}else if(item.selectedItem[4] == "両手"){
-				d.getFormLeft().getKind().selectedIndex = 0;//左手を「なし」に設定
-				d.getFormLeft().getKind().dispatchEvent((new ListEvent(ListEvent.CHANGE)) as Event);//イベントの呼び出し
-				FormCommon.hide(d.getFormLeft().getKind());//左手フォームを隠す
-			}else{//元に戻す
-				FormCommon.show(d.getFormLeft().getKind());
+			else if(i[k.hand] == "両手"){
+				other_hand.getKind().selectedIndex = 0;//左手を「なし」に設定
+				other_hand.getKind().dispatchEvent((new ListEvent(ListEvent.CHANGE)) as Event);//イベントの呼び出し
+				FormCommon.hide(other_hand.getKind());//左手フォームを隠す
+			}
+			else{//元に戻す
+				FormCommon.show(other_hand.getKind());
 				FormCommon.hide(arrow);
 			}
+			//エルフの左手制限
+			d.form_left.setElfWeapon();
 		}
 		/**
 		 * アイテムフォームのデータを変更
 		 * @param type 0:通常 1:ソケット 2:セットアイテム
 		 */
 		override protected function changeItem(type:int):Boolean{
+			// left_form because ledt is not created in initialize
+			this.other_hand = d.form_left;
 			//すでに作成されていないかチェック
 			if(item.dataProvider == "" || this.type != type){
 				//アイテムの追加
@@ -84,6 +93,15 @@ package Form.MUDamage {
 			// イベントの呼び出し
 			item.dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);
 			return true;
+		}
+		/**
+		 * none
+		 */
+		override protected function displayNone():void{
+			hideAll();
+			if(other_hand)FormCommon.show(other_hand.getKind());
+			//エルフの左手制限
+			d.form_left.setElfWeapon();
 		}
 		/**
 		 * arrow
