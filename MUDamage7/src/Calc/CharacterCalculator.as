@@ -388,6 +388,20 @@ package Calc {
 			speed += i.etc_speed;//かぼちゃ、課金など
 			if(f.pet.item=="デーモン"){speed += 10;}//デーモン
 			if(f.pet.item=="スケルトンパージドラゴン"){speed += 10;}//スケルトンパージドラゴン
+			// マスタースキル
+			if(i.getItemData(f.right,"type")=="片手剣"
+				|| i.getItemData(f.left,"type")=="片手剣")
+				speed += f.master_skill.getSkillValue("one_hand_sword_mastery");
+			if(i.getItemData(f.right,"type")=="片手杖"
+				|| i.getItemData(f.left,"type")=="片手杖")
+				speed += f.master_skill.getSkillValue("one_hand_staff_mastery");
+			if(i.getItemData(f.right,"type")=="弓"
+				|| i.getItemData(f.left,"type")=="弓")
+				speed += f.master_skill.getSkillValue("bow_mastery");
+			if(i.getItemData(f.right,"type")=="書"
+				|| i.getItemData(f.left,"type")=="書")
+				speed += f.master_skill.getSkillValue("book_mastery");
+				
 			
 			// 適用
 			c.speed += speed;
