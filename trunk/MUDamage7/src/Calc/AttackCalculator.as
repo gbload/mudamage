@@ -61,7 +61,9 @@ package Calc {
 						(i.getItemData(f.right,"skill")!=s[n][a.key.name] &&
 						i.getItemData(f.left,"skill")!=s[n][a.key.name]))
 					continue;
-				// ダークスピリット　TODO
+				// ダークスピリット
+				if(s[n][a.key.special]==4 && f.left.kind!="鷹")
+					continue;
 				// スキルを追加
 				var skill:Skill = new Skill();
 				skill.skill = s[n];
@@ -85,12 +87,12 @@ package Calc {
 		 */
 		private function calcSpeed(i:Object,type:String):Array{
 			var r:Array = new Array();
-			r[0] = 0;
-			r[1] = 0;
-			
+			r[0] = 0;//速度[ms]
+			r[1] = 0;//検証フラグ 0:false 1:true
+			//データの取得
 			var data:Object = D.getData("speed");
 			var key:Object = D.getKey("speed");
-			
+			//ペット
 			var index:int = 0;
 			if(f.pet.item == "ユニリア" || f.pet.item == "ディノラント")
 				index = a.key.uni;
@@ -98,10 +100,11 @@ package Calc {
 				index = a.key.fenrir;
 			else if(f.pet.item == "ダークホース")
 				index = a.key.darkhorse;
-			
+			//不明
 			if(i[index] == -1){
 				return r;
 			}
+			//速度データ
 			var speed_data:Array = data[i[index]] as Array;
 			
 			var speed:int = c.speed;
@@ -165,12 +168,16 @@ package Calc {
 		    //呪い
 		    a.curse.min = calcCurse(true);
 		    a.curse.max = calcCurse(false);
+		    //ダークスピリット
+		    calcDarkSpirit();
 		    //スキルごとに計算
 		    for(var n:String in a.skills){
 		    	var func:Function = calcAttackSkill;
 		    	// 計算式の選択
 		    	if(a.skills[n].skill[a.key.name] == "プラズマストーム")
 		    		func = calcPlasmaStorm;
+		    	else if(a.skills[n].skill[a.key.special] == "フレイムハンド")
+		    		func = calcDarkSpiritSkill;
 		    	else if(a.skills[n].skill[a.key.type] == "魔法")
 		    		if(a.skills[n].skill[a.key.special] == "呪い")
 		    			func = calcCurseSkill;
@@ -582,26 +589,45 @@ package Calc {
 
 			return d;
 		}
-
-//		private function calcDarkSpirit(c:MuChar):MuChar{
-//			if(dat::d.f_left.f_kind.selectedLabel == "鷹"){
-//				var plus:int = dat::d.f_left.f_op.selectedIndex + 1;//鷹のLV
-//				var per:int = calc::weapon_pet + 100;
-//				//フレイムハンド単体の最小攻撃力
-//				c.darkspirit[0] = Math.floor(((plus*15) + Math.floor(c.rec/8) + 180) * per / 100);
-//				//フレイムハンド単体の最大攻撃力
-//				c.darkspirit[1] = Math.floor(((plus*15) + Math.floor(c.rec/4) + 200) * per / 100); 	
-//				//フレイムハンド範囲の最小攻撃力
-//				c.darkspirit[2] = Math.floor(((plus*10) + Math.floor(c.rec/12) + 120) * per / 100); 	
-//				//フレイムハンド範囲の最大攻撃力
-//				c.darkspirit[3] = Math.floor(((plus*10) + Math.floor(c.rec/6) + 133) * per / 100); 	
-//				//鷹の攻撃成功率
-//				c.darkspirit[4] = (plus*16) + 1000; 	
-//				//鷹のLv(クリティカル率)
-//				c.darkspirit[5] = plus; 
-//			}
-//			return c;
-//		}
+		private function calcDarkSpirit():void{
+			var plus:int = f.left.darkspirit;//鷹のLV
+			var per:int = i.getSpec(f.right,"pet") + 100;
+			//フレイムハンド単体の最小攻撃力
+			c.darkspirit_min_single = Math.floor(((plus*15) + Math.floor(c.rec/8) + 180) * per / 100);
+			//フレイムハンド単体の最大攻撃力
+			c.darkspirit_max_single = Math.floor(((plus*15) + Math.floor(c.rec/4) + 200) * per / 100);
+			//フレイムハンド範囲の最小攻撃力
+			c.darkspirit_min_range = Math.floor(((plus*10) + Math.floor(c.rec/12) + 120) * per / 100); 	
+			//フレイムハンド範囲の最大攻撃力
+			c.darkspirit_max_range = Math.floor(((plus*10) + Math.floor(c.rec/6) + 133) * per / 100); 	
+			//鷹の攻撃成功率
+			c.darkspirit_hit = (plus*16) + 1000;
+			//鷹のEXD率
+			c.darkspirit_exd_per = Math.floor(plus/30)*10;
+			//鷹のクリティカル率
+			c.darkspirit_cri_per = (100 - c.darkspirit_exd_per) * plus;
+			//鷹のノーマル率
+			c.darkspirit_normal = (10000 - (c.darkspirit_exd_per*100) - c.darkspirit_cri_per);
+		}
+		/**
+		 * ダークスピリットスキル計算
+		 */
+		private function calcDarkSpiritSkill(skill:Skill,cri:Boolean,exd:Boolean,min:Boolean):int{
+			var d:int = 0;
+		
+			if(skill.skill[a.key.name] == "フレイムハンド(単体)")
+				//フレイムハンド単体の最小攻撃力
+				if(min) d = c.darkspirit_min_single;
+				//フレイムハンド単体の最大攻撃力
+				else d = c.darkspirit_max_single;
+			else // フレイムハンド(範囲)	
+				//フレイムハンド範囲の最小攻撃力
+				if(min) d = c.darkspirit_min_range; 	
+				//フレイムハンド範囲の最大攻撃力
+				else d = c.darkspirit_max_range;
+			
+			return d;
+		}
 		/**
 		 * 呪い計算
 		 */

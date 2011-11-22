@@ -146,12 +146,13 @@ package Calc {
 		    return d;
 			
 		}
-		public function calcDarkSpritDamage(
+		public function calcDarkSpiritDamage(
+				skill:Object,
 				d:int,
 				cri:Boolean=false,
 				exd:Boolean=false):int{
 			d = calcGuard1(d);
-//			d = Math.max(d,Math.floor(muc1.darkspirit[5]/10));
+			d = Math.max(d,Math.floor(f.left.darkspirit/10));
 			d = calcGuard2(d);
 			return d;
 		}
@@ -217,7 +218,7 @@ package Calc {
 			//フェンリルの吸収
 			if(f.pet.item == "フェンリル" && f.pet.sub1 == "守護")s = (s * 90/100);//10%吸収
 			//ダークホースの吸収
-			if(f.pet.item == "ダークホース")s = (s * (100 - Math.floor((15 + parseInt(f.pet.sub1.split("v")[1])/2))) /100);// 15+Lv/2
+			if(f.pet.item == "ダークホース")s = (s * (100 - Math.floor(15 + (f.pet.sub1_index+1)) /100);// 15+Lv/2
 			//羽の吸収
 			s = (s * (100 - c.wing_dec) / 100);
 			//SBの減少
@@ -231,38 +232,102 @@ package Calc {
 		public function calcSkills():Array{
 			var r:Array = new Array();
 			//命中率計算
-			var hit:int = calcHit(c,m);
+			var hit:int = calcHit(c.hit);
 			
 			//ダメージ計算
 			for(var n:String in a.skills){
-				var data:ResultData = new ResultData();
-				data.skillname = a.skills[n].skill[a.key.name];
-				data.hit_num = hit;
-				data.hit_check = isHit(c,m);
-				// damage calculation
-				var func:Function = calcDamage;
-				if(a.skills[n].skill[a.key.type]=="魔法"){
-					func = calcMagicDamage;
+//				var data:ResultData = new ResultData();
+//				data.skillname = a.skills[n].skill[a.key.name];
+//				data.hit_num = hit;
+//				data.hit_check = isHit(c,m);
+//				// damage calculation
+//				var func:Function = calcDamage;
+//				if(a.skills[n].skill[a.key.special]=="フレイムハンド"){
+//					func = calcDarkSpiritDamage;
+//				}else if(a.skills[n].skill[a.key.type]=="魔法"){
+//					func = calcMagicDamage;
+//				}
+//				data.min = func(a.skills[n],a.skills[n].min,false,false);
+//				data.max = func(a.skills[n],a.skills[n].max,false,false);
+//				data.cri = func(a.skills[n],a.skills[n].cri,true,false);
+//				data.exd = func(a.skills[n],a.skills[n].exd,false,true);
+//				//1HIT当たりのダメージを計算
+//				data.average = calcAverage(data,a,c);//1hit当たりのダメージ
+//				//1HITダメージ/秒
+//				data.averageper = calcAveragePerSecond(n,data,a);
+//				//1分当たりの攻撃回数を計算
+//				data.speed = calcSpeedPerMinute(n,a);
+//				//データの整形
+//				data.minmax = data.min + "〜" + data.max;
+//				data.hit = (hit*100) + "%";
+//				
+//				//計算結果をスタック
+//				r.push(data);
+				if(a.skills[n].skill[a.key.special]=="フレイムハンド"){
+					r.push(calcDarkSpiritSkill(n));
+				}else{
+					r.push(calcSkill(n,hit));
 				}
-				data.min = func(a.skills[n],a.skills[n].min,false,false);
-				data.max = func(a.skills[n],a.skills[n].max,false,false);
-				data.cri = func(a.skills[n],a.skills[n].cri,true,false);
-				data.exd = func(a.skills[n],a.skills[n].exd,false,true);
-				//1HIT当たりのダメージを計算
-				data.average = calcAverage(data,a,c);//1hit当たりのダメージ
-				//1HITダメージ/秒
-				data.averageper = calcAveragePerSecond(n,data,a);
-				//1分当たりの攻撃回数を計算
-				data.speed = calcSpeedPerMinute(n,a);
-				//データの整形
-				data.minmax = data.min + "〜" + data.max;
-				data.hit = (hit*100) + "%";
-				//計算結果をスタック
-				r.push(data);
 			}
 			// 被ダメージをスタック
 			r.push({minmax:calcSuffer(m[mk.min]) + "～" + calcSuffer(m[mk.max])});
 			return r;
+		}
+		/**
+		 * 各スキルのダメージ計算
+		 */
+		private function calcSkill(n:String,hit:int):ResultData{
+			var data:ResultData = new ResultData();
+			data.skillname = a.skills[n].skill[a.key.name];
+			data.hit_num = hit;
+			data.hit_check = isHit(c.hit);
+			// damage calculation
+			var func:Function = calcDamage;
+			if(a.skills[n].skill[a.key.type]=="魔法"){
+				func = calcMagicDamage;
+			}
+			data.min = func(a.skills[n],a.skills[n].min,false,false);
+			data.max = func(a.skills[n],a.skills[n].max,false,false);
+			data.cri = func(a.skills[n],a.skills[n].cri,true,false);
+			data.exd = func(a.skills[n],a.skills[n].exd,false,true);
+			//1HIT当たりのダメージを計算
+			data.average = calcAverage(data,a,c);//1hit当たりのダメージ
+			//1HITダメージ/秒
+			data.averageper = calcAveragePerSecond(n,data,a);
+			//1分当たりの攻撃回数を計算
+			data.speed = calcSpeedPerMinute(n,a);
+			//データの整形
+			data.minmax = data.min + "〜" + data.max;
+			data.hit = (hit*100) + "%";
+			
+			return data;
+		}
+		/**
+		 * ダークスピリットのスキルダメージ計算
+		 */
+		private function calcDarkSpiritSkill(n:String):ResultData{
+			var data:ResultData = new ResultData();
+			data.skillname = a.skills[n].skill[a.key.name];
+			data.hit_num = calcHit(c.darkspirit_hit);
+			data.hit_check = isHit(c.darkspirit_hit);
+			// damage calculation
+			var func:Function = calcDarkSpiritDamage;
+			
+			data.min = func(a.skills[n],a.skills[n].min,false,false);
+			data.max = func(a.skills[n],a.skills[n].max,false,false);
+			data.cri = func(a.skills[n],a.skills[n].cri,true,false);
+			data.exd = func(a.skills[n],a.skills[n].exd,false,true);
+			//1HIT当たりのダメージを計算
+			data.average = calcAverage(data,a,c);//1hit当たりのダメージ
+			//1HITダメージ/秒
+			data.averageper = calcAveragePerSecond(n,data,a);
+			//1分当たりの攻撃回数を計算
+			data.speed = calcSpeedPerMinute(n,a);
+			//データの整形
+			data.minmax = data.min + "〜" + data.max;
+			data.hit = (data.hit_num*100) + "%";
+			
+			return data;
 		}
 		/**
 		 * 命中率計算
@@ -270,12 +335,12 @@ package Calc {
 		 * @param monster data
 		 * @return hit
 		 */
-		private function calcHit(c:CharacterData,m:Object):int{
+		private function calcHit(c:int):int{
 			var hit:int = 0;
-			if(c.hit < m[mk.avoid])
+			if(c < m[mk.avoid])
 				hit = 0.05;
 			else
-				hit = 1 - (m[mk.avoid] / c.hit);
+				hit = 1 - (m[mk.avoid] / c);
 			return hit;
 		}
 		/**
@@ -284,8 +349,8 @@ package Calc {
 		 * @param monster data
 		 * @return カスリダメージの場合、true
 		 */
-		private function isHit(c:CharacterData,m:Object):Boolean {
-			return (c.hit < m[mk.avoid]);
+		private function isHit(c:int):Boolean {
+			return (c < m[mk.avoid]);
 		}
 		/**
 		 * 1hit当たりの平均ダメージ
@@ -297,11 +362,12 @@ package Calc {
 		private function calcAverage(data:ResultData,a:AttackData,c:CharacterData):int{
 			var hit1:int=0;//1hit当たりのダメージ
 			if(data.skillname == "フレイムハンド(単体)"){//ダークスピリット
-//				hit1 += x_max * muc1.darkspirit[5]/100;//クリティカル率
-//				hit1 += ((x_min + x_max)/2) * (100 - muc1.darkspirit[5]) / 100;//通常
+				hit1 += data.exd * c.darkspirit_exd_per/100;//EXD
+				hit1 += data.cri * c.darkspirit_cri_per/10000;//クリティカル率
+				hit1 += ((data.min + data.max)/2) * c.darkspirit_normal / 10000;//通常
 			}else if(data.skillname == "フレイムハンド(範囲)"){//フレイムハンド範囲
 				//クリティカル確率0%
-//				hit1 += ((x_min + x_max)/2);//通常
+				hit1 += ((data.min + data.max)/2);//通常
 			}else{//通常
 				hit1 += data.exd * c.exd / 100;//EXD
 				hit1 += data.cri * c.cri / 10000;//クリ

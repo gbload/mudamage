@@ -149,9 +149,9 @@ package Calc {
 		}
 		private function setPet(form:Object,obj:Object):void{
 			obj.item = form.getItem().selectedLabel;
-			obj.sub1 = form.getItem().selectedLabel;
-			obj.sub1_index = form.getItem().selectedIndex;
-			obj.sub2 = form.getItem().selectedLabel;
+			obj.sub1 = form.getSub1().selectedLabel;
+			obj.sub1_index = form.getSub1().selectedIndex;
+			obj.sub2 = form.getSub2().selectedLabel;
 		}
 		private function setWing(form:Object,obj:Object):void{
 			obj.item = D.getData(form.getItem().selectedItem.item)[form.getItem().selectedItem.index];
@@ -172,6 +172,10 @@ package Calc {
 		}
 		private function setLeft(form:Object,obj:Object):void{
 			setEquip(form,obj);
+			if(form.getArrow().visible)
+				obj.arrow = form.getArrow().selectedLabel;
+			if(form.getDarkspiritLevel().visible)
+				obj.darkspirit = form.getDarkspiritLevel().selectedIndex + 1;
 		}
 		private function setProtect(form:Object,obj:Object):void{
 			setEquip(form,obj);
