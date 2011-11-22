@@ -43,6 +43,8 @@ package Calc.ResultScreen {
 			setWeapon("右:",f.right,d.form_right);
 			if(i.is_shield)
 				setProtect("左:",f.left,d.form_left,true);
+			else if(f.left.kind == "鷹")
+				setDarkspirit("左:");
 			else
 				setWeapon("左:",f.left,d.form_left);
 			setProtect("兜:",f.helm,d.form_helm);
@@ -89,7 +91,17 @@ package Calc.ResultScreen {
 		private function setPet():void{
 			ln();
 			var str:String = f.pet.item;
-			text(str);
+			str += " " + f.pet.sub1 + " " + f.pet.sub2 + " ";
+			if(f.pet.item == "ダークホース"){
+				str += "ダメージ吸収" + (Math.floor(15 + (f.pet.sub1_index+1))).toString() + "%";
+				var tooltip:String = "";
+				tooltip += "要求LV:" + (218+(f.pet.sub1_index+1)*2).toString() + "\n";
+				tooltip += "防御力:" + (5 + (c.agi/20) + ((f.pet.sub1_index+1) * 2)).toString() + "\n";
+				tooltip += "ダメージ吸収:" + (Math.floor(15 + (f.pet.sub1_index+1))).toString() + "%\n";
+				tooltip += "押し出す距離:" + (1+(f.pet.sub1_index+1)*0.07).toString() + "\n";
+				text(str,"",tooltip);
+			}else
+				text(str);
 		}
 		/**
 		 * 羽を表示
@@ -193,6 +205,27 @@ package Calc.ResultScreen {
 				// ソケットボーナス
 				setSocketBonus(obj,form);
 			}
+		}
+		/**
+		 * 鷹を表示
+		 */
+		private function setDarkspirit(label:String):void{
+			ln();
+			text(label);
+			// str
+			var str:String = "鷹 Lv" + f.left.darkspirit;
+			var tooltip:String = "";
+			//require
+			tooltip += "要求統率:"+(185+f.left.darkspirit*15).toString()+"\n";
+			// status
+			tooltip += "単体:"+c.darkspirit_min_single.toString()+"〜"+c.darkspirit_max_single.toString()+"\n";
+			tooltip += "範囲:"+c.darkspirit_min_range.toString()+"〜"+c.darkspirit_max_range.toString()+"\n";
+			tooltip += "命中:"+c.darkspirit_hit.toString()+"\n";
+			tooltip += "通常攻撃確率:"+(c.darkspirit_normal/100).toString()+"%\n";
+			tooltip += "クリティカル確率:"+(c.darkspirit_cri_per/100).toString()+"%\n";
+			tooltip += "エクセレントダメージ確率:"+(c.darkspirit_exd_per).toString()+"%\n";
+			// 表示
+			text(str,"",tooltip);
 		}
 		/**
 		 * 防具を表示

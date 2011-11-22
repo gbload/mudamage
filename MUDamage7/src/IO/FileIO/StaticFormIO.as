@@ -138,6 +138,9 @@ package IO.FileIO {
 			a[24] = new Array();
 			a[24][0] = 0;
 			a[24][1] = 0;
+			//2011/11/23
+			//ダークスピリットLV
+			a[25] = d.form_left.getDarkspiritLevel().selectedIndex;
 			return a;
 		}
 		/**
@@ -283,6 +286,10 @@ package IO.FileIO {
 //			d.form_map_doublegoer_ptm.selectedIndex = a[24][0];
 //			d.form_map_imperialguardian_lv.selectedIndex = a[24][1];
 			
+			//2011/11/23
+			//ダークスピリットLV
+			d.form_left.getDarkspiritLevel().selectedIndex = a[25];
+			
 			//Alert.show(a.toString());
 			
 			return true;
@@ -398,6 +405,9 @@ package IO.FileIO {
 			a[24] = new Array();
 			a[24][0] = a2[index++];
 			a[24][1] = a2[index++];
+			//2011/11/23
+			//ダークスピリットLV
+			a[25] = a2[index++];
 			return a;
 		}
 	}

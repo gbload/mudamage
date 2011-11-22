@@ -126,6 +126,7 @@ package Calc {
 			c.def += i.getSpec(f.wing,"def");
 			c.def += i.getValue(f.wing.option["防御"]);
 			// ダークホースのDEF
+			c.def += 5 + (c.agi/20) + ((f.pet.sub1_index+1) * 2);
 			/*
 			 * %増加分
 			 */

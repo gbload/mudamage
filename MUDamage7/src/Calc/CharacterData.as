@@ -68,5 +68,14 @@ package Calc {
 		public var support_vit:int=0;//体力+
 		public var support_avoid:int=0;//防御成功率+
 		public var support_ignore:int=0;//敵の防御力無視
+		//ダークスピリット
+		public var darkspirit_min_single:int=0;//単体
+		public var darkspirit_max_single:int=0;
+		public var darkspirit_min_range:int=0;//範囲
+		public var darkspirit_max_range:int=0;
+		public var darkspirit_hit:int=0;//命中率
+		public var darkspirit_cri_per:int=0;//クリティカル確率
+		public var darkspirit_exd_per:int=0;//EXD確率
+		public var darkspirit_normal:int=0;//ノーマル確率
 	}
 }
