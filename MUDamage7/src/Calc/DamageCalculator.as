@@ -218,7 +218,7 @@ package Calc {
 			//フェンリルの吸収
 			if(f.pet.item == "フェンリル" && f.pet.sub1 == "守護")s = (s * 90/100);//10%吸収
 			//ダークホースの吸収
-			if(f.pet.item == "ダークホース")s = (s * (100 - Math.floor(15 + (f.pet.sub1_index+1)) /100);// 15+Lv/2
+			if(f.pet.item == "ダークホース")s = (s * (100 - Math.floor(15 + (f.pet.sub1_index+1)) /100));// 15+Lv/2
 			//羽の吸収
 			s = (s * (100 - c.wing_dec) / 100);
 			//SBの減少

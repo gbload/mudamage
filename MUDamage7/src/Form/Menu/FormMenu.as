@@ -25,7 +25,10 @@ package Form.Menu{
         </menuitem>,
         <menuitem label="石像破壊シミュレータ" enabled="false"/>,
         <menuitem label="サンプルデータ" enabled="false"/>,
-        <menuitem label="不具合＆リリース" enabled="false"/>];
+        <menuitem label="不具合＆リリース" enabled="true">
+        	<menuitem label="不具合"/>
+        	<menuitem label="リリース"/>
+        </menuitem>];
 			
 			this.addEventListener(MenuEvent.ITEM_CLICK,eventClick);
 		}
@@ -45,6 +48,10 @@ package Form.Menu{
 				new ExportPanel(c,this);
 			}else if(e.label == "一括エクスポート/インポート"){
 				new AllExportPanel(c,this);
+			}else if(e.label == "不具合"){
+				new FormAlert(this,Version.bugs);
+			}else if(e.label == "リリース"){
+				new FormAlert(this,Version.release);
 			}
 			return true;
 		}
