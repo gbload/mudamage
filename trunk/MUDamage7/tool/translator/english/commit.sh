@@ -1,0 +1,1 @@
+#!/bin/shcp result5.txt ./translation_text/ja2en.txt

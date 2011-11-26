@@ -1,0 +1,10 @@
+新規翻訳追加手順
+1.$ sh extract.sh
+
+2.result5.txt内の新規翻訳を追加し、
+$ sh commit.sh
+
+ビルド手順
+1.$ sh en_embed.sh
+
+2.$ sh build_en.sh
