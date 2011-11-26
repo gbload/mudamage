@@ -49,7 +49,7 @@ And you can find "src_en" directory.
 {{{
 $ sh build_en.sh
 }}}
-* You should modify Flex SDK's path in "build_en.sh". Default is follow (r181):
+* You should modify Flex SDK's path in "build_en.sh". Default is follow (r184):
 {{{
 cp ./src_en/Data/Resource/Description_en.as ./src_en/Data/Resource/Description.as
 
