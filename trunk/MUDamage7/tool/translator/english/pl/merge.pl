@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# sourceのデータの内、destinationにないものだけdestinationに追加する
+# sourceとdestinationをマージする
 $filename1 = $ARGV[0]; # source
 $filename2 = $ARGV[1]; # destination
 
@@ -36,13 +36,11 @@ my @key1 = keys(%datH1);
 my @key2 = keys(%datH2);
 
 my %add = ();
-my %add2 = ();
 foreach $k1(@key1){
 	my $check = 0;
 	foreach $k2(@key2){
 		if($k2 eq $k1){
 			$check = 1;
-			$add2{$k2} = $datH2{$k2};
 		}
 	}
 	if($check == 0){
@@ -54,9 +52,8 @@ my @addkey = keys(%add);
 foreach(@addkey){
 	print $_,"\n",$add{$_},"\n";
 }
-my @addkey2 = keys(%add2);
-foreach(@addkey2){
-	print $_,"\n",$add2{$_},"\n";
+foreach(@key2){
+	print $_,"\n",$datH2{$_},"\n";
 }
 
 exit;

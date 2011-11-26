@@ -17,10 +17,14 @@ my @ja;
 my @ja2;
 
 foreach(@dat){
-	my @tmp = ($_=~/\"([^"]+)\"/g);
-	foreach $tmp2 (@tmp){
-		if($tmp2 =~ /[^\w\=\!\#\$\%\&\'\(\)\-\s\.\,\/\?\_\*\+\;\:\]\[\\\<\>\@]/){
-			push(@ja,$tmp2);
+	if(index($_,"\"") != -1){
+		my @tmp = ($_=~/\"([^"]+)\"/g);
+		foreach $tmp2 (@tmp){
+			if($tmp2 =~ /[^\w\=\!\#\$\%\&\'\(\)\-\s\.\,\/\?\_\*\+\;\:\]\[\\\<\>\@]/){
+				if($tmp2 ne ""){
+					push(@ja,$tmp2);
+				}
+			}
 		}
 	}
 }
@@ -32,6 +36,7 @@ push(@ja,@dat2);
 my $t="";
 foreach(@ja){
 	if($t eq $_){next;}
+	elsif($_ eq ""){next;}
 	else{$t = $_;}
 	push(@ja2,$_);
 }
