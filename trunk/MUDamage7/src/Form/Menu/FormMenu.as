@@ -23,7 +23,6 @@ package Form.Menu{
             <menuitem label="エクスポート/インポート" enabled="true"/>
             <menuitem label="一括エクスポート/インポート" enabled="true"/>
         </menuitem>,
-        <menuitem label="石像破壊シミュレータ" enabled="false"/>,
         <menuitem label="サンプルデータ" enabled="false"/>,
         <menuitem label="不具合＆リリース" enabled="true">
         	<menuitem label="不具合"/>
