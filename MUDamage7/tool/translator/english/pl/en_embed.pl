@@ -36,6 +36,7 @@ foreach(@dat){
 		for($i=0;$i<$len2;$i+=2){
 			if($i+1 < $len2 && $dat2[$i+1] ne ""){
 				$tmp1 = "\"$dat2[$i]\"";
+				$tmp1 =~ s/\\n/\\\\n/g;
 				$tmp1 =~ s/\(/\\\(/g;
 				$tmp1 =~ s/\)/\\\)/g;
 				$tmp1 =~ s/\[/\\\[/g;

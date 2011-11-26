@@ -10,4 +10,4 @@ mv ./src ./src_en
 find ./src_en -name ".svn" -exec rm -rf {} \;
 
 #find en_embed.plで埋め込む
-find ./src_en -name "*.as" -exec perl ./en_embed.pl {} \;
+find ./src_en -name "*.as" -exec perl ./pl/en_embed.pl {} \;
