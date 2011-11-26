@@ -67,7 +67,7 @@ package Data.Database.MLV
 
 		// 防御強化
 		["defense_success_rate","防御成功率増加", 8,0,MasterSkillImage.img1_17,""],		
-		["defense_switch","防御力変換",10,3,MasterSkillImage.img7_13,"体力ステータスに応じて、防御力増加"],		
+		["defense_switch","防御力変換",10,3,MasterSkillImage.img7_13,""],		
 		
 		// 武器強化
 		["one_hand_sword","片手剣強化",2,0,MasterSkillImage.img1_45,""],
