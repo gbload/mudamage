@@ -40,20 +40,20 @@ package Calc.ResultScreen {
 			setPet();
 			setWing();
 			setNeck();
-			setWeapon("右:",f.right,d.form_right);
+			setWeapon("右:",f.right);
 			if(i.is_shield)
-				setProtect("左:",f.left,d.form_left,true);
+				setProtect("左:",f.left,true);
 			else if(f.left.kind == "鷹")
 				setDarkspirit("左:");
 			else
-				setWeapon("左:",f.left,d.form_left);
-			setProtect("兜:",f.helm,d.form_helm);
-			setProtect("鎧:",f.armor,d.form_armor);
-			setProtect("手:",f.glove,d.form_glove);
-			setProtect("腰:",f.garter,d.form_garter);
-			setProtect("足:",f.boots,d.form_boots);
-			setRing("リング1:",f.ring1,d.form_ring1);
-			setRing("リング2:",f.ring2,d.form_ring2);
+				setWeapon("左:",f.left);
+			setProtect("兜:",f.helm);
+			setProtect("鎧:",f.armor);
+			setProtect("手:",f.glove);
+			setProtect("腰:",f.garter);
+			setProtect("足:",f.boots);
+			setRing("リング1:",f.ring1);
+			setRing("リング2:",f.ring2);
 		}
 		/**
 		 * 改行
@@ -159,7 +159,7 @@ package Calc.ResultScreen {
 		/**
 		 * 武器を表示
 		 */
-		private function setWeapon(label:String,obj:Object,form:Object):void{
+		private function setWeapon(label:String,obj:Object):void{
 			ln();
 			text(label);
 			// str
@@ -168,7 +168,7 @@ package Calc.ResultScreen {
 			if(str!=null){
 				if(obj.kind=="EX")
 					str = "EX"+str;
-				str += setEquipBase(obj,form);
+				str += setEquipBase(obj);
 				/*
 				 * tooltip
 				 */
@@ -201,9 +201,9 @@ package Calc.ResultScreen {
 				// EXOP
 				text(getExellent(obj),getColor(obj.kind));
 				// ソケットOP
-				setSocket(obj,form);
+				setSocket(obj);
 				// ソケットボーナス
-				setSocketBonus(obj,form);
+				setSocketBonus(obj);
 			}
 		}
 		/**
@@ -230,7 +230,7 @@ package Calc.ResultScreen {
 		/**
 		 * 防具を表示
 		 */
-		private function setProtect(label:String,obj:Object,form:Object,is_shield:Boolean=false):void{
+		private function setProtect(label:String,obj:Object,is_shield:Boolean=false):void{
 			ln();
 			text(label);
 			// str
@@ -239,7 +239,7 @@ package Calc.ResultScreen {
 			if(str!=null){
 				if(obj.kind=="EX")
 					str = "EX"+str;
-				str += setEquipBase(obj,form);
+				str += setEquipBase(obj);
 				/*
 				 * tooltip
 				 */
@@ -267,12 +267,12 @@ package Calc.ResultScreen {
 				// EXOP
 				text(getExellent(obj),getColor(obj.kind));
 				// ソケットOP
-				setSocket(obj,form);
+				setSocket(obj);
 				// ソケットボーナス
-				setSocketBonus(obj,form);
+				setSocketBonus(obj);
 			}
 		}
-		private function setRing(label:String,obj:Object,form:Object):void{
+		private function setRing(label:String,obj:Object):void{
 			ln();
 			text(label);
 			// str
@@ -297,10 +297,13 @@ package Calc.ResultScreen {
 		/**
 		 * 装備共通の表示
 		 */
-		private function setEquipBase(obj:Object,form:Object):String{
+		private function setEquipBase(obj:Object):String{
 			var str:String = "";
 			// plus
-			str += form.getItemAttr().getPlus().selectedLabel+" ";
+			if(obj.plus==0)
+				str += "N"+" ";
+			else
+				str += "+"+obj.plus+" ";
 			// option
 			for(var n:String in obj.option)
 				if(n!="")
@@ -309,8 +312,8 @@ package Calc.ResultScreen {
 			if(obj.luck)
 				str += "幸運"+" ";
 			// enchant
-			str += form.getEnchant().getKind().selectedLabel
-					+form.getEnchant().getValue().selectedLabel+" ";
+			for(n in obj.enchant)
+				str += n + obj.enchant[n] + " ";
 			
 			return str;
 		}
@@ -327,12 +330,11 @@ package Calc.ResultScreen {
 		/**
 		 * ソケットOPを表示
 		 */
-		private function setSocket(obj:Object,form:Object):void{
+		private function setSocket(obj:Object):void{
 			var socket:String = "";
-			for(var n:String in form.getSocket().getNames())
-				if(form.getSocket().getNames()[n].selectedLabel!="")
-					socket += form.getSocket().getNames()[n].selectedLabel
-					           +form.getSocket().getValues()[n].selectedLabel+" ";
+			for(var n:String in obj.socket)
+				if(obj.socket[n]!="")
+					socket += n + obj.socket[n]+" ";
 			if(socket!=""){
 				ln();
 				text(socket,getColor(obj.kind));
@@ -341,12 +343,12 @@ package Calc.ResultScreen {
 		/**
 		 * ソケットボーナスを表示
 		 */
-		private function setSocketBonus(obj:Object,form:Object):void{
+		private function setSocketBonus(obj:Object):void{
 			// ソケットボーナス
 			var bonus:String = "";
-			for(var n:String in form.getSocket().getBonuses())
-				if(form.getSocket().getBonuses()[n].selectedLabel!="")
-					bonus += form.getSocket().getBonuses()[n].selectedLabel+" ";
+			for(var n:String in obj.socket_bonus)
+				if(n!="")
+					bonus += n+" ";
 			if(bonus!=""){
 				ln();
 				text(bonus,getColor(obj.kind));
