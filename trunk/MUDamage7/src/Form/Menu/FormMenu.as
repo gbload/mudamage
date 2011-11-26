@@ -27,6 +27,7 @@ package Form.Menu{
         <menuitem label="不具合＆リリース" enabled="true">
         	<menuitem label="不具合"/>
         	<menuitem label="リリース"/>
+        	<menuitem label="クレジット"/>
         </menuitem>];
 			
 			this.addEventListener(MenuEvent.ITEM_CLICK,eventClick);
@@ -48,9 +49,11 @@ package Form.Menu{
 			}else if(e.label == "一括エクスポート/インポート"){
 				new AllExportPanel(c,this);
 			}else if(e.label == "不具合"){
-				new FormAlert(this,Version.bugs);
+				new FormAlert(this,Description.bugs);
 			}else if(e.label == "リリース"){
-				new FormAlert(this,Version.release);
+				new FormAlert(this,Description.release);
+			}else if(e.label == "クレジット"){
+				new FormAlert(this,Description.credit);
 			}
 			return true;
 		}
