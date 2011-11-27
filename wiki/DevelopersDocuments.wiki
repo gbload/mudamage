@@ -9,8 +9,8 @@
 
 It is downloaded from Adobe site.
 
-Adobe Flex 4 SDK:
-http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+4
+Adobe Flex SDK:
+http://opensource.adobe.com/wiki/display/flexsdk/Downloads
 
 = Build =
 You can build MUDamage7 in Japanese as follow:
