@@ -17,14 +17,22 @@ Bugs
 - Unimplemented maps: "Double Goer" and "Fortress of Imperial Guardian".
 - Unimplemented PvP calculation.
 - Unimplemented x button in tab of result screen.
-- Unimplemented Master Skill: "Increase Skill".
 - Unimplemented input support form for buff skill.
-- Attack probability to monsters don't calculate.
 - Enhancing menus.
 - Rage Fighter's skill speed isn't correct.
+- Sometimes cannot correctly open a file when "File > Open".
+- Unimplemented a calculation reducing skill damage by 20% in case of elf's bow calculation.
 		                        				]]> ).toString();
 		public static var release:String = ( <![CDATA[
 Release notes
+
+2011/11/29 ver3.04
+- Modify increase speed of master skill weapon's "xxx Mastery", physical type add it into attack speed, magic type add it into magic speed.
+- Modify the bug that EXE item's value becomes normal item's value.
+- Add arrow's calculation.
+- Modify the bug that skill damage isn't applied in elf's bow calculation.
+- Modify a calculating position of master skill "Increase Skill".
+- Modify the bug that attack probability to monsters don't calculate.
 
 2011/11/23 ver3.03
 - Add new set ancient items.
