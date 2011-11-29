@@ -298,7 +298,7 @@ package Calc {
 				obj.key[str].toString();
 				// spec
 				var spec:int = obj.key.spec;
-				if(obj.item[obj.key.kind] == "EX")
+				if(obj.kind == "EX")
 					spec = obj.key.exspec;
 				if(obj.set_item != null)
 					spec = obj.key.setspec;

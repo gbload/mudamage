@@ -184,10 +184,13 @@ package Calc {
 		    		else
 		    			func = calcMagicSkill;
 		    	// 計算
-		    	a.skills[n].min = func(a.skills[n],false,false,true);// 最小
-		    	a.skills[n].max = func(a.skills[n],false,false,false);// 最大
-		    	a.skills[n].cri = func(a.skills[n],true,false,false);// クリ
-		    	a.skills[n].exd = func(a.skills[n],false,true,false);// EXD
+				if((i.getItemData(f.left,"item") as String)!="武器"
+					|| (i.getItemData(f.right,"item") as String)=="武器"){
+			    	a.skills[n].min = func(a.skills[n],false,false,true);// 最小
+			    	a.skills[n].max = func(a.skills[n],false,false,false);// 最大
+			    	a.skills[n].cri = func(a.skills[n],true,false,false);// クリ
+			    	a.skills[n].exd = func(a.skills[n],false,true,false);// EXD
+				}
 		    	// スキルの場合のみ特殊計算
 		    	if(a.skills[n].skill[a.key.type]=="スキル" && 
 		    			(i.getItemData(f.left,"item") as String)=="武器"){
@@ -207,12 +210,7 @@ package Calc {
 		
 			//job
 			d += calcJob(min);
-		    
-		    var bowcheck:Boolean = true;//弓の場合、左手でfalse
-//		    if(c.job == 2 && dat::d.f_right.f_kind.selectedLabel != "なし"
-//		    	&& dat::d.f_right.f_item.selectedItem[3] == "弓"
-//		    	&& dat::d.f_right.f_item.selectedItem[4] == "片手")
-//		    		bowcheck = false;
+			
 			//武器の攻撃力
 			if(min)d += i.getSpec(f[hand],"min");
 			else d += i.getSpec(f[hand],"max");
@@ -297,12 +295,21 @@ package Calc {
 		    d += i.getValueMap(f[hand].socket_bonus,"攻撃力");//[ソケットボーナス]X = X +攻撃力増加 
 		    
 		    //エルフの矢による攻撃力増加
-//		    if(dat::d.f_right.f_kind.selectedIndex != 0
-//		    	&& dat::d.f_right.f_item.selectedItem[3] == "弓"){
-//		    		if(dat::d.f_right.f_arrow.selectedIndex == 1){d += Math.floor(d * 3/100);d++;}//矢+1 ダメージ増加3%と追加攻撃力+1
-//		    		if(dat::d.f_right.f_arrow.selectedIndex == 2){d += Math.floor(d * 5/100);d++;}//矢+2 ダメージ増加5%と追加攻撃力+1
-//		    		if(dat::d.f_right.f_arrow.selectedIndex == 3){d += Math.floor(d * 7/100);d++;}//矢+3 ダメージ増加7%と追加攻撃力+1
-//		    	}
+    		if(f.right.arrow == "矢+1" || f.left.arrow == "矢+1"){
+    			//矢+1 ダメージ増加3%と追加攻撃力+1
+    			d += Math.floor(d * 3/100);
+    			d++;
+    		}
+    		if(f.right.arrow == "矢+2" || f.left.arrow == "矢+2"){
+    			//矢+2 ダメージ増加5%と追加攻撃力+1
+    			d += Math.floor(d * 5/100);
+    			d++;
+    		}
+    		if(f.right.arrow == "矢+3" || f.left.arrow == "矢+3"){
+    			//矢+3 ダメージ増加7%と追加攻撃力+1
+    			d += Math.floor(d * 7/100);
+    			d++;
+    		}
 			
 		    //二刀流攻撃力1.1倍
 		    if(i.is_dual_wield){
@@ -331,12 +338,6 @@ package Calc {
 				d=a.left.max;
 				if(min)d=a.left.min;
 			}
-
-		    var bowcheck:Boolean = true;//弓の場合、左手でfalse
-//		    if(c.job == 2 && dat::d.f_right.f_kind.selectedLabel != "なし"
-//		    	&& dat::d.f_right.f_item.selectedItem[3] == "弓"
-//		    	&& dat::d.f_right.f_item.selectedItem[4] == "片手")
-//		    		bowcheck = false;
 			
 			if(hand=="right"){
 				//ダークロード特殊ダメージ
@@ -352,8 +353,18 @@ package Calc {
 					//else d += Math.floor(c.rec/20);
 //					d += Math.floor(c.rec/20);
 				}
+				//マスタースキル
+				d += skill.m_attack;//[マスタースキルのスキル強化]
+				//通常のスキル
+			    if(min){//最小
+			        d += skill.skill[a.key.power];//スキル威力
+			    }else{
+			        d += Math.floor(skill.skill[a.key.power]*1.5);//スキル威力
+			    }
+			}
+			if(hand == "left" && f.job == "エルフ"){
 				//弓の場合、マルチショット特殊減少
-				if(!bowcheck && skill.skill[a.key.name] == "マルチショット"){
+				if(skill.skill[a.key.name] == "マルチショット"){
 	//				c.now_skill[1] = 32;//スキル威力40→32調整用
 	//				d -= c.op_skill - Math.floor(c.op_skill*0.8);//スキル威力２０％減少
 				}
@@ -379,7 +390,6 @@ package Calc {
 		    d += i.getValueMap(f.left.enchant,"スキル攻撃力");//[エンチャントOP]
 		    d += i.getSocket(f.left,"スキル増加");//[ソケットOP]
 		    d += i.getValueMap(f.left.socket_bonus,"スキル");//[ソケットボーナス]
-			d += skill.m_attack;//[マスタースキルのスキル強化]
 			
 			// EXD
 			if(exd)d += Math.floor(d*0.2);

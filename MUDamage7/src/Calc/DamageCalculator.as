@@ -4,6 +4,7 @@ package Calc {
 	import mx.core.*;
 	import mx.collections.*;
 	import mx.events.*;
+	import mx.formatters.*;
 	import flash.events.*;
 
 	import Form.MUDamage.SubForm.*;
@@ -20,6 +21,7 @@ package Calc {
 		private var m:Object;
 
 		private static var mk:Object = D.getKey("monster");
+		private static var nf:NumberFormatter = new NumberFormatter();
 		/**
 		 * コンストラクタ
 		 */
@@ -232,37 +234,10 @@ package Calc {
 		public function calcSkills():Array{
 			var r:Array = new Array();
 			//命中率計算
-			var hit:int = calcHit(c.hit);
+			var hit:Number = calcHit(c.hit);
 			
 			//ダメージ計算
 			for(var n:String in a.skills){
-//				var data:ResultData = new ResultData();
-//				data.skillname = a.skills[n].skill[a.key.name];
-//				data.hit_num = hit;
-//				data.hit_check = isHit(c,m);
-//				// damage calculation
-//				var func:Function = calcDamage;
-//				if(a.skills[n].skill[a.key.special]=="フレイムハンド"){
-//					func = calcDarkSpiritDamage;
-//				}else if(a.skills[n].skill[a.key.type]=="魔法"){
-//					func = calcMagicDamage;
-//				}
-//				data.min = func(a.skills[n],a.skills[n].min,false,false);
-//				data.max = func(a.skills[n],a.skills[n].max,false,false);
-//				data.cri = func(a.skills[n],a.skills[n].cri,true,false);
-//				data.exd = func(a.skills[n],a.skills[n].exd,false,true);
-//				//1HIT当たりのダメージを計算
-//				data.average = calcAverage(data,a,c);//1hit当たりのダメージ
-//				//1HITダメージ/秒
-//				data.averageper = calcAveragePerSecond(n,data,a);
-//				//1分当たりの攻撃回数を計算
-//				data.speed = calcSpeedPerMinute(n,a);
-//				//データの整形
-//				data.minmax = data.min + "〜" + data.max;
-//				data.hit = (hit*100) + "%";
-//				
-//				//計算結果をスタック
-//				r.push(data);
 				if(a.skills[n].skill[a.key.special]=="フレイムハンド"){
 					r.push(calcDarkSpiritSkill(n));
 				}else{
@@ -276,7 +251,7 @@ package Calc {
 		/**
 		 * 各スキルのダメージ計算
 		 */
-		private function calcSkill(n:String,hit:int):ResultData{
+		private function calcSkill(n:String,hit:Number):ResultData{
 			var data:ResultData = new ResultData();
 			data.skillname = a.skills[n].skill[a.key.name];
 			data.hit_num = hit;
@@ -298,7 +273,8 @@ package Calc {
 			data.speed = calcSpeedPerMinute(n,a);
 			//データの整形
 			data.minmax = data.min + "〜" + data.max;
-			data.hit = (hit*100) + "%";
+			nf.precision = 2; // 小数点以下2桁に設定
+			data.hit = nf.format(hit*100) + "%";
 			
 			return data;
 		}
@@ -325,7 +301,8 @@ package Calc {
 			data.speed = calcSpeedPerMinute(n,a);
 			//データの整形
 			data.minmax = data.min + "〜" + data.max;
-			data.hit = (data.hit_num*100) + "%";
+			nf.precision = 2; // 小数点以下2桁に設定
+			data.hit = nf.format(data.hit_num*100) + "%";
 			
 			return data;
 		}
@@ -335,12 +312,12 @@ package Calc {
 		 * @param monster data
 		 * @return hit
 		 */
-		private function calcHit(c:int):int{
-			var hit:int = 0;
+		private function calcHit(c:int):Number{
+			var hit:Number = 0;
 			if(c < m[mk.avoid])
 				hit = 0.05;
 			else
-				hit = 1 - (m[mk.avoid] / c);
+				hit = 1.0 - (m[mk.avoid] / c);
 			return hit;
 		}
 		/**
@@ -423,6 +400,6 @@ class ResultData{
 	 */
 	public var min:int = 0; //最小ダメージ
 	public var max:int = 0; //最大ダメージ
-	public var hit_num:int = 0; //命中率
+	public var hit_num:Number = 0; //命中率
 	public var hit_check:Boolean = false; //カスリダメージの有無
 }
