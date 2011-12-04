@@ -260,6 +260,12 @@ package Calc {
 		}
 		private function setCalc(form:Object):void{
 			data.calc.map = form.getMap().selectedLabel;
+			if(form.getSub1().visible)
+				data.calc.sub1 = {index: form.getSub1().selectedIndex,
+					label:form.getSub1().selectedLabel};
+			if(form.getSub2().visible)
+				data.calc.sub2 = {index: form.getSub2().selectedIndex,
+					label:form.getSub2().selectedLabel};
 		}
 	}
 }

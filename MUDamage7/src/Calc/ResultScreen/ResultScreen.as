@@ -51,7 +51,7 @@ package Calc.ResultScreen {
 			// キャラクター装備表示
 			hbox.addChild(new ItemScreen(muc));
 			// モンスター取得
-			var monsters:Array = D.getData("monster") as Array;
+			var monsters:Array = getMonsters();
 			var dc:DamageCalculator = new DamageCalculator(muc);
 			for(var i:int=0;i<monsters.length;i++){
 				if(i!=0 && monsters[i][mk.map]!=muc.f.calc.map)
@@ -69,6 +69,19 @@ package Calc.ResultScreen {
 				colors[dg.rowCount - 1] = 0xFFDDDD;
 				dg.setStyle("alternatingItemColors", colors);
 			}
+		}
+		/**
+		 * モンスターデータの取得
+		 */
+		private function getMonsters():Array{
+			var monsters:Array = new Array();
+			if(muc.f.calc.map == "ドッペルゲンガー")
+				monsters = (new DoubleGoer(muc.f.calc.sub2.index,muc.f.calc.sub1.index)).getMonster();
+			else if(muc.f.calc.map == "カウンターリベリオン")
+				monsters = (new ImperialGuardian(muc.f.calc.sub1.index)).getMonster();
+			else
+				monsters = D.getData("monster") as Array;
+			return monsters;
 		}
 		/**
 		 * 閉じるボタン

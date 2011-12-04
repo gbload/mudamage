@@ -136,8 +136,8 @@ package IO.FileIO {
 			//2011/03/24
 			//ドッペルゲンガーとカウンターリベリオン
 			a[24] = new Array();
-			a[24][0] = 0;
-			a[24][1] = 0;
+			a[24][0] = d.form_calc.getSub1().selectedIndex;
+			a[24][1] = d.form_calc.getSub2().selectedIndex;
 			//2011/11/23
 			//ダークスピリットLV
 			a[25] = d.form_left.getDarkspiritLevel().selectedIndex;
@@ -283,8 +283,8 @@ package IO.FileIO {
 			
 			//2011/03/24
 			//ドッペルゲンガーとカウンターリベリオン
-//			d.form_map_doublegoer_ptm.selectedIndex = a[24][0];
-//			d.form_map_imperialguardian_lv.selectedIndex = a[24][1];
+			d.form_calc.getSub1().selectedIndex = a[24][0];
+			d.form_calc.getSub2().selectedIndex = a[24][1];
 			
 			//2011/11/23
 			//ダークスピリットLV
