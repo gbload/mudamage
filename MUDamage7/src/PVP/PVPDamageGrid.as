@@ -11,14 +11,14 @@ package PVP {
 		 * {fieldName,headerText,width}
 		 */
 		private static var headers:Array = [
-				["skillname","スキル名",150],
-				["hitper","1HITダメージ/秒",150],
-				["speed","回/分",0],
-				["even","1HIT平均",0],
-				["minmax","最小〜最大",150],
-				["cri","クリティカル",0],
-				["exd","EXD",0],
-				["hit","命中率",0]
+			["skillname","スキル名",150],
+			["averageper","1HITダメージ/秒",150],
+			["speed","回/分",0],
+			["average","1HIT平均",0],
+			["minmax","最小〜最大",150],
+			["cri","クリティカル",0],
+			["exd","EXD",0],
+			["hit","命中率",0]
 		];
 		/**
 		 * コンストラクタ
