@@ -49,9 +49,9 @@ package Form.MUDamage {
 			// 境界線をなくす
 			tab.setStyle("borderStyle","none");
 			// タブを閉じるイベント
-			tab.addEventListener(KeyboardEvent.KEY_DOWN,eventKey);
-			tab.addEventListener(KeyboardEvent.KEY_UP,eventKey);
-			tab.addEventListener(FlexEvent.VALUE_COMMIT,eventClickClose);
+//			tab.addEventListener(KeyboardEvent.KEY_DOWN,eventKey);
+//			tab.addEventListener(KeyboardEvent.KEY_UP,eventKey);
+//			tab.addEventListener(FlexEvent.VALUE_COMMIT,eventClickClose);
 			
 			// 計算フォームの作成
 			if(flag){

@@ -33,7 +33,7 @@ package Calc.ResultScreen {
 			muc.c = (new CharacterCalculator(muc.f,muc.i)).getData();
 			muc.a = (new AttackCalculator(muc.f,muc.i,muc.c)).getData();
 			// ラベル付
-			this.label = d.form_title.text;
+			this.label = muc.f.calc.map;
 			
 			init();
 		}

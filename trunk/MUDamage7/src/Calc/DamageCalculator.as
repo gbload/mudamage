@@ -14,10 +14,10 @@ package Calc {
 	 * 対人ダメージ計算
 	 */
 	public class DamageCalculator {
-		private var f:Object;
-		private var i:ItemData;
-		private var c:CharacterData;
-		private var a:AttackData;
+		protected var f:Object;
+		protected var i:ItemData;
+		protected var c:CharacterData;
+		protected var a:AttackData;
 		private var m:Object;
 
 		private static var mk:Object = D.getKey("monster");
@@ -51,7 +51,6 @@ package Calc {
 		    if(i.setop_hands){
 				d2 = calcGuard1(d);
 			    d2 = Math.max(d2,Math.floor(f.status.lv/10));//モンスDEF
-			    d2 = calcGuard2(d2);
 			    // 両手武器装備時ダメージ増加%用
 			    d2 = Math.floor(d2 * i.setop_hands / 100);
 		    }
@@ -153,7 +152,7 @@ package Calc {
 				d:int,
 				cri:Boolean=false,
 				exd:Boolean=false):int{
-			d = calcGuard1(d);
+			d = calcGuard1Darkspirit(d);
 			d = Math.max(d,Math.floor(f.left.darkspirit/10));
 			d = calcGuard2(d);
 			return d;
@@ -161,40 +160,63 @@ package Calc {
 		/**
 		 * 最低ダメ判定前の防御計算を行ないます。
 		 */
-		private function calcGuard1(s:int):int{
+		protected function calcGuard1(s:int):int{
 			//引き算
 			s = s - m[mk.def];//(モンス攻撃 - DEF)
+			//カスリダメージ
+			if(c.hit < m[mk.avoid])
+				s = Math.floor(s*0.3);
+			return s;
+		}
+		/**
+		 * 最低ダメ判定前の防御計算を行ないます。
+		 */
+		protected function calcGuard1Darkspirit(s:int):int{
+			//引き算
+			s = s - m[mk.def];//(モンス攻撃 - DEF)
+			//カスリダメージ
+			if(c.darkspirit_hit < m[mk.avoid])
+				s = Math.floor(s*0.3);
 			return s;
 		}
 		/**
 		 * 最低ダメ判定後の防御計算を行ないます。
 		 */
-		private function calcGuard2(s:int):int{
-//			//天使の吸収
-//			if(muc2.angel)s = (s * 80 / 100);//20%吸収
-//			//守護精霊の吸収
-//			if(muc2.spirit)s = (s * 70 / 100);//30%吸収
-//			//ディノラントの吸収
-//			if(muc2.dinolunt[0]){
-//				if(muc2.dinolunt[1]==3 || muc2.dinolunt[2]==3)s = (s * 85 / 100);//15%吸収
-//				else s = (s * 90 / 100);//10%吸収
-//			}
-//			//フェンリルの吸収
-//			if(muc2.fenrir==3)s = (s * 90/100);//10%吸収
-//			//ダークホースの吸収
-//			if(muc2.darkhorse)s = (s * (100 - Math.floor((15 + muc2.darkhorse/2))) /100);// 15+Lv/2
-//			//羽の吸収
-//			s = (s * (100 - muc2.wing_dec) / 100);
-//			//SBの減少
-//			s = s - Math.floor(s * muc2.support_sb/100);
-//			
+		protected function calcGuard2(s:int):int{
 			return s;
 		}
 		/**
 		 * 被ダメージを計算します。
 		 */
 		public function calcSuffer(s:int):int{
+			s = calcGuardCommon1(s,{f:f,i:i,c:c});
+			s = calcAvoidance(s);
+		    s = Math.max(s,Math.floor(m[mk.lv]/10));// 固定ダメ計算
+			s = calcGuardCommon2(s,{f:f,i:i,c:c});
+			return s;
+		}
+		/**
+		 * カスリダメージ計算
+		 */
+		protected function calcAvoidance(s:int):int{
+			if(c.avoid > m[mk.hit])
+				s = Math.floor(s * 30/100);//30%
+			
+			return s;
+		}
+		/**
+		 * 共通:固定ダメージ前計算
+		 */
+		protected function calcGuardCommon1(s:int,muc:Object):int{
+			var f:Object = muc.f;
+			var i:ItemData = muc.i;
+			var c:CharacterData = muc.c;
+			
 			s = s - c.def/2;//(モンス攻撃 - DEF)
+			s = s - c.support_g;//G+
+			s = s - c.support_sera_g;//セラフィー
+			//モンスターの攻撃力低下
+			s -= Math.floor(s * c.support_weak/100);//ウイークネス
 			
 			// ダメ減
 			var dec:int = 0;
@@ -204,9 +226,16 @@ package Calc {
 			dec += i.getEnchantProtects("ダメ減");
 			s -= Math.floor(s*dec/100);
 			
-			// 固定ダメ計算
-		    s = Math.max(s,Math.floor(m[mk.lv]/10));
-			
+			return s;
+		}
+		/**
+		 * 共通:固定ダメージ後計算
+		 */
+		protected function calcGuardCommon2(s:int,muc:Object):int{
+			var f:Object = muc.f;
+			var i:ItemData = muc.i;
+			var c:CharacterData = muc.c;
+		
 		    //天使の吸収
 			if(f.pet.item == "守護天使")s = (s * 80 / 100);//20%吸収
 			//守護精霊の吸収
@@ -222,7 +251,7 @@ package Calc {
 			//ダークホースの吸収
 			if(f.pet.item == "ダークホース")s = (s * (100 - Math.floor(15 + (f.pet.sub1_index+1)) /100));// 15+Lv/2
 			//羽の吸収
-			s = (s * (100 - c.wing_dec) / 100);
+			s = (s * (100 - (i.getSpec(f.wing,"dec"))) / 100);
 			//SBの減少
 			s = s - Math.floor(s * c.support_sb/100);
 			
@@ -245,17 +274,17 @@ package Calc {
 				}
 			}
 			// 被ダメージをスタック
-			r.push({minmax:calcSuffer(m[mk.min]) + "～" + calcSuffer(m[mk.max])});
+			if(m!=null)
+				r.push({minmax:calcSuffer(m[mk.min]) + "～" + calcSuffer(m[mk.max])});
 			return r;
 		}
 		/**
 		 * 各スキルのダメージ計算
 		 */
-		private function calcSkill(n:String,hit:Number):ResultData{
+		protected function calcSkill(n:String,hit:Number):ResultData{
 			var data:ResultData = new ResultData();
 			data.skillname = a.skills[n].skill[a.key.name];
 			data.hit_num = hit;
-			data.hit_check = isHit(c.hit);
 			// damage calculation
 			var func:Function = calcDamage;
 			if(a.skills[n].skill[a.key.type]=="魔法"){
@@ -281,11 +310,10 @@ package Calc {
 		/**
 		 * ダークスピリットのスキルダメージ計算
 		 */
-		private function calcDarkSpiritSkill(n:String):ResultData{
+		protected function calcDarkSpiritSkill(n:String):ResultData{
 			var data:ResultData = new ResultData();
 			data.skillname = a.skills[n].skill[a.key.name];
 			data.hit_num = calcHit(c.darkspirit_hit);
-			data.hit_check = isHit(c.darkspirit_hit);
 			// damage calculation
 			var func:Function = calcDarkSpiritDamage;
 			
@@ -312,7 +340,7 @@ package Calc {
 		 * @param monster data
 		 * @return hit
 		 */
-		private function calcHit(c:int):Number{
+		protected function calcHit(c:int):Number{
 			var hit:Number = 0;
 			if(c < m[mk.avoid])
 				hit = 0.05;
@@ -321,22 +349,13 @@ package Calc {
 			return hit;
 		}
 		/**
-		 * カスリダメージの有無
-		 * @param character data
-		 * @param monster data
-		 * @return カスリダメージの場合、true
-		 */
-		private function isHit(c:int):Boolean {
-			return (c < m[mk.avoid]);
-		}
-		/**
 		 * 1hit当たりの平均ダメージ
 		 * @param result data
 		 * @param attack data
 		 * @param character data
 		 * @return average damage
 		 */
-		private function calcAverage(data:ResultData,a:AttackData,c:CharacterData):int{
+		protected function calcAverage(data:ResultData,a:AttackData,c:CharacterData):int{
 			var hit1:int=0;//1hit当たりのダメージ
 			if(data.skillname == "フレイムハンド(単体)"){//ダークスピリット
 				hit1 += data.exd * c.darkspirit_exd_per/100;//EXD
@@ -351,9 +370,6 @@ package Calc {
 				hit1 += ((data.min + data.max)/2) * c.normal / 10000;//通常
 				hit1 += hit1 * c.wd/100;//WD
 			}
-			// 命中率計算
-			if(data.hit_check)
-				hit1 *= 0.3;
 			hit1 *= data.hit_num;
 			return hit1;
 		}
@@ -363,7 +379,7 @@ package Calc {
 		 * @param attack data
 		 * @return damage
 		 */
-		private function calcAveragePerSecond(n:String,data:ResultData,a:AttackData):int{
+		protected function calcAveragePerSecond(n:String,data:ResultData,a:AttackData):int{
 			var second:int=0;
 			if(a.skills[n].speed[0])second = data.average * 1000/a.skills[n].speed[0];
 			else second = 0;
@@ -374,7 +390,7 @@ package Calc {
 		 * @param attack data
 		 * @return attack count
 		 */
-		private function calcSpeedPerMinute(n:String,a:AttackData):String{
+		protected function calcSpeedPerMinute(n:String,a:AttackData):String{
 			var minute:String;
 			if(!a.skills[n].speed[0])minute="0";//0だった場合
 			else minute = (Math.floor(600000/a.skills[n].speed[0])/10).toString();//攻撃回数計算

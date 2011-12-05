@@ -9,6 +9,8 @@ package Form.MUDamage {
 	import Form.MUDamage.SubForm.*;
 	import Data.Database.*;
 	import Calc.ResultScreen.*;
+	import PVP.*;
+	import IO.FileIO.*;
 	
 	public class FormCalc extends VBox{
 		private var d:FormMUDamage;
@@ -18,6 +20,8 @@ package Form.MUDamage {
 		private var sub1:ComboBox;
 		private var sub2:ComboBox;
 		private var calc:Button;
+		private var pvp_text:TextInput;
+		private var pvp_calc:Button;
 	
 		private var hbox:HBox;
 		/**
@@ -37,6 +41,9 @@ package Form.MUDamage {
 			createMap();
 			createSubform();
 			createCalc();
+			ln();
+			createPVPTextInput();
+			createPVPCalc();
 		}
 		private function ln():void{
 			hbox = new HBox();
@@ -72,11 +79,43 @@ package Form.MUDamage {
 			hbox.addChild(calc);
 		}
 		/**
+		 * PvP Input Button
+		 */
+		private function createPVPTextInput():void{
+			pvp_text = new TextInput();
+			pvp_text.toolTip = "開くファイル名を入力してください。";
+			hbox.addChild(pvp_text);
+		}
+		/**
+		 * PvP Calc Button
+		 */
+		private function createPVPCalc():void{
+			pvp_calc = new Button();
+			pvp_calc.label = "対人計算";
+			pvp_calc.addEventListener(MouseEvent.CLICK,eventClickPVPCalc);
+			hbox.addChild(pvp_calc);
+		}
+		/**
 		 * event click calc button
 		 */
 		private function eventClickCalc(event:Event):void{
 			controller.showResult(new ResultScreen(d));
-//			d.addMain(new ResultScreen(d));
+		}
+		/**
+		 * event click calc button
+		 */
+		private function eventClickPVPCalc(event:Event):void{
+			// file open
+			var title:String = pvp_text.text;
+			var a:Array = StaticFileIO.open(title); 
+			if(a == null){
+				Alert.show("["+title+"]は存在しません");
+				return;
+			}
+			var form:FormMUDamage = new FormMUDamage(controller, a[1]);
+			StaticFormIO.setData(a,form);
+			// 計算して結果を表示
+			controller.showResult(new PVPResultScreen(d,form));
 		}
 		/**
 		 * event change map
