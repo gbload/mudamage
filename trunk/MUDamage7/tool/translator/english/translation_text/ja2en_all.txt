@@ -1,3 +1,9 @@
+対人計算
+PVP Calculation
+開くファイル名を入力してください。
+Input a filename which you want to open.
+]は存在しません
+] is not exist.
 クリティカルダメージ確率 +15%
 Critical Damage success rate increase+15%
 スキル+11
@@ -1018,14 +1024,14 @@ Violent Wing Boots
 Lizard Warrior
 イノセントブーツ
 Seraphim Boots
-エルルーンのデモニックロッド
-Olrun Demonic Stick
 ベスの破壊の杖
 Bes Staff of Destruction
-リング
-Ring
+エルルーンのデモニックロッド
+Olrun Demonic Stick
 フェイズのシルクのグラブ
 Fase Silk Gloves
+リング
+Ring
 髑髏メイジ1（5～10分経過)
 Spirit Sorcerer1(after 5~10min)
 セルケトのアイリスヘルム

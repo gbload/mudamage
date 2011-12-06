@@ -14,7 +14,6 @@ sourcecode:
 		public static var bugs:String = ( <![CDATA[
 不具合
 
-・対人計算未実装
 ・計算結果画面のタブの部分に×ボタンがない
 ・バフ入力の支援フォーム未実装
 ・メニューの充実
@@ -22,6 +21,7 @@ sourcecode:
 ・「ファイルを開く」時に、正しく開けない場合がある
 ・エルフの弓計算で、スキル威力が20%低下する計算を未実装
 ・ファイルの保存関連で、マスタースキルツリーが保存されない
+・対人計算における命中率計算。（現在self=(pvphit * lv),you=(pvpavoid * lv),p=(self/(self+you))^2）
 		                        				]]> ).toString();
 		public static var release:String = ( <![CDATA[
 リリース
