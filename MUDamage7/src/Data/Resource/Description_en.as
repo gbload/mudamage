@@ -22,9 +22,19 @@ Bugs
 - Rage Fighter's skill speed isn't correct.
 - Sometimes cannot correctly open a file when "File > Open".
 - Unimplemented a calculation reducing skill damage by 20% in case of elf's bow calculation.
+- In case of opening a file, a master skill tree is not saved.
+- PVP hit and avoidance probability is not validate.(Now: self=(pvphit * lv),you=(pvpavoid * lv),p=(self/(self+you))^2）
 		                        				]]> ).toString();
 		public static var release:String = ( <![CDATA[
 Release notes
+
+2011/12/04 ver3.05
+- Add MAP "Double Goer" and "Imperial Guardian".
+- Change Master Level's limit from 200 to 300.
+- Add PVP calculation.
+- Modify the bug that buffs and debuffs are not applied in the damage calculation from a monster.
+- Add damage calculation of avoidance.
+- Modify the bug that the wing's reduction is not applied.
 
 2011/11/29 ver3.04
 - Modify increase speed of master skill weapon's "xxx Mastery", physical type add it into attack speed, magic type add it into magic speed.
