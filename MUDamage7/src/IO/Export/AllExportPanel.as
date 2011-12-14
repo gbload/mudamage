@@ -157,7 +157,7 @@ package IO.Export {
 				return;
 			}else{
 				// 保存
-				if(!StaticFileIO.save(StaticFormIO.importData(savedata)))return;
+				if(!StaticFileIO.save(StaticFormIO.importData(savedata,c.getNowForm())))return;
 				counter++;
 				save(flag);// 再起呼び出し
 			}
@@ -167,7 +167,7 @@ package IO.Export {
 				save(false);
 			}else if(event.detail == Alert.YES){// 上書きする
 				// 保存
-				if(!StaticFileIO.save(StaticFormIO.importData(savedata)))return false;
+				if(!StaticFileIO.save(StaticFormIO.importData(savedata,c.getNowForm())))return false;
 				counter++;
 				save(true);
 			}else if(event.detail == Alert.NO){// 上書きしない

@@ -22,6 +22,15 @@ package Calc {
 
 		private static var mk:Object = D.getKey("monster");
 		private static var nf:NumberFormatter = new NumberFormatter();
+		
+		protected static var affinity:Array = [
+		    // 火、水、地、風、暗黒、無属性
+		    [100,80,90,110,120,120],
+		    [120,100,80,90,110,120],
+		    [110,120,100,80,90,120],
+		    [90,110,120,100,80,120],
+		    [80,90,110,120,100,120]
+		                                 ];
 		/**
 		 * コンストラクタ
 		 */
@@ -44,7 +53,8 @@ package Calc {
 				skill:Object,
 				d:int,
 				cri:Boolean=false,
-				exd:Boolean=false):int{
+				exd:Boolean=false,
+				min:Boolean=false):int{
 			
 			var d2:int = 0;
 		    //[セットOP]両手武器装備時ダメージ増加%用
@@ -57,7 +67,7 @@ package Calc {
 			
 		    //追加攻撃力(A+等)
 		    d += a.add;
-		    
+		    d += calcAttribute(min);
 		    /* 
 		     * 固定ダメージ前計算
 		     */
@@ -122,7 +132,8 @@ package Calc {
 				skill:Object,
 				d:int,
 				cri:Boolean=false,
-				exd:Boolean=false):int{
+				exd:Boolean=false,
+				min:Boolean=false):int{
 		    //ダメージ計算===========================
 			d = calcGuard1(d);
 		    d = Math.max(d,Math.floor(f.status.lv/10));//max[攻撃力-モンス,lv/10]
@@ -189,6 +200,7 @@ package Calc {
 		 * 被ダメージを計算します。
 		 */
 		public function calcSuffer(s:int):int{
+			s = calcAttributeGuard(s);
 			s = calcGuardCommon1(s,{f:f,i:i,c:c});
 			s = calcAvoidance(s);
 		    s = Math.max(s,Math.floor(m[mk.lv]/10));// 固定ダメ計算
@@ -215,6 +227,7 @@ package Calc {
 			s = s - c.def/2;//(モンス攻撃 - DEF)
 			s = s - c.support_g;//G+
 			s = s - c.support_sera_g;//セラフィー
+			s = s - c.attribute_def;
 			//モンスターの攻撃力低下
 			s -= Math.floor(s * c.support_weak/100);//ウイークネス
 			
@@ -258,6 +271,35 @@ package Calc {
 			return s;
 		}
 		/**
+		 * 属性ダメージ
+		 */
+		protected function calcAttribute(min:Boolean):int{
+			var d:int = 0;
+			if(c.attribute==5)return d;
+			if(min)
+				d += a.attribute.min;
+			else
+				d += a.attribute.max;
+			// affinity
+			d = Math.floor(d*(affinity[c.attribute][m[mk.attribute]] + a.attribute_affinity)/100);
+			return d;
+		}
+		private function calcMonsterAttribute(min:Boolean):int{
+			var d:int = 0;
+			if(m[mk.attribute]==5)return d;
+			if(min)
+				d += m[mk.attribute_min];
+			else
+				d += m[mk.attribute_max];
+			// affinity
+			d = Math.floor(d*(affinity[m[mk.attribute]][c.attribute] + a.attribute_affinity)/100);
+			return d;
+		}
+		protected function calcAttributeGuard(s:int):int{
+			s = s - c.attribute_mon_def;
+			return s;
+		}
+		/**
 		 * ダメージを計算します。
 		 */
 		public function calcSkills():Array{
@@ -270,12 +312,26 @@ package Calc {
 				if(a.skills[n].skill[a.key.special]=="フレイムハンド"){
 					r.push(calcDarkSpiritSkill(n));
 				}else{
-					r.push(calcSkill(n,hit));
+					if(m[mk.attribute_min]==0 || m[mk.attribute]!=5)
+						r.push(calcSkill(n,hit));
+					else
+						for(var i:int=0;i<5;i++){
+							m[mk.attribute] = i;
+							r.push(calcSkill(n,hit));
+						}
 				}
 			}
 			// 被ダメージをスタック
 			if(m!=null)
-				r.push({minmax:calcSuffer(m[mk.min]) + "～" + calcSuffer(m[mk.max])});
+				if(m[mk.attribute_min]==0 || m[mk.attribute]!=5)
+					r.push({minmax:calcSuffer(m[mk.min]+calcMonsterAttribute(true))
+						+ "～" + calcSuffer(m[mk.max]+calcMonsterAttribute(false))});
+				else
+					for(i=0;i<5;i++){
+						m[mk.attribute] = i;
+						r.push({minmax:calcSuffer(m[mk.min]+calcMonsterAttribute(true))
+							+ "～" + calcSuffer(m[mk.max]+calcMonsterAttribute(false))});
+					}
 			return r;
 		}
 		/**
@@ -290,7 +346,7 @@ package Calc {
 			if(a.skills[n].skill[a.key.type]=="魔法"){
 				func = calcMagicDamage;
 			}
-			data.min = func(a.skills[n],a.skills[n].min,false,false);
+			data.min = func(a.skills[n],a.skills[n].min,false,false,true);
 			data.max = func(a.skills[n],a.skills[n].max,false,false);
 			data.cri = func(a.skills[n],a.skills[n].cri,true,false);
 			data.exd = func(a.skills[n],a.skills[n].exd,false,true);

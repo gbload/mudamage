@@ -12,7 +12,7 @@ package Form.MUDamage {
 	 *
 	 */
 	public class FormWing extends FormItem {
-		private var LABEL:String = "羽：";
+		private var LABEL:String = "羽:";
 		private var d:FormMUDamage;
 		private var item:ComboBox;
 		private var item_attr:FormItemAttributeBox;

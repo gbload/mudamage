@@ -141,6 +141,12 @@ package IO.FileIO {
 			//2011/11/23
 			//ダークスピリットLV
 			a[25] = d.form_left.getDarkspiritLevel().selectedIndex;
+			//2011/12/14
+			//新マスタースキルツリー
+			a[26] = d.form_status.getMasterSkillTree().getSaveData();
+			//2011/12/14
+			//プロパティシステム
+			a[27] = d.form_pentagram.getSaveData();
 			return a;
 		}
 		/**
@@ -152,7 +158,7 @@ package IO.FileIO {
 			if(parseInt(a2[19]) >= 2.20){// latest version
 				a = a2;
 			}else{
-				a = importData(a2.toString().split(/,/g));
+				a = importData(a2.toString().split(/,/g),d);
 			}
 			//タイトル
 			d.form_title.text = a[0];
@@ -290,6 +296,13 @@ package IO.FileIO {
 			//ダークスピリットLV
 			d.form_left.getDarkspiritLevel().selectedIndex = a[25];
 			
+			//2011/12/14
+			//新マスタースキルツリー
+			d.form_status.getMasterSkillTree().setSaveData(a[26]);
+
+			//2011/12/14
+			//プロパティシステム
+			d.form_pentagram.setSaveData(a[27]);
 			//Alert.show(a.toString());
 			
 			return true;
@@ -299,7 +312,7 @@ package IO.FileIO {
 		 * @param Array インポートデータ
 		 * @return Array ShardObject用のデータ
 		 */
-		public static function importData(a2:Array):Array{
+		public static function importData(a2:Array,d:FormMUDamage):Array{
 			var a:Array = new Array();
 			var index:int=0;
 			
@@ -408,6 +421,19 @@ package IO.FileIO {
 			//2011/11/23
 			//ダークスピリットLV
 			a[25] = a2[index++];
+			//2011/12/14
+			//新マスタースキルツリー
+			// rage 45
+			a[26] = new Array();
+			var count:int = d.form_status.getMasterSkillTree().getSaveCount();
+			for(i=0;i<count;i++)
+				a[26][i] = a2[index++];
+			//2011/12/14
+			//プロパティシステム
+			a[27] = new Array();
+			count = d.form_pentagram.getSaveCount();
+			for(i=0;i<count;i++)
+				a[27][i] = a2[index++];
 			return a;
 		}
 	}
