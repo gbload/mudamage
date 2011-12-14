@@ -13,7 +13,7 @@ package Form.MUDamage {
 	 *
 	 */
 	public class FormPet extends FormItem {
-		private var LABEL:String = "ペット：";
+		private var LABEL:String = "ペット:";
 		private var d:FormMUDamage;
 		private var item:ComboBox;
 		private var sub:Array = new Array();

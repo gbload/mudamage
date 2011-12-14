@@ -34,6 +34,7 @@ package Calc {
 			status:initStatus(),
 			support:initSupport(),
 			master_skill:initMasterSkill(),
+			property:initProperty(),
 			calc:initCalc()
 		};
 		private function initPet():Object{
@@ -110,6 +111,9 @@ package Calc {
 		private function initMasterSkill():Object{
 			return {};
 		}
+		private function initProperty():Object{
+			return {};
+		}
 		private function initCalc():Object{
 			return {
 				map:""
@@ -135,6 +139,7 @@ package Calc {
 			setStatus(d.form_status);
 			setSupport(d.form_support);
 			setMasterSkill(d.form_status.getMasterSkillTree());
+			setProperty(d.form_pentagram);
 			setCalc(d.form_calc);
 		}
 		public function getData():Object{
@@ -257,6 +262,9 @@ package Calc {
 		private function setMasterSkill(form:Object):void{
 			data.status.mlv = parseInt(form.getLevel().text);
 			data.master_skill = form;
+		}
+		private function setProperty(form:Object):void{
+			data.property = form.getPentagramData();
 		}
 		private function setCalc(form:Object):void{
 			data.calc.map = form.getMap().selectedLabel;

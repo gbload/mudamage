@@ -407,5 +407,207 @@ package Data.Database.MLV
 		 [Bindable]
 			 [Embed(source="../../Resource/Image/MLV/7_13.jpg")]
 			 public static var img7_13:Class;
+		 /**
+		  * rank6 ~
+		  */
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_ang_icon_17.gif")]
+		  public static var blade_ang_icon_17:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_ang_icon_18.gif")]
+		  public static var blade_ang_icon_18:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_ang_icon_19.gif")]
+		  public static var blade_ang_icon_19:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_ang_icon_20.gif")]
+		  public static var blade_ang_icon_20:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_ang_icon_21.gif")]
+		  public static var blade_ang_icon_21:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_ang_icon_22.gif")]
+		  public static var blade_ang_icon_22:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_ang_icon_23.gif")]
+		  public static var blade_ang_icon_23:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_ang_icon_24.gif")]
+		  public static var blade_ang_icon_24:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_ang_icon_25.gif")]
+		  public static var blade_ang_icon_25:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_bra_icon_15.gif")]
+		  public static var blade_bra_icon_15:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_bra_icon_16.gif")]
+		  public static var blade_bra_icon_16:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_bra_icon_17.gif")]
+		  public static var blade_bra_icon_17:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_bra_icon_18.gif")]
+		  public static var blade_bra_icon_18:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_bra_icon_19.gif")]
+		  public static var blade_bra_icon_19:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_bra_icon_20.gif")]
+		  public static var blade_bra_icon_20:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_bra_icon_21.gif")]
+		  public static var blade_bra_icon_21:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_bra_icon_22.gif")]
+		  public static var blade_bra_icon_22:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_pro_icon_15.gif")]
+		  public static var blade_pro_icon_15:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_pro_icon_16.gif")]
+		  public static var blade_pro_icon_16:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_pro_icon_17.gif")]
+		  public static var blade_pro_icon_17:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_pro_icon_18.gif")]
+		  public static var blade_pro_icon_18:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_pro_icon_19.gif")]
+		  public static var blade_pro_icon_19:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_pro_icon_20.gif")]
+		  public static var blade_pro_icon_20:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_pro_icon_21.gif")]
+		  public static var blade_pro_icon_21:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/blade_pro_icon_22.gif")]
+		  public static var blade_pro_icon_22:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/dim_cha_icon_15.gif")]
+		  public static var dim_cha_icon_15:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/dim_cha_icon_17.gif")]
+		  public static var dim_cha_icon_17:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/dim_cha_icon_18.gif")]
+		  public static var dim_cha_icon_18:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/dim_cha_icon_19.gif")]
+		  public static var dim_cha_icon_19:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/dim_cha_icon_20.gif")]
+		  public static var dim_cha_icon_20:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/dim_hon_icon_13.gif")]
+		  public static var dim_hon_icon_13:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/dim_hon_icon_14.gif")]
+		  public static var dim_hon_icon_14:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/dual_sol_icon_16.gif")]
+		  public static var dual_sol_icon_16:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/dual_sol_icon_17.gif")]
+		  public static var dual_sol_icon_17:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/dual_sol_icon_19.gif")]
+		  public static var dual_sol_icon_19:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/dual_sol_icon_20.gif")]
+		  public static var dual_sol_icon_20:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/dual_sol_icon_21.gif")]
+		  public static var dual_sol_icon_21:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/elf_wis_icon_16.gif")]
+		  public static var elf_wis_icon_16:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/elf_wis_icon_17.gif")]
+		  public static var elf_wis_icon_17:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/elf_wis_icon_19.gif")]
+		  public static var elf_wis_icon_19:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/elf_wis_icon_20.gif")]
+		  public static var elf_wis_icon_20:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/elf_wis_icon_21.gif")]
+		  public static var elf_wis_icon_21:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/elf_wis_icon_22.gif")]
+		  public static var elf_wis_icon_22:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/elf_wis_icon_23.gif")]
+		  public static var elf_wis_icon_23:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/elf_wis_icon_24.gif")]
+		  public static var elf_wis_icon_24:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/elf_wis_icon_25.gif")]
+		  public static var elf_wis_icon_25:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/elf_wis_icon_26.gif")]
+		  public static var elf_wis_icon_26:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/elf_wis_icon_27.gif")]
+		  public static var elf_wis_icon_27:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/grand_gra_icon_15.gif")]
+		  public static var grand_gra_icon_15:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/grand_gra_icon_16.gif")]
+		  public static var grand_gra_icon_16:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/grand_wis_icon_16.gif")]
+		  public static var grand_wis_icon_16:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/grand_wis_icon_18.gif")]
+		  public static var grand_wis_icon_18:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/grand_wis_icon_19.gif")]
+		  public static var grand_wis_icon_19:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/grand_wis_icon_20.gif")]
+		  public static var grand_wis_icon_20:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/grand_wis_icon_21.gif")]
+		  public static var grand_wis_icon_21:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/grand_wis_icon_22.gif")]
+		  public static var grand_wis_icon_22:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/grand_wis_icon_23.gif")]
+		  public static var grand_wis_icon_23:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/rod_con_icon_17.gif")]
+		  public static var rod_con_icon_17:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/rod_con_icon_20.gif")]
+		  public static var rod_con_icon_20:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/rod_con_icon_24.gif")]
+		  public static var rod_con_icon_24:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/rod_def_icon_15.gif")]
+		  public static var rod_def_icon_15:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/rod_def_icon_16.gif")]
+		  public static var rod_def_icon_16:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/rod_def_icon_18.gif")]
+		  public static var rod_def_icon_18:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/rod_def_icon_19.gif")]
+		  public static var rod_def_icon_19:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/rod_def_icon_20.gif")]
+		  public static var rod_def_icon_20:Class;
+		  [Bindable]
+		  [Embed(source="../../Resource/Image/MLV2/rod_def_icon_21.gif")]
+		  public static var rod_def_icon_21:Class;
+
 	}
 }

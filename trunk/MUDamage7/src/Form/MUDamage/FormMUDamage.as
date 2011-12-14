@@ -24,6 +24,7 @@ package Form.MUDamage {
 		public var form_boots:FormEquipProtect;
 		public var form_ring1:FormRing;
 		public var form_ring2:FormRing;
+		public var form_pentagram:FormPentagram;
 		public var form_status:FormStatus;
 		public var form_support:FormSupport;
 		public var form_calc:FormCalc;
@@ -43,10 +44,10 @@ package Form.MUDamage {
 			form_job.setJob(job);
 			main.addChild(form_job.getFormItem());
 			// タイトル
-			form_title = createTextInput("タイトル：");
+			form_title = createTextInput("タイトル:");
 			form_title.text = form_job.selectedLabel;
 			// 経験値
-			form_exp = createTextInput("経験値増加(%)：");
+			form_exp = createTextInput("経験値増加(%):");
 			// ペット
 			form_pet = new FormPet(this);
 			main.addChild(form_pet);
@@ -87,6 +88,9 @@ package Form.MUDamage {
 			// リング2
 			form_ring2 = new FormRing(this,2);
 			main.addChild(form_ring2);
+			// リング2
+			form_pentagram = new FormPentagram(this);
+			main.addChild(form_pentagram);
 			// ステータス
 			form_status = new FormStatus(this);
 			this.addChild(form_status);

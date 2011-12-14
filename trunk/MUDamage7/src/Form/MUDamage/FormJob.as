@@ -30,7 +30,7 @@ package Form.MUDamage {
 		private function createJob():void{
 			form_item = new FormItem();
 			form_item.direction = "horizontal";
-			form_item.label = "クラス：";
+			form_item.label = "クラス:";
 			
 			this.rowCount = 10;
 			this.dataProvider = D.getData("job");

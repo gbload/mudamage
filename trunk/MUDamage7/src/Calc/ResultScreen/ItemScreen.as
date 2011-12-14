@@ -19,6 +19,7 @@ package Calc.ResultScreen {
 		private var f:Object;
 		private var i:ItemData;
 		private var c:CharacterData;
+		private var a:AttackData;
 	
 		private var row:HBox; // 行
 		/**
@@ -30,6 +31,7 @@ package Calc.ResultScreen {
 			this.f = muc.f;
 			this.i = muc.i;
 			this.c = muc.c;
+			this.a = muc.a;
 			
 			init();
 		}
@@ -54,6 +56,7 @@ package Calc.ResultScreen {
 			setProtect("足:",f.boots);
 			setRing("リング1:",f.ring1);
 			setRing("リング2:",f.ring2);
+			setProperty();
 		}
 		/**
 		 * 改行
@@ -76,6 +79,7 @@ package Calc.ResultScreen {
 			else if(color == "cyan")c = "#5599FF";
 			else if(color == "green")c = "#55BB55";
 			else if(color == "purple")c = "#AA55DD";
+			else if(color != "")c = color;
 			if(c != "")te.setStyle("color",c);
 			//ツールチップ
 			if(t != ""){
@@ -352,6 +356,86 @@ package Calc.ResultScreen {
 			if(bonus!=""){
 				ln();
 				text(bonus,getColor(obj.kind));
+			}
+		}
+		/**
+		 * property
+		 */
+		private function setProperty():void{
+			ln();
+			text("属性:")
+			if(f.property.name!=""){
+				var str:String = "";
+				var tooltip:String = "";
+				// name
+				str += f.property.name;
+				// plus
+				if(f.property.plus > 0)
+					str += "+" + f.property.plus;
+				else
+					str += "N";
+				// spec
+				tooltip += "属性:" + f.property.attribute + "\n";
+				var min_ori:int = f.property.item[1] + 3*f.property.plus;
+				if(f.property.plus >= 10)
+					min_ori += ((f.property.plus-9)+1)*(f.property.plus-9)/2;
+				var max_ori:int = f.property.item[2] + 3*f.property.plus;
+				if(f.property.plus >= 10)
+					max_ori += ((f.property.plus-9)+1)*(f.property.plus-9)/2;
+				var def_ori:int = f.property.item[3] + 3*f.property.plus;
+				if(f.property.plus >= 10)
+					def_ori += ((f.property.plus-9)+1)*(f.property.plus-9)/2;
+				var min:int = a.attribute.min + a.attribute_pvp + a.attribute_mon;
+				var max:int = a.attribute.max + a.attribute_pvp + a.attribute_mon;
+				var def:int = c.attribute_def + c.attribute_pvp_def + c.attribute_mon_def;
+				tooltip += "属性攻撃力:" + min + "〜" + max + "(" + min_ori + "〜" + max_ori + ")\n";
+				tooltip += "属性防御力:" + def + "(" + def_ori + ")\n";
+				tooltip += "要求レベル:" + f.property.item[4] + "\n";
+				// color
+				var colors:Array = ["#FF0000","#0000FF","#FFDD00","#00FF00","#FF00FF"];
+				var color:String = colors[f.property.attribute_num];
+				// show
+				text(str,color,tooltip);
+				/*
+				 * ereutel
+				 */
+				for(var i:int=0;i<f.property.ereutels.length;i++){
+					var e:Object = f.property.ereutels[i];
+					if(e.name=="")continue;
+					str = "";
+					tooltip = "";
+					// name
+					str += e.name;
+					// spec
+					// plus
+					tooltip += "アイテムレベル:" + e.plus + "\n";
+					// rank
+					tooltip += "ランク:" + e.rank + "\n";
+					// rank1
+					var rank1:int = 0;
+					if(e.item[1]=="防御力")
+						rank1 = 40+3*e.plus;
+					else if(e.item[1]=="攻撃力")
+						rank1 = 30+3*e.plus;
+					tooltip += "属性"+e.item[1]+":" + rank1 + "\n";
+					// rank2
+					var rank2:int = 10+e.plus;
+					tooltip += "属性相性増加("+e.item[2]+"):" + rank2 + "%\n";
+					// rank3
+					var rank3:int = 50+3*e.plus;
+					var rank3_str:String = "属性"
+					if(e.rank3=="pvp")
+						rank3_str = "PVP時属性";
+					else if(e.rank3=="mon")
+						rank3_str = "対モンスター時属性";
+					if(e.item[3]=="攻撃")
+						rank3_str += "攻撃力増加:";
+					else if(e.item[3]=="防御")
+						rank3_str += "防御力増加:";
+					tooltip += rank3_str + rank3 + "\n";
+					
+					text(str,color,tooltip);
+				}
 			}
 		}
 		/**

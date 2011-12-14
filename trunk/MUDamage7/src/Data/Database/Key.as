@@ -32,7 +32,7 @@ package Data.Database
 			//7 set
 			{name:0,index:1,status:2,series:3},
 			//8 monster
-			{map:0,name:1,lv:2,hp:3,min:4,max:5,def:6,avoid:7,hit:8},
+			{map:0,name:1,lv:2,hp:3,min:4,max:5,def:6,avoid:7,hit:8,attribute_min:9,attribute_max:10,attribute_def:11,attribute:12},
 			//9 lucky
 			{item:0,name:1,kind:2,type:3,job:4,lv:5,speed:6,status:7,setname:8,series:9,spec:10,
 				def:0},

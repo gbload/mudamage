@@ -20,6 +20,11 @@ package Calc {
 		public var left:Attack = new Attack();//左手攻撃力
 		public var magic:Attack = new Attack();
 		public var curse:Attack = new Attack();
+		public var attribute:Attack = new Attack();
+		// 属性
+		public var attribute_affinity:int = 0;//属性相性
+		public var attribute_pvp:int = 0;
+		public var attribute_mon:int = 0;
 		// 追加攻撃力
 		public var add:int=0;
 		// スキル

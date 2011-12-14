@@ -29,6 +29,7 @@ package Calc {
 			calcSupport();
 			calcStatus();
 			calcDef();
+			calcAttributeDef();
 			calcAvoid();
 			calcPVPAvoid();
 			calcHit();
@@ -160,6 +161,29 @@ package Calc {
 			//バーサーカーによるDEF減少
 			if(f.support.getValue(f.support.ber))
 				c.def -= Math.floor(tmp * (50 - Math.floor(f.status.ene/45))/100);
+		}
+		private function calcAttributeDef():void{
+			if(f.property.name!=""){
+				// pentagram
+				c.attribute = f.property.attribute_num;
+				c.attribute_def += f.property.item[3] + 3*f.property.plus;
+				if(f.property.plus >= 10)
+					c.attribute_def += ((f.property.plus-9)+1)*(f.property.plus-9)/2;
+				// ereutel
+				for(var i:int=0;i<f.property.ereutels.length;i++){
+					var e:Object = f.property.ereutels[i];
+					if(e.name!="")
+						if(e.rank1 == "防御力")
+							c.attribute_def += 40+3*e.plus;
+						if(e.rank2 == "防御")
+							c.attribute_affinity += 10 + e.plus;
+						if(e.item[3] == "防御")
+							if(e.rank3 == "pvp")
+								c.attribute_pvp_def += 50 + e.plus*3;
+							else if(e.rank3 == "mon")
+								c.attribute_mon_def += 50 + e.plus*3;
+				}
+			}
 		}
 		/**
 		 * 防御成功率の計算

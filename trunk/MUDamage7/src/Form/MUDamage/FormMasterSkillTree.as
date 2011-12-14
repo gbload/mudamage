@@ -20,6 +20,7 @@ package Form.MUDamage
 		private var d:FormMUDamage;
 		private var skills:Object;
 		private var trees:Array = new Array();
+		private var names:Array = new Array();
 		private var level:TextInput;
 	
 		private var point:Label;
@@ -53,6 +54,9 @@ package Form.MUDamage
 			// Tree
 			ln();
 			var job:int = d.getJob().selectedIndex;
+			names[0] = MasterSkillTree.left;
+			names[1] = MasterSkillTree.middle[job];
+			names[2] = MasterSkillTree.right[job];
 			trees[0] = createTree(MasterSkillTree.title[job][0],MasterSkillTree.left);
 			trees[1] = createTree(MasterSkillTree.title[job][1],MasterSkillTree.middle[job]);
 			trees[2] = createTree(MasterSkillTree.title[job][2],MasterSkillTree.right[job]);
@@ -206,6 +210,36 @@ package Form.MUDamage
 		}
 		public function getLevel():TextInput{
 			return level;
+		}
+		/**
+		 * IO
+		 */
+		public function getSaveData():Array{
+			var a:Array = new Array();
+			for(var n:int=0;n<3;n++)
+				for(var i:int=0;i<names[n].length;i++)
+					for(var j:int=0;j<names[n][i].length;j++)
+						if(names[n][i][j]!="")
+							a.push(getSkill(names[n][i][j]).count.text);
+			return a;
+		}
+		public function setSaveData(a:Array):void{
+			if(a==null)return;
+			var index:int = 0;
+			for(var n:int=0;n<3;n++)
+				for(var i:int=0;i<names[n].length;i++)
+					for(var j:int=0;j<names[n][i].length;j++)
+						if(names[n][i][j]!="")
+							getSkill(names[n][i][j]).count.text = a[index++];
+		}
+		public function getSaveCount():int{
+			var count:int = 0;
+			for(var n:int=0;n<3;n++)
+				for(var i:int=0;i<names[n].length;i++)
+					for(var j:int=0;j<names[n][i].length;j++)
+						if(names[n][i][j]!="")
+							count++;
+			return count;
 		}
 	}
 }

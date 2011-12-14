@@ -170,6 +170,8 @@ package Calc {
 		    a.curse.max = calcCurse(false);
 		    //ダークスピリット
 		    calcDarkSpirit();
+		    //属性攻撃力
+		    calcAttribute();
 		    //スキルごとに計算
 		    for(var n:String in a.skills){
 		    	var func:Function = calcAttackSkill;
@@ -761,7 +763,37 @@ package Calc {
 		    
 		    return d;
 		}
-		
+		/**
+		 * 属性攻撃力計算
+		 */
+		private function calcAttribute():void{
+			if(f.property.name!=""){
+				var add:int = 0;
+				// pentagram
+				a.attribute.min = f.property.item[1];
+				a.attribute.max = f.property.item[2]; 
+				add += 3*f.property.plus;
+				if(f.property.plus >= 10){
+					add += ((f.property.plus-9)+1)*(f.property.plus-9)/2;
+				}
+				// ereutel
+				for(var i:int=0;i<f.property.ereutels.length;i++){
+					var e:Object = f.property.ereutels[i];
+					if(e.name!="")
+						if(e.rank1 == "攻撃力")
+							add += 30+3*e.plus;
+						if(e.rank2 == "攻撃")
+							a.attribute_affinity += 10 + e.plus;
+						if(e.item[3] == "攻撃")
+							if(e.rank3 == "pvp")
+								a.attribute_pvp += 50 + e.plus*3;
+							else if(e.rank3 == "mon")
+								a.attribute_mon += 50 + e.plus*3;
+				}
+				a.attribute.min += add;
+				a.attribute.max += add; 
+			}
+		}
 	}
 }
 /**
