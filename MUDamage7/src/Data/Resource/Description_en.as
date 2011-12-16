@@ -15,18 +15,37 @@ sourcecode:
 Bugs
 
 - Unimplemented maps: "Double Goer" and "Fortress of Imperial Guardian".
-- Unimplemented PvP calculation.
 - Unimplemented x button in tab of result screen.
 - Unimplemented input support form for buff skill.
 - Enhancing menus.
 - Rage Fighter's skill speed isn't correct.
 - Sometimes cannot correctly open a file when "File > Open".
 - Unimplemented a calculation reducing skill damage by 20% in case of elf's bow calculation.
-- In case of opening a file, a master skill tree is not saved.
 - PVP hit and avoidance probability is not validate.(Now: self=(pvphit * lv),you=(pvpavoid * lv),p=(self/(self+you))^2）
+- Unknown values of Master Skill after rank 6.
+- Unimplemented Master Skill's calculation after rank 6.
+- Unknown the calculation of Property system.
+- Unimplemented Master Skill's "*** Mastery".
+- Unimplemented Property system in PVP.
 		                        				]]> ).toString();
 		public static var release:String = ( <![CDATA[
 Release notes
+
+2011/12/16 ver3.07 en
+- Modify the bug that Socket option "Dmg Level" isn't correctly applied.
+- Modify the bug that Socket Bonus isn't applied.
+
+2011/12/14 ver3.07
+- Delete unnecessary icons of Master Skill.
+- Modify the bug that Master Skill Tree isn't saved.
+- Modify the bug that Property form isn't saved.
+- Change the default of property form to none selection.
+- Modify Property form.
+- Apply Property system to the calculation.(But I don't know its correct calculation.)
+
+2011/12/13 ver3.06
+- Add Master Skill after rank 6.(Not apply for calculation.)
+- Add input form of Property system.(Not apply for calculation.)
 
 2011/12/04 ver3.05
 - Add MAP "Double Goer" and "Imperial Guardian".
