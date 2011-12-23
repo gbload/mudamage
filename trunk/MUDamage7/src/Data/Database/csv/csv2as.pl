@@ -214,7 +214,7 @@ for($i=1;$i<@dat;$i++){
 			}
 		}
 	}elsif($id eq "skill"){
-		# name,power,speed,type,require,job,pet,weapon,attr,special
+		# name,power,speed,type,require,job,pet,weapon,attr,special,master
 		for($j=0;$j<@dats;$j++){
 			if($j==2){ # speed
 				my @b=();

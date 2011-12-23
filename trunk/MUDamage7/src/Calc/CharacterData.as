@@ -32,6 +32,7 @@ package Calc {
 		public var sd:int=0;//SD
 		public var mana:int=0;//マナ
 		public var ag:int=0;//AG
+		public var agh:int=0;//AG回復量
 		public var minmax:Array=new Array();//攻撃力 魔力
 		public var curse:Array=new Array();//呪い
 		public var hit:int=0;//攻撃成功率

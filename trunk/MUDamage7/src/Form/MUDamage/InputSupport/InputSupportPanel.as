@@ -41,17 +41,48 @@ package Form.MUDamage.InputSupport {
 		private var wn:HBox;
 		private var con:HBox;
 		private var ht:HBox;
-		
+		/**
+		 * 
+		 */
 		public function InputSupportPanel() {
-			
+			initCommonTextInput();
+			initBox();
 		}
-		
+		/**
+		 * 
+		 */
+		private function initCommonTextInput():void{
+			knight_vit = createStatus();
+			knight_ene = createStatus();
+			wizard_agi = createStatus();
+			wizard_ene = createStatus();
+			elf_ene = createStatus();
+			drakload_ene = createStatus();
+			darkload_rec = createStatus();
+			summoner_ene = createStatus();
+		}
+		/**
+		 * 
+		 */
 		private function createStatus(min:int=0,max:int=-1):TextInput{
 			var ti:TextInput = new TextInput();
+			createStatusEventListener(ti,min,max);
 		}
-		private function checkMinMax(event:Event):void{
-			var num:int = parseInt(event.target.text);
-			if(event.target.text)
+		/**
+		 * 
+		 */
+		private function createStatusEventListener(ti:TextInput,min:int=0,max:int=-1):void{
+			ti.addEventListener(FocusEvent.FOCUS_OUT,function(){
+				var num:int = parseInt(ti.text);
+				if(num < min)num = min;
+				if(max != -1 && num > max)num = max;
+			};)
+		}
+		/**
+		 * 
+		 */
+		private function initBox():void{
+			
 		}
 	}
 }

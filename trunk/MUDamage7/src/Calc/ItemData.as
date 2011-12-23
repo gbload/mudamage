@@ -107,6 +107,11 @@ package Calc {
 					is_dual_wield=true;
 			// 防具のリスト
 			protects=[f.helm,f.armor,f.garter,f.glove,f.boots];
+			if(f.job == "魔剣士")
+				protects=[f.armor,f.garter,f.glove,f.boots];
+			else if(f.job == "レイジファイター")
+				protects=[f.helm,f.armor,f.garter,f.boots];
+			
 			exops=[f.helm.exop,f.armor.exop,f.garter.exop,f.glove.exop,f.boots.exop,f.ring1.exop,f.ring2.exop];
 			if(f.left.kind != "なし")
 				if((getItemData(f.left,"item") as String)=="防具"){

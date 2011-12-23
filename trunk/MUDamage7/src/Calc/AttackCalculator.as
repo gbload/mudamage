@@ -61,6 +61,10 @@ package Calc {
 						(i.getItemData(f.right,"skill")!=s[n][a.key.name] &&
 						i.getItemData(f.left,"skill")!=s[n][a.key.name]))
 					continue;
+				// マスタースキル確認
+				if(s[n][a.key.master]!="" && 
+						f.master_skill.getSkill(s[n][a.key.master]).count>=10)
+					continue;
 				// ダークスピリット
 				if(s[n][a.key.special]==4 && f.left.kind!="鷹")
 					continue;
@@ -71,13 +75,15 @@ package Calc {
 				skill.speed = calcSpeed(s[n][a.key.speed],s[n][a.key.type]);
 				a.skills.push(skill);
 				// MasterSkillを追加
+				// スキル強化
 				var index:String = MasterSkillToSkill.getEnhancement(s[n][a.key.name]);
 				if(index!=null)
 					skill.m_attack = f.master_skill.getSkillValue(index);
-				index = MasterSkillToSkill.getMastery(s[n][a.key.name]);
-				if(index!=null)
-					skill[MasterSkillToSkill.getMasteryType(s[n][a.key.name])] 
-					      = f.master_skill.getSkillValue(index);
+				// スキルマスタリ
+//				var array:Array = MasterSkillToSkill.getMastery(s[n][a.key.name]);
+//				for(var obj in array){
+//					//特殊効果しかない
+//				}
 			}
 		}
 		/**
@@ -219,6 +225,8 @@ package Calc {
 			//追加OP
 		    d += i.getValueMap(f[hand].option,"攻撃");//武器の追加攻撃力
 		    d += i.getValueMap(f.wing.option,"攻撃");//Ｒ ＝ Ｒ ＋ 羽追加攻撃力
+			// 羽 master skill
+			d += f.master_skill.getSkillValue("wing_attack");
 		    
 		    //マスタースキル武器強化
 		    if(i.getItemData(f[hand],"type")=="片手剣"){
@@ -242,6 +250,8 @@ package Calc {
 		    //マスタースキル最小最大
 		    if(min){//最小
 		    	d += f.master_skill.getSkillValue("minimum_attack");
+		    }else{
+		    	d += f.master_skill.getSkillValue("maximum_attack");
 		    }
 		    d += f.master_skill.getSkillValue("weapon_master");
 		    
@@ -476,6 +486,8 @@ package Calc {
 		    //OP
 		    d += i.getValueMap(f.right.option,"魔力");
 		    d += i.getValueMap(f.wing.option,"魔力");//Y = Y ＋　羽追加魔力
+			// 羽 master skill
+			d += f.master_skill.getSkillValue("wing_attack");
 		    //[魔法師の指輪装備時]　Ｘ ＝ int(Ｘ × 1.1)
 		    if(i.getItemData(f.ring1,"name") == "魔法師の指輪" || i.getItemData(f.ring2,"name") == "魔法師の指輪")
 		    	d = Math.floor(d * 1.1);
@@ -525,6 +537,9 @@ package Calc {
 		    }else{//[最大]
 		        d += i.getSocket(f.right,"最大攻撃魔力");//[ソケットOP]最小魔力
 		        d += i.getSocket(f.left,"最大攻撃魔力");//[ソケットOP]最小魔力
+		        //マスタースキル
+		    	d += f.master_skill.getSkillValue("maximum_magic");
+		    	d += f.master_skill.getSkillValue("maximum_magic_curse");
 		    }
 		    //[マスタースキル]
 	    	d += f.master_skill.getSkillValue("magic_master");
@@ -654,11 +669,15 @@ package Calc {
 		    }
 			//武器OP　羽OP
 			d += i.getValueMap(f.left.option,"呪い") + i.getValueMap(f.wing.option,"呪い");
+			// 羽 master skill
+			d += f.master_skill.getSkillValue("wing_attack");
 		    //[スケルトンパージドラゴン装備時] Y = int(Y * 1.2)
 		    if(f.pet.item=="スケルトンパージドラゴン")
 		    	d = Math.floor(d * 1.2);
 		    if(min){//[最小]
 		    	d += f.master_skill.getSkillValue("minimum_magic_curse");
+		    }else{
+		    	d += f.master_skill.getSkillValue("maximum_magic_curse");
 		    }
 			//バーサーカー
 		    if(!min){d += Math.floor(c.ene/4 * c.support_berserker/100);}

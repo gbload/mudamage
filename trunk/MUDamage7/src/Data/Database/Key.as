@@ -26,7 +26,7 @@ package Data.Database
 			//5 accessory
 			{item:0,name:1,kind:2,type:3,op:4,job:5,lv:6,attr:7,ex_en_type:8},
 			//6 skill
-			{name:0,power:1,speed:2,type:3,require:4,job:5,pet:6,weapon:7,attr:8,special:9,
+			{name:0,power:1,speed:2,type:3,require:4,job:5,pet:6,weapon:7,attr:8,special:9,master:10,
 				normal:0,uni:1,fenrir:2,darkhorse:3,
 				lv:0,str:1,agi:2,vit:3,ene:4,rec:5},
 			//7 set

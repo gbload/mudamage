@@ -109,7 +109,7 @@ package Calc.ResultScreen {
 			text("HP:" + c.life);
 			text("SD:" + c.sd);
 			text("マナ:" + c.mana);
-			text("AG:" + c.ag);
+			text("AG:" + c.ag, "", "3秒毎にAG回復+"+c.agh);
 		}
 		/**
 		 * 攻撃関連のステータスを表示
