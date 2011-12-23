@@ -75,12 +75,13 @@ package Calc.ResultScreen {
 		 */
 		private function getMonsters():Array{
 			var monsters:Array = new Array();
+			monsters = D.getData("monster") as Array;
 			if(muc.f.calc.map == "ドッペルゲンガー")
-				monsters = (new DoubleGoer(muc.f.calc.sub2.index,muc.f.calc.sub1.index)).getMonster();
+				monsters = monsters.concat((new DoubleGoer(muc.f.calc.sub2.index,muc.f.calc.sub1.index)).getMonster());
 			else if(muc.f.calc.map == "カウンターリベリオン")
-				monsters = (new ImperialGuardian(muc.f.calc.sub1.index)).getMonster();
-			else
-				monsters = D.getData("monster") as Array;
+				monsters = monsters.concat((new ImperialGuardian(muc.f.calc.sub1.index)).getMonster());
+//			else
+//				monsters = D.getData("monster") as Array;
 			return monsters;
 		}
 		/**

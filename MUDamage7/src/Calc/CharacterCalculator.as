@@ -52,7 +52,7 @@ package Calc {
 			if(f.job=="ナイト")c.support_a = Math.floor(f.support.getValue(f.support.aplus) * 1.1);//A+
 			else c.support_a = f.support.getValue(f.support.aplus);//A+
 			if(f.job=="ナイト")c.support_g = Math.floor(f.support.getValue(f.support.gplus) * 1.1);//G+
-			else c.support_g = f.support.getValue(f.support.aplus);//G+
+			else c.support_g = f.support.getValue(f.support.gplus);//G+
 			c.support_c = f.support.getValue(f.support.cplus);//C+
 			c.support_sl = f.support.getValue(f.support.sl);//SL
 			c.support_sb = f.support.getValue(f.support.sb);//SB
@@ -75,11 +75,12 @@ package Calc {
 		 * ステータスの計算
 		 */
 		private function calcStatus():void{
-			c.add_str = i.setop_str + i.etc_str;
-			c.add_agi = i.setop_agi + i.etc_agi;
+			c.add_str = i.setop_str + i.etc_str + f.master_skill.getSkillValue("strength");
+			c.add_agi = i.setop_agi + i.etc_agi + f.master_skill.getSkillValue("agility");
 			c.add_vit = i.setop_vit + i.etc_vit 
-							+ i.getSocketProtects("体力増加") + c.support_vit;
-			c.add_ene = i.setop_ene + i.etc_ene;
+							+ i.getSocketProtects("体力増加") + c.support_vit
+							+ f.master_skill.getSkillValue("vitality");
+			c.add_ene = i.setop_ene + i.etc_ene + f.master_skill.getSkillValue("energy");
 			c.add_rec = i.setop_rec + i.etc_rec + i.wing_rec;
 			c.lv = f.status.lv + f.status.mlv;
 			c.str = f.status.str + c.add_str;
@@ -135,6 +136,9 @@ package Calc {
 			if(check!="none")
 				if(min_lv>9)
 					c.def += Math.floor(c.def*((min_lv-9)*0.05));
+			// MLV統一ボーナス
+			if(check!="none")
+				c.def += Math.floor(c.def*f.master_skill.getSkillValue("set_defense")/100);
 			//セットの盾装備時
 			if(i.is_shield)c.def += Math.floor(c.def*i.setop_shield/100);
 			//ソケットの盾装備時
@@ -144,6 +148,8 @@ package Calc {
 			 */
 			//MLV盾強化
 			c.def += f.master_skill.getSkillValue("shield") * 2;
+			//MLV羽強化
+			c.def += f.master_skill.getSkillValue("wing_defense") * 2;
 			//セットのDEF増加
 			c.def += i.setop_def;
 			//ソケットのDEF増加
@@ -380,6 +386,13 @@ package Calc {
 			if(f.pet.item=="ディノラント")
 				if(f.pet.sub1=="AG+50"||f.pet.sub2=="AG+50")
 					c.ag += 50;
+			c.ag += f.master_skill.getSkillValue("maximum_ag");//master skill
+			// AGH
+			var tmp:Number = f.master_skill.getSkillValue("ag_recovery");//master skill
+			if(f.job=="ナイト")tmp += 5.00;
+			else tmp += 3.00;
+			c.agh = 2 + Math.floor(c.ag*tmp/100);
+			c.agh += i.setop_agah;//セットOP
 		}
 		/**
 		 * 攻撃速度の計算
@@ -447,6 +460,9 @@ package Calc {
 			// ソケットOP
 			exd += i.getSocket(f.right,"EXD確率");
 			exd += i.getSocket(f.left,"EXD確率");
+			// master skill
+			exd += f.master_skill.getSkillValue("exdamage_probability");
+			
 			//クリ
 			var cri:int = 0;
 			var equips:Array = [f.wing,f.right,f.left,f.helm,f.armor,f.garter,f.glove,f.boots];
@@ -456,8 +472,10 @@ package Calc {
 					cri += 4;
 			cri += i.setop_criper;//セットOPクリ
 			// ソケットOP
-			exd += i.getSocket(f.right,"クリ確率");
-			exd += i.getSocket(f.left,"クリ確率");
+			cri += i.getSocket(f.right,"クリ確率");
+			cri += i.getSocket(f.left,"クリ確率");
+			// master skill
+			cri += f.master_skill.getSkillValue("critical_probability");
 			
 			/*
 			 * 割合計算
@@ -509,9 +527,17 @@ package Calc {
 			c.ignore += i.wing_ignore;//羽
 			c.ignore += i.setop_ignore;//セットOP
 			c.ignore += c.support_ignore;//レイジファイターバフ
+			c.ignore += f.master_skill.getSkillValue("ignore_defense");
 			
 			//ダブルダメージ
 			c.wd += i.setop_w;//セットOP
+			c.wd += f.master_skill.getSkillValue("double_damage");
+			if(i.getItemData(f.right,"type")=="槍"
+				|| i.getItemData(f.left,"type")=="槍")
+			    c.wd += f.master_skill.getSkillValue("spear_mastery");
+			if(i.getItemData(f.right,"type")=="グローブ"
+				|| i.getItemData(f.left,"type")=="グローブ")
+			    c.wd += f.master_skill.getSkillValue("glove_mastery");
 		}
 	}
 }

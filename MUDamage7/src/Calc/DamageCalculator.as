@@ -135,6 +135,7 @@ package Calc {
 				exd:Boolean=false,
 				min:Boolean=false):int{
 		    //ダメージ計算===========================
+		    d += calcAttribute(min);
 			d = calcGuard1(d);
 		    d = Math.max(d,Math.floor(f.status.lv/10));//max[攻撃力-モンス,lv/10]
 		    
@@ -211,7 +212,7 @@ package Calc {
 		 * カスリダメージ計算
 		 */
 		protected function calcAvoidance(s:int):int{
-			if(c.avoid > m[mk.hit])
+			if(m[mk.hit] != 0 && c.avoid > m[mk.hit])
 				s = Math.floor(s * 30/100);//30%
 			
 			return s;
@@ -339,8 +340,10 @@ package Calc {
 		 */
 		protected function calcSkill(n:String,hit:Number):ResultData{
 			var data:ResultData = new ResultData();
+			var data2:ResultData = new ResultData();
 			data.skillname = a.skills[n].skill[a.key.name];
 			data.hit_num = hit;
+			data2.hit_num = 1;
 			// damage calculation
 			var func:Function = calcDamage;
 			if(a.skills[n].skill[a.key.type]=="魔法"){
@@ -350,8 +353,18 @@ package Calc {
 			data.max = func(a.skills[n],a.skills[n].max,false,false);
 			data.cri = func(a.skills[n],a.skills[n].cri,true,false);
 			data.exd = func(a.skills[n],a.skills[n].exd,false,true);
+			// 防御無視計算
+			var tmp:int = m[mk.def];
+			m[mk.def] = 0;
+			data2.min = func(a.skills[n],a.skills[n].min,false,false,true);
+			data2.max = func(a.skills[n],a.skills[n].max,false,false);
+			data2.cri = func(a.skills[n],a.skills[n].cri,true,false);
+			data2.exd = func(a.skills[n],a.skills[n].exd,false,true);
+			m[mk.def] = tmp;
+			
 			//1HIT当たりのダメージを計算
-			data.average = calcAverage(data,a,c);//1hit当たりのダメージ
+			data2.average = calcAverage(data2,a,c);//1hit当たりのダメージ
+			data.average = calcAverage(data,a,c,data2);//1hit当たりのダメージ
 			//1HITダメージ/秒
 			data.averageper = calcAveragePerSecond(n,data,a);
 			//1分当たりの攻撃回数を計算
@@ -411,7 +424,7 @@ package Calc {
 		 * @param character data
 		 * @return average damage
 		 */
-		protected function calcAverage(data:ResultData,a:AttackData,c:CharacterData):int{
+		protected function calcAverage(data:ResultData,a:AttackData,c:CharacterData,data2:ResultData=null):int{
 			var hit1:int=0;//1hit当たりのダメージ
 			if(data.skillname == "フレイムハンド(単体)"){//ダークスピリット
 				hit1 += data.exd * c.darkspirit_exd_per/100;//EXD
@@ -425,6 +438,8 @@ package Calc {
 				hit1 += data.cri * c.cri / 10000;//クリ
 				hit1 += ((data.min + data.max)/2) * c.normal / 10000;//通常
 				hit1 += hit1 * c.wd/100;//WD
+				if(data2!=null)
+					hit1 = (hit1 * (1-c.ignore/100)) + (data2.average * (c.ignore/100));
 			}
 			hit1 *= data.hit_num;
 			return hit1;

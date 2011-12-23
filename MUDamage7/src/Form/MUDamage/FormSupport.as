@@ -123,7 +123,7 @@ package Form.MUDamage {
 			var te:TextInput = new TextInput();
 			fi.addChild(te);
 			te.restrict = "0-9";
-			te.maxChars = 2;
+			te.maxChars = 6;
 			te.width = 32;
 			te.addEventListener(FocusEvent.FOCUS_IN,FormCommon.eventFocusAllSelection);
 			return te;
