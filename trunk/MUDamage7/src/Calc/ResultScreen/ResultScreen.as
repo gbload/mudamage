@@ -110,7 +110,7 @@ package Calc.ResultScreen {
 			// Level
 			str += " Lv" + m[mk.lv];
 			// HP
-			str += " HP" + m[mk.name];
+			str += " HP" + m[mk.hp];
 			// 攻撃力 & 率
 			str += " 攻撃力" + m[mk.min] + "〜" + m[mk.max] + "(" + m[mk.hit] + ")";
 			// 防御力 & 率

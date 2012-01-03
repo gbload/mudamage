@@ -203,16 +203,16 @@ package Calc {
 				c.avoid += i.getSpec(f.left,"avoid");
 				c.avoid += i.getValue(f.left.option["防御率"]);
 			}
-			// MasterSkill
-			c.avoid += f.master_skill.getSkillValue("avoidance");
 			// EXOP,ソケットOP
 			for(var n:Object in i.protects){
 				// EXOP
 				if(i.protects[n].exop["防御成功"])
 					c.avoid += Math.floor(c.avoid * 0.1);
 				// ソケットOP
-				c.avoid += Math.floor(c.avoid * i.getSocket(i.protects[n],"防御成功"));
+				c.avoid += Math.floor(c.avoid * i.getSocket(i.protects[n],"防御成功")/100);
 			}
+			// MasterSkill
+			c.avoid += Math.floor(c.avoid * f.master_skill.getSkillValue("avoidance")/100);
 			// リング EXOP
 			for each(var exop:Object in [f.ring1.exop,f.ring2.exop])
 				if(exop["防御成功"])

@@ -44,14 +44,11 @@ package Form.MUDamage {
 			tab.x = 5;
 			tab.y = 50;
 			// 大きさを設定
-			tab.width = 1000;
-			tab.percentHeight = 100;
+			tab.width = container.width - 20;
+//			tab.percentHeight = 100;
+			tab.height = container.height - 120;
 			// 境界線をなくす
 			tab.setStyle("borderStyle","none");
-			// タブを閉じるイベント
-//			tab.addEventListener(KeyboardEvent.KEY_DOWN,eventKey);
-//			tab.addEventListener(KeyboardEvent.KEY_UP,eventKey);
-//			tab.addEventListener(FlexEvent.VALUE_COMMIT,eventClickClose);
 			
 			// 計算フォームの作成
 			if(flag){
@@ -74,21 +71,6 @@ package Form.MUDamage {
 				isShift = event.target.selectedIndex;
 			}else{
 				isShift = -1;
-			}
-		}
-		/**
-		 * 閉じるイベント
-		 */
-		private function eventClickClose(event:FlexEvent):void{
-			if(!isDuplicate && isShift!=-1){
-				if(now_tab.selectedIndex!=0)
-					now_tab.removeChild(now_tab.getChildAt(now_tab.selectedIndex));
-				isDuplicate = true;
-				if(now_tab.selectedIndex<isShift)
-					isShift -= 1;
-				now_tab.selectedIndex = isShift;
-			}else{
-				isDuplicate = false;
 			}
 		}
 		/**
@@ -127,6 +109,7 @@ package Form.MUDamage {
 		private function createForm(job:int=-1):FormMUDamage{
 			var form:FormMUDamage = new FormMUDamage(this, job);
 			form.label = "計算フォーム";
+//			form.height = container.height - 120;
 			
 			return form;
 		}
