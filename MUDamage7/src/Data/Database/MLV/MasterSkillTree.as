@@ -105,8 +105,8 @@ package Data.Database.MLV
 		],
 		[// rage fighter
 		    ["hit","","",""],
-		    ["killing_blow","beast_upper","",""],
-		    ["killing_blow_mastery","beast_upper_mastery","",""],
+		    ["cling_blow","beast_upper","",""],
+		    ["cling_blow_mastery","beast_upper_mastery","",""],
 		    ["weapon_master","","maximum_life",""],
 		    ["chain_drive","dark_side","maximum_mana","dragon_roar"],
 		    ["","","maximum_ag",""],

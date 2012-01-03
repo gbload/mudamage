@@ -4,6 +4,7 @@ package Form.MUDamage {
 	import mx.core.*;
 	import mx.collections.*;
 	import mx.events.*;
+	import mx.managers.*;
 	import flash.events.*;
 
 	import Form.MUDamage.SubForm.*;
@@ -15,6 +16,9 @@ package Form.MUDamage {
 		private var size:int = 0;
 		private var names:Object;
 		private var hbox:HBox;
+	
+		private var input_support:Button;
+		private var buff_form:FormBuff;
 	
 		public var aplus:TextInput;
 		public var gplus:TextInput;
@@ -51,6 +55,39 @@ package Form.MUDamage {
 			this.setStyle("borderStyle","solid");
 			
 			initForm();
+			createInputSupport();
+		}
+		/**
+		 * 
+		 */
+		private function createInputSupport():void{
+			input_support = new Button();
+			input_support.label = "入力支援";
+			input_support.addEventListener(MouseEvent.CLICK,eventClick);
+			this.addChild(input_support);
+			buff_form = new FormBuff(d);
+		}
+		/**
+		 * 入力支援ボタンクリック時イベント
+		 */
+		private function eventClick(event:Event):void{
+			var pop:TitleWindow = PopUpManager.createPopUp(d,TitleWindow,true) as TitleWindow;
+			pop.width = d.width;
+			pop.height = d.height;
+			pop.setStyle("borderColor","black");
+			pop.setStyle("borderAlpha","0.3");
+			pop.showCloseButton = true;//右上の×ボタン
+			pop.addEventListener(CloseEvent.CLOSE,eventClickPopupClose);//右上の×ボタンのイベント
+//			PopUpManager.centerPopUp(pop);
+			pop.title = "SupportSkill";//タイトル
+			
+			pop.addChild(buff_form);//buff_formを載せる
+		}
+		/**
+		 * ポップアップを閉じる
+		 */
+		private function eventClickPopupClose(event:Event):void{
+			PopUpManager.removePopUp(event.target as IFlexDisplayObject);
 		}
 		/**
 		 * フォームの初期化

@@ -1,5 +1,6 @@
 package Data.Database.MLV
 {
+	import mx.controls.*;
 	/**
 	 * マスタースキルデータ
 	 * @author sinlion
@@ -13,6 +14,24 @@ package Data.Database.MLV
 		public static var DISPLAY_TYPE:int = 3;
 		public static var IMAGE:int = 4;
 		public static var DESCRIPTION:int = 5;
+		
+		public static var skills:Object = null;
+		/**
+		 * skillsの初期化
+		 */
+		private static function initSkills():void{
+			skills = new Object();
+			for(var i:int=0;i<MasterSkill.skill.length;i++)
+				skills[MasterSkill.skill[i][MasterSkill.ID]] = MasterSkill.skill[i];
+		};
+		/**
+		 * マスタースキルを返す
+		 */
+		public static function getSkill(name:String):Array{
+			if(skills==null)initSkills();
+			if(skills[name]==null)Alert.show("Error:"+name);
+			return skills[name];
+		};
 		/*
 		 * データ構造
 		 * 0.id
@@ -130,8 +149,8 @@ package Data.Database.MLV
 		["darkspirit1","ダークスピリット強化1",3,0,MasterSkillImage.img5_44,"ダークスピリットの攻撃力増加"],
 		["darkspirit2","ダークスピリット強化2",1,1,MasterSkillImage.img5_48,"ダークスピリットのクリティカルダメージ確率増加"],
 		["darkspirit3","ダークスピリット強化3",0,1,MasterSkillImage.img5_56,"ダークスピリットのエクセレントダメージ確率増加"],
-		["killing_blow","クリングブロー強化",2,0,MasterSkillImage.img7_1,""],
-		["killing_blow_mastery","クリングブローマスタリ",0,1,MasterSkillImage.img7_3,"攻撃力減少効果がx%増加"],
+		["cling_blow","クリングブロー強化",2,0,MasterSkillImage.img7_1,""],
+		["cling_blow_mastery","クリングブローマスタリ",0,1,MasterSkillImage.img7_3,"攻撃力減少効果がx%増加"],
 		["beast_upper","ビーストアッパー強化",2,0,MasterSkillImage.img7_2,""],
 		["beast_upper_mastery","ビーストアッパーマスタリ",0,1,MasterSkillImage.img7_4,"防御力減少効果がx%増加"],
 		["chain_drive","チェーンドライブ強化",2,0,MasterSkillImage.img7_5,""],
@@ -209,7 +228,7 @@ package Data.Database.MLV
 		
 		["blood_storm","ブラッドストーム強化",2,0,MasterSkillImage.blade_bra_icon_22,""],
 		// knight2
-		["swell_life_mastery2","スウェルライフマスタリ2",2,0,MasterSkillImage.blade_ang_icon_17,"最大AG増加"],
+		["swell_life_mastery2","スウェルライフマスタリ2",1,1,MasterSkillImage.blade_ang_icon_17,"最大AG増加"],
 		["maximum_attack","最大攻撃力増加",2,0,MasterSkillImage.blade_ang_icon_18,""],
 		["critical_probability","クリティカル確率増加",1,1,MasterSkillImage.blade_ang_icon_19,""],
 		
@@ -233,7 +252,7 @@ package Data.Database.MLV
 		
 		["earth_prison","アースプリズン強化",2,0,MasterSkillImage.grand_wis_icon_23,""],
 		// wizard2
-		["soul_barrier_mastery2","ソウルバリアマスタリ2",14,0,MasterSkillImage.grand_gra_icon_15,"最大マナ増加効果"],
+		["soul_barrier_mastery2","ソウルバリアマスタリ2",1,1,MasterSkillImage.grand_gra_icon_15,"最大マナ増加効果"],
 		["maximum_magic","最大魔力増加",2,0,MasterSkillImage.grand_gra_icon_16,""],
 		//elf
 		["cure_learning","キュア",-1,0,MasterSkillImage.elf_wis_icon_16,"キュアを習得。先に掛かっている状態異常を一つ回復。"],
@@ -251,14 +270,14 @@ package Data.Database.MLV
 		["bless","ブレス強化",2,0,MasterSkillImage.elf_wis_icon_26,""],
 		["poison_arrow","ポイズンアロー強化",2,0,MasterSkillImage.elf_wis_icon_27,""],
 		// summoner
-		["innovation","イノベーション強化",2,1,MasterSkillImage.dim_cha_icon_15,""],
+		["innovation","イノベーション強化",1,1,MasterSkillImage.dim_cha_icon_15,""],
 		
-		["weakness","ウィークネス強化",2,1,MasterSkillImage.dim_cha_icon_17,""],
+		["weakness","ウィークネス強化",1,1,MasterSkillImage.dim_cha_icon_17,""],
 		["life_drain_mastery","ライフドレインマスタリ",2,0,MasterSkillImage.dim_cha_icon_18,"一定確率で、一定時間の間、敵の生命を吸収し続ける。"],
 		
 		["blind_learning","ブラインド",-1,0,MasterSkillImage.dim_cha_icon_19,"ブラインドを習得。一定確率で敵の攻撃成功率を減少させる。"],
 		
-		["blind","ブラインド強化",0,1,MasterSkillImage.dim_cha_icon_20,"x%の確率で2秒間スタン状態にする"],
+		["blind","ブラインド強化",1,1,MasterSkillImage.dim_cha_icon_20,"x%の確率で2秒間スタン状態にする"],
 		// summoner2
 		["berserker_mind_mastery2","バーサーカーマスタリ",2,0,MasterSkillImage.dim_hon_icon_13,"バーサーカー使用時に追加で攻撃/魔力/呪いが上昇する。"],
 		["maximum_magic_curse","最大魔力/呪い増加",9,1,MasterSkillImage.dim_hon_icon_14,""],
