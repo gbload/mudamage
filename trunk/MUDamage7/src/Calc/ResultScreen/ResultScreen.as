@@ -25,6 +25,9 @@ package Calc.ResultScreen {
 		public function ResultScreen(d:FormMUDamage) {
 			super();
 			
+			// スクロール対策
+			this.setStyle("backgroundColor","#FFFFFF");//背景色を白色に
+			
 			muc = {};
 			
 			muc.d = d;

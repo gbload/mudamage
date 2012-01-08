@@ -62,7 +62,7 @@ package Form.MUDamage {
 		 */
 		private function createInputSupport():void{
 			input_support = new Button();
-			input_support.label = "入力支援";
+			input_support.label = "入力支援(未完)";
 			input_support.addEventListener(MouseEvent.CLICK,eventClick);
 			this.addChild(input_support);
 			buff_form = new FormBuff(d);
