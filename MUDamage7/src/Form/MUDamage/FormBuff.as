@@ -21,7 +21,7 @@ package Form.MUDamage {
 		 */
 		public function FormBuff(mud:FormMUDamage) {
 			this.mud = mud;
-			
+			test();
 			selfBox();
 			knightBox();
 			wizardBox();
@@ -65,6 +65,14 @@ package Form.MUDamage {
 		private function callFunctions():void{
 			for(var n:Object in funcs)
 				funcs[n](null);
+		}
+		/**
+		 * 
+		 */
+		private function test():void{
+			var la:Label = new Label();
+			la.text = "※入力支援フォームは未完成のため、フォーム及び計算に反映されません。";
+			this.addChild(la);
 		}
 		/**
 		 * self

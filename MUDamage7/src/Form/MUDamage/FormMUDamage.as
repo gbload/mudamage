@@ -6,7 +6,7 @@ package Form.MUDamage {
 	import mx.events.*;
 	import flash.events.*;
 	
-	public class FormMUDamage extends Form {
+	public class FormMUDamage extends Canvas {
 		private var old_job:int = 0;
 	
 		public var form_title:TextInput;
@@ -36,9 +36,10 @@ package Form.MUDamage {
 		public function FormMUDamage(c:Controller, job:int){
 			super();
 			
-			main = this;
+			main = new Form();
+			this.addChild(main);
 			// 背景色変更
-			this.setStyle("backgroundColor","#FFFFFF");//背景色を紫色に
+			this.setStyle("backgroundColor","#FFFFFF");//背景色を白色に
 			
 			// 職
 			form_job = new FormJob(c);
