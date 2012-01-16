@@ -279,7 +279,7 @@ package Data.Database.MLV
 		
 		["blind","ブラインド強化",1,1,MasterSkillImage.dim_cha_icon_20,"x%の確率で2秒間スタン状態にする"],
 		// summoner2
-		["berserker_mind_mastery2","バーサーカーマスタリ",2,0,MasterSkillImage.dim_hon_icon_13,"バーサーカー使用時に追加で攻撃/魔力/呪いが上昇する。"],
+		["berserker_mind_mastery2","バーサーカーマスタリ",1,1,MasterSkillImage.dim_hon_icon_13,"バーサーカー使用時に追加で攻撃/魔力/呪いが上昇する。"],
 		["maximum_magic_curse","最大魔力/呪い増加",9,1,MasterSkillImage.dim_hon_icon_14,""],
 		// duel
 		["flame_strike","フレイムストライク強化",2,0,MasterSkillImage.dual_sol_icon_16,""],
@@ -290,14 +290,14 @@ package Data.Database.MLV
 		["gigantic_storm","ギガンティックストーム強化",2,0,MasterSkillImage.dual_sol_icon_21,""],
 		// darkload
 		["electric_spark","エレクトリックスパーク強化",2,0,MasterSkillImage.rod_def_icon_15,""],
-		["fire_scream","ファイアスクリーム強化",2,0,MasterSkillImage.rod_def_icon_16,""],
+		["fire_scream2","ファイアスクリーム強化2",2,0,MasterSkillImage.rod_def_icon_16,""],
 		
 		["critical_plus_mastery","クリティカルプラスマスタリ",0,1,MasterSkillImage.rod_def_icon_18,"エクセレントダメージ確率増加"],
 		["chaotic_desire","カオティックディセイアー強化",2,0,MasterSkillImage.rod_def_icon_19,""],
 		
 		["iron_defense_learning","アイアンディフェンス",-1,0,MasterSkillImage.rod_def_icon_20,"アイアンディフェンスを習得。短時間キャラクターの防御力と生命力を大幅に増加させる。"],
 		
-		["iron_defense","アイアンディフェンス強化",14,0,MasterSkillImage.rod_def_icon_21,""],
+		["iron_defense","アイアンディフェンス強化",12,1,MasterSkillImage.rod_def_icon_21,""],
 		// darkload2
 		["darkspirit4","ダークスピリット強化4",1,0,MasterSkillImage.rod_con_icon_17,"ダークスピリットの攻撃速度増加"],
 		

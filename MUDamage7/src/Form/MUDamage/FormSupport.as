@@ -81,6 +81,7 @@ package Form.MUDamage {
 //			PopUpManager.centerPopUp(pop);
 			pop.title = "SupportSkill";//タイトル
 			
+			buff_form.callFunctions();
 			pop.addChild(buff_form);//buff_formを載せる
 		}
 		/**

@@ -16,6 +16,51 @@ package Calc {
 	 *
 	 */
 	public class SupportSkillCalculator{
+		/**
+		 * etc
+		 */
+		public static function calcSeraphy_Attack(lv:int):int{
+			return Math.floor(lv/3) + 45;
+		}
+		public static function calcSeraphy_Defense(lv:int):int{
+			return Math.floor(lv/5) + 50;
+		}
+		/**
+		 * self
+		 */
+		public static function calcSpellEnhance():int{
+			return 20;
+		}
+		public static function calcSpellEnhance_Max(master:int):int{
+			return master;
+		}
+		public static function calcSpellEnhance_Cri(master:int):int{
+			return master;
+		}
+		public static function calcIronDefense_Defense(master:int,rec:int):int{
+			return master+rec;
+		}
+		public static function calcIronDefense_Life(master:int,rec:int):int{
+			return master+rec;
+		}
+		public static function calcBerserkerMind_Magic(master:int,ene:int):int{
+			return master+Math.floor(ene/30);
+		}
+		public static function calcBerserkerMind_Life(master:int,ene:int):int{
+			return master+Math.floor(ene/60) - 40;
+		}
+		public static function calcBerserkerMind_Defense(master:int,ene:int):int{
+			return master+Math.floor(ene/45) - 50;
+		}
+		public static function calcBerserkerMind_Mana(master:int,ene:int):int{
+			return master+Math.floor(ene/30);
+		}
+		public static function calcDemolition(ene:int):int{
+			return 2 + ene/200;
+		}
+		/**
+		 * other
+		 */
 		public static function calcSwellLife(d:BuffData):int{
 			return Math.floor(parseInt(d.knight_vit.text)/100)
 				+ Math.floor(parseInt(d.knight_ene.text)/20)

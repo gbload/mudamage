@@ -8,6 +8,7 @@ package Form.MUDamage
 	import flash.events.*;
 
 	import Form.MUDamage.SubForm.*;
+	import Form.MUDamage.BuffSub.*;
 	import Data.Database.*;
 	import Data.Database.MLV.*;
 	/**
@@ -38,11 +39,6 @@ package Form.MUDamage
 		 */
 		private function initSkills():void{
 			skills = new Object();
-			for(var i:int=0;i<MasterSkill.skill.length;i++)
-				skills[MasterSkill.skill[i][MasterSkill.ID]] = {
-					item:MasterSkill.skill[i],
-					count:null
-				};
 		}
 		/**
 		 * Boxの初期化
@@ -93,7 +89,7 @@ package Form.MUDamage
 		 */
 		private function createTree(title:String, tree:Array):Canvas{
 			var canvas:Canvas = new Canvas();
-			canvas.width = 260;
+			canvas.width = 280;
 			hbox.addChild(canvas);
 			// title
 			var label:Label = new Label();
@@ -105,58 +101,16 @@ package Form.MUDamage
 			for(var i:int=0;i<tree.length;i++){
 				for(var j:int=0;j<tree[i].length;j++){
 					if(tree[i][j] != ""){
-						// image
-						var img:Image = new Image();
-						img.source = getSkill(tree[i][j]).item[MasterSkill.IMAGE];
-						img.x = j*65;
-						img.y = i*50 + 30;
-						canvas.addChild(img);
-						// tooltip
-						setTooltip(img,getSkill(tree[i][j]).item);
-						// input
-						var ti:TextInput = new TextInput();
-						ti.text = "0";
-						ti.name = (i * tree[i].length + j).toString();
-						ti.width = 25;
-						ti.restrict = "0-9";
-						ti.maxChars = 2;
-						ti.x = j*65 + 32;
-						ti.y = i*50 + 30 + 22;
-						ti.addEventListener(FocusEvent.FOCUS_IN,FormCommon.eventFocusAllSelection);
-						ti.addEventListener(FocusEvent.FOCUS_OUT,eventChangeSkillLevel);
-						canvas.addChild(ti);
-						getSkill(tree[i][j]).count = ti;
+						var can:BuffMasterSkillCanvas = new BuffMasterSkillCanvas(tree[i][j]);
+						can.x = j*65+10;
+						can.y = i*50+30;
+						can.setEvent(eventChangeSkillLevel);
+						canvas.addChild(can);
+						skills[tree[i][j]] = can;
 					}
 				}
 			}
 			return canvas;
-		}
-		private function setTooltip(obj:Image,item:Array):void{
-			var str:String = "";
-			// 名前
-			str += item[MasterSkill.NAME]+"\n";
-			// 説明
-			str += item[MasterSkill.DESCRIPTION]+"\n";
-			// 表示形式 display_type 0:なし 1:% 2:秒 3:÷
-			var display_type:int = item[MasterSkill.DISPLAY_TYPE];
-			// 値の取得
-			var type:int = item[MasterSkill.VALUE_TYPE];
-			var value:Array = MasterSkillValue.value[type];
-			for(var n:String in value){
-				var lv:int = parseInt(n)+1;
-				if(display_type == 1)
-					str += "LV"+lv+" "+value[n].toString()+"%\n";
-				else if(display_type == 2)
-					str += "LV"+lv+" "+value[n].toString()+"秒\n";
-				else if(display_type == 3)
-					str += "LV"+lv+" "+value[n].toString()+"\n";
-				else
-					str += "LV"+lv+" "+value[n].toString()+"\n";
-			}
-			// tooltipに登録
-			obj.toolTip = str;
-			// tooltipのスタイル変更
-			ToolTip.maxWidth = 200;
 		}
 		/**
 		 * event
@@ -174,11 +128,6 @@ package Form.MUDamage
 		 * event
 		 */
 		private function eventChangeSkillLevel(event:Event):void{
-			// validate
-			var value:int = parseInt(event.target.parent.text);
-			if(value < 0)value=0;
-			else if(value > 20)value=20;
-			event.target.parent.text = value.toString();
 			// change point
 			changePoint();
 		}
@@ -190,8 +139,8 @@ package Form.MUDamage
 			var rest:int = max; //残りポイント
 			var over:int = 0; //超過ポイント
 			for(var n:String in skills)
-				if(skills[n].count != null)
-					rest -= parseInt(skills[n].count.text);
+				if(skills[n] != null)
+					rest -= parseInt(skills[n].getValue);
 			if(rest < 0)
 				point.setStyle("color","#FF00000");
 			point.text = "ポイント："+rest+" / "+max;
@@ -199,14 +148,13 @@ package Form.MUDamage
 		/**
 		 * Skills
 		 */
-		public function getSkill(name:String):Object{
+		private function getSkill(name:String):Object{
 			if(skills[name]==null)Alert.show("Error:"+name);
 			return skills[name];
 		}
 		public function getSkillValue(name:String):int{
-			var skill:Object = getSkill(name);
-			if(skill.count == null || parseInt(skill.count.text)==0)return 0;
-			else return MasterSkillValue.value[skill.item[MasterSkill.VALUE_TYPE]][parseInt(skill.count.text)-1];
+			if(skills[name]==null){Alert.show("Error:"+name);return 0;}
+			return skills[name].getSkillValue();
 		}
 		public function getLevel():TextInput{
 			return level;
@@ -220,7 +168,7 @@ package Form.MUDamage
 				for(var i:int=0;i<names[n].length;i++)
 					for(var j:int=0;j<names[n][i].length;j++)
 						if(names[n][i][j]!="")
-							a.push(getSkill(names[n][i][j]).count.text);
+							a.push(getSkill(names[n][i][j]).getValue());
 			return a;
 		}
 		public function setSaveData(a:Array):void{
@@ -230,7 +178,7 @@ package Form.MUDamage
 				for(var i:int=0;i<names[n].length;i++)
 					for(var j:int=0;j<names[n][i].length;j++)
 						if(names[n][i][j]!="")
-							getSkill(names[n][i][j]).count.text = a[index++];
+							getSkill(names[n][i][j]).setValue(a[index++]);
 		}
 		public function getSaveCount():int{
 			var count:int = 0;

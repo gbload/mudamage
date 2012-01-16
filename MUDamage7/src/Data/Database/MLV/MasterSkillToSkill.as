@@ -39,7 +39,7 @@ package Data.Database.MLV
 			["darkspirit2","ダークスピリット2"],
 			["darkspirit3","ダークスピリット3"],
 			["electric_spark","エレクトリックスパーク"],
-			["fire_scream","ファイアスクリーム"],
+			["fire_scream2","ファイアスクリーム"],
 			["chaotic_desire","カオティックディセイアー"],
 			["cling_blow","クリングブロー"],
 			["beast_upper","ビーストアッパー"],
@@ -101,19 +101,25 @@ package Data.Database.MLV
 		public static function init():void{
 			if(!instance){
 				for(var n:String in enhancements_array){
-					enhancements[enhancements_array[n][1]] = enhancements_array[n][0];
+					if(enhancements[enhancements_array[n][1]]==null)
+						enhancements[enhancements_array[n][1]] = new Array();
+					enhancements[enhancements_array[n][1]].push(enhancements_array[n][0]);
 				}
 				for(n in masteries_array){
 					if(masteries[masteries_array[n][1]]==null)
 						masteries[masteries_array[n][1]] = new Array();
 					masteries[masteries_array[n][1]].push({name:masteries_array[n][0],type:masteries_array[n][2]});
 				}
+				instance = true;
 			}
 		}
-		public static function getEnhancement(skill_name:String):String{
+		public static function getEnhancement(skill_name:String):Array{
+			init();
+			if(enhancements[skill_name]==null)return new Array();
 			return enhancements[skill_name];
 		}
 		public static function getMastery(skill_name:String):Array{
+			init();
 			if(masteries[skill_name]==null)return new Array();
 			return masteries[skill_name];
 		}
