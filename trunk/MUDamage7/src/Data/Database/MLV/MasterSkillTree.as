@@ -87,7 +87,7 @@ package Data.Database.MLV
 		    ["","critical_plus1","earth_quake","weapon_master"],
 		    ["fire_burst_mastery","critical_plus2","earth_quake_mastery","maximum_life"],
 		    ["","critical_plus3","fire_scream","maximum_mana"],
-		    ["electric_spark","","fire_scream","maximum_ag"],
+		    ["electric_spark","","fire_scream2","maximum_ag"],
 		    ["","critical_plus_mastery","chaotic_desire",""],
 		    ["","iron_defense_learning","",""],
 		    ["","iron_defense","",""],

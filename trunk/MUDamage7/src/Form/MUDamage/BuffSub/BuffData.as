@@ -52,6 +52,19 @@ package Form.MUDamage.BuffSub {
 		/**
 		 * display self
 		 */
+		public var se:Label = new Label();// スペルエンハンス
+		public var se_check:CheckBox = new BuffCheckBox(se);
+		public var iron:Label = new Label();// アイアンディフェンス
+		public var iron_check:CheckBox = new BuffCheckBox(iron);
+		public var ber:Label = new Label();// バーサーカー
+		public var ber_check:CheckBox = new BuffCheckBox(ber);
+		public var demo:Label = new Label();// デモリジョン
+		public var demo_check:CheckBox = new BuffCheckBox(demo);
+		
+		public var sera:Label = new Label();// セラフィー
+		public var sera_check:CheckBox = new BuffCheckBox(sera);
+		public var ale:Label = new Label();// 酒
+		public var ale_check:CheckBox = new BuffCheckBox(ale);
 		/**
 		 * display
 		 */

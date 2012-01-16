@@ -62,7 +62,7 @@ package Form.MUDamage {
 			for(var n:Object in a)
 				a[n].setEvent(e);
 		}
-		private function callFunctions():void{
+		public function callFunctions():void{
 			for(var n:Object in funcs)
 				funcs[n](null);
 		}
@@ -79,20 +79,94 @@ package Form.MUDamage {
 		 */
 		private function selfBox():void{
 			var vbox:VBox = createBox("自身のサポ");
-//			// form
-//			vbox.addChild(createRow([d.sb_check, d.sb]));
-//			vbox.addChild(createRow([d.wizard_agi, d.wizard_ene]));
-//			vbox.addChild(createRow([d.master_sb1,d.master_sb2,d.master_sb3]));
-//			// event
-//			var func:Function = function(event:Event):void{
-//				var sb:int = SupportSkillCalculator.calcSoulBarrier(d);
-//				var time:int = SupportSkillCalculator.calcSoulBarrier_Time(d);
-//				var mana:int = SupportSkillCalculator.calcSoulBarrier_Mana(d);
-//				d.sb = "ソウルバリア:"+sb.toString()+"%";
-//				d.sb += " 持続時間"+time.toString()+"秒";
-//				if(mana>0)d.sb += " 最大マナ"+"+"+mana.toString()+"%";
-//			};
-//			setEvent(func,[d.wizard_agi, d.wizard_ene,d.master_sb1,d.master_sb2,d.master_sb3]);
+			// form
+			if(mud.form_job.selectedLabel=="ウィザード")vbox.addChild(createRow([d.se_check, d.se]));
+			if(mud.form_job.selectedLabel=="ダークロード")vbox.addChild(createRow([d.iron_check, d.iron]));
+			if(mud.form_job.selectedLabel=="召喚師")vbox.addChild(createRow([d.ber_check, d.ber]));
+			if(mud.form_job.selectedLabel=="レイジファイター")vbox.addChild(createRow([d.demo_check, d.demo]));
+			vbox.addChild(createRow([d.sera_check, d.sera,d.ale_check, d.ale]));
+			vbox.addChild(createRow([]));
+			// event
+			var func:Function = null;
+			// event se
+			if(mud.form_job.selectedLabel=="ウィザード"){
+				func = function(event:Event):void{
+					var master:FormMasterSkillTree = mud.form_status.getMasterSkillTree();
+					var effect:int = SupportSkillCalculator.calcSpellEnhance();
+					var max:int = SupportSkillCalculator.calcSpellEnhance_Max(
+							master.getSkillValue("spell_enhance"));
+					var cri:int = SupportSkillCalculator.calcSpellEnhance_Cri(
+							master.getSkillValue("spell_enhance_mastery"));
+					d.se.text = "スペルエンハンス:最小魔力"+effect.toString()+"%";
+					if(max>0)d.se.text += " 最大魔力"+max.toString()+"%";
+					if(cri>0)d.se.text += " クリティカル確率"+"+"+cri.toString()+"%";
+				};
+				setEvent(func,[]);
+			}
+			// event iron
+			if(mud.form_job.selectedLabel=="ダークロード"){
+				func = function(event:Event):void{
+					var master:FormMasterSkillTree = mud.form_status.getMasterSkillTree();
+					var def:int = SupportSkillCalculator.calcIronDefense_Defense(
+							master.getSkillValue("iron_defense"),
+							parseInt(mud.form_status.getRec().text));
+					var life:int = SupportSkillCalculator.calcIronDefense_Life(
+							master.getSkillValue("iron_defense"),
+							parseInt(mud.form_status.getRec().text));
+					d.iron.text = "アイアンディフェンス:防御力"+def.toString()+"%";
+					d.iron.text += " 生命"+life.toString()+"%";
+				};
+				setEvent(func,[]);
+			}
+			// event berserker
+			if(mud.form_job.selectedLabel=="召喚師"){
+				func = function(event:Event):void{
+					var master:FormMasterSkillTree = mud.form_status.getMasterSkillTree();
+					var magic:int = SupportSkillCalculator.calcBerserkerMind_Magic(
+							master.getSkillValue("berserker_mind")
+							+ master.getSkillValue("berserker_mind_mastery")
+							+ master.getSkillValue("berserker_mind_mastery2"),
+							parseInt(mud.form_status.getEne().text));
+					var life:int = SupportSkillCalculator.calcBerserkerMind_Life(
+							master.getSkillValue("berserker_mind"),
+							parseInt(mud.form_status.getEne().text));
+					var def:int = SupportSkillCalculator.calcBerserkerMind_Defense(
+							master.getSkillValue("berserker_mind"),
+							parseInt(mud.form_status.getEne().text));
+					var mana:int = SupportSkillCalculator.calcBerserkerMind_Mana(
+							master.getSkillValue("berserker_mind")
+							+ master.getSkillValue("berserker_mind_mastery"),
+							parseInt(mud.form_status.getEne().text));
+					d.ber.text = "バーサーカーマインド:魔力"+magic.toString()+"%";
+					d.ber.text += " 生命"+life.toString()+"%";
+					d.ber.text += " 防御力"+def.toString()+"%";
+					d.ber.text += " 最大マナ"+mana.toString()+"%";
+				};
+				setEvent(func,[]);
+			}
+			// event demolition
+			if(mud.form_job.selectedLabel=="レイジファイター"){
+				func = function(event:Event):void{
+					var master:FormMasterSkillTree = mud.form_status.getMasterSkillTree();
+					var effect:int = SupportSkillCalculator.calcDemolition(
+							parseInt(mud.form_status.getEne().text));
+					d.demo.text = "デモリジョン:防御無視確率"+effect.toString()+"%";
+				};
+				setEvent(func,[]);
+			}
+			// event seraphy
+			func = function(event:Event):void{
+				var master:FormMasterSkillTree = mud.form_status.getMasterSkillTree();
+				var attack:int = SupportSkillCalculator.calcSeraphy_Attack(
+						parseInt(mud.form_status.getLevel().text));
+				var defense:int = SupportSkillCalculator.calcSeraphy_Defense(
+						parseInt(mud.form_status.getLevel().text));
+				d.sera.text = "セラフィー:攻撃力"+attack.toString();
+				d.sera.text += " 防御力"+defense.toString();
+			};
+			setEvent(func,[]);
+			// text ale
+			d.ale.text = "酒:攻撃速度+20";
 		}
 		/**
 		 * knight

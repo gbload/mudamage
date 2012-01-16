@@ -76,9 +76,10 @@ package Calc {
 				a.skills.push(skill);
 				// MasterSkillを追加
 				// スキル強化
-				var index:String = MasterSkillToSkill.getEnhancement(s[n][a.key.name]);
-				if(index!=null)
-					skill.m_attack = f.master_skill.getSkillValue(index);
+				var array:Array = MasterSkillToSkill.getEnhancement(s[n][a.key.name]);
+				for(var obj:Object in array){
+					skill.m_attack += f.master_skill.getSkillValue(array[obj]);
+				}
 				// スキルマスタリ
 //				var array:Array = MasterSkillToSkill.getMastery(s[n][a.key.name]);
 //				for(var obj in array){
