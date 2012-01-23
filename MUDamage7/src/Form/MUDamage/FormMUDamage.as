@@ -27,6 +27,7 @@ package Form.MUDamage {
 		public var form_pentagram:FormPentagram;
 		public var form_status:FormStatus;
 		public var form_support:FormSupport;
+		public var form_buff:FormBuff;
 		public var form_calc:FormCalc;
 	
 		private var main:Form;

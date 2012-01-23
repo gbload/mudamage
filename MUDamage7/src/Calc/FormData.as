@@ -137,7 +137,7 @@ package Calc {
 			setRing(d.form_ring1,data.ring1);
 			setRing(d.form_ring2,data.ring2);
 			setStatus(d.form_status);
-			setSupport(d.form_support);
+			setSupport(d.form_buff);
 			setMasterSkill(d.form_status.getMasterSkillTree());
 			setProperty(d.form_pentagram);
 			setCalc(d.form_calc);
@@ -257,7 +257,7 @@ package Calc {
 				data.status.rec = parseInt(form.getRec().text);
 		}
 		private function setSupport(form:Object):void{
-			data.support = form;
+			data.support = form.getBuffData();
 		}
 		private function setMasterSkill(form:Object):void{
 			data.status.mlv = parseInt(form.getLevel().text);

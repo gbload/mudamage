@@ -18,7 +18,6 @@ package Form.MUDamage {
 		private var hbox:HBox;
 	
 		private var input_support:Button;
-		private var buff_form:FormBuff;
 	
 		public var aplus:TextInput;
 		public var gplus:TextInput;
@@ -54,7 +53,7 @@ package Form.MUDamage {
 			
 			this.setStyle("borderStyle","solid");
 			
-			initForm();
+//			initForm();
 			createInputSupport();
 		}
 		/**
@@ -62,10 +61,10 @@ package Form.MUDamage {
 		 */
 		private function createInputSupport():void{
 			input_support = new Button();
-			input_support.label = "入力支援(未完)";
+			input_support.label = "バフスキル入力";
 			input_support.addEventListener(MouseEvent.CLICK,eventClick);
 			this.addChild(input_support);
-			buff_form = new FormBuff(d);
+			d.form_buff = new FormBuff(d);
 		}
 		/**
 		 * 入力支援ボタンクリック時イベント
@@ -81,8 +80,8 @@ package Form.MUDamage {
 //			PopUpManager.centerPopUp(pop);
 			pop.title = "SupportSkill";//タイトル
 			
-			buff_form.callFunctions();
-			pop.addChild(buff_form);//buff_formを載せる
+			d.form_buff.callFunctions();
+			pop.addChild(d.form_buff);//form_buffを載せる
 		}
 		/**
 		 * ポップアップを閉じる

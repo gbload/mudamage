@@ -260,7 +260,7 @@ package Calc {
 		 * 補助アイテム類計算
 		 */
 		private function calcEtc():void{
-			for each(var name:String in [f.support.getValue(f.support.item)]){
+			for each(var name:String in [f.support.item.selectedLabel]){
 				if(name == "攻撃力+25"){etc_attack+=25;etc_magic+=25;}//かぼちゃや課金アイテムでの攻撃力上昇分
 				if(name == "攻撃力+30"){etc_attack+=30;etc_magic+=30;}//かぼちゃや課金アイテムでの攻撃力上昇分
 				if(name == "攻撃力+40"){etc_attack+=40;etc_magic+=40;}//かぼちゃや課金アイテムでの攻撃力上昇分
@@ -276,7 +276,7 @@ package Calc {
 				if(name == "マナ+700")etc_mana+=700;//マナ
 				if(name == "AG回復+10")etc_agah+=10;//AG回復＋
 			}
-			for each(name in [f.support.getValue(f.support.scroll),f.support.getValue(f.support.leap)]){
+			for each(name in [f.support.scroll.selectedLabel,f.support.leap.selectedLabel]){
 				if(name == "攻撃力+30"){etc_attack+=30;etc_attack2+=30;}//課金アイテムでの攻撃力上昇分
 				if(name == "魔力+30"){etc_magic+=30;etc_magic2+=30;}//魔力
 				if(name == "速度+15")etc_speed+=15;//速度

@@ -147,6 +147,9 @@ package IO.FileIO {
 			//2011/12/14
 			//プロパティシステム
 			a[27] = d.form_pentagram.getSaveData();
+			//2012/01/23
+			//新バフスキルフォーム
+			a[28] = d.form_buff.getSaveData();
 			return a;
 		}
 		/**
@@ -304,6 +307,11 @@ package IO.FileIO {
 			//プロパティシステム
 			d.form_pentagram.setSaveData(a[27]);
 			//Alert.show(a.toString());
+
+			//2012/01/23
+			//新バフスキルフォーム
+			//if(parseInt(a[19])>=3.10)
+			d.form_buff.setSaveData(a[28]);
 			
 			return true;
 		}
@@ -434,6 +442,13 @@ package IO.FileIO {
 			count = d.form_pentagram.getSaveCount();
 			for(i=0;i<count;i++)
 				a[27][i] = a2[index++];
+			//2012/01/23
+			//新バフスキルフォーム
+			a[28] = new Array();
+			count = d.form_buff.getSaveCount();
+			for(i=0;i<count;i++)
+				a[28][i] = a2[index++];
+			
 			return a;
 		}
 	}

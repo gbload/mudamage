@@ -49,27 +49,33 @@ package Calc {
 		 * サポートスキルの計算
 		 */
 		private function calcSupport():void{
-			if(f.job=="ナイト")c.support_a = Math.floor(f.support.getValue(f.support.aplus) * 1.1);//A+
-			else c.support_a = f.support.getValue(f.support.aplus);//A+
-			if(f.job=="ナイト")c.support_g = Math.floor(f.support.getValue(f.support.gplus) * 1.1);//G+
-			else c.support_g = f.support.getValue(f.support.gplus);//G+
-			c.support_c = f.support.getValue(f.support.cplus);//C+
-			c.support_sl = f.support.getValue(f.support.sl);//SL
-			c.support_sb = f.support.getValue(f.support.sb);//SB
-			if(f.support.getValue(f.support.sera))c.support_sera_a = Math.floor(f.status.lv/3) + 45;//セラ　攻撃力
-			if(f.support.getValue(f.support.sera))c.support_sera_g = Math.floor(f.status.lv/5) + 50;//セラ　防御力
-			if(f.support.getValue(f.support.se))c.support_se = 20;//スペルエンハンス
-			if(f.support.getValue(f.support.ba))c.support_ba = 10;//BA
-			c.support_inner = f.support.getValue(f.support.iv);//インナーベーション
-			c.support_weak = f.support.getValue(f.support.wn);//ウイークネス
-			if(f.support.getValue(f.support.ber))
-				c.support_berserker = Math.floor(f.status.ene/30);//バーサーカー
-			if(f.support.getValue(f.support.ht))
-				c.support_vit = 16 + Math.ceil(f.status.ene/10);//体力上昇
-			if(f.support.getValue(f.support.con))
-				c.support_avoid = Math.min(Math.ceil(f.status.agi/3),200);//防御成功率上昇
-			if(f.support.getValue(f.support.ig))
-				c.support_ignore = Math.floor(f.status.ene/100);//敵の防御力無視
+			if(f.support.aplus_check.selected)c.support_a = SupportSkillCalculator.calcAttackPlus(f.job,f.support);//A+
+			if(f.support.gplus_check.selected)c.support_g = SupportSkillCalculator.calcGuardPlus(f.job,f.support);//G+
+			if(f.support.cplus_check.selected)c.support_c = SupportSkillCalculator.calcCriticalPlus(f.support);//C+
+			if(f.support.sl_check.selected)c.support_sl = SupportSkillCalculator.calcSwellLife(f.support);//SL
+			if(f.support.sb_check.selected)c.support_sb = SupportSkillCalculator.calcSoulBarrier(f.support);//SB
+			if(f.support.sera_check.selected)c.support_sera_a = SupportSkillCalculator.calcSeraphy_Attack(f.status.lv);//セラ　攻撃力
+			if(f.support.sera_check.selected)c.support_sera_g = SupportSkillCalculator.calcSeraphy_Defense(f.status.lv);//セラ　防御力
+			if(f.support.se_check.selected)c.support_se = SupportSkillCalculator.calcSpellEnhance();//スペルエンハンス
+			if(f.support.ba_check.selected)c.support_ba = SupportSkillCalculator.calcBloodAttack(f.support);//BA
+			if(f.support.iv_check.selected)c.support_inner = SupportSkillCalculator.calcInnovation(f.support);//インナーベーション
+			if(f.support.wn_check.selected)c.support_weak = SupportSkillCalculator.calcWeakness(f.support);//ウイークネス
+			if(f.support.ber_check.selected)
+				c.support_berserker = SupportSkillCalculator.calcBerserkerMind_Magic(
+						f.master_skill.getSkillValue("berserker_mind")
+						+ f.master_skill.getSkillValue("berserker_mind_mastery")
+						+ f.master_skill.getSkillValue("berserker_mind_mastery2"),
+						f.status.ene);//バーサーカー
+			if(f.support.ht_check.selected)
+				c.support_vit = SupportSkillCalculator.calcHighTension(
+						f.support,
+						f.status.ene);//体力上昇
+			if(f.support.con_check.selected)
+				c.support_avoid = SupportSkillCalculator.calcConcentration(
+						f.support,f.status.ene);//防御成功率上昇
+			if(f.support.demo_check.selected)
+				c.support_ignore = SupportSkillCalculator.calcDemolition(
+						f.status.ene);//敵の防御力無視
 		}
 		/**
 		 * ステータスの計算
@@ -143,6 +149,10 @@ package Calc {
 			if(i.is_shield)c.def += Math.floor(c.def*i.setop_shield/100);
 			//ソケットの盾装備時
 			if(i.is_shield)c.def += Math.floor(c.def*(i.getSocketProtects("盾装備時増加"))/100);
+			// Iron
+			if(f.support.iron_check.selected)
+				c.def += Math.floor(c.def*SupportSkillCalculator.calcIronDefense_Defense(
+					f.master_skill.getSkillValue("iron_defense"),f.status.rec)/100);
 			/*
 			 * 固定増加分
 			 */
@@ -165,9 +175,20 @@ package Calc {
 			//ペットによるDEF増加
 			if(f.pet == "白銀のアリオン")c.def += 100;//防御力+50 → DEF+100
 			//バーサーカーによるDEF減少
-			if(f.support.getValue(f.support.ber))
-				c.def -= Math.floor(tmp * (50 - Math.floor(f.status.ene/45))/100);
+			if(f.support.ber_check.selected)
+				c.def -= Math.floor(tmp * SupportSkillCalculator.calcBerserkerMind_Defense(
+						f.master_skill.getSkillValue("berserker_mind"),
+						f.status.ene)/100);
+			// G+
+			c.def += c.support_g*2;
+			// Concentration
+			if(f.support.con_check.selected)c.def += SupportSkillCalculator.calcConcentration_Defense(f.support)*2;
+			// Seraphy
+			c.def += c.support_sera_g*2;
 		}
+		/**
+		 * attribute defense
+		 */
 		private function calcAttributeDef():void{
 			if(f.property.name!=""){
 				// pentagram
@@ -223,6 +244,9 @@ package Calc {
 			c.avoid += c.support_avoid;
 			// 統一ボーナス
 			if(check!="none")c.avoid += Math.floor(avoid_ori * 0.1);//統一ボーナス
+			/*
+			 * 固定増加分
+			 */
 			// MasterSkill 盾マスタリ
 			c.avoid += f.master_skill.getSkillValue("shield_mastery");
 		}
@@ -285,17 +309,22 @@ package Calc {
 			var job_vit:int = D.getData("job_status")[f.job_index][2];
 			// ステータス
 			var tmp:int = inc[0] + (f.status.vit - job_vit)*inc[1] + (c.lv-1)*inc[2];
+			// MasterSkill
+			tmp += f.master_skill.getSkillValue("maximum_life");
 			// 追加体力
 			c.life = c.add_vit * inc[1];//セットとソケットの体力＋
 			//HP
 			c.life += tmp;
-			// MasterSkill
-			c.life += f.master_skill.getSkillValue("maximum_life");
 			/*
 			 * %の部分
 			 */
 			// SL
-			c.life += Math.floor(tmp * c.support_sl/100);
+			if(f.support.sl_check.selected)c.life += Math.floor(tmp * c.support_sl/100);
+			// Iron
+			if(f.support.iron_check.selected)
+				c.life += Math.floor(tmp * SupportSkillCalculator.calcIronDefense_Life(
+					f.master_skill.getSkillValue("iron_defense"),
+					f.status.rec)/100);
 			// EXOPの生命増加
 			for each(var exop:Object in i.exops)
 				if(exop["生命増"])
@@ -306,8 +335,10 @@ package Calc {
 			 * 引き算の部分
 			 */
 			//バーサーカーのHP減少 基本HP * [40 - 純ene/60]%
-			if(c.support_berserker)
-				c.life -= Math.floor(tmp * ((40 - Math.floor(f.status.ene/60))/100));
+			if(f.support.ber_check.selected)
+				c.life -= Math.floor(tmp * SupportSkillCalculator.calcBerserkerMind_Life(
+						f.master_skill.getSkillValue("berserker_mind"),
+						f.status.ene)/100);
 			/*
 			 * 足し算の部分
 			 */
@@ -331,16 +362,23 @@ package Calc {
 			var job_ene:int = D.getData("job_status")[f.job_index][3];
 			// ステータス
 			var tmp:int = inc[0] + (c.ene-job_ene)*inc[1] + (c.lv-1)*inc[2];
+			//MasterSkill
+			tmp += f.master_skill.getSkillValue("maximum_mana");
 			// 追加エナジー
 			c.mana += c.add_ene*inc[1];//セットのエナ＋
 			//マナ
 			c.mana += tmp;
-			//MasterSkill
-			c.mana += f.master_skill.getSkillValue("maximum_mana");
 			/*
 			 * %増加部分
 			 */
 			// スウェルマナ
+			
+			// スウェルライフ
+			if(f.support.sl_check.selected)c.mana += Math.floor(tmp * SupportSkillCalculator.calcSwellLife_Mana(
+					f.support)/100);
+			// ソウルバリア
+			if(f.support.sb_check.selected)c.mana += Math.floor(tmp * SupportSkillCalculator.calcSoulBarrier_Mana(
+					f.support)/100);
 			// EXOPのマナ増加
 			for each(var exop:Object in i.exops)
 				if(exop["マナ増"])
@@ -348,8 +386,11 @@ package Calc {
 			// ソケットOPのマナ増加
 			c.mana += Math.floor(tmp * i.getSocketProtects("最大生命増加")/100);
 			//バーサーカー [純ene/30]%
-			if(c.support_berserker)
-				c.mana += tmp - Math.floor(tmp * (100 - Math.floor(f.status.ene/30))/100);
+			if(f.support.ber_check.selected)
+				c.mana += tmp - Math.floor(tmp * SupportSkillCalculator.calcBerserkerMind_Mana(
+						f.master_skill.getSkillValue("berserker_mind")
+						+ f.master_skill.getSkillValue("berserker_mind_mastery"),
+						f.status.ene)/100);
 			/*
 			 * 足し算部分
 			 */
@@ -422,7 +463,7 @@ package Calc {
 			if((i.getItemData(f.ring1,"name")=="魔法師の指輪" || i.getItemData(f.ring2,"name")=="魔法師の指輪")
 			 	|| (i.getItemData(f.ring1,"name")=="大魔法師の爪" || i.getItemData(f.ring2,"name")=="大魔法師の爪"))
 				{speed += 10;}//魔法師
-			if(f.support.getValue(f.support.ale)){speed += 20;}//酒
+			if(f.support.ale_check.selected){speed += 20;}//酒
 			speed += i.etc_speed;//かぼちゃ、課金など
 			if(f.pet.item=="デーモン"){speed += 10;}//デーモン
 			if(f.pet.item=="スケルトンパージドラゴン"){speed += 10;}//スケルトンパージドラゴン
@@ -462,6 +503,8 @@ package Calc {
 			exd += i.getSocket(f.left,"EXD確率");
 			// master skill
 			exd += f.master_skill.getSkillValue("exdamage_probability");
+			// C+
+			if(f.support.cplus_check.selected)exd += SupportSkillCalculator.calcCriticalPlus_Exd(f.support);
 			
 			//クリ
 			var cri:int = 0;
@@ -476,6 +519,10 @@ package Calc {
 			cri += i.getSocket(f.left,"クリ確率");
 			// master skill
 			cri += f.master_skill.getSkillValue("critical_probability");
+			// C+
+			if(f.support.cplus_check.selected)cri += SupportSkillCalculator.calcCriticalPlus_Cri(f.support);
+			// spell enhance
+			if(f.support.se_check.selected)cri += SupportSkillCalculator.calcSpellEnhance_Cri(f.master_skill.getSkillValue("spell_enhance_mastery"));
 			
 			/*
 			 * 割合計算

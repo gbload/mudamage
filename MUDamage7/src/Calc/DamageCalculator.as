@@ -226,8 +226,8 @@ package Calc {
 			var c:CharacterData = muc.c;
 			
 			s = s - c.def/2;//(モンス攻撃 - DEF)
-			s = s - c.support_g;//G+
-			s = s - c.support_sera_g;//セラフィー
+//			s = s - c.support_g;//G+
+//			s = s - c.support_sera_g;//セラフィー
 			s = s - c.attribute_def;
 			//モンスターの攻撃力低下
 			s -= Math.floor(s * c.support_weak/100);//ウイークネス
