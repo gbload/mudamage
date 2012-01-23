@@ -92,7 +92,7 @@ package Form.MUDamage {
 			if(mud.form_job.selectedLabel=="ダークロード")vbox.addChild(createRow([d.iron_check, d.iron]));
 			if(mud.form_job.selectedLabel=="召喚師")vbox.addChild(createRow([d.ber_check, d.ber]));
 			if(mud.form_job.selectedLabel=="レイジファイター")vbox.addChild(createRow([d.demo_check, d.demo]));
-			vbox.addChild(createRow([d.sera_check, d.sera,d.ale_check, d.ale]));
+			vbox.addChild(createRow([d.sera_check, d.sera,d.ale_check, d.ale,d.miracle_check,d.miracle]));
 			vbox.addChild(createRow([d.item,d.scroll,d.leap]));
 			// event
 			var func:Function = null;
@@ -175,6 +175,8 @@ package Form.MUDamage {
 			setEvent(func,[]);
 			// text ale
 			d.ale.text = "酒:攻撃速度+20";
+			// text miracle
+			d.miracle.text = "妙薬:攻撃力+15";
 		}
 		/**
 		 * knight
@@ -232,7 +234,7 @@ package Form.MUDamage {
 			                         ,d.master_bless1]));
 			// event aplus
 			var func:Function = function(event:Event):void{
-				var aplus:int = SupportSkillCalculator.calcAttackPlus(d);
+				var aplus:int = SupportSkillCalculator.calcAttackPlus(mud.form_job.selectedLabel,d);
 				var time:int = SupportSkillCalculator.calcAttackPlus_Time(d);
 				d.aplus.text = "A+:"+aplus.toString();
 				d.aplus.text += " 持続時間"+time.toString()+"秒";
@@ -240,7 +242,7 @@ package Form.MUDamage {
 			setEvent(func,[d.elf_ene,d.master_aplus1,d.master_aplus2]);
 			// event gplus
 			func = function(event:Event):void{
-				var gplus:int = SupportSkillCalculator.calcGuardPlus(d);
+				var gplus:int = SupportSkillCalculator.calcGuardPlus(mud.form_job.selectedLabel,d);
 				var time:int = SupportSkillCalculator.calcGuardPlus_Time(d);
 				d.gplus.text = "G+:"+gplus.toString();
 				d.gplus.text += " 持続時間"+time.toString()+"秒";
@@ -355,6 +357,24 @@ package Form.MUDamage {
 				d.gminus.text = "ビーストアッパー:"+"敵の防御力低下"+gminus.toString()+"%";
 			};
 			setEvent(func,[d.master_gminus1]);
+		}
+		/**
+		 * 
+		 */
+		public function getBuffData():BuffData{
+			return d;
+		}
+		/**
+		 * save data
+		 */
+		public function getSaveData():Array{
+			return d.getSaveData();
+		}
+		public function setSaveData(a:Array):void{
+			d.setSaveData(a);
+		}
+		public function getSaveCount():int{
+			return 53;
 		}
 	}
 }

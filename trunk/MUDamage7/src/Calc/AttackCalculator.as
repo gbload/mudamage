@@ -461,7 +461,7 @@ package Calc {
 			var d:int=0;
 		    //妙薬・A＋・セラ
 		    d += c.support_a;
-		    if(f.support.getValue(f.support.miracle))d += 15;
+		    if(f.support.miracle_check.selected)d += 15;
 		    d += c.support_sera_a;
 		    //課金アイテム
 		    d += i.etc_attack2;
@@ -610,7 +610,7 @@ package Calc {
 
 		    //妙薬・A＋・セラ
 		    d += c.support_a;
-		    if(f.support.getValue(f.support.miracle))d += 15;
+		    if(f.support.miracle_check.selected)d += 15;
 		    d += c.support_sera_a;
 		    //[課金]魔力増加(バグ？)
 		    d += i.etc_magic2;

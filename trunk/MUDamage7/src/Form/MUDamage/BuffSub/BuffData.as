@@ -65,6 +65,8 @@ package Form.MUDamage.BuffSub {
 		public var sera_check:CheckBox = new BuffCheckBox(sera);
 		public var ale:Label = new Label();// 酒
 		public var ale_check:CheckBox = new BuffCheckBox(ale);
+		public var miracle:Label = new Label();// 妙薬
+		public var miracle_check:CheckBox = new BuffCheckBox(miracle);
 		// etc
 		private static var item_data:Array = ["なし","速度+10","攻撃力+25","防御力+100","生命+500","マナ+500"
 										,"攻撃力+40","生命+700","マナ+700"
@@ -110,6 +112,138 @@ package Form.MUDamage.BuffSub {
 		 * initialize
 		 */
 		public function BuffData(){
+		}
+		/**
+		 * savedata
+		 */
+		public function getSaveData():Array{
+			var a:Array = new Array();
+			a.push(knight_vit.text);
+			a.push(knight_ene.text);
+			a.push(wizard_agi.text);
+			a.push(wizard_ene.text);
+			a.push(elf_ene.text);
+			a.push(darkload_ene.text);
+			a.push(darkload_rec.text);
+			a.push(summoner_ene.text);
+			
+			a.push(master_sl1.getValue());
+			a.push(master_sl2.getValue());
+			a.push(master_sl3.getValue());
+			a.push(master_sb1.getValue());
+			a.push(master_sb2.getValue());
+			a.push(master_sb3.getValue());
+			a.push(master_aplus1.getValue());
+			a.push(master_aplus2.getValue());
+			a.push(master_gplus1.getValue());
+			a.push(master_gplus2.getValue());
+			a.push(master_bless1.getValue());
+			a.push(master_ba1.getValue());
+			a.push(master_cplus1.getValue());
+			a.push(master_cplus2.getValue());
+			a.push(master_cplus3.getValue());
+			a.push(master_cplus4.getValue());
+			a.push(master_iv1.getValue());
+			a.push(master_wn1.getValue());
+			a.push(master_aminus1.getValue());
+			a.push(master_gminus1.getValue());
+			
+			a.push(ptm.text);
+			
+			a.push(se_check.selected);
+			a.push(iron_check.selected);
+			a.push(ber_check.selected);
+			a.push(demo_check.selected);
+			a.push(sera_check.selected);
+			a.push(ale_check.selected);
+			a.push(miracle_check.selected);
+			
+			a.push(item.selectedIndex);
+			a.push(scroll.selectedIndex);
+			a.push(leap.selectedIndex);
+			
+			a.push(sl_check.selected);
+			a.push(sb_check.selected);
+			a.push(aplus_check.selected);
+			a.push(gplus_check.selected);
+			a.push(bless_check.selected);
+			a.push(ba_check.selected);
+			a.push(cplus_check.selected);
+			a.push(iv_check.selected);
+			a.push(wn_check.selected);
+			a.push(blind_check.selected);
+			a.push(con_check.selected);
+			a.push(ht_check.selected);
+			a.push(aminus_check.selected);
+			a.push(gminus_check.selected);
+			
+			return a;
+		}
+		private function setCheck(check:CheckBox,val:String):void{
+			check.selected = (val=="true");
+			check.dispatchEvent(new Event(Event.CHANGE));
+		}
+		public function setSaveData(a:Array):void{
+			if(a==null)return;
+			var index:int = 0;
+			knight_vit.text = a[index++];
+			knight_ene.text = a[index++];
+			wizard_agi.text = a[index++];
+			wizard_ene.text = a[index++];
+			elf_ene.text = a[index++];
+			darkload_ene.text = a[index++];
+			darkload_rec.text = a[index++];
+			summoner_ene.text = a[index++];
+			
+			master_sl1.setValue(a[index++]);
+			master_sl2.setValue(a[index++]);
+			master_sl3.setValue(a[index++]);
+			master_sb1.setValue(a[index++]);
+			master_sb2.setValue(a[index++]);
+			master_sb3.setValue(a[index++]);
+			master_aplus1.setValue(a[index++]);
+			master_aplus2.setValue(a[index++]);
+			master_gplus1.setValue(a[index++]);
+			master_gplus2.setValue(a[index++]);
+			master_bless1.setValue(a[index++]);
+			master_ba1.setValue(a[index++]);
+			master_cplus1.setValue(a[index++]);
+			master_cplus2.setValue(a[index++]);
+			master_cplus3.setValue(a[index++]);
+			master_cplus4.setValue(a[index++]);
+			master_iv1.setValue(a[index++]);
+			master_wn1.setValue(a[index++]);
+			master_aminus1.setValue(a[index++]);
+			master_gminus1.setValue(a[index++]);
+			
+			ptm.text = a[index++];
+			
+			setCheck(se_check,a[index++]);
+			setCheck(iron_check,a[index++]);
+			setCheck(ber_check,a[index++]);
+			setCheck(demo_check,a[index++]);
+			setCheck(sera_check,a[index++]);
+			setCheck(ale_check,a[index++]);
+			setCheck(miracle_check,a[index++]);
+			
+			item.selectedIndex = a[index++];
+			scroll.selectedIndex = a[index++];
+			leap.selectedIndex = a[index++];
+			
+			setCheck(sl_check,a[index++]);
+			setCheck(sb_check,a[index++]);
+			setCheck(aplus_check,a[index++]);
+			setCheck(gplus_check,a[index++]);
+			setCheck(bless_check,a[index++]);
+			setCheck(ba_check,a[index++]);
+			setCheck(cplus_check,a[index++]);
+			setCheck(iv_check,a[index++]);
+			setCheck(wn_check,a[index++]);
+			setCheck(blind_check,a[index++]);
+			setCheck(con_check,a[index++]);
+			setCheck(ht_check,a[index++]);
+			setCheck(aminus_check,a[index++]);
+			setCheck(gminus_check,a[index++]);
 		}
 	}
 }

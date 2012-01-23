@@ -38,10 +38,10 @@ package Calc {
 			return master;
 		}
 		public static function calcIronDefense_Defense(master:int,rec:int):int{
-			return master+rec;
+			return master+Math.floor(rec/5);
 		}
 		public static function calcIronDefense_Life(master:int,rec:int):int{
-			return master+rec;
+			return master+Math.floor(rec/5);
 		}
 		public static function calcBerserkerMind_Magic(master:int,ene:int):int{
 			return master+Math.floor(ene/30);
@@ -88,16 +88,20 @@ package Calc {
 		public static function calcSoulBarrier_Mana(d:BuffData):int{
 			return d.master_sb3.getSkillValue();
 		}
-		public static function calcAttackPlus(d:BuffData):int{
-			return Math.floor(Math.floor(parseInt(d.elf_ene.text)/7)+3)
-				* (100 + d.master_aplus1.getSkillValue() + d.master_aplus2.getSkillValue())/100;
+		public static function calcAttackPlus(job:String,d:BuffData):int{
+			var val:int = Math.floor(Math.floor(parseInt(d.elf_ene.text)/7)+3)
+			* (100 + d.master_aplus1.getSkillValue() + d.master_aplus2.getSkillValue())/100;
+			if(job=="ナイト")return val*1.1;
+			else return val;
 		}
 		public static function calcAttackPlus_Time(d:BuffData):int{
 			return 60 + (parseInt(d.master_aplus2.getValue()) * 4);
 		}
-		public static function calcGuardPlus(d:BuffData):int{
-			return Math.floor(Math.floor(parseInt(d.elf_ene.text)/8)+2)
+		public static function calcGuardPlus(job:String,d:BuffData):int{
+			var val:int = Math.floor(Math.floor(parseInt(d.elf_ene.text)/8)+2)
 			* (100 + d.master_gplus1.getSkillValue() + d.master_gplus2.getSkillValue())/100;
+			if(job=="ナイト")return val*1.1;
+			else return val;
 		}
 		public static function calcGuardPlus_Time(d:BuffData):int{
 			return 60 + (parseInt(d.master_gplus2.getValue()) * 4);
