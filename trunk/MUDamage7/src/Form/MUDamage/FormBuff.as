@@ -70,9 +70,17 @@ package Form.MUDamage {
 		 * 
 		 */
 		private function test():void{
-			var la:Label = new Label();
-			la.text = "※入力支援フォームは未完成のため、フォーム及び計算に反映されません。";
-			this.addChild(la);
+			var button:Button = new Button();
+			button.label = "閉じる";
+			var obj:FormBuff = this;
+			button.addEventListener(MouseEvent.CLICK,function():void{
+				PopUpManager.removePopUp(obj.parent as IFlexDisplayObject);
+			});
+			this.addChild(button);
+			
+//			var la:Label = new Label();
+//			la.text = "※入力支援フォームは未完成のため、フォーム及び計算に反映されません。";
+//			this.addChild(la);
 		}
 		/**
 		 * self
@@ -85,7 +93,7 @@ package Form.MUDamage {
 			if(mud.form_job.selectedLabel=="召喚師")vbox.addChild(createRow([d.ber_check, d.ber]));
 			if(mud.form_job.selectedLabel=="レイジファイター")vbox.addChild(createRow([d.demo_check, d.demo]));
 			vbox.addChild(createRow([d.sera_check, d.sera,d.ale_check, d.ale]));
-			vbox.addChild(createRow([]));
+			vbox.addChild(createRow([d.item,d.scroll,d.leap]));
 			// event
 			var func:Function = null;
 			// event se

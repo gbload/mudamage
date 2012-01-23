@@ -65,6 +65,16 @@ package Form.MUDamage.BuffSub {
 		public var sera_check:CheckBox = new BuffCheckBox(sera);
 		public var ale:Label = new Label();// 酒
 		public var ale_check:CheckBox = new BuffCheckBox(ale);
+		// etc
+		private static var item_data:Array = ["なし","速度+10","攻撃力+25","防御力+100","生命+500","マナ+500"
+										,"攻撃力+40","生命+700","マナ+700"
+										,"速度+15","攻撃力+30","AG回復+10"];
+		private static var scroll_data:Array = ["ｽｸﾛｰﾙなし","速度+15","攻撃力+30","魔力+30"
+											,"防御力+60","生命+200","マナ+300","クリダメ+20%","EXDダメ+20%"];
+		private static var leap_data:Array = ["秘薬なし","力+50","敏捷+50","体力+50","エナ+50","統率+50"];
+		public var item:ComboBox = new BuffComboBox(item_data);
+		public var scroll:ComboBox = new BuffComboBox(scroll_data);
+		public var leap:ComboBox = new BuffComboBox(leap_data);
 		/**
 		 * display
 		 */

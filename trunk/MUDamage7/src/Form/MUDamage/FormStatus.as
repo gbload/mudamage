@@ -266,10 +266,6 @@ package Form.MUDamage {
 		 * MLVボタンクリック時イベント
 		 */
 		private function eventClickMLV(event:Event):void{
-			//LV400かチェック
-//			if(dat::d.f_lv.text == "400"){
-				//PopUpManagerでモーダルON（背景をぼやかせる）
-				//PopUpはTitleWindowで作成
 				var pop:TitleWindow = PopUpManager.createPopUp(d,TitleWindow,true) as TitleWindow;
 				pop.width = 900;
 				pop.height = 500;
@@ -279,11 +275,9 @@ package Form.MUDamage {
 				pop.addEventListener(CloseEvent.CLOSE,eventClickPopupClose);//右上の×ボタンのイベント
 				PopUpManager.centerPopUp(pop);
 				pop.title = "MasterSkillTree";//タイトル
+				mlv.callFunction();//ポイント計算
 				
 				pop.addChild(mlv);//MLVキャンバスを載せる
-//			}else{
-//				Alert.show("LVを400にしてください。");
-//			}
 		}
 		/**
 		 * ポップアップを閉じる
