@@ -63,7 +63,7 @@ package Calc {
 					continue;
 				// マスタースキル確認
 				if(s[n][a.key.master]!="" && 
-						f.master_skill.getSkill(s[n][a.key.master]).count>=10)
+						f.master_skill.getSkill(s[n][a.key.master]).getValue()<10)
 					continue;
 				// ダークスピリット
 				if(s[n][a.key.special]==4 && f.left.kind!="鷹")

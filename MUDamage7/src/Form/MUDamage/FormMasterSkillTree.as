@@ -39,6 +39,11 @@ package Form.MUDamage
 		 */
 		private function initSkills():void{
 			skills = new Object();
+			var a:Array = MasterSkill.skill;
+			for(var i:int=0;i<a.length;i++){
+				skills[a[i][0]] = new Object();
+				skills[a[i][0]].getSkillValue = function():int{return 0;};
+			}
 		}
 		/**
 		 * Boxの初期化
@@ -139,16 +144,22 @@ package Form.MUDamage
 			var rest:int = max; //残りポイント
 			var over:int = 0; //超過ポイント
 			for(var n:String in skills)
-				if(skills[n] != null)
-					rest -= parseInt(skills[n].getValue);
+				if(skills[n].getValue != null)
+					rest -= parseInt(skills[n].getValue());
 			if(rest < 0)
 				point.setStyle("color","#FF00000");
 			point.text = "ポイント："+rest+" / "+max;
 		}
 		/**
+		 * call
+		 */
+		public function callFunction():void{
+			changePoint();
+		}
+		/**
 		 * Skills
 		 */
-		private function getSkill(name:String):Object{
+		public function getSkill(name:String):Object{
 			if(skills[name]==null)Alert.show("Error:"+name);
 			return skills[name];
 		}
