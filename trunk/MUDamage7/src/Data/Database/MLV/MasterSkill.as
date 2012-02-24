@@ -211,6 +211,7 @@ package Data.Database.MLV
 		["vitality","体力増加",9,0,MasterSkillImage.blade_pro_icon_18,""],
 		["agility","敏捷増加",9,0,MasterSkillImage.blade_pro_icon_19,""],
 		["strength","力増加",9,0,MasterSkillImage.blade_pro_icon_20,""],
+		["rec","統率増加",9,0,MasterSkillImage.blade_pro_icon_20,"アイコンなしのため力増加と同じものを使用。"],
 		
 		["wing_defense","羽の防御力増加",9,0,MasterSkillImage.blade_pro_icon_21,""],
 		
@@ -270,9 +271,9 @@ package Data.Database.MLV
 		["bless","ブレス強化",5,0,MasterSkillImage.elf_wis_icon_26,""],
 		["poison_arrow","ポイズンアロー強化",2,0,MasterSkillImage.elf_wis_icon_27,""],
 		// summoner
-		["innovation","イノベーション強化",1,1,MasterSkillImage.dim_cha_icon_15,""],
+		["innovation","イノベーション強化",3,0,MasterSkillImage.dim_cha_icon_15,""],
 		
-		["weakness","ウィークネス強化",1,1,MasterSkillImage.dim_cha_icon_17,""],
+		["weakness","ウィークネス強化",3,0,MasterSkillImage.dim_cha_icon_17,""],
 		["life_drain_mastery","ライフドレインマスタリ",9,0,MasterSkillImage.dim_cha_icon_18,"一定確率で、一定時間の間、敵の生命を吸収し続ける。"],
 		
 		["blind_learning","ブラインド",-1,0,MasterSkillImage.dim_cha_icon_19,"ブラインドを習得。一定確率で敵の攻撃成功率を減少させる。"],

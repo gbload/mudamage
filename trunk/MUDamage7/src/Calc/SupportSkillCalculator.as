@@ -110,7 +110,7 @@ package Calc {
 			return 60 + (parseInt(d.master_gplus2.getValue()) * 4);
 		}
 		public static function calcBless(d:BuffData):int{
-			return 0;
+			return Math.floor(parseInt(d.elf_ene.text)/100)+d.master_bless1.getSkillValue();
 		}
 		public static function calcBloodAttack(d:BuffData):int{
 			return 10 + d.master_ba1.getSkillValue();
@@ -131,12 +131,16 @@ package Calc {
 			return d.master_cplus4.getSkillValue();
 		}
 		public static function calcInnovation(d:BuffData):int{
-			return Math.floor(parseInt(d.summoner_ene.text)/90)
-				+ 20 + d.master_iv1.getSkillValue();
+			return Math.floor(parseInt(d.summoner_ene.text)/90) + 20;
+		}
+		public static function calcInnovation_Fixed(d:BuffData):int{
+			return d.master_iv1.getSkillValue();
 		}
 		public static function calcWeakness(d:BuffData):int{
-			return Math.floor(parseInt(d.summoner_ene.text)/65)
-				+ 7 + d.master_wn1.getSkillValue();
+			return Math.floor(parseInt(d.summoner_ene.text)/65) + 7;
+		}
+		public static function calcWeakness_Fixed(d:BuffData):int{
+			return d.master_wn1.getSkillValue();
 		}
 		public static function calcBlind(d:BuffData):int{
 			return 0;

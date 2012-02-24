@@ -33,6 +33,17 @@ package Data.Database.MLV
 		    ["","wing_defense","",""],
 		    ["","wing_attack","",""],
 		                                ];
+		public static var left_darkload:Array = [
+		    ["endurance1","","","pvp_avoidance"],
+		    ["","maximum_sd","mana_recovery","poison_resistance"],
+		    ["endurance2","sd_recovery","life_recovery","lightning_resistance"],
+		    ["","defense","ag_recovery","ice_resistance"],
+		    ["endurance3","avoidance","",""],
+		    ["","","set_defense","reflection"],
+		    ["energy","vitality","agility","strength"],
+		    ["","wing_defense","rec",""],
+		    ["","wing_attack","",""],
+		                                ];
 		public static var left_rage:Array = [
 		    ["endurance1","","","pvp_avoidance_rage"],
 		    ["","maximum_sd_rage","mana_recovery","poison_resistance"],
@@ -98,7 +109,7 @@ package Data.Database.MLV
 		    ["","critical_plus1","earth_quake","weapon_master"],
 		    ["fire_burst_mastery","critical_plus2","earth_quake_mastery","maximum_life"],
 		    ["","critical_plus3","fire_scream","maximum_mana"],
-		    ["electric_spark","","fire_scream2","maximum_ag"],
+		    ["electric_spark","","fire_scream_mastery","maximum_ag"],
 		    ["","critical_plus_mastery","chaotic_desire",""],
 		    ["","iron_defense_learning","",""],
 		    ["","iron_defense","",""],

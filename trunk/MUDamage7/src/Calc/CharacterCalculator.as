@@ -87,6 +87,10 @@ package Calc {
 							+ f.master_skill.getSkillValue("vitality");
 			c.add_ene = i.setop_ene + i.etc_ene + f.master_skill.getSkillValue("energy");
 			c.add_rec = i.setop_rec + i.etc_rec + i.wing_rec;
+			if(f.support.bless_check.selected){
+				var tmp:int = SupportSkillCalculator.calcBless(f.support);
+				c.add_str+=tmp;c.add_agi+=tmp;c.add_vit+=tmp;c.add_ene+=tmp;c.add_rec+=tmp;
+			}
 			c.lv = f.status.lv + f.status.mlv;
 			c.str = f.status.str + c.add_str;
 			c.agi = f.status.agi + c.add_agi;
@@ -135,7 +139,8 @@ package Calc {
 			c.def += i.getSpec(f.wing,"def");
 			c.def += i.getValue(f.wing.option["防御"]);
 			// ダークホースのDEF
-			c.def += 5 + (c.agi/20) + ((f.pet.sub1_index+1) * 2);
+			if(f.pet.item == "ダークホース")
+				c.def += 5 + (c.agi/20) + ((f.pet.sub1_index+1) * 2);
 			//エンチャントのDEF増加
 			c.def += i.getEnchantProtects("防御力上昇");
 			//セットのDEF増加

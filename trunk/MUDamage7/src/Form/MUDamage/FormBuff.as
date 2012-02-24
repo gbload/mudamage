@@ -306,13 +306,17 @@ package Form.MUDamage {
 			// event iv
 			var func:Function = function(event:Event):void{
 				var iv:int = SupportSkillCalculator.calcInnovation(d);
+				var iv_fixed:int = SupportSkillCalculator.calcInnovation_Fixed(d);
 				d.iv.text = "インナーベーション:"+"敵の防御力低下"+iv.toString()+"%";
+				d.iv.text += " 敵の防御力低下"+iv_fixed.toString();
 			};
 			setEvent(func,[d.summoner_ene,d.master_iv1]);
 			// event wn
 			func = function(event:Event):void{
 				var wn:int = SupportSkillCalculator.calcWeakness(d);
+				var wn_fixed:int = SupportSkillCalculator.calcWeakness_Fixed(d);
 				d.wn.text = "ウィークネス:"+"敵の攻撃力低下"+wn.toString()+"%";
+				d.wn.text += " 敵の攻撃力低下"+wn_fixed.toString();
 			};
 			setEvent(func,[d.summoner_ene,d.master_wn1]);
 			// event blind
