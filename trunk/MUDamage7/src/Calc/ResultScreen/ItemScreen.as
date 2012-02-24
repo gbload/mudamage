@@ -385,11 +385,8 @@ package Calc.ResultScreen {
 				var def_ori:int = f.property.item[3] + 3*f.property.plus;
 				if(f.property.plus >= 10)
 					def_ori += ((f.property.plus-9)+1)*(f.property.plus-9)/2;
-				var min:int = a.attribute.min + a.attribute_pvp + a.attribute_mon;
-				var max:int = a.attribute.max + a.attribute_pvp + a.attribute_mon;
-				var def:int = c.attribute_def + c.attribute_pvp_def + c.attribute_mon_def;
-				tooltip += "属性攻撃力:" + min + "〜" + max + "(" + min_ori + "〜" + max_ori + ")\n";
-				tooltip += "属性防御力:" + def + "(" + def_ori + ")\n";
+				tooltip += "属性攻撃力:" + min_ori + "〜" + max_ori + "\n";
+				tooltip += "属性防御力:" + def_ori + "\n";
 				tooltip += "要求レベル:" + f.property.item[4] + "\n";
 				// color
 				var colors:Array = ["#FF0000","#0000FF","#FFDD00","#00FF00","#FF00FF"];

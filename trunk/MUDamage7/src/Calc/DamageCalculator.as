@@ -67,7 +67,6 @@ package Calc {
 			
 		    //追加攻撃力(A+等)
 		    d += a.add;
-		    d += calcAttribute(min);
 		    /* 
 		     * 固定ダメージ前計算
 		     */
@@ -88,7 +87,6 @@ package Calc {
 		    if(f.pet.item=="サタン")d += Math.floor(d*30/100);//サタン
 		    
 		    d += Math.floor(d * i.getSpec(f.wing,"inc")/100);//羽
-		    if(f.pet.item=="フェンリル" && f.pet.sub1=="破壊")d += Math.floor(d*10/100);//フェンリル
 		    
 		    //スキル%
 		    if(skill.skill[a.key.name] == "プラズマストーム"){
@@ -122,6 +120,12 @@ package Calc {
 		    if(skill.skill[a.key.special] == "コンボ"){
 		    	d += Math.floor((c.str + c.agi + c.ene)/2);
 		    }
+		    if(f.pet.item=="フェンリル" && f.pet.sub1=="破壊")d += Math.floor(d*10/100);//フェンリル
+		    /*
+		     * 最終ダメージ後計算
+		     */
+		    d = calcGuard3(d);
+		    d += calcAttribute(min);
 		    
 		    return d;
 		}
@@ -209,6 +213,12 @@ package Calc {
 		 * 最低ダメ判定後の防御計算を行ないます。
 		 */
 		protected function calcGuard2(s:int):int{
+			return s;
+		}
+		/**
+		 * 最終ダメ後の防御計算を行ないます。
+		 */
+		protected function calcGuard3(s:int):int{
 			return s;
 		}
 		/**
@@ -304,8 +314,12 @@ package Calc {
 				d += a.attribute.min;
 			else
 				d += a.attribute.max;
+			// monster
+			d += a.attribute_mon;
 			// affinity
 			d = Math.floor(d*(affinity[c.attribute][m[mk.attribute]] + a.attribute_affinity)/100);
+			// guard
+			d -= m[mk.def];
 			return d;
 		}
 		private function calcMonsterAttribute(min:Boolean):int{
