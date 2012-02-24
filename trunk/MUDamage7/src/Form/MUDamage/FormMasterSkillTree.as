@@ -55,10 +55,16 @@ package Form.MUDamage
 			// Tree
 			ln();
 			var job:int = d.getJob().selectedIndex;
-			names[0] = MasterSkillTree.left;
+			if(job==6)// rage fighter
+				names[0] = MasterSkillTree.left_rage;
+			else
+				names[0] = MasterSkillTree.left;
 			names[1] = MasterSkillTree.middle[job];
 			names[2] = MasterSkillTree.right[job];
-			trees[0] = createTree(MasterSkillTree.title[job][0],MasterSkillTree.left);
+			if(job==6)// rage fighter
+				trees[0] = createTree(MasterSkillTree.title[job][0],MasterSkillTree.left_rage);
+			else
+				trees[0] = createTree(MasterSkillTree.title[job][0],MasterSkillTree.left);
 			trees[1] = createTree(MasterSkillTree.title[job][1],MasterSkillTree.middle[job]);
 			trees[2] = createTree(MasterSkillTree.title[job][2],MasterSkillTree.right[job]);
 		}

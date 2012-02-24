@@ -219,9 +219,10 @@ package Calc {
 						}
 					var bonuses:Array = form.getSocket().getBonuses();
 					for(i=0;i<bonuses.length;i++)
-						if(bonuses[i].selectedLabel != "")
-							obj.socket_bonus[bonuses[i].selectedLabel.split("+")[0]] = 
-								parseInt(bonuses[i].selectedLabel.split("+")[1]);
+						if(bonuses[i].visible)
+							if(bonuses[i].selectedLabel != "")
+								obj.socket_bonus[bonuses[i].selectedLabel.split("+")[0]] = 
+									parseInt(bonuses[i].selectedLabel.split("+")[1]);
 				}
 				if(form.getOp380().visible)
 					obj.op380 = form.getOp380().selected;

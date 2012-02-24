@@ -63,8 +63,7 @@ package Calc {
 			if(f.support.ber_check.selected)
 				c.support_berserker = SupportSkillCalculator.calcBerserkerMind_Magic(
 						f.master_skill.getSkillValue("berserker_mind")
-						+ f.master_skill.getSkillValue("berserker_mind_mastery")
-						+ f.master_skill.getSkillValue("berserker_mind_mastery2"),
+						+ f.master_skill.getSkillValue("berserker_mind_mastery"),
 						f.status.ene);//バーサーカー
 			if(f.support.ht_check.selected)
 				c.support_vit = SupportSkillCalculator.calcHighTension(
@@ -130,11 +129,17 @@ package Calc {
 			 */
 			//MLVDEF
 			c.def += f.master_skill.getSkillValue("defense");
+			if(check!="none")
+				c.def += f.master_skill.getSkillValue("set_defense");
 			// 羽のDEF
 			c.def += i.getSpec(f.wing,"def");
 			c.def += i.getValue(f.wing.option["防御"]);
 			// ダークホースのDEF
 			c.def += 5 + (c.agi/20) + ((f.pet.sub1_index+1) * 2);
+			//エンチャントのDEF増加
+			c.def += i.getEnchantProtects("防御力上昇");
+			//セットのDEF増加
+			c.def += i.setop_def;
 			/*
 			 * %増加分
 			 */
@@ -149,10 +154,6 @@ package Calc {
 			if(i.is_shield)c.def += Math.floor(c.def*i.setop_shield/100);
 			//ソケットの盾装備時
 			if(i.is_shield)c.def += Math.floor(c.def*(i.getSocketProtects("盾装備時増加"))/100);
-			// Iron
-			if(f.support.iron_check.selected)
-				c.def += Math.floor(c.def*SupportSkillCalculator.calcIronDefense_Defense(
-					f.master_skill.getSkillValue("iron_defense"),f.status.rec)/100);
 			/*
 			 * 固定増加分
 			 */
@@ -160,14 +161,10 @@ package Calc {
 			c.def += f.master_skill.getSkillValue("shield") * 2;
 			//MLV羽強化
 			c.def += f.master_skill.getSkillValue("wing_defense") * 2;
-			//セットのDEF増加
-			c.def += i.setop_def;
 			//ソケットのDEF増加
 			c.def += i.getSocketProtects("防御力増加") * 2;
 			//ボーナスソケットのDEF増加
 			c.def += i.getSocketBonusProtects("防御力") * 2;
-			//エンチャントのDEF増加
-			c.def += i.getEnchantProtects("防御力上昇");
 			//かぼちゃ、課金などのでDEF増加
 			c.def += i.etc_def * 2;
 			//ペットによるDEF増加
@@ -185,6 +182,10 @@ package Calc {
 			if(f.support.con_check.selected)c.def += SupportSkillCalculator.calcConcentration_Defense(f.support)*2;
 			// Seraphy
 			c.def += c.support_sera_g*2;
+			// Iron
+			if(f.support.iron_check.selected)
+				c.def += Math.floor(SupportSkillCalculator.calcIronDefense_Defense(
+					f.master_skill.getSkillValue("iron_defense")))*2;
 		}
 		/**
 		 * attribute defense
@@ -320,11 +321,6 @@ package Calc {
 			 */
 			// SL
 			if(f.support.sl_check.selected)c.life += Math.floor(tmp * c.support_sl/100);
-			// Iron
-			if(f.support.iron_check.selected)
-				c.life += Math.floor(tmp * SupportSkillCalculator.calcIronDefense_Life(
-					f.master_skill.getSkillValue("iron_defense"),
-					f.status.rec)/100);
 			// EXOPの生命増加
 			for each(var exop:Object in i.exops)
 				if(exop["生命増"])
@@ -353,6 +349,10 @@ package Calc {
 				c.life += 200;//380OP
 			if(f.pet.item=="フェンリル" && f.pet.sub1=="黄金")
 				c.life += c.lv/2;//黄金のフェンリルの生命増加
+			// Iron
+			if(f.support.iron_check.selected)
+				c.life += Math.floor(SupportSkillCalculator.calcIronDefense_Life(
+					f.master_skill.getSkillValue("iron_defense")));
 		}
 		/**
 		 * マナの計算
@@ -421,13 +421,14 @@ package Calc {
 			var inc:Array = D.getData("job_ag")[f.job_index];
 			// ステータス
 			c.ag = Math.floor((c.str*inc[0])+(c.agi*inc[1])+(c.vit*inc[2])+(c.ene*inc[3])+(c.rec*inc[4]));
+			c.ag += f.master_skill.getSkillValue("maximum_ag");//master skill
+			c.ag += Math.floor(c.ag * SupportSkillCalculator.calcSwellLife_AG(f.support)/100);
 			c.ag += i.setop_ag;//セットOP
 			c.ag += i.getEnchantProtects("最大AG上昇");//エンチャントOP
 			c.ag += i.getSocketProtects("最大AG増加");//ソケットOP
 			if(f.pet.item=="ディノラント")
 				if(f.pet.sub1=="AG+50"||f.pet.sub2=="AG+50")
 					c.ag += 50;
-			c.ag += f.master_skill.getSkillValue("maximum_ag");//master skill
 			// AGH
 			var tmp:Number = f.master_skill.getSkillValue("ag_recovery");//master skill
 			if(f.job=="ナイト")tmp += 5.00;

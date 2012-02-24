@@ -33,6 +33,17 @@ package Data.Database.MLV
 		    ["","wing_defense","",""],
 		    ["","wing_attack","",""],
 		                                ];
+		public static var left_rage:Array = [
+		    ["endurance1","","","pvp_avoidance_rage"],
+		    ["","maximum_sd_rage","mana_recovery","poison_resistance"],
+		    ["endurance2","sd_recovery","life_recovery","lightning_resistance"],
+		    ["","defense_rage","ag_recovery","ice_resistance"],
+		    ["endurance3","avoidance","",""],
+		    ["","","set_defense","reflection"],
+		    ["energy","vitality","agility","strength"],
+		    ["","wing_defense","",""],
+		    ["","wing_attack","",""],
+		                                ];
 		/**
 		 * 真ん中のツリー
 		 */
@@ -104,11 +115,11 @@ package Data.Database.MLV
 		    ["","blind","",""],
 		],
 		[// rage fighter
-		    ["hit","","",""],
+		    ["hit_rage","","",""],
 		    ["cling_blow","beast_upper","",""],
 		    ["cling_blow_mastery","beast_upper_mastery","",""],
-		    ["weapon_master","","maximum_life",""],
-		    ["chain_drive","dark_side","maximum_mana","dragon_roar"],
+		    ["weapon_master","","maximum_life_rage",""],
+		    ["chain_drive","dark_side","maximum_mana_rage","dragon_roar"],
 		    ["","","maximum_ag",""],
 		    ["","","",""],
 		    ["","","",""],
@@ -186,7 +197,7 @@ package Data.Database.MLV
 		    ["","ignore_defense","",""],
   		],
   		[// rage fighter
-		    ["pvp_hit","","",""],
+		    ["pvp_hit_rage","","",""],
 		    ["glove","concentration","",""],
 		    ["glove_mastery","concentration_mastery","high_tension",""],
 		    ["","mana_consumption","monster_kill_sd","monster_kill_life"],

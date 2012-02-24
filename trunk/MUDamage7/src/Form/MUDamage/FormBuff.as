@@ -116,11 +116,9 @@ package Form.MUDamage {
 				func = function(event:Event):void{
 					var master:FormMasterSkillTree = mud.form_status.getMasterSkillTree();
 					var def:int = SupportSkillCalculator.calcIronDefense_Defense(
-							master.getSkillValue("iron_defense"),
-							parseInt(mud.form_status.getRec().text));
+							master.getSkillValue("iron_defense"));
 					var life:int = SupportSkillCalculator.calcIronDefense_Life(
-							master.getSkillValue("iron_defense"),
-							parseInt(mud.form_status.getRec().text));
+							master.getSkillValue("iron_defense"));
 					d.iron.text = "アイアンディフェンス:防御力"+def.toString()+"%";
 					d.iron.text += " 生命"+life.toString()+"%";
 				};
@@ -132,9 +130,10 @@ package Form.MUDamage {
 					var master:FormMasterSkillTree = mud.form_status.getMasterSkillTree();
 					var magic:int = SupportSkillCalculator.calcBerserkerMind_Magic(
 							master.getSkillValue("berserker_mind")
-							+ master.getSkillValue("berserker_mind_mastery")
-							+ master.getSkillValue("berserker_mind_mastery2"),
+							+ master.getSkillValue("berserker_mind_mastery"),
 							parseInt(mud.form_status.getEne().text));
+					var magic_fixed:int = SupportSkillCalculator.calcBerserkerMind_MagicFixed(
+						master.getSkillValue("berserker_mind_mastery2"));
 					var life:int = SupportSkillCalculator.calcBerserkerMind_Life(
 							master.getSkillValue("berserker_mind"),
 							parseInt(mud.form_status.getEne().text));
@@ -145,7 +144,8 @@ package Form.MUDamage {
 							master.getSkillValue("berserker_mind")
 							+ master.getSkillValue("berserker_mind_mastery"),
 							parseInt(mud.form_status.getEne().text));
-					d.ber.text = "バーサーカーマインド:魔力"+magic.toString()+"%";
+					d.ber.text = "バーサーカーマインド:魔力"+magic.toString()+"%"
+					d.ber.text += " 魔力"+"+"+magic_fixed.toString();
 					d.ber.text += " 生命"+life.toString()+"%";
 					d.ber.text += " 防御力"+def.toString()+"%";
 					d.ber.text += " 最大マナ"+mana.toString()+"%";

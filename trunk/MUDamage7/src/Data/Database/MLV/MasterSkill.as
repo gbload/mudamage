@@ -74,7 +74,7 @@ package Data.Database.MLV
 
 		["monster_kill_life","モンスターKill時生命回復",11,0,MasterSkillImage.img5_55,""],
 		["monster_kill_mana","モンスターKill時マナ回復",11,0,MasterSkillImage.img1_59,""],
-		["monster_kill_sd","モンスターKill時SD回復",11,0,MasterSkillImage.img5_54,""],
+		["monster_kill_sd","モンスターKill時SD回復",7,0,MasterSkillImage.img5_54,""],
 		
 		// 攻撃魔力強化
 		["weapon_master","ウェポンマスター",2,0,MasterSkillImage.img1_35,""],
@@ -101,7 +101,7 @@ package Data.Database.MLV
 		["one_hand_staff_mastery","片手杖マスタリ",17,0,MasterSkillImage.img2_48,"攻撃速度増加"],
 		["two_hand_staff","両手杖強化",6,0,MasterSkillImage.img2_45,""],
 		["two_hand_staff_mastery","両手杖マスタリ",8,0,MasterSkillImage.img2_49,"対人攻撃力増加"],
-		["bow","弓強化",2,0,MasterSkillImage.img3_44,""],
+		["bow","弓強化",3,0,MasterSkillImage.img3_44,""],
 		["bow_mastery","弓マスタリ",17,0,MasterSkillImage.img3_48,"攻撃速度増加"],
 		["crossbow","ボウガン強化",3,0,MasterSkillImage.img3_45,""],
 		["crossbow_mastery","ボウガンマスタリ",8,0,MasterSkillImage.img3_49,"対人攻撃力増加"],
@@ -121,18 +121,18 @@ package Data.Database.MLV
 		["darkhorse","ダークホース強化",9,0,MasterSkillImage.img5_26,"ダークホース装備時防御力増加"],
 		
 		// 攻撃スキル強化
-		["cyclone","真空斬り強化",0,0,MasterSkillImage.img1_24,""],
-		["slash","ファイナルスラッシュ強化",3,0,MasterSkillImage.img1_25,""],
-		["falling_slash","烈斬強化",3,0,MasterSkillImage.img1_26,""],
-		["lunge","牙突強化",3,0,MasterSkillImage.img1_27,""],
-		["twisting_slash","トルネードクラッシュ強化",3,0,MasterSkillImage.img1_28,""],
+		["cyclone","真空斬り強化",3,0,MasterSkillImage.img1_24,""],
+		["slash","ファイナルスラッシュ強化",6,0,MasterSkillImage.img1_25,""],
+		["falling_slash","烈斬強化",6,0,MasterSkillImage.img1_26,""],
+		["lunge","牙突強化",6,0,MasterSkillImage.img1_27,""],
+		["twisting_slash","トルネードクラッシュ強化",6,0,MasterSkillImage.img1_28,""],
 		["twisting_slash_mastery","トルネードクラッシュマスタリ",0,1,MasterSkillImage.img1_32,"x%の確率で2マス外へ押し出す"],
 		["omega_impact","オメガインパクト強化",2,0,MasterSkillImage.img1_29,""],
 		["omega_impact_mastery","オメガインパクトマスタリ",0,1,MasterSkillImage.img1_33,"x%の確率で一つの防具の耐久を10%減少させる"],
 		["god_blow","ゴッドブロー強化",2,0,MasterSkillImage.img1_36,""],
 		["absolute_zero","アブソリュートゼロ強化",2,0,MasterSkillImage.img1_37,""],
-		["stinger","スティンガー強化",2,0,MasterSkillImage.img3_28,""],
-		["triple_shot","乱れ撃ち強化",2,0,MasterSkillImage.img3_26,""],
+		["stinger","スティンガー強化",3,0,MasterSkillImage.img3_28,""],
+		["triple_shot","乱れ撃ち強化",3,0,MasterSkillImage.img3_26,""],
 		["triple_shot_mastery","乱れ撃ちマスタリ",-1,0,MasterSkillImage.img3_30,"10ポイント消費して、放つ矢を1本追加する(MAX10ポイント)"],
 		["ice_arrow","アイスアロー強化",2,0,MasterSkillImage.img3_38,""],
 		["summon_monster1","召喚モンスター強化1",18,1,MasterSkillImage.img3_27,""],
@@ -140,8 +140,8 @@ package Data.Database.MLV
 		["infinity_arrow","インフィニティーアロー強化",0,1,MasterSkillImage.img3_56,""],
 		["blood_attack","ブラッドアタック強化",2,0,MasterSkillImage.img4_37,""],
 		["power_slash","パワースラッシュ強化",3,0,MasterSkillImage.img4_27,""],
-		["force_wave","フォースウェーブ強化",3,0,MasterSkillImage.img5_25,""],
-		["fire_burst","ファイアバースト強化",2,0,MasterSkillImage.img5_24,""],
+		["force_wave","フォースウェーブ強化",6,0,MasterSkillImage.img5_25,""],
+		["fire_burst","ファイアバースト強化",3,0,MasterSkillImage.img5_24,""],
 		["fire_burst_mastery","ファイアバーストマスタリ",0,0,MasterSkillImage.img5_32,"x%の確率で2秒間スタン状態にする"],
 		["earth_quake","アースクエイク強化",2,0,MasterSkillImage.img5_30,""],
 		["earth_quake_mastery","アースクエイクマスタリ",0,1,MasterSkillImage.img5_34,"x%の確率で2秒間スタン状態にする"],
@@ -162,7 +162,7 @@ package Data.Database.MLV
 		["inferno","インフェルノ強化",2,0,MasterSkillImage.img2_28,""],
 		["thunder_wire","サンダーワイヤー強化",3,0,MasterSkillImage.img2_25,""],
 		["shining_blast","シャイニングブラスト強化",2,0,MasterSkillImage.img2_29,""],
-		["soul_the_end","ソウルジエンド強化",2,0,MasterSkillImage.img2_33,""],
+		["soul_the_end","ソウルジエンド強化",3,0,MasterSkillImage.img2_33,""],
 		["hell_fire","ヘルファイア強化",3,0,MasterSkillImage.img2_37,""],
 		["death_plant","デスプラント強化",3,0,MasterSkillImage.img2_31,""],
 		["death_poison","デスポイズン強化",2,0,MasterSkillImage.img2_35,""],
@@ -204,37 +204,37 @@ package Data.Database.MLV
 		
 		// rank6 ~
 		// 共通
-		["set_defense","セット防御力増加",2,1,MasterSkillImage.blade_pro_icon_15,"防具統一時に防御力増加"],
-		["reflection","ダメージ反射",2,1,MasterSkillImage.blade_pro_icon_16,""],
+		["set_defense","セット防御力増加",3,0,MasterSkillImage.blade_pro_icon_15,"防具統一時に防御力増加"],
+		["reflection","ダメージ反射",0,1,MasterSkillImage.blade_pro_icon_16,"ダメージを受けた時、x%の確率で対象から受けたダメージを一度反射"],
 		
 		["energy","エナジー増加",9,0,MasterSkillImage.blade_pro_icon_17,""],
 		["vitality","体力増加",9,0,MasterSkillImage.blade_pro_icon_18,""],
 		["agility","敏捷増加",9,0,MasterSkillImage.blade_pro_icon_19,""],
 		["strength","力増加",9,0,MasterSkillImage.blade_pro_icon_20,""],
 		
-		["wing_defense","羽の防御力増加",5,0,MasterSkillImage.blade_pro_icon_21,""],
+		["wing_defense","羽の防御力増加",9,0,MasterSkillImage.blade_pro_icon_21,""],
 		
-		["wing_attack","羽の攻撃力増加",2,0,MasterSkillImage.blade_pro_icon_22,""],
+		["wing_attack","羽の攻撃力増加",9,0,MasterSkillImage.blade_pro_icon_22,""],
 		// knight
-		["god_blow_mastery","ゴッドブローマスタリ",9,0,MasterSkillImage.blade_bra_icon_15,"10秒間持続ダメージ"],
-		["absolute_zero_mastery","アブソリュートゼロマスタリ",0,1,MasterSkillImage.blade_bra_icon_16,"x%の確率で3秒間移動不可にする"],
-		["maximum_ag","最大AG増加",13,0,MasterSkillImage.blade_bra_icon_17,""],
+		["god_blow_mastery","ゴッドブローマスタリ",1,0,MasterSkillImage.blade_bra_icon_15,"10秒間持続ダメージ"],
+		["absolute_zero_mastery","アブソリュートゼロマスタリ",1,1,MasterSkillImage.blade_bra_icon_16,"x%の確率で3秒間移動不可にする"],
+		["maximum_ag","最大AG増加",19,0,MasterSkillImage.blade_bra_icon_17,""],
 		
-		["god_blow_mastery2","ゴッドブローマスタリ2",0,1,MasterSkillImage.blade_bra_icon_18,"x%の確率で2秒間スタン状態にする"],
+		["god_blow_mastery2","ゴッドブローマスタリ2",1,1,MasterSkillImage.blade_bra_icon_18,"x%の確率で2秒間スタン状態にする"],
 		["absolute_zero_mastery2","アブソリュートゼロマスタリ2",0,1,MasterSkillImage.blade_bra_icon_19,"攻撃速度減少効果確率"],
 		
-		["combo","コンボ強化",13,0,MasterSkillImage.blade_bra_icon_20,""],
+		["combo","コンボ強化",1,1,MasterSkillImage.blade_bra_icon_20,""],
 		["blood_storm_learning","ブラッドストーム",-1,0,MasterSkillImage.blade_bra_icon_21,"ブラッドストームを習得。自身の周囲に2HITダメージ。(コンボスキル使用時は3番目で使用可能)"],
 		
 		["blood_storm","ブラッドストーム強化",2,0,MasterSkillImage.blade_bra_icon_22,""],
 		// knight2
 		["swell_life_mastery2","スウェルライフマスタリ2",1,1,MasterSkillImage.blade_ang_icon_17,"最大AG増加"],
-		["maximum_attack","最大攻撃力増加",2,0,MasterSkillImage.blade_ang_icon_18,""],
-		["critical_probability","クリティカル確率増加",1,1,MasterSkillImage.blade_ang_icon_19,""],
+		["maximum_attack","最大攻撃力増加",3,0,MasterSkillImage.blade_ang_icon_18,""],
+		["critical_probability","クリティカル確率増加",0,1,MasterSkillImage.blade_ang_icon_19,""],
 		
 		["mana_completion","マナ完全回復",0,1,MasterSkillImage.blade_ang_icon_20,""],
 		["life_completion","生命力完全回復",0,1,MasterSkillImage.blade_ang_icon_21,""],
-		["exdamage_probability","エクセレントダメージ確率増加",1,1,MasterSkillImage.blade_ang_icon_22,""],
+		["exdamage_probability","エクセレントダメージ確率増加",0,1,MasterSkillImage.blade_ang_icon_22,""],
 		
 		["double_damage","ダブルダメージ確率増加",0,1,MasterSkillImage.blade_ang_icon_23,""],
 		["sd_completion","SD完全回復",0,1,MasterSkillImage.blade_ang_icon_24,""],
@@ -255,10 +255,10 @@ package Data.Database.MLV
 		["soul_barrier_mastery2","ソウルバリアマスタリ2",1,1,MasterSkillImage.grand_gra_icon_15,"最大マナ増加効果"],
 		["maximum_magic","最大魔力増加",2,0,MasterSkillImage.grand_gra_icon_16,""],
 		//elf
-		["cure_learning","キュア",-1,0,MasterSkillImage.elf_wis_icon_16,"キュアを習得。先に掛かっている状態異常を一つ回復。"],
+		["cure_learning","キュア",-1,0,MasterSkillImage.elf_wis_icon_16,"キュアを習得。先に掛かっている状態異常を一つ回復。クールタイム20秒。"],
 		["multi_shot","マルチショット強化",2,0,MasterSkillImage.elf_wis_icon_17,""],
 		
-		["party_healing_learning","パーティーヒーリング",-1,0,MasterSkillImage.elf_wis_icon_19,"パーティーヒーリングを習得。パーティーメンバー全員のHPを回復。"],
+		["party_healing_learning","パーティーヒーリング",-1,0,MasterSkillImage.elf_wis_icon_19,"パーティーヒーリングを習得。パーティーメンバー全員のHPを回復。クールタイム10秒。"],
 		["multi_shot_mastery","マルチショットマスタリ",0,1,MasterSkillImage.elf_wis_icon_20,"x%の確率で2秒間スタン状態にする"],
 		["summon_monster3","召喚モンスター強化3",18,0,MasterSkillImage.elf_wis_icon_21,"召喚モンスターの攻撃力増加"],
 		
@@ -267,20 +267,20 @@ package Data.Database.MLV
 		["poison_arrow_learning","ポイズンアロー",-1,0,MasterSkillImage.elf_wis_icon_24,"ポイズンアロー習得。一定時間持続的なダメージを与える。"],
 		["satyr_learning","サテュロス召喚",-1,0,MasterSkillImage.elf_wis_icon_25,"サテュロス召喚を習得。サテュロスを召喚します。"],
 		
-		["bless","ブレス強化",2,0,MasterSkillImage.elf_wis_icon_26,""],
+		["bless","ブレス強化",5,0,MasterSkillImage.elf_wis_icon_26,""],
 		["poison_arrow","ポイズンアロー強化",2,0,MasterSkillImage.elf_wis_icon_27,""],
 		// summoner
 		["innovation","イノベーション強化",1,1,MasterSkillImage.dim_cha_icon_15,""],
 		
 		["weakness","ウィークネス強化",1,1,MasterSkillImage.dim_cha_icon_17,""],
-		["life_drain_mastery","ライフドレインマスタリ",2,0,MasterSkillImage.dim_cha_icon_18,"一定確率で、一定時間の間、敵の生命を吸収し続ける。"],
+		["life_drain_mastery","ライフドレインマスタリ",9,0,MasterSkillImage.dim_cha_icon_18,"一定確率で、一定時間の間、敵の生命を吸収し続ける。"],
 		
 		["blind_learning","ブラインド",-1,0,MasterSkillImage.dim_cha_icon_19,"ブラインドを習得。一定確率で敵の攻撃成功率を減少させる。"],
 		
 		["blind","ブラインド強化",1,1,MasterSkillImage.dim_cha_icon_20,"x%の確率で2秒間スタン状態にする"],
 		// summoner2
-		["berserker_mind_mastery2","バーサーカーマスタリ",1,1,MasterSkillImage.dim_hon_icon_13,"バーサーカー使用時に追加で攻撃/魔力/呪いが上昇する。"],
-		["maximum_magic_curse","最大魔力/呪い増加",9,1,MasterSkillImage.dim_hon_icon_14,""],
+		["berserker_mind_mastery2","バーサーカーマスタリ",5,0,MasterSkillImage.dim_hon_icon_13,"バーサーカー使用時に追加で攻撃/魔力/呪いが上昇する。"],
+		["maximum_magic_curse","最大魔力/呪い増加",3,0,MasterSkillImage.dim_hon_icon_14,""],
 		// duel
 		["flame_strike","フレイムストライク強化",2,0,MasterSkillImage.dual_sol_icon_16,""],
 		["blizzard_bind_mastery","ブリザードバインドマスタリ",0,1,MasterSkillImage.dual_sol_icon_17,"x%の確率で3秒間移動不可にする"],
@@ -289,21 +289,29 @@ package Data.Database.MLV
 		["blood_attack_mastery","ブラッドアタックマスタリ",0,0,MasterSkillImage.dual_sol_icon_20,"防御力減少効果がx%増加"],
 		["gigantic_storm","ギガンティックストーム強化",2,0,MasterSkillImage.dual_sol_icon_21,""],
 		// darkload
-		["electric_spark","エレクトリックスパーク強化",2,0,MasterSkillImage.rod_def_icon_15,""],
-		["fire_scream2","ファイアスクリーム強化2",2,0,MasterSkillImage.rod_def_icon_16,""],
+		["electric_spark","エレクトリックスパーク強化",3,0,MasterSkillImage.rod_def_icon_15,""],
+		["fire_scream_mastery","ファイアスクリームマスタリ",8,0,MasterSkillImage.rod_def_icon_16,"爆発ダメージが上昇。"],
 		
 		["critical_plus_mastery","クリティカルプラスマスタリ",0,1,MasterSkillImage.rod_def_icon_18,"エクセレントダメージ確率増加"],
 		["chaotic_desire","カオティックディセイアー強化",2,0,MasterSkillImage.rod_def_icon_19,""],
 		
 		["iron_defense_learning","アイアンディフェンス",-1,0,MasterSkillImage.rod_def_icon_20,"アイアンディフェンスを習得。短時間キャラクターの防御力と生命力を大幅に増加させる。"],
 		
-		["iron_defense","アイアンディフェンス強化",12,1,MasterSkillImage.rod_def_icon_21,""],
+		["iron_defense","アイアンディフェンス強化",3,0,MasterSkillImage.rod_def_icon_21,""],
 		// darkload2
 		["darkspirit4","ダークスピリット強化4",1,0,MasterSkillImage.rod_con_icon_17,"ダークスピリットの攻撃速度増加"],
 		
 		["darkspirit5","ダークスピリット強化5",0,1,MasterSkillImage.rod_con_icon_20,"ダークスピリットのダブルダメージ確率増加"],
 		
-		["spirit_load","スピリットロード",0,1,MasterSkillImage.rod_con_icon_24,"ダークスピリットの防御力無視確率確率"]
+		["spirit_load","スピリットロード",0,1,MasterSkillImage.rod_con_icon_24,"ダークスピリットの防御力無視確率確率"],
+		// rage specific skills
+		["pvp_avoidance_rage","対人防御成功率増加",20,0,MasterSkillImage.img1_3,"レイジのみ数値が低めに設定されている。他職の約41%。"],
+		["pvp_hit_rage","対人攻撃成功率増加",23,0,MasterSkillImage.img1_40,"レイジのみ数値が低めに設定されている。他職の約40%。"],
+		["maximum_sd_rage","最大SD増加",21,0,MasterSkillImage.img1_5,"レイジのみ数値が低めに設定されている。他職の約60%。"],
+		["defense_rage","防御力増加",22,0,MasterSkillImage.img1_13,"レイジのみ数値が低めに設定されている。他職の約56%。"],
+		["hit_rage","攻撃成功率増加",24,0,MasterSkillImage.img1_20,"レイジのみ数値が低めに設定されている。他職の約40%。"],
+		["maximum_life_rage","最大生命増加",25,0,MasterSkillImage.img1_34,"レイジのみ数値が低めに設定されている。他職の約53%。"],
+		["maximum_mana_rage","最大マナ増加",25,0,MasterSkillImage.img6_39,"レイジのみ数値が低めに設定されている。他職の約53%。"],
 		
 		];
 	}

@@ -122,11 +122,11 @@ package Form.MUDamage.SubForm {
 				bonuses[0].selectedIndex=b_index[0];
 				
 			}
-			if((att[0]>=2 && att[1] && att[2])||(att[3]>=2 && att[4] && att[5])
-				||(att[0] && att[1]>=2 && att[2]>=2)||(att[3] && att[4]>=2 && att[5]>=2)){//2つ目の発生条件
-				FormCommon.show(bonuses[1]);
-				bonuses[1].selectedIndex=b_index;
-			}
+//			if((att[0]>=2 && att[1] && att[2])||(att[3]>=2 && att[4] && att[5])
+//				||(att[0] && att[1]>=2 && att[2]>=2)||(att[3] && att[4]>=2 && att[5]>=2)){//2つ目の発生条件
+//				FormCommon.show(bonuses[1]);
+//				bonuses[1].selectedIndex=b_index;
+//			}
 			
 			//ソケットOPの数値を作成
 			var a:Array = target.selectedItem[2];
