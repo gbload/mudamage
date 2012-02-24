@@ -97,7 +97,7 @@ package Calc.ResultScreen {
 			var str:String = f.pet.item;
 			str += " " + f.pet.sub1 + " " + f.pet.sub2 + " ";
 			if(f.pet.item == "ダークホース"){
-				str += "ダメージ吸収" + (Math.floor(15 + (f.pet.sub1_index+1))).toString() + "%";
+				str += "ダメージ吸収" + (Math.floor(15 + (f.pet.sub1_index+1)/2)).toString() + "%";
 				var tooltip:String = "";
 				tooltip += "要求LV:" + (218+(f.pet.sub1_index+1)*2).toString() + "\n";
 				tooltip += "防御力:" + (5 + (c.agi/20) + ((f.pet.sub1_index+1) * 2)).toString() + "\n";

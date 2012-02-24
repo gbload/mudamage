@@ -173,8 +173,22 @@ package Calc {
 		 * 最低ダメ判定前の防御計算を行ないます。
 		 */
 		protected function calcGuard1(s:int):int{
+			var def:int = m[mk.def];
+			/*
+			 * 固定
+			 */
+		    if(f.support.iv_check.selected)// インナーベーション
+		    	def -= SupportSkillCalculator.calcInnovation_Fixed(f.support);
+		    /*
+		     * 割合
+		     */
+			def -= Math.floor(def * c.support_inner/100);// インナーベーション
+			def -= Math.floor(def * c.support_ba/100);// 血戦
+			if(f.support.aminus_check.selected)// クリングブロー
+				def -= Math.floor(def * SupportSkillCalculator.calcClingBlow(f.support)/100);
+		    if(def < 0)def = 0;
 			//引き算
-			s = s - m[mk.def];//(モンス攻撃 - DEF)
+			s = s - def;//(モンス攻撃 - DEF)
 			//カスリダメージ
 			if(c.hit < m[mk.avoid])
 				s = Math.floor(s*0.3);
@@ -226,11 +240,20 @@ package Calc {
 			var c:CharacterData = muc.c;
 			
 			s = s - c.def/2;//(モンス攻撃 - DEF)
-//			s = s - c.support_g;//G+
-//			s = s - c.support_sera_g;//セラフィー
 			s = s - c.attribute_def;
+			
+			/*
+			 * 固定
+			 */
+		    if(f.support.wn_check.selected)//ウィークネス
+		    	s -= SupportSkillCalculator.calcWeakness_Fixed(f.support);
+		    /*
+		     * 割合
+		     */
 			//モンスターの攻撃力低下
 			s -= Math.floor(s * c.support_weak/100);//ウイークネス
+			if(f.support.gminus_check.selected)// クリングブロー
+				s -= Math.floor(s * SupportSkillCalculator.calcBeastUpper(f.support)/100);
 			
 			// ダメ減
 			var dec:int = 0;
@@ -263,7 +286,7 @@ package Calc {
 			//フェンリルの吸収
 			if(f.pet.item == "フェンリル" && f.pet.sub1 == "守護")s = (s * 90/100);//10%吸収
 			//ダークホースの吸収
-			if(f.pet.item == "ダークホース")s = (s * (100 - Math.floor(15 + (f.pet.sub1_index+1)) /100));// 15+Lv/2
+			if(f.pet.item == "ダークホース")s = (s * (100 - Math.floor(15 + (f.pet.sub1_index+1)/2)) /100);// 15+Lv/2
 			//羽の吸収
 			s = (s * (100 - (i.getSpec(f.wing,"dec"))) / 100);
 			//SBの減少

@@ -39,7 +39,7 @@ package Data.Database.MLV
 			["darkspirit2","ダークスピリット2"],
 			["darkspirit3","ダークスピリット3"],
 			["electric_spark","エレクトリックスパーク"],
-			["fire_scream2","ファイアスクリーム"],
+			//["fire_scream2","ファイアスクリーム"],
 			["chaotic_desire","カオティックディセイアー"],
 			["cling_blow","クリングブロー"],
 			["beast_upper","ビーストアッパー"],
