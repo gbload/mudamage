@@ -286,9 +286,9 @@ package Calc {
 		    	if(i.getValueMap(f.neck.exop,"攻撃lv20"))d += Math.floor(f.status.lv/20);
 		    }
 		    //[ソケットOP]攻撃力LV20
-		    if(i.getSocket(f.right,"攻撃魔力lv"))
+		    if(i.getSocket(f.right,"攻撃魔力lv") && i.getItemData(f.right,"ex_en_type") == 0)
 		    	d += Math.floor(c.lv/i.getSocket(f.right,"攻撃魔力lv"));
-		    if(i.getSocket(f.left,"攻撃魔力lv"))
+		    if(i.getSocket(f.left,"攻撃魔力lv") && i.getItemData(f.left,"ex_en_type") == 0)
 		    	d += Math.floor(c.lv/i.getSocket(f.left,"攻撃魔力lv"));
 		    //[アクセのEXOPに攻撃力増加+2%がある時]　Ｒ ＝ Ｒ ＋ int(Ｒ × 0.02)数
 		    if(i.getValueMap(f.neck.exop,"攻撃2%"))d += Math.floor(d*0.02);
@@ -366,6 +366,11 @@ package Calc {
 					//else d += Math.floor(c.rec/20);
 //					d += Math.floor(c.rec/20);
 				}
+				//レイジファイター
+//				if(skill.skill[a.key.name] == "ドラゴンロアー")
+//					d += (c.ene - 30)/10;
+//				if(skill.skill[a.key.name] == "チェーンドライブ")
+//					d += (c.vit - 20)/10;
 				//マスタースキル
 				d += skill.m_attack;//[マスタースキルのスキル強化]
 				//通常のスキル
@@ -416,10 +421,14 @@ package Calc {
 			}
 		    if(cri||exd){
 		    	//クリダメ増加
-		    	d += i.getSocket(f.right,"クリ増加");//ソケットOP
-		    	d += i.getSocket(f.left,"クリ増加");//ソケットOP
-		    	d += i.getValueMap(f.right.enchant,"Cダメ");//エンチャントOP
-		    	d += i.getValueMap(f.left.enchant,"Cダメ");//エンチャントOP
+		    	if(i.getItemData(f.right,"ex_en_type") == 0){
+		    		d += i.getSocket(f.right,"クリ増加");//ソケットOP
+		    		d += i.getValueMap(f.right.enchant,"Cダメ");//エンチャントOP
+		    	}
+		    	if(i.getItemData(f.left,"ex_en_type") == 0){
+		    		d += i.getValueMap(f.left.enchant,"Cダメ");//エンチャントOP
+		    		d += i.getSocket(f.left,"クリ増加");//ソケットOP
+		    	}
 		    	d += c.support_c;//C+
 		    	if(hand == "right")
 		    		d += i.setop_cri;//セットOP
@@ -511,14 +520,14 @@ package Calc {
 		    //[武器のEXOPに魔力増加+LV/20がある時]　Ｒ ＝ Ｒ ＋ int(レベル ÷ 20) 
 		    if(i.getValueMap(f.right.exop,"魔力lv20")){d = d + Math.floor(c.lv/20);}
 		    //[ソケットOP]魔力LV20
-		    if(i.getSocket(f.right,"攻撃魔力lv")!=0)
+		    if(i.getSocket(f.right,"攻撃魔力lv")!=0 && i.getItemData(f.right,"ex_en_type") == 1)
 		    	d += Math.floor(c.lv/i.getSocket(f.right,"攻撃魔力lv"));
 		    //[武器のEXOPに魔力増加+2%がある時]　Ｒ ＝ Ｒ ＋ int(Ｒ × 0.02) 
 		    if(i.getValueMap(f.right.exop,"魔力2%")){d = d + Math.floor(d*0.02);}
 		    //[左手エンチャントOP]魔力増加
 		    d += i.getValueMap(f.left.enchant,"魔力上昇");
 		    //[左手ソケットOP]魔力LV20
-		    if(i.getSocket(f.left,"攻撃魔力lv")!=0)
+		    if(i.getSocket(f.left,"攻撃魔力lv")!=0 && i.getItemData(f.left,"ex_en_type") == 1)
 		    	d += Math.floor(c.lv/i.getSocket(f.left,"攻撃魔力lv"));
 		    //[左手武器のEXOPに魔力増加+LV/20がある時]　Ｒ ＝ Ｒ ＋ int(レベル ÷ 20) 
 		    if(i.getValueMap(f.left.exop,"魔力lv20")){d = d + Math.floor(c.lv/20);}
@@ -548,15 +557,22 @@ package Calc {
 		    var tmp_d:int = d;//スペルエンハンス用
 	    	//[セットOP]Y = Y + int(Y * 魔力%)
 		    d += Math.floor(d * i.setop_magicper/100);
-		    
+
 		    //[スペルエンハンス]
-		    if(min)d += Math.floor(tmp_d * c.support_se/100);//20%上昇
+		    if(min)d += Math.floor((c.ene/9) * c.support_se/100);//20%上昇
+		    if(!min && f.support.se_check.selected)d += Math.floor(
+		    		(c.ene/4) * SupportSkillCalculator.calcSpellEnhance_Max(
+		    				f.master_skill.getSkillValue("spell_enhance")));//9.02%上昇
 		    //[バーサーカー] エナ/30
-		    if(!min){d += Math.floor(c.ene/4 * c.support_berserker/100);}
-		    else{d += Math.floor(c.ene/9 * c.support_berserker/100);}
+		    if(!min){d += Math.floor((c.ene/4) * c.support_berserker/100);}
+		    else{d += Math.floor((c.ene/9) * c.support_berserker/100);}
+		    //[バーサーカー] マスタースキル
+		    if(f.support.ber_check.selected)
+		    	d += Math.floor(SupportSkillCalculator.calcBerserkerMind_MagicFixed(
+		    			f.master_skill.getSkillValue("berserker_mind_mastery2")));
 		    
 		    d += i.etc_magic;//[かぼちゃ、サンタ]魔力増加
-		    
+
 		    return d;
 		}
 		/**
@@ -565,8 +581,7 @@ package Calc {
 		private function calcMagicSkill(skill:Skill,cri:Boolean,exd:Boolean,min:Boolean):int{
 		    var d:int = a.magic.max;
 			if(min)d=a.magic.min;
-			//後半ダメージ計算====================================================
-		    //スキル攻撃力追加
+			//後半ダメージ計算====================================================		    //スキル攻撃力追加
 			if(skill.skill[a.key.name] == "ヘルバースト"){//ヘルバースト
 				d += 1320 + Math.floor(c.str/2);
 			}else{//通常のスキル
@@ -600,10 +615,14 @@ package Calc {
 			}
 		    if(cri||exd){
 		    	//クリダメ増加
-		    	d += i.getSocket(f.right,"クリ増加");//ソケットOP
-		    	d += i.getSocket(f.left,"クリ増加");//ソケットOP
-		    	d += i.getValueMap(f.right.enchant,"Cダメ");//エンチャントOP
-		    	d += i.getValueMap(f.left.enchant,"Cダメ");//エンチャントOP
+		    	if(i.getItemData(f.right,"ex_en_type") == 1){
+		    		d += i.getSocket(f.right,"クリ増加");//ソケットOP
+		    		d += i.getValueMap(f.right.enchant,"Cダメ");//エンチャントOP
+		    	}
+		    	if(i.getItemData(f.left,"ex_en_type") == 1){
+			    	d += i.getSocket(f.left,"クリ増加");//ソケットOP
+		    		d += i.getValueMap(f.left.enchant,"Cダメ");//エンチャントOP
+		    	}
 		    	d += c.support_c;//C+
 		    	d += i.setop_cri;//セットOP
 		    }
@@ -729,7 +748,7 @@ package Calc {
 			    
 			    //妙薬・A＋・セラ
 			    d += c.support_a;
-			    if(f.support.getValue(f.support.miracle))d += 15;
+			    if(f.support.miracle_check.selected)d += 15;
 			    d += c.support_sera_a;
 			}
 			return d;

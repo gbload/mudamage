@@ -37,14 +37,17 @@ package Calc {
 		public static function calcSpellEnhance_Cri(master:int):int{
 			return master;
 		}
-		public static function calcIronDefense_Defense(master:int,rec:int):int{
-			return master+Math.floor(rec/5);
+		public static function calcIronDefense_Defense(master:int):int{
+			return master+800;
 		}
-		public static function calcIronDefense_Life(master:int,rec:int):int{
-			return master+Math.floor(rec/5);
+		public static function calcIronDefense_Life(master:int):int{
+			return master+800;
 		}
 		public static function calcBerserkerMind_Magic(master:int,ene:int):int{
 			return master+Math.floor(ene/30);
+		}
+		public static function calcBerserkerMind_MagicFixed(master:int):int{
+			return master;
 		}
 		public static function calcBerserkerMind_Life(master:int,ene:int):int{
 			return master+Math.floor(ene/60) - 40;
