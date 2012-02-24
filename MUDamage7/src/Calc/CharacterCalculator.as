@@ -210,7 +210,7 @@ package Calc {
 							c.attribute_def += 40+3*e.plus;
 						if(e.rank2 == "防御")
 							c.attribute_affinity += 10 + e.plus;
-						if(e.item[3] == "防御")
+						if(e.item != null && e.item[3] == "防御")
 							if(e.rank3 == "pvp")
 								c.attribute_pvp_def += 50 + e.plus*3;
 							else if(e.rank3 == "mon")

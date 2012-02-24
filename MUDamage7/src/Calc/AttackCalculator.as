@@ -815,6 +815,8 @@ package Calc {
 				if(f.property.plus >= 10){
 					add += ((f.property.plus-9)+1)*(f.property.plus-9)/2;
 				}
+				// job
+				calcAttributeJob();
 				// ereutel
 				for(var i:int=0;i<f.property.ereutels.length;i++){
 					var e:Object = f.property.ereutels[i];
@@ -823,7 +825,7 @@ package Calc {
 							add += 30+3*e.plus;
 						if(e.rank2 == "攻撃")
 							a.attribute_affinity += 10 + e.plus;
-						if(e.item[3] == "攻撃")
+						if(e.item != null && e.item[3] == "攻撃")
 							if(e.rank3 == "pvp")
 								a.attribute_pvp += 50 + e.plus*3;
 							else if(e.rank3 == "mon")
@@ -832,6 +834,36 @@ package Calc {
 				a.attribute.min += add;
 				a.attribute.max += add; 
 			}
+		}
+		/**
+		 * 
+		 */
+		private function calcAttributeJob():void{
+			// job
+			var job_min:Array = D.getData("job_attr_min")[f.job_index];
+			var job_max:Array = D.getData("job_attr_max")[f.job_index];
+			// min
+			if(job_min[0]!=0)
+				a.attribute.min += Math.floor(c.str/job_min[0]);
+			if(job_min[1]!=0)
+				a.attribute.min += Math.floor(c.agi/job_min[1]);
+			if(job_min[2]!=0)
+				a.attribute.min += Math.floor(c.vit/job_min[2]);
+			if(job_min[3]!=0)
+				a.attribute.min += Math.floor(c.ene/job_min[3]);
+			if(f.job=="ダークロード" && job_min[4]!=0)
+				a.attribute.min += Math.floor(c.rec/job_min[4]);
+			// max
+			if(job_max[0]!=0)
+				a.attribute.max += Math.floor(c.str/job_max[0]);
+			if(job_max[1]!=0)
+				a.attribute.max += Math.floor(c.agi/job_max[1]);
+			if(job_max[2]!=0)
+				a.attribute.max += Math.floor(c.vit/job_max[2]);
+			if(job_max[3]!=0)
+				a.attribute.max += Math.floor(c.ene/job_max[3]);
+			if(f.job=="ダークロード" && job_max[4]!=0)
+				a.attribute.max += Math.floor(c.rec/job_max[4]);
 		}
 	}
 }

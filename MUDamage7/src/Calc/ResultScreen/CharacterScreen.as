@@ -133,6 +133,11 @@ package Calc.ResultScreen {
 				text("魔力:" + a.magic.min + "～" + a.magic.max);
 			if(f.job_index == 5)//呪い組み
 				text(" 呪い:" + a.curse.min + "～" + a.curse.max);
+			
+			if(f.property.name!=""){
+				ln();
+				text("属性攻撃力:" + a.attribute.min + "～" + a.attribute.max);
+			}
 		}
 		/**
 		 * 防御関連のステータスを表示
