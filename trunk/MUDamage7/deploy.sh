@@ -1,8 +1,13 @@
 #!/bin/sh
 
 rm -rf ./target/distribute/mudamage*.zip
-zip -r ./target/distribute/mudamage_src.zip ./src
-zip -r ./target/distribute/mudamage_src_ver$1.zip ./src
+cp -r ./src ./src_tmp
+#.svnの削除
+find ./src_tmp -name ".svn" -exec rm -rf {} \;
+zip -r ./target/distribute/mudamage_src.zip ./src_tmp
+zip -r ./target/distribute/mudamage_src_ver$1.zip ./src_tmp
+
+rm -rf ./src_tmp
 
 # 通常版
 sh build.sh
