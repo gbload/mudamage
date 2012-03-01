@@ -86,7 +86,7 @@ package Calc {
 							+ i.getSocketProtects("体力増加") + c.support_vit
 							+ f.master_skill.getSkillValue("vitality");
 			c.add_ene = i.setop_ene + i.etc_ene + f.master_skill.getSkillValue("energy");
-			c.add_rec = i.setop_rec + i.etc_rec + i.wing_rec;
+			c.add_rec = i.setop_rec + i.etc_rec + i.wing_rec + f.master_skill.getSkillValue("rec");
 			if(f.support.bless_check.selected){
 				var tmp:int = SupportSkillCalculator.calcBless(f.support);
 				c.add_str+=tmp;c.add_agi+=tmp;c.add_vit+=tmp;c.add_ene+=tmp;c.add_rec+=tmp;
