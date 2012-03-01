@@ -174,8 +174,13 @@ package Form.MUDamage
 			return skills[name];
 		}
 		public function getSkillValue(name:String):int{
-			if(skills[name]==null){Alert.show("Error:"+name);return 0;}
-			return skills[name].getSkillValue();
+			if(skills[name+"_rage"]!=null 
+					&& skills[name+"_rage"].getSkillValue() != 0)
+				return skills[name+"_rage"].getSkillValue();
+			if(skills[name]!=null)
+				return skills[name].getSkillValue();
+			Alert.show("Error:"+name);
+			return 0;
 		}
 		public function getLevel():TextInput{
 			return level;

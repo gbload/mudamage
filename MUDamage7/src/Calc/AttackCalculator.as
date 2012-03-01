@@ -562,7 +562,7 @@ package Calc {
 		    if(min)d += Math.floor((c.ene/9) * c.support_se/100);//20%上昇
 		    if(!min && f.support.se_check.selected)d += Math.floor(
 		    		(c.ene/4) * SupportSkillCalculator.calcSpellEnhance_Max(
-		    				f.master_skill.getSkillValue("spell_enhance")));//9.02%上昇
+		    				f.master_skill.getSkillValue("spell_enhance"))/100);//9.02%上昇
 		    //[バーサーカー] エナ/30
 		    if(!min){d += Math.floor((c.ene/4) * c.support_berserker/100);}
 		    else{d += Math.floor((c.ene/9) * c.support_berserker/100);}

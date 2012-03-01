@@ -320,6 +320,11 @@ package Calc {
 			d = Math.floor(d*(affinity[c.attribute][m[mk.attribute]] + a.attribute_affinity)/100);
 			// guard
 			d -= m[mk.def];
+			// 最低ダメ設定
+			if(min)
+				d = Math.max(4, d);
+			else
+				d = Math.max(6, d);
 			return d;
 		}
 		private function calcMonsterAttribute(min:Boolean):int{
