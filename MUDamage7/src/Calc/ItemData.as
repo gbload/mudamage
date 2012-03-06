@@ -338,7 +338,7 @@ package Calc {
 		public function getItemData(obj:Object,str:String):Object{
 			if(obj.item != null){
 				//[セットアイテム]
-				if(obj.set_key != null && obj.set_key[str] != null)
+				if(obj.set_key != null && obj.set_key[str] != null && str != "series")
 					return obj.set_item[obj.set_key[str]];
 				//[通常]
 				if(obj.key[str]==null)

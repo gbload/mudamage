@@ -152,9 +152,6 @@ package Calc {
 			if(check!="none")
 				if(min_lv>9)
 					c.def += Math.floor(c.def*((min_lv-9)*0.05));
-			// MLV統一ボーナス
-			if(check!="none")
-				c.def += Math.floor(c.def*f.master_skill.getSkillValue("set_defense")/100);
 			//セットの盾装備時
 			if(i.is_shield)c.def += Math.floor(c.def*i.setop_shield/100);
 			//ソケットの盾装備時
