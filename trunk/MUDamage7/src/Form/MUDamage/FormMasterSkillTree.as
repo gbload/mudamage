@@ -157,7 +157,9 @@ package Form.MUDamage
 				if(skills[n].getValue != null)
 					rest -= parseInt(skills[n].getValue());
 			if(rest < 0)
-				point.setStyle("color","#FF00000");
+				point.setStyle("color","#FF0000");
+			else
+				point.setStyle("color","#000000")
 			point.text = "ポイント："+rest+" / "+max;
 		}
 		/**

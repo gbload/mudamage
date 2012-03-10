@@ -83,10 +83,15 @@ package Form.MUDamage {
 			if(item.dataProvider == "" || this.type != type){
 				//アイテムの追加
 				var jobindex:int = d.getJob().selectedIndex;//職取得
+				// indexのセット
+				var tmp:int = item.selectedIndex;
+				if(tmp < 0)tmp=0;
 				//ソケットアイテムを除く 神具を除く
 				if(type==1) item.dataProvider = D.getSelect("socket_right",jobindex);
 				else if(type==2) item.dataProvider = D.getSelect("set_right",jobindex);
 				else item.dataProvider = D.getSelect("right",jobindex);
+				// indexのセット
+				item.selectedIndex = tmp;
 				// type
 				this.type = type;
 			}

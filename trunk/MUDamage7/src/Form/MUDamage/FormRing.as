@@ -52,6 +52,9 @@ package Form.MUDamage {
 				else if(type==2)item.dataProvider = D.getSelect("set_ring");
 				else if(type==3)item.dataProvider = D.getSelect("special_ring");
 				else item.dataProvider = D.getSelect("ring");
+				// indexのセット
+				item.selectedIndex = 0;
+				
 				old_type = type;
 			}
 			// イベントの呼び出し

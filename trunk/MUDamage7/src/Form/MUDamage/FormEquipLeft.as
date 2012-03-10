@@ -86,10 +86,15 @@ package Form.MUDamage {
 			if(item.dataProvider == "" || this.type != type){
 				//アイテムの追加
 				var jobindex:int = d.getJob().selectedIndex;//職取得
+				// indexのセット
+				var tmp:int = item.selectedIndex;
+				if(tmp < 0)tmp=0;
 				//ソケットアイテムを除く　両手武器を除く
 				if(type==1) item.dataProvider = D.getSelect("socket_left",jobindex);
 				else if(type==2) item.dataProvider = D.getSelect("set_left",jobindex);
 				else item.dataProvider = D.getSelect("left",jobindex);
+				// indexのセット
+				item.selectedIndex = tmp;
 				// type
 				this.type = type;
 				// エルフの左手制限
@@ -128,7 +133,7 @@ package Form.MUDamage {
 				item.selectedIndex = now;
 				
 				// 調整
-				if(item.visible){
+				if(item.visible && item.selectedItem != null){
 					i = D.getData(item.selectedItem.item)[item.selectedItem.index];
 					k = D.getKey(item.selectedItem.item);
 					// 弓の場合、左手フォームを隠す

@@ -182,7 +182,7 @@ package IO.FileIO {
 			d.form_neck.getKind().selectedIndex = a[4][0];
 			d.form_neck.getKind().dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);
 			d.form_neck.getItem().selectedIndex = a[4][1];
-			if(a[4][1] && a[4][1] != -1)
+			if(a[4][1]!="" && a[4][1] != -1)
 				d.form_neck.getItem().dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);
 			d.form_neck.getSetop().selectedIndex = a[4][2];
 			for(var i:int=0;i<5;i++)
@@ -193,15 +193,15 @@ package IO.FileIO {
 				item[i].getKind().selectedIndex = a[5+i][0];
 				item[i].getKind().dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);
 				item[i].getItem().selectedIndex = a[5+i][1];
-				if(a[5+i][1] && a[5+i][1] != -1)
+				if(a[5+i][1]!="" && a[5+i][1] != -1)
 					item[i].getItem().dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);
 				item[i].getItemAttr().getPlus().selectedIndex = a[5+i][2];
-				if(a[5+i][2] && a[5+i][2] != -1)
+				if(a[5+i][2]!="" && a[5+i][2] != -1)
 					item[i].getItemAttr().getPlus().dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);
 				item[i].getItemAttr().getOption().selectedIndex = a[5+i][3];
 				item[i].getItemAttr().getLuck().selected = a[5+i][4];
 				item[i].getEnchant().getKind().selectedIndex = a[5+i][5];
-				if(a[5+i][5] && a[5+i][1] != -1)
+				if(a[5+i][5]!="" && a[5+i][1] != -1)
 					item[i].getEnchant().getKind().dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);
 				item[i].getEnchant().getValue().selectedIndex = a[5+i][6];
 				item[i].getSetop().selectedIndex = a[5+i][7];
@@ -209,7 +209,7 @@ package IO.FileIO {
 					item[i].getExellent().getOptions()[j].selectedIndex = a[5+i][8+j];
 				for(j=0;j<5;j++){
 					item[i].getSocket().getNames()[j].selectedIndex = a[5+i][13+j*2];
-					if(a[5+i][13+j*2] && a[5+i][13+j*2] != -1)
+					if(a[5+i][13+j*2]!="" && a[5+i][13+j*2] != -1)
 						item[i].getSocket().getNames()[j].dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);
 					item[i].getSocket().getValues()[j].selectedIndex = a[5+i][13+j*2+1];
 				}
@@ -227,7 +227,7 @@ package IO.FileIO {
 				item[i].getKind().selectedIndex = a[12+i][0];
 				item[i].getKind().dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);
 				item[i].getItem().selectedIndex = a[12+i][1];
-				if(a[12+i][1] && a[12+i][1] != -1)
+				if(a[12+i][1]!="" && a[12+i][1] != -1)
 					item[i].getItem().dispatchEvent(new ListEvent(ListEvent.CHANGE) as Event);
 				item[i].getSetop().selectedIndex = a[12+i][2];
 				for(j=0;j<5;j++)
