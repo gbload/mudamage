@@ -130,7 +130,7 @@ package Form.MUDamage.SubForm {
 			
 			//ソケットOPの数値を作成
 			var a:Array = target.selectedItem[2];
-			if(target.selectedIndex == 0)a = [""];
+			if(target.selectedIndex <= 0)a = [""];
 			
 			var j:int = 0;
 			if(values[index].dataProvider != "")
