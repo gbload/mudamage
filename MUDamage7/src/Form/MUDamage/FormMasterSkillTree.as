@@ -175,7 +175,7 @@ package Form.MUDamage
 			if(skills[name]==null)Alert.show("Error:"+name);
 			return skills[name];
 		}
-		public function getSkillValue(name:String):int{
+		public function getSkillValue(name:String):Number{
 			if(skills[name+"_rage"]!=null 
 					&& skills[name+"_rage"].getSkillValue() != 0)
 				return skills[name+"_rage"].getSkillValue();

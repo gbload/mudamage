@@ -219,39 +219,42 @@ package Calc {
 		 * 防御成功率の計算
 		 */
 		private function calcAvoid():void{
+			var avoid:Number = 0.0;
 			var inc:int = D.getData("job_avoid")[f.job_index];
 			// 敏捷
-			c.avoid = c.agi/inc;
+			avoid = Math.floor(c.agi/inc);
 			// 盾の防御成功率
 			if(i.is_shield){
-				c.avoid += i.getSpec(f.left,"avoid");
-				c.avoid += i.getValue(f.left.option["防御率"]);
+				avoid += i.getSpec(f.left,"avoid");
+				avoid += i.getValue(f.left.option["防御率"]);
 			}
+			// MasterSkill
+			avoid += avoid * f.master_skill.getSkillValue("avoidance")/100.0;
 			// EXOP,ソケットOP
 			for(var n:Object in i.protects){
 				// EXOP
 				if(i.protects[n].exop["防御成功"])
-					c.avoid += Math.floor(c.avoid * 0.1);
+					avoid = Math.floor(avoid * 1.1);
 				// ソケットOP
-				c.avoid += Math.floor(c.avoid * i.getSocket(i.protects[n],"防御成功")/100);
+				avoid = Math.floor(avoid * (100 + i.getSocket(i.protects[n],"防御成功"))/100);
 			}
-			// MasterSkill
-			c.avoid += Math.floor(c.avoid * f.master_skill.getSkillValue("avoidance")/100);
 			// リング EXOP
 			for each(var exop:Object in [f.ring1.exop,f.ring2.exop])
 				if(exop["防御成功"])
-					c.avoid += Math.floor(c.avoid * 0.1);
+					avoid = Math.floor(avoid * 1.1);
 			
-			var avoid_ori:int = c.avoid;
+			var avoid_ori:int = avoid;
 			// サポートスキル、コンセントレーション
-			c.avoid += c.support_avoid;
+			avoid += c.support_avoid;
 			// 統一ボーナス
-			if(check!="none")c.avoid += Math.floor(avoid_ori * 0.1);//統一ボーナス
+			if(check!="none")avoid += Math.floor(avoid_ori * 0.1);//統一ボーナス
 			/*
 			 * 固定増加分
 			 */
 			// MasterSkill 盾マスタリ
-			c.avoid += f.master_skill.getSkillValue("shield_mastery");
+			avoid += f.master_skill.getSkillValue("shield_mastery");
+			
+			c.avoid = avoid;
 		}
 		/**
 		 * 対人防御成功率の計算
