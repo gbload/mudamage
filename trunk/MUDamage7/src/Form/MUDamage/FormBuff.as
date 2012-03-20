@@ -77,10 +77,6 @@ package Form.MUDamage {
 				PopUpManager.removePopUp(obj.parent as IFlexDisplayObject);
 			});
 			this.addChild(button);
-			
-//			var la:Label = new Label();
-//			la.text = "※入力支援フォームは未完成のため、フォーム及び計算に反映されません。";
-//			this.addChild(la);
 		}
 		/**
 		 * self
