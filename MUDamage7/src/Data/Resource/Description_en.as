@@ -14,22 +14,82 @@ sourcecode:
 		public static var bugs:String = ( <![CDATA[
 Bugs
 
-- Unimplemented maps: "Double Goer" and "Fortress of Imperial Guardian".
 - Unimplemented x button in tab of result screen.
-- Unimplemented input support form for buff skill.
 - Enhancing menus.
 - Rage Fighter's skill speed isn't correct.
-- Sometimes cannot correctly open a file when "File > Open".
 - Unimplemented a calculation reducing skill damage by 20% in case of elf's bow calculation.
-- PVP hit and avoidance probability is not validate.(Now: self=(pvphit * lv),you=(pvpavoid * lv),p=(self/(self+you))^2）
-- Unknown values of Master Skill after rank 6.
-- Unimplemented Master Skill's calculation after rank 6.
 - Unknown the calculation of Property system.
-- Unimplemented Master Skill's "*** Mastery".
-- Unimplemented Property system in PVP.
+- Unknown new skills.
+
+- No check PVP calculation in MUDamage after eX700.
+- PVP hit and avoidance probability is not validate.(Now: self=(pvphit * lv),you=(pvpavoid * lv),p=(self/(self+you))^2）
 		                        				]]> ).toString();
 		public static var release:String = ( <![CDATA[
 Release notes
+
+2012/03/01 ver3.14
+- Modify the bug that the defense bonus of unification of armors wasn't applied when ancient item was selected.
+- Modify the bug that master skill "Set Defense" was applied as %.
+- Modify "open file".
+- Modify the bug that master skill point's color was red when it is plus after minus.
+
+2012/03/01 ver3.13
+- Modify the bug that damage is incorrect when using spell enhance.
+- Modify the bug that attribute damage may be minus.
+- Modify the bug that rage fighter's specialized master skill wasn't applied.
+- Modify the bug that darkload's master skill "Command status increase" wasn't applied.
+
+2012/02/24 ver3.12
+- Modify the skill "Innovation/Weakness/Cling Blow/Beast Upper/Fire Slash".
+- Modify the calculation of the skill "Bless".
+- Add master skill "Command status increase" and "Fire Scream mastery".
+- Modify the bug that damage is incorrect when dark horse is selected.
+- Modify the bug that dark horse's defense applied when dark horse isn't selected.
+- Modify the bug that cannot calculate attribute damage when ether isn't selected.
+- Applied provisional formula of attribute damage.
+- Modify the bug that fenrir's damage increase/decrease wasn't the last of calcuation.
+
+2012/01/28 ver3.11
+- Modify the bug that spell enhance's "maximum magic increase" wasn't applied.
+- Modify the bug that swell life's "maximum AG increase" wasn't applied.
+- Modify the bug that there are two socket bonus form.
+- Modify the bug that socket bonuses was applied when socket input form hide.
+- Modify the bug that sword's enchant option "Critical Dmg increase" was applied to magic and staff's it was applied to attack.
+- Modify the bug that sword's socket option "Attack or Magic increase /Level" was applied to magic and staff's it was applied to attack. 
+- Apply eX700's master skill.
+- Modify the bug that cannot calculate summoner's curse calculation.
+
+2012/01/17 ver3.10
+- Modify the bug that darkload's master skill Fire Scream Increase 1 and 2 were same.
+- Modify the design of master skill tree form.
+- Add new buff skill's form.
+- Delete old buff skill's form.
+- I don't migrate the save data from old buff skill's form to new buff skill's form.
+
+2011/12/23 ver3.09
+- Modify the calculation of defense success rate.
+- Modify the bug that monster HP was monster name.
+- Add input support form of buff skills.
+- Modify the bug that cannot scroll in input form screen.
+- Modify the bug that cannot scroll in result screen.
+- Modify the bug that the speed of Destroy Gloves was 0.
+
+2011/12/20 ver3.08
+- Modify the bug that damage calculation was avoidance damage when monster's attack success rate is unknown.
+- Modify the bug that the defense bonus of unification of armors in Magic Gladiator and Rage Fighter wasn't applied.(Now applies even non-personal equipment.)
+- Modify the bug that Attribute Dmg wasn't applied in magic calculation.
+- Modify the bug that Elf's buff skill "Greater Defense" wasn't applied.
+- Modify the bug that support form was accepted only one or two digits.
+- Modify the bug that "ignore defense" calculation result didn't show in "Double Goer" and "Imperial Guardian".
+- Modify the bug that "ignore defense" wasn't applied to calculation.
+- Apply master skill "Set Defense increase" and "Wing Defense increase".
+- Apply master skill "Spear mastery", "Glove mastery".
+- Apply master skill "Double Damage/Ignore Defense/Critical/Exellent Damage Probability increase".
+- Apply master skill "Maximum/Minimum Attack/Magic/Curse increase","Wing Attack Increase".
+- Apply master skill "strength/agility/vitality/energy status increase","Maximum AG increase".
+- Add New Skills.
+- Modify the bug that Socket option "Critical Dmg Probability Incease" was calculated as "Exellent Dmg Probability Increase".
+- Add AG auto healing parameter in result screen.
 
 2011/12/16 ver3.07 en
 - Modify the bug that Socket option "Dmg Level" isn't correctly applied.
