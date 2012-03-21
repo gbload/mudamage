@@ -12,14 +12,17 @@ package Calc.ResultScreen {
 		 * {fieldName,headerText,width}
 		 */
 		private static var headers:Array = [
-				["skillname","スキル名",150],
-				["averageper","1HITダメージ/秒",150],
-				["speed","回/分",0],
-				["average","1HIT平均",0],
-				["minmax","最小〜最大",150],
-				["cri","クリティカル",0],
-				["exd","EXD",0],
-				["hit","命中率",0]
+				["skillname","スキル名",200],
+				["total","合計(/秒)",60],
+				["skillhit","HIT数",40],
+				["averageper","1HITダメ/秒",60],
+				["speed","回/分",50],
+				["average","1HIT平均",60],
+				["minmax","最小〜最大",100],
+				["cri","クリティカル",60],
+				["exd","EXD",60],
+				["attr_minmax","属性ダメ",80],
+				["hit","命中率",70]
 		];
 		/**
 		 * コンストラクタ
