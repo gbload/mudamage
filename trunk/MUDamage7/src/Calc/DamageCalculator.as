@@ -125,7 +125,6 @@ package Calc {
 		     * 最終ダメージ後計算
 		     */
 		    d = calcGuard3(d);
-		    d += calcAttribute(min);
 		    
 		    return d;
 		}
@@ -139,7 +138,6 @@ package Calc {
 				exd:Boolean=false,
 				min:Boolean=false):int{
 		    //ダメージ計算===========================
-		    d += calcAttribute(min);
 			d = calcGuard1(d);
 		    d = Math.max(d,Math.floor(f.status.lv/10));//max[攻撃力-モンス,lv/10]
 		    
@@ -320,11 +318,13 @@ package Calc {
 			d = Math.floor(d*(affinity[c.attribute][m[mk.attribute]] + a.attribute_affinity)/100);
 			// guard
 			d -= m[mk.def];
+			d -= m[mk.attribute_def];
 			// 最低ダメ設定
 			if(min)
 				d = Math.max(4, d);
 			else
 				d = Math.max(6, d);
+			
 			return d;
 		}
 		private function calcMonsterAttribute(min:Boolean):int{
@@ -384,8 +384,12 @@ package Calc {
 			var data:ResultData = new ResultData();
 			var data2:ResultData = new ResultData();
 			data.skillname = a.skills[n].skill[a.key.name];
+			data.skillhit = a.skills[n].skill[a.key.hit];
 			data.hit_num = hit;
 			data2.hit_num = 1;
+			// 属性ダメージ
+			data.attr_min = calcAttribute(true);
+			data.attr_max = calcAttribute(false);
 			// damage calculation
 			var func:Function = calcDamage;
 			if(a.skills[n].skill[a.key.type]=="魔法"){
@@ -409,10 +413,13 @@ package Calc {
 			data.average = calcAverage(data,a,c,data2);//1hit当たりのダメージ
 			//1HITダメージ/秒
 			data.averageper = calcAveragePerSecond(n,data,a);
+			//ダメージ/秒
+			data.total = calcTotal(data);
 			//1分当たりの攻撃回数を計算
 			data.speed = calcSpeedPerMinute(n,a);
 			//データの整形
 			data.minmax = data.min + "〜" + data.max;
+			data.attr_minmax = data.attr_min + "〜" + data.attr_max;
 			nf.precision = 2; // 小数点以下2桁に設定
 			data.hit = nf.format(hit*100) + "%";
 			
@@ -499,6 +506,15 @@ package Calc {
 			return second;
 		}
 		/**
+		 * １秒当たりの平均ダメージ
+		 * @param result data
+		 * @return damage
+		 */
+		protected function calcTotal(data:ResultData):int{
+			var second:int=data.averageper * data.skillhit;
+			return second;
+		}
+		/**
 		 * １分当たりの攻撃回数
 		 * @param attack data
 		 * @return attack count
@@ -517,6 +533,8 @@ class ResultData{
 	 * 表示用
 	 */
 	public var skillname:String = ""; //スキル名
+	public var skillhit:Number = 0; //スキルHIT数
+	public var total:int = 0; //1秒当たりの合計ダメージ
 	public var averageper:int = 0; //1秒当たりの1hitダメージ
 	public var speed:String = ""; //１分当たりの攻撃回数
 	public var average:int = 0; //1hit当たりの平均ダメージ
@@ -524,6 +542,9 @@ class ResultData{
 	public var hit:String = ""; //命中率
 	public var cri:int = 0; //クリティカルダメージ
 	public var exd:int = 0; //エクセレントダメージ
+	public var attr_min:int = 0; //属性最小ダメージ
+	public var attr_max:int = 0; //属性最大ダメージ
+	public var attr_minmax:String = ""; //表示用
 	/**
 	 * 計算用
 	 */

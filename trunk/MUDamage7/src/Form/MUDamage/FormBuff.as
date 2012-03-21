@@ -97,9 +97,9 @@ package Form.MUDamage {
 				func = function(event:Event):void{
 					var master:FormMasterSkillTree = mud.form_status.getMasterSkillTree();
 					var effect:int = SupportSkillCalculator.calcSpellEnhance();
-					var max:int = SupportSkillCalculator.calcSpellEnhance_Max(
+					var max:Number = SupportSkillCalculator.calcSpellEnhance_Max(
 							master.getSkillValue("spell_enhance"));
-					var cri:int = SupportSkillCalculator.calcSpellEnhance_Cri(
+					var cri:Number = SupportSkillCalculator.calcSpellEnhance_Cri(
 							master.getSkillValue("spell_enhance_mastery"));
 					d.se.text = "スペルエンハンス:最小魔力"+effect.toString()+"%";
 					if(max>0)d.se.text += " 最大魔力"+max.toString()+"%";
@@ -115,8 +115,8 @@ package Form.MUDamage {
 							master.getSkillValue("iron_defense"));
 					var life:int = SupportSkillCalculator.calcIronDefense_Life(
 							master.getSkillValue("iron_defense"));
-					d.iron.text = "アイアンディフェンス:防御力"+def.toString()+"%";
-					d.iron.text += " 生命"+life.toString()+"%";
+					d.iron.text = "アイアンディフェンス:防御力"+"+"+def.toString();
+					d.iron.text += " 生命"+"+"+life.toString();
 				};
 				setEvent(func,[]);
 			}
@@ -124,19 +124,19 @@ package Form.MUDamage {
 			if(mud.form_job.selectedLabel=="召喚師"){
 				func = function(event:Event):void{
 					var master:FormMasterSkillTree = mud.form_status.getMasterSkillTree();
-					var magic:int = SupportSkillCalculator.calcBerserkerMind_Magic(
+					var magic:Number = SupportSkillCalculator.calcBerserkerMind_Magic(
 							master.getSkillValue("berserker_mind")
 							+ master.getSkillValue("berserker_mind_mastery"),
 							parseInt(mud.form_status.getEne().text));
 					var magic_fixed:int = SupportSkillCalculator.calcBerserkerMind_MagicFixed(
 						master.getSkillValue("berserker_mind_mastery2"));
-					var life:int = SupportSkillCalculator.calcBerserkerMind_Life(
+					var life:Number = SupportSkillCalculator.calcBerserkerMind_Life(
 							master.getSkillValue("berserker_mind"),
 							parseInt(mud.form_status.getEne().text));
-					var def:int = SupportSkillCalculator.calcBerserkerMind_Defense(
+					var def:Number = SupportSkillCalculator.calcBerserkerMind_Defense(
 							master.getSkillValue("berserker_mind"),
 							parseInt(mud.form_status.getEne().text));
-					var mana:int = SupportSkillCalculator.calcBerserkerMind_Mana(
+					var mana:Number = SupportSkillCalculator.calcBerserkerMind_Mana(
 							master.getSkillValue("berserker_mind")
 							+ master.getSkillValue("berserker_mind_mastery"),
 							parseInt(mud.form_status.getEne().text));
@@ -185,10 +185,10 @@ package Form.MUDamage {
 			                         ,d.master_sl1,d.master_sl2,d.master_sl3]));
 			// event
 			var func:Function = function(event:Event):void{
-				var sl:int = SupportSkillCalculator.calcSwellLife(d);
+				var sl:Number = SupportSkillCalculator.calcSwellLife(d);
 				var time:int = SupportSkillCalculator.calcSwellLife_Time(d);
-				var mana:int = SupportSkillCalculator.calcSwellLife_Mana(d);
-				var ag:int = SupportSkillCalculator.calcSwellLife_AG(d);
+				var mana:Number = SupportSkillCalculator.calcSwellLife_Mana(d);
+				var ag:Number = SupportSkillCalculator.calcSwellLife_AG(d);
 				d.sl.text = "スウェルライフ:"+sl.toString()+"%";
 				d.sl.text += " 持続時間"+time.toString()+"秒";
 				if(mana>0)d.sl.text += " 最大マナ"+"+"+mana.toString()+"%";
@@ -207,9 +207,9 @@ package Form.MUDamage {
 			                         ,d.master_sb1,d.master_sb2,d.master_sb3]));
 			// event
 			var func:Function = function(event:Event):void{
-				var sb:int = SupportSkillCalculator.calcSoulBarrier(d);
+				var sb:Number = SupportSkillCalculator.calcSoulBarrier(d);
 				var time:int = SupportSkillCalculator.calcSoulBarrier_Time(d);
-				var mana:int = SupportSkillCalculator.calcSoulBarrier_Mana(d);
+				var mana:Number = SupportSkillCalculator.calcSoulBarrier_Mana(d);
 				d.sb.text = "ソウルバリア:"+sb.toString()+"%";
 				d.sb.text += " 持続時間"+time.toString()+"秒";
 				if(mana>0)d.sb.text += " 最大マナ"+"+"+mana.toString()+"%";
@@ -263,7 +263,7 @@ package Form.MUDamage {
 			vbox.addChild(createRow([d.master_ba1]));
 			// event
 			var func:Function = function(event:Event):void{
-				var ba:int = SupportSkillCalculator.calcBloodAttack(d);
+				var ba:Number = SupportSkillCalculator.calcBloodAttack(d);
 				d.ba.text = "ブラッドアタック:"+"敵の防御力低下"+ba.toString()+"%";
 			};
 			setEvent(func,[d.master_ba1]);
@@ -281,8 +281,8 @@ package Form.MUDamage {
 			var func:Function = function(event:Event):void{
 				var cplus:int = SupportSkillCalculator.calcCriticalPlus(d);
 				var time:int = SupportSkillCalculator.calcCriticalPlus_Time(d);
-				var cri:int = SupportSkillCalculator.calcCriticalPlus_Cri(d);
-				var exd:int = SupportSkillCalculator.calcCriticalPlus_Exd(d);
+				var cri:Number = SupportSkillCalculator.calcCriticalPlus_Cri(d);
+				var exd:Number = SupportSkillCalculator.calcCriticalPlus_Exd(d);
 				d.cplus.text = "C+:"+cplus.toString();
 				d.cplus.text += " 持続時間"+time.toString()+"秒";
 				if(cri>0)d.cplus.text += " クリティカル確率"+"+"+cri.toString()+"%";
@@ -301,18 +301,18 @@ package Form.MUDamage {
 			                         ,d.master_iv1,d.master_wn1]));
 			// event iv
 			var func:Function = function(event:Event):void{
-				var iv:int = SupportSkillCalculator.calcInnovation(d);
+				var iv:Number = SupportSkillCalculator.calcInnovation(d);
 				var iv_fixed:int = SupportSkillCalculator.calcInnovation_Fixed(d);
 				d.iv.text = "インナーベーション:"+"敵の防御力低下"+iv.toString()+"%";
-				d.iv.text += " 敵の防御力低下"+iv_fixed.toString();
+				if(iv_fixed)d.iv.text += " 敵の防御力低下"+iv_fixed.toString();
 			};
 			setEvent(func,[d.summoner_ene,d.master_iv1]);
 			// event wn
 			func = function(event:Event):void{
-				var wn:int = SupportSkillCalculator.calcWeakness(d);
+				var wn:Number = SupportSkillCalculator.calcWeakness(d);
 				var wn_fixed:int = SupportSkillCalculator.calcWeakness_Fixed(d);
 				d.wn.text = "ウィークネス:"+"敵の攻撃力低下"+wn.toString()+"%";
-				d.wn.text += " 敵の攻撃力低下"+wn_fixed.toString();
+				if(wn_fixed)d.wn.text += " 敵の攻撃力低下"+wn_fixed.toString();
 			};
 			setEvent(func,[d.summoner_ene,d.master_wn1]);
 			// event blind
@@ -347,13 +347,13 @@ package Form.MUDamage {
 			setEvent(func,[d.master_ht1]);
 			// event con
 			func = function(event:Event):void{
-				var aminus:int = SupportSkillCalculator.calcClingBlow(d);
+				var aminus:Number = SupportSkillCalculator.calcClingBlow(d);
 				d.aminus.text = "クリングブロー:"+"敵の攻撃力低下"+aminus.toString()+"%";
 			};
 			setEvent(func,[d.master_aminus1]);
 			// event con
 			func = function(event:Event):void{
-				var gminus:int = SupportSkillCalculator.calcBeastUpper(d);
+				var gminus:Number = SupportSkillCalculator.calcBeastUpper(d);
 				d.gminus.text = "ビーストアッパー:"+"敵の防御力低下"+gminus.toString()+"%";
 			};
 			setEvent(func,[d.master_gminus1]);
