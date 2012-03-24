@@ -14,19 +14,26 @@ package Form.MUDamage.SubForm {
 	public class FormEreutel extends HBox {
 		private var item:ComboBox;
 		private var rank:ComboBox;
-		private var plus:ComboBox;
+		private var plus1:ComboBox;
+		private var plus2:ComboBox;
+		private var plus3:ComboBox;
+		private var plus4:ComboBox;
+		private var plus5:ComboBox;
 		private var rank1:ComboBox;
 		private var rank2:ComboBox;
 		private var rank3:ComboBox;
+		private var rank4:ComboBox;
+		private var rank5:ComboBox;
 		/**
 		 * データ
 		 */
 		private var item_data:Array = [
 		    // name,rank1,rank2,rank3
-		    ["怒りのエルテル","攻撃力","攻撃","攻撃"],
-		    ["加護のエルテル","防御力","防御","防御"],
-		    ["高潔のエルテル","攻撃率","攻撃","攻撃"],
-		    ["神聖のエルテル","防御率","防御","防御"]
+		    ["軍神のエルテル","軍神"],
+		    ["加護のエルテル","加護"],
+		    ["高潔のエルテル","高潔"],
+		    ["神聖のエルテル","神聖"],
+		    ["狂喜のエルテル","狂喜"]
 		                               ];
 		private var item_none:Array = ["","","",""];
 		private static var ITEM_NAME:int = 0;
@@ -37,7 +44,6 @@ package Form.MUDamage.SubForm {
 		public function FormEreutel(num:int) {
 			createItem(num);
 			createRank();
-			createPlus();
 			createRankOption();
 			hide();
 		}
@@ -59,14 +65,14 @@ package Form.MUDamage.SubForm {
 		 */
 		private function createRank():void{
 			rank = new ComboBox();
-			rank.dataProvider = [1,2,3];
+			rank.dataProvider = [1,2,3,4,5];
 			rank.addEventListener(ListEvent.CHANGE,eventChange);
 			this.addChild(rank);
 		}
 		/**
 		 * plus
 		 */
-		private function createPlus():void{
+		private function createPlus(plus:ComboBox):ComboBox{
 			plus = new ComboBox();
 			var a:Array = new Array();
 			a.push("N");
@@ -74,6 +80,7 @@ package Form.MUDamage.SubForm {
 				a.push("+"+i);
 			plus.dataProvider = a;
 			this.addChild(plus);
+			return plus;
 		}
 		/**
 		 * rank options
@@ -81,17 +88,32 @@ package Form.MUDamage.SubForm {
 		private function createRankOption():void{
 			// rank1
 			rank1 = new ComboBox();
-			rank1.enabled = false;
 			this.addChild(rank1);
+			plus1 = createPlus(plus1);
 			// rank2
 			rank2 = new ComboBox();
 			FormCommon.hide(rank2);
-			rank2.enabled = false;
 			this.addChild(rank2);
+			plus2 = createPlus(plus2);
+			FormCommon.hide(plus2);
 			// rank3
 			rank3 = new ComboBox();
 			FormCommon.hide(rank3);
 			this.addChild(rank3);
+			plus3 = createPlus(plus3);
+			FormCommon.hide(plus3);
+			// rank4
+			rank4 = new ComboBox();
+			FormCommon.hide(rank4);
+			this.addChild(rank4);
+			plus4 = createPlus(plus4);
+			FormCommon.hide(plus4);
+			// rank5
+			rank5 = new ComboBox();
+			FormCommon.hide(rank5);
+			this.addChild(rank5);
+			plus5 = createPlus(plus5);
+			FormCommon.hide(plus5);
 		}
 		/**
 		 * change event
@@ -106,42 +128,76 @@ package Form.MUDamage.SubForm {
 		}
 		private function show():void{
 			FormCommon.show(rank);
-			FormCommon.show(plus);
 			FormCommon.show(rank1);
+			FormCommon.show(plus1);
 		}
 		private function hide():void{
 			FormCommon.hide(rank);
-			FormCommon.hide(plus);
 			FormCommon.hide(rank1);
+			FormCommon.hide(plus1);
 			FormCommon.hide(rank2);
+			FormCommon.hide(plus2);
 			FormCommon.hide(rank3);
+			FormCommon.hide(plus3);
+			FormCommon.hide(rank4);
+			FormCommon.hide(plus4);
+			FormCommon.hide(rank5);
+			FormCommon.hide(plus5);
 		}
 		/**
 		 * change rank option
 		 */
-		private function changeRankData(combo:ComboBox,data:Array,num:int):void{
+		private function changeRankData(combo:ComboBox,plus:ComboBox,data:String,num:int):void{
 			var index:int = 0;
 			var rank_index:int = rank.selectedIndex+1;
 		
 			index = combo.selectedIndex;
 			if(index == -1)index = 0;
-			combo.dataProvider = data;
+			combo.dataProvider = getNames(data,num);
 			combo.selectedIndex = index;
 			
-			if(num >= 2 && rank_index < num)FormCommon.hide(combo);
-			else FormCommon.show(combo);
+			if(num >= 2 && rank_index < num){
+				FormCommon.hide(combo);
+				FormCommon.hide(plus);
+			}
+			else{
+				FormCommon.show(combo);
+				FormCommon.show(plus);
+			}
 		}
 		private function changeRankOption():void{
 			var i:Object = item.selectedItem;
 			//rank1
-			changeRankData(rank1,[i[1]],1);
+			changeRankData(rank1,plus1,i[1],1);
 			//rank2
-			changeRankData(rank2,[i[2]],2);
+			changeRankData(rank2,plus2,i[1],2);
 			//rank3
-			var a3:Array = new Array();
-			a3.push({label:"PVP時"+i[3],type:"pvp"});
-			a3.push({label:"モンスター時"+i[3],type:"mon"});
-			changeRankData(rank3,a3,3);
+			changeRankData(rank3,plus3,i[1],3);
+			//rank4
+			changeRankData(rank4,plus4,i[1],4);
+			//rank5
+			changeRankData(rank5,plus5,i[1],5);
+		}
+		/**
+		 * オプションデータを整形して返す
+		 */
+		private function getNames(ereutel:String,rank:int):Array{
+			var result:Array = new Array();
+			// データ取得
+			var d:Object = D.getData("ereutel");
+			var key:Object = D.getKey("ereutel");
+			for(var i:int=0;i<d.length;i++){
+				if(d[i][key.ereutel] == ereutel 
+						&& parseInt(d[i][key.rank]) == rank){
+					// 値データ配列の整形
+					var values:Array = new Array();
+					for(var j:int=0;j<=10;j++)
+						values.push(d[i][key.value+j])
+					result.push({label:d[i][key.name],value:values,option:d[i][key.option]});
+				}
+			}
+			
+			return result;
 		}
 		/**
 		 * 計算用
@@ -155,10 +211,10 @@ package Form.MUDamage.SubForm {
 					name: item.selectedLabel,
 					item: item.selectedItem,
 					rank: rank.selectedIndex+1,
-					plus: plus.selectedIndex,
-					rank1: rank1.selectedLabel,
-					rank2: rank2.selectedLabel,
-					rank3: rank3.selectedItem.type
+					pluses: [plus1.selectedIndex,plus2.selectedIndex
+					         ,plus3.selectedIndex,plus4.selectedIndex,plus5.selectedIndex],
+					ranks: [rank1.selectedItem,rank2.selectedItem
+					        ,rank3.selectedItem,rank4.selectedItem,rank5.selectedItem]
 				};
 			return obj;
 		}
@@ -173,7 +229,7 @@ package Form.MUDamage.SubForm {
 					a.push("");
 			}else{
 				a.push(rank.selectedIndex);
-				a.push(plus.selectedIndex);
+				a.push(plus1.selectedIndex);
 				a.push(rank1.selectedIndex);
 				a.push(rank2.selectedIndex);
 				a.push(rank3.selectedIndex);
@@ -187,7 +243,7 @@ package Form.MUDamage.SubForm {
 			item.selectedIndex = a[index++];
 			if(item.selectedIndex > 0){
 				rank.selectedIndex = a[index++];
-				plus.selectedIndex = a[index++];
+				plus1.selectedIndex = a[index++];
 				eventChange(null);
 				rank1.selectedIndex = a[index++];
 				rank2.selectedIndex = a[index++];

@@ -817,20 +817,6 @@ package Calc {
 				}
 				// job
 				calcAttributeJob();
-				// ereutel
-				for(var i:int=0;i<f.property.ereutels.length;i++){
-					var e:Object = f.property.ereutels[i];
-					if(e.name!="")
-						if(e.rank1 == "攻撃力")
-							add += 30+3*e.plus;
-						if(e.rank2 == "攻撃")
-							a.attribute_affinity += 10 + e.plus;
-						if(e.item != null && e.item[3] == "攻撃")
-							if(e.rank3 == "pvp")
-								a.attribute_pvp += 50 + e.plus*3;
-							else if(e.rank3 == "mon")
-								a.attribute_mon += 50 + e.plus*3;
-				}
 				a.attribute.min += add;
 				a.attribute.max += add; 
 			}

@@ -42,6 +42,7 @@ package Data.Database
 			speed: Etc.speed,
 			map:	Etc.map,
 			monster: Monster.data,
+			ereutel: Ereutel.data,
 			pet:	Pet.pet,
 			job:	Job.job,
 			job_status:	Job.status,
@@ -78,7 +79,8 @@ package Data.Database
 			skill:Key.key[6],
 			monster:Key.key[8],
 			lucky:Key.key[9],
-			speed:Key.key[10]
+			speed:Key.key[10],
+			ereutel:Key.key[11]
 			
 		};
 		/**

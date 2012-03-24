@@ -307,15 +307,36 @@ package Calc {
 		 */
 		protected function calcAttribute(min:Boolean):int{
 			var d:int = 0;
+			var aff:int = 0;
 			if(c.attribute==5)return d;
 			if(min)
 				d += a.attribute.min;
 			else
 				d += a.attribute.max;
-			// monster
-			d += a.attribute_mon;
+
+			// ereutel
+			for(var i:int=0;i<f.property.ereutels.length;i++){
+				var e:Object = f.property.ereutels[i];
+				if(e.name!="")
+					for(var j:int=0;j<e.rank;j++){
+						if(e.ranks[j].option == "attack")
+							d += e.ranks[j].value[e.pluses[j]];
+						if(e.ranks[j].option == "fire_attack" && mk.attribute == 0)
+							aff += e.ranks[j].value[e.pluses[j]];
+						if(e.ranks[j].option == "water_attack" && mk.attribute == 1)
+							aff += e.ranks[j].value[e.pluses[j]];
+						if(e.ranks[j].option == "earth_attack" && mk.attribute == 2)
+							aff += e.ranks[j].value[e.pluses[j]];
+						if(e.ranks[j].option == "wind_attack" && mk.attribute == 3)
+							aff += e.ranks[j].value[e.pluses[j]];
+						if(e.ranks[j].option == "dark_attack" && mk.attribute == 4)
+							aff += e.ranks[j].value[e.pluses[j]];
+						if(e.ranks[j].option == "monster_attack")
+							d += e.ranks[j].value[e.pluses[j]];
+					}
+			}
 			// affinity
-			d = Math.floor(d*(affinity[c.attribute][m[mk.attribute]] + a.attribute_affinity)/100);
+			d = Math.floor(d*(affinity[c.attribute][m[mk.attribute]] + aff)/100);
 			// guard
 			d -= m[mk.def];
 			d -= m[mk.attribute_def];
@@ -329,17 +350,18 @@ package Calc {
 		}
 		private function calcMonsterAttribute(min:Boolean):int{
 			var d:int = 0;
+			var aff:int = 0;
 			if(m[mk.attribute]==5)return d;
 			if(min)
 				d += m[mk.attribute_min];
 			else
 				d += m[mk.attribute_max];
 			// affinity
-			d = Math.floor(d*(affinity[m[mk.attribute]][c.attribute] + a.attribute_affinity)/100);
+			d = Math.floor(d*(affinity[m[mk.attribute]][c.attribute] + aff)/100);
 			return d;
 		}
 		protected function calcAttributeGuard(s:int):int{
-			s = s - c.attribute_mon_def;
+			s = s - c.attribute_def;
 			return s;
 		}
 		/**

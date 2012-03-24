@@ -45,7 +45,7 @@ package Form.MUDamage {
 			createItem();
 			createAttribute();
 			createPlus();
-			for(var i:int=0;i<4;i++){
+			for(var i:int=0;i<5;i++){
 				ln();
 				var ereutel:FormEreutel = new FormEreutel(i);
 				hbox.addChild(ereutel);

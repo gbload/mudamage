@@ -199,20 +199,6 @@ package Calc {
 				c.attribute_def += f.property.item[3] + 3*f.property.plus;
 				if(f.property.plus >= 10)
 					c.attribute_def += ((f.property.plus-9)+1)*(f.property.plus-9)/2;
-				// ereutel
-				for(var i:int=0;i<f.property.ereutels.length;i++){
-					var e:Object = f.property.ereutels[i];
-					if(e.name!="")
-						if(e.rank1 == "防御力")
-							c.attribute_def += 40+3*e.plus;
-						if(e.rank2 == "防御")
-							c.attribute_affinity += 10 + e.plus;
-						if(e.item != null && e.item[3] == "防御")
-							if(e.rank3 == "pvp")
-								c.attribute_pvp_def += 50 + e.plus*3;
-							else if(e.rank3 == "mon")
-								c.attribute_mon_def += 50 + e.plus*3;
-				}
 			}
 		}
 		/**

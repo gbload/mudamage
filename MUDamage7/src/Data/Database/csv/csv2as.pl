@@ -80,7 +80,7 @@ for($i=1;$i<@dat;$i++){
 				push(@a,&L($dats[$j]));
 			}
 		}
-	}elsif($dats[3] eq "盾"){
+	}elsif($dats[3] && $dats[3] eq "盾"){
 		# item,label,kind,type,hand,job,lv,speed,skill,spec,exspec,setspec,require,exrequire
 		for($j=0;$j<@dats;$j++){
 			if($j==5){ #job
@@ -256,8 +256,12 @@ for($i=1;$i<@dat;$i++){
 				push(@a,&L($dats[$j]));
 			}
 		}
+	}elsif($id eq "ereutel"){
+		for($j=0;$j<@dats;$j++){
+			push(@a,&L($dats[$j]));
+		}
 	}else{
-		print STDERR "Error!";
+		print STDERR "$id Error!";
 	}
 	push(@array,"[".join(",",@a)."]");
 }
