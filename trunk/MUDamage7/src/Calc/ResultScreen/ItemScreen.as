@@ -370,23 +370,14 @@ package Calc.ResultScreen {
 				// name
 				str += f.property.name;
 				// plus
-				if(f.property.plus > 0)
-					str += "+" + f.property.plus;
+				if(f.property.plus>0)
+					str += "+"+f.property.plus;
 				else
 					str += "N";
 				// spec
 				tooltip += "属性:" + f.property.attribute + "\n";
-				var min_ori:int = f.property.item[1] + 3*f.property.plus;
-				if(f.property.plus >= 10)
-					min_ori += ((f.property.plus-9)+1)*(f.property.plus-9)/2;
-				var max_ori:int = f.property.item[2] + 3*f.property.plus;
-				if(f.property.plus >= 10)
-					max_ori += ((f.property.plus-9)+1)*(f.property.plus-9)/2;
-				var def_ori:int = f.property.item[3] + 3*f.property.plus;
-				if(f.property.plus >= 10)
-					def_ori += ((f.property.plus-9)+1)*(f.property.plus-9)/2;
-				tooltip += "属性攻撃力:" + min_ori + "〜" + max_ori + "\n";
-				tooltip += "属性防御力:" + def_ori + "\n";
+				tooltip += "属性攻撃力:" + a.attribute.min + "〜" + a.attribute.max + "\n";
+				tooltip += "属性防御力:" + c.attribute_def + "\n";
 				tooltip += "要求レベル:" + f.property.item[4] + "\n";
 				// color
 				var colors:Array = ["#FF0000","#0000FF","#FFDD00","#00FF00","#FF00FF"];
@@ -404,33 +395,15 @@ package Calc.ResultScreen {
 					// name
 					str += e.name;
 					// spec
-					// plus
-					tooltip += "アイテムレベル:" + e.plus + "\n";
 					// rank
 					tooltip += "ランク:" + e.rank + "\n";
-					// rank1
-					var rank1:int = 0;
-					if(e.item[1]=="防御力")
-						rank1 = 40+3*e.plus;
-					else if(e.item[1]=="攻撃力")
-						rank1 = 30+3*e.plus;
-					tooltip += "属性"+e.item[1]+":" + rank1 + "\n";
-					// rank2
-					var rank2:int = 10+e.plus;
-					tooltip += "属性相性増加("+e.item[2]+"):" + rank2 + "%\n";
-					// rank3
-					var rank3:int = 50+3*e.plus;
-					var rank3_str:String = "属性"
-					if(e.rank3=="pvp")
-						rank3_str = "PVP時属性";
-					else if(e.rank3=="mon")
-						rank3_str = "対モンスター時属性";
-					if(e.item[3]=="攻撃")
-						rank3_str += "攻撃力増加:";
-					else if(e.item[3]=="防御")
-						rank3_str += "防御力増加:";
-					tooltip += rank3_str + rank3 + "\n";
-					
+					// ereutel
+					for(var j:int=0;j<e.rank;j++){
+						tooltip += e.ranks[j].label + ":";
+						tooltip += e.ranks[j].value[e.pluses[j]];
+						tooltip += "(アイテムレベル" + e.pluses[j] + ")";
+						tooltip += "\n";
+					}
 					text(str,color,tooltip);
 				}
 			}

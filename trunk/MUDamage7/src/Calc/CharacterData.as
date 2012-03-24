@@ -45,9 +45,6 @@ package Calc {
 		//キャラクター属性
 		public var attribute:int=5;//属性　火、水、地、風、暗黒、無属性
 		public var attribute_def:int=0;//属性防御力
-		public var attribute_pvp_def:int=0;//属性対人防御力
-		public var attribute_mon_def:int=0;//属性対モンス防御力
-		public var attribute_affinity:int=0;//属性防御相性
 		//キャラクター確率
 		public var normal:int=0;//通常率
 		public var cri:int=0;//クリ率

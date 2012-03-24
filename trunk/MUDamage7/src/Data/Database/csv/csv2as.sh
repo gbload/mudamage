@@ -10,3 +10,4 @@ perl -w csv2as.pl accessory.csv Accessory > ../Accessory.as
 perl -w csv2as.pl skill.csv Skill > ../Skill.as
 perl -w csv2as.pl monster.csv Monster > ../Monster.as
 perl -w csv2as.pl lucky_equip.csv Lucky > ../Lucky.as
+perl -w csv2as.pl ereutel.csv Ereutel > ../Ereutel.as
