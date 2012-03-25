@@ -21,7 +21,6 @@ package Calc.ResultScreen {
 				["minmax","最小〜最大",100],
 				["cri","クリティカル",60],
 				["exd","EXD",60],
-				["attr_minmax","属性ダメ",80],
 				["hit","命中率",70]
 		];
 		/**
