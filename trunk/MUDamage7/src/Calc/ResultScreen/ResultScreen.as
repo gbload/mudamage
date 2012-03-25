@@ -55,21 +55,22 @@ package Calc.ResultScreen {
 			hbox.addChild(new ItemScreen(muc));
 			// モンスター取得
 			var monsters:Array = getMonsters();
-			var dc:DamageCalculator = new DamageCalculator(muc);
+			var sc:SkillCalculator = new SkillCalculator(muc);
 			for(var i:int=0;i<monsters.length;i++){
 				if(i!=0 && monsters[i][mk.map]!=muc.f.calc.map)
 					continue;
 				// モンスター情報表示
 				this.addChild(createLabel(monsters[i]));
 				// ダメージ一覧Gridを表示
-				dc.setMonster(monsters[i]);
-				var dg:DamageGrid = new DamageGrid(dc.calcSkills());
+				sc.setMonster(monsters[i]);
+				var dg:DamageGrid = new DamageGrid(sc.calcSkills());
 				this.addChild(dg);
 				// 被ダメージの行だけ色を変える
 				var colors:Array = dg.getStyle("alternatingItemColors");
 				for(var j:int=0;j<dg.rowCount;j++)
 					colors[j] = colors[j%2];
-				colors[dg.rowCount - 1] = 0xFFDDDD;
+				for(var k:int=0;k<sc.suffer_count;k++)
+					colors[dg.rowCount - sc.suffer_count + k] = ((k%2==0) ? 0xFFDDDD : 0xFFEEEE);
 				dg.setStyle("alternatingItemColors", colors);
 			}
 		}

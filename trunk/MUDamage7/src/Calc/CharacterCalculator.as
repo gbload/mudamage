@@ -196,9 +196,7 @@ package Calc {
 			if(f.property.name!=""){
 				// pentagram
 				c.attribute = f.property.attribute_num;
-				c.attribute_def += f.property.item[3] + 3*f.property.plus;
-				if(f.property.plus >= 10)
-					c.attribute_def += ((f.property.plus-9)+1)*(f.property.plus-9)/2;
+				c.attribute_def += f.property.def;
 			}
 		}
 		/**

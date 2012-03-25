@@ -14,7 +14,7 @@ package PVP {
 	/**
 	 * 対人ダメージ計算
 	 */
-	public class PVPDamageCalculator extends DamageCalculator{
+	public class PVPDamageCalculator extends SkillCalculator{
 		private var muc2:Object
 		/**
 		 * コンストラクタ

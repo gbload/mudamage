@@ -376,8 +376,8 @@ package Calc.ResultScreen {
 					str += "N";
 				// spec
 				tooltip += "属性:" + f.property.attribute + "\n";
-				tooltip += "属性攻撃力:" + a.attribute.min + "〜" + a.attribute.max + "\n";
-				tooltip += "属性防御力:" + c.attribute_def + "\n";
+				tooltip += "属性攻撃力:" + f.property.min + "〜" + f.property.max + "\n";
+				tooltip += "属性防御力:" + f.property.def + "\n";
 				tooltip += "要求レベル:" + f.property.item[4] + "\n";
 				// color
 				var colors:Array = ["#FF0000","#0000FF","#FFDD00","#00FF00","#FF00FF"];

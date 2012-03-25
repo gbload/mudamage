@@ -809,12 +809,8 @@ package Calc {
 			if(f.property.name!=""){
 				var add:int = 0;
 				// pentagram
-				a.attribute.min = f.property.item[1];
-				a.attribute.max = f.property.item[2]; 
-				add += 3*f.property.plus;
-				if(f.property.plus >= 10){
-					add += ((f.property.plus-9)+1)*(f.property.plus-9)/2;
-				}
+				a.attribute.min = f.property.min;
+				a.attribute.max = f.property.max;
 				// job
 				calcAttributeJob();
 				a.attribute.min += add;
