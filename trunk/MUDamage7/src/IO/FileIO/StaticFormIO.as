@@ -158,7 +158,7 @@ package IO.FileIO {
 		public static function setData(a2:Array,d:FormMUDamage):Boolean{
 			var a:Array;
 			// version check
-			if(parseInt(a2[19]) >= 2.20){// latest version
+			if(parseFloat(a2[19]) >= 2.20){// latest version
 				a = a2;
 			}else{
 				a = importData(a2.toString().split(/,/g),d);
@@ -305,7 +305,11 @@ package IO.FileIO {
 
 			//2011/12/14
 			//プロパティシステム
-			d.form_pentagram.setSaveData(a[27]);
+			if(parseFloat(a2[19]) < 3.18){// latest version
+				d.form_pentagram.setSaveData(a[27]);
+			}else{
+				d.form_pentagram.setSaveData318(a[27]);
+			}
 			//Alert.show(a.toString());
 
 			//2012/01/23
@@ -439,7 +443,10 @@ package IO.FileIO {
 			//2011/12/14
 			//プロパティシステム
 			a[27] = new Array();
-			count = d.form_pentagram.getSaveCount();
+			if(parseFloat(a[19]) < 3.18)
+				count = d.form_pentagram.getSaveCount();
+			else
+				count = d.form_pentagram.getSaveCount318();
 			for(i=0;i<count;i++)
 				a[27][i] = a2[index++];
 			//2012/01/23

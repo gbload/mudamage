@@ -130,7 +130,24 @@ package Form.MUDamage {
 					d += ((plus-9)+1)*(plus-9)/2;
 			}
 			return d;
-			
+		}
+		/**
+		 * エーテルのオプション数値を取得する関数を取得
+		 */
+		private function getEreutelValue(ereutels:Array):Function{
+			return function(name:String,bool:Boolean=true):int{
+				var val:int = 0;
+				// ereutel
+				for(var i:int=0;i<ereutels.length;i++){
+					var e:Object = ereutels[i];
+					if(e.name!="")
+						for(var j:int=0;j<e.rank;j++){
+							if(e.ranks[j].option == name && bool)
+								val += e.ranks[j].value[e.pluses[j]];
+						}
+				}
+				return val;
+			};
 		}
 		/**
 		 * 計算用
@@ -148,7 +165,8 @@ package Form.MUDamage {
 				ereutels: a,
 				min: calcValue(item.selectedItem[1],plus.selectedIndex),
 				max: calcValue(item.selectedItem[2],plus.selectedIndex),
-				def: calcValue(item.selectedItem[3],plus.selectedIndex)
+				def: calcValue(item.selectedItem[3],plus.selectedIndex),
+				getEreutelValue : getEreutelValue(a)
 			};
 			return obj;
 		}
@@ -164,8 +182,17 @@ package Form.MUDamage {
 				a = a.concat(ereutels[i].getSaveData());
 			return a;
 		}
+		/**
+		 * save count
+		 */
 		public function getSaveCount():int{
 			return 27;
+		}
+		/**
+		 * save count 3.18
+		 */
+		public function getSaveCount318():int{
+			return 63;
 		}
 		/**
 		 * import
@@ -181,6 +208,23 @@ package Form.MUDamage {
 				for(var i:int=0;i<ereutels.length;i++){
 					ereutels[i].setSaveData(a,index);
 					index += 6;
+				}
+			}
+		}
+		/**
+		 * import ver3.18
+		 */
+		public function setSaveData318(a:Array):void{
+			if(a==null)return;
+			var index:int = 0;
+			item.selectedIndex = a[index++];
+			if(item.selectedIndex>0){
+				eventChangeItem(null);
+				attribute.selectedIndex = a[index++];
+				plus.selectedIndex = a[index++];
+				for(var i:int=0;i<ereutels.length;i++){
+					ereutels[i].setSaveData318(a,index);
+					index += 12;
 				}
 			}
 		}

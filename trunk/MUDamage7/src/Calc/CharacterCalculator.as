@@ -40,6 +40,7 @@ package Calc {
 			calcAG();
 			calcSpeed();
 			calcNormal();
+			calcAttributeNormal();
 			calcSpecial();
 		}
 		public function getData():CharacterData{
@@ -80,12 +81,16 @@ package Calc {
 		 * ステータスの計算
 		 */
 		private function calcStatus():void{
-			c.add_str = i.setop_str + i.etc_str + f.master_skill.getSkillValue("strength");
-			c.add_agi = i.setop_agi + i.etc_agi + f.master_skill.getSkillValue("agility");
+			c.add_str = i.setop_str + i.etc_str + f.master_skill.getSkillValue("strength")
+					+ f.property.getEreutelValue("str");
+			c.add_agi = i.setop_agi + i.etc_agi + f.master_skill.getSkillValue("agility")
+					+ f.property.getEreutelValue("agi");
 			c.add_vit = i.setop_vit + i.etc_vit 
 							+ i.getSocketProtects("体力増加") + c.support_vit
-							+ f.master_skill.getSkillValue("vitality");
-			c.add_ene = i.setop_ene + i.etc_ene + f.master_skill.getSkillValue("energy");
+							+ f.master_skill.getSkillValue("vitality")
+							+ f.property.getEreutelValue("vit");
+			c.add_ene = i.setop_ene + i.etc_ene + f.master_skill.getSkillValue("energy")
+					+ f.property.getEreutelValue("ene");
 			c.add_rec = i.setop_rec + i.etc_rec + i.wing_rec + f.master_skill.getSkillValue("rec");
 			if(f.support.bless_check.selected){
 				var tmp:int = SupportSkillCalculator.calcBless(f.support);
@@ -342,6 +347,8 @@ package Calc {
 			if(f.support.iron_check.selected)
 				c.life += Math.floor(SupportSkillCalculator.calcIronDefense_Life(
 					f.master_skill.getSkillValue("iron_defense")));
+			// attribute
+			c.life += f.property.getEreutelValue("hp");
 		}
 		/**
 		 * マナの計算
@@ -388,6 +395,8 @@ package Calc {
 			c.mana += i.etc_mana;//かぼちゃ、課金などでのマナ増加
 			if(f.pet.item=="フェンリル" && f.pet.sub1=="黄金")
 				c.mana += c.lv/2;//黄金のフェンリルのマナ増加
+			// attribute
+			c.mana += f.property.getEreutelValue("mana");
 		}
 		/**
 		 * SDの計算
@@ -402,6 +411,8 @@ package Calc {
 			
 			if(f.boots.op380)
 				c.sd += 700;//380OP
+			
+			c.sd += f.property.getEreutelValue("sd");// attribute
 		}
 		/**
 		 * AGの計算
@@ -418,6 +429,7 @@ package Calc {
 			if(f.pet.item=="ディノラント")
 				if(f.pet.sub1=="AG+50"||f.pet.sub2=="AG+50")
 					c.ag += 50;
+			c.ag += f.property.getEreutelValue("ag");// attribute
 			// AGH
 			var tmp:Number = f.master_skill.getSkillValue("ag_recovery");//master skill
 			if(f.job=="ナイト")tmp += 5.00;
@@ -474,7 +486,7 @@ package Calc {
 				c.speed += f.master_skill.getSkillValue("bow_mastery");
 			if(i.getItemData(f.right,"type")=="書"
 				|| i.getItemData(f.left,"type")=="書")
-				c.magic_speed += f.master_skill.getSkillValue("book_mastery");	
+				c.magic_speed += f.master_skill.getSkillValue("book_mastery");
 		}
 		/**
 		 * 確率の計算
@@ -535,6 +547,22 @@ package Calc {
 			c.normal = nor * 100 + norf;
 			c.cri = cri * 100 + crif;
 			c.exd = exd;
+		}
+		/**
+		 * 属性確率の計算
+		 */
+		private function calcAttributeNormal():void{
+			// ereutel
+			c.attribute_cri += f.property.getEreutelValue("monster_citical");
+			c.attribute_pvp_cri += f.property.getEreutelValue("pvp_citical");
+			c.attribute_exd += f.property.getEreutelValue("monster_exd");
+			c.attribute_pvp_exd += f.property.getEreutelValue("pvp_exd");
+			// クリティカル確率調整
+			c.attribute_cri = ((100.0 - c.attribute_exd) * c.attribute_cri)/100.0;
+			c.attribute_pvp_cri = ((100.0 - c.attribute_pvp_exd) * c.attribute_pvp_cri)/100.0;
+			// 通常ダメージ確率
+			c.attribute_normal = 100.0 - c.attribute_exd - c.attribute_cri;
+			c.attribute_pvp_normal = 100.0 - c.attribute_pvp_exd - c.attribute_pvp_cri;
 		}
 		/**
 		 * 特殊ダメージ確率の計算(WD,防御無視)

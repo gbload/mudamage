@@ -156,7 +156,9 @@ package Calc {
 			/*
 			 * 攻撃力
 			 */
-			if((i.getItemData(f.right,"item") as String)=="武器"){
+			if((i.getItemData(f.right,"item") as String)=="武器"
+					|| ((i.getItemData(f.right,"item") as String)!="武器"
+						&& (i.getItemData(f.left,"item") as String)!="武器")){
 			    a.right.min = calcAttack("right",true);//右手
 			    a.right.max = calcAttack("right",false);//右手
 			}
