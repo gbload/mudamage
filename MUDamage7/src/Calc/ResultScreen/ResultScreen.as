@@ -29,7 +29,6 @@ package Calc.ResultScreen {
 			this.setStyle("backgroundColor","#FFFFFF");//背景色を白色に
 			
 			muc = {};
-			
 			muc.d = d;
 			muc.f = (new FormData(muc.d)).getData();
 			muc.i = new ItemData(muc.f);

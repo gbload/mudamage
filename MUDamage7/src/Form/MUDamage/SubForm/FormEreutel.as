@@ -225,14 +225,20 @@ package Form.MUDamage.SubForm {
 			var a:Array = new Array();
 			a.push(item.selectedIndex);
 			if(item.selectedLabel==""){
-				for(var i:int=0;i<5;i++)
+				for(var i:int=0;i<11;i++)
 					a.push("");
 			}else{
 				a.push(rank.selectedIndex);
-				a.push(plus1.selectedIndex);
 				a.push(rank1.selectedIndex);
+				a.push(plus1.selectedIndex);
 				a.push(rank2.selectedIndex);
+				a.push(plus2.selectedIndex);
 				a.push(rank3.selectedIndex);
+				a.push(plus3.selectedIndex);
+				a.push(rank4.selectedIndex);
+				a.push(plus4.selectedIndex);
+				a.push(rank5.selectedIndex);
+				a.push(plus5.selectedIndex);
 			}
 			return a;
 		}
@@ -243,11 +249,35 @@ package Form.MUDamage.SubForm {
 			item.selectedIndex = a[index++];
 			if(item.selectedIndex > 0){
 				rank.selectedIndex = a[index++];
-				plus1.selectedIndex = a[index++];
+				plus1.selectedIndex = a[index];
+				plus2.selectedIndex = a[index];
+				plus3.selectedIndex = a[index];
+				plus4.selectedIndex = a[index];
+				plus5.selectedIndex = a[index++];
 				eventChange(null);
 				rank1.selectedIndex = a[index++];
 				rank2.selectedIndex = a[index++];
 				rank3.selectedIndex = a[index++];
+			}
+		}
+		/**
+		 * import 318
+		 */
+		public function setSaveData318(a:Array,index:int):void{
+			item.selectedIndex = a[index++];
+			if(item.selectedIndex > 0){
+				rank.selectedIndex = a[index++];
+				eventChange(null);
+				rank1.selectedIndex = a[index++];
+				plus1.selectedIndex = a[index++];
+				rank2.selectedIndex = a[index++];
+				plus2.selectedIndex = a[index++];
+				rank3.selectedIndex = a[index++];
+				plus3.selectedIndex = a[index++];
+				rank4.selectedIndex = a[index++];
+				plus4.selectedIndex = a[index++];
+				rank5.selectedIndex = a[index++];
+				plus5.selectedIndex = a[index++];
 			}
 		}
 	}

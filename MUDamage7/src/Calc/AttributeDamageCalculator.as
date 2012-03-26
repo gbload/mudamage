@@ -51,18 +51,10 @@ package Calc {
 				d += a.attribute.max;
 
 			// ereutel
-			for(var i:int=0;i<f.property.ereutels.length;i++){
-				var e:Object = f.property.ereutels[i];
-				if(e.name!="")
-					for(var j:int=0;j<e.rank;j++){
-						if(e.ranks[j].option == "attack")
-							d += e.ranks[j].value[e.pluses[j]];
-						if(e.ranks[j].option == "monster_attack")
-							d += e.ranks[j].value[e.pluses[j]];
-						if(e.ranks[j].option == "monster_increase")
-							inc += e.ranks[j].value[e.pluses[j]];
-					}
-			}
+			d += f.property.getEreutelValue("attack");
+			d += f.property.getEreutelValue("monster_attack");
+			inc += f.property.getEreutelValue("monster_increase");
+			
 			// affinity
 			d = Math.floor(d*calcAffinity()/100);
 			// EXD
@@ -100,20 +92,11 @@ package Calc {
 				d += m[mk.attribute_max];
 
 			// ereutel
-			for(var i:int=0;i<f.property.ereutels.length;i++){
-				var e:Object = f.property.ereutels[i];
-				if(e.name!="")
-					for(var j:int=0;j<e.rank;j++){
-						if(e.ranks[j].option == "defense")
-							d -= e.ranks[j].value[e.pluses[j]];
-						if(e.ranks[j].option == "monster_defense")
-							d -= e.ranks[j].value[e.pluses[j]];
-						if(e.ranks[j].option == "monster_decrease")
-							dec += e.ranks[j].value[e.pluses[j]];
-						if(e.ranks[j].option == "monster_drain")
-							drain += e.ranks[j].value[e.pluses[j]];
-					}
-			}
+			d -= f.property.getEreutelValue("defense");
+			d -= f.property.getEreutelValue("monster_defense");
+			dec += f.property.getEreutelValue("monster_decrease");
+			drain += f.property.getEreutelValue("monster_drain");
+
 			// affinity
 			d = Math.floor(d*calcDefenseAffinity()/100);
 			// guard
@@ -134,24 +117,12 @@ package Calc {
 		 * 属性攻撃相性
 		 */
 		private function calcAffinity():int{
-			var aff:int = 0;			
-			// ereutel
-			for(var i:int=0;i<f.property.ereutels.length;i++){
-				var e:Object = f.property.ereutels[i];
-				if(e.name!="")
-					for(var j:int=0;j<e.rank;j++){
-						if(e.ranks[j].option == "fire_attack" && m[mk.attribute] == 0)
-							aff += e.ranks[j].value[e.pluses[j]];
-						if(e.ranks[j].option == "water_attack" && m[mk.attribute] == 1)
-							aff += e.ranks[j].value[e.pluses[j]];
-						if(e.ranks[j].option == "earth_attack" && m[mk.attribute] == 2)
-							aff += e.ranks[j].value[e.pluses[j]];
-						if(e.ranks[j].option == "wind_attack" && m[mk.attribute] == 3)
-							aff += e.ranks[j].value[e.pluses[j]];
-						if(e.ranks[j].option == "dark_attack" && m[mk.attribute] == 4)
-							aff += e.ranks[j].value[e.pluses[j]];
-					}
-			}
+			var aff:int = 0;
+			aff += f.property.getEreutelValue("fire_attack",(m[mk.attribute] == 0));
+			aff += f.property.getEreutelValue("water_attack",(m[mk.attribute] == 1));
+			aff += f.property.getEreutelValue("earth_attack",(m[mk.attribute] == 2));
+			aff += f.property.getEreutelValue("wind_attack",(m[mk.attribute] == 3));
+			aff += f.property.getEreutelValue("dark_attack",(m[mk.attribute] == 4));
 			return affinity[c.attribute][m[mk.attribute]] + aff;
 		}
 		/**
@@ -159,23 +130,11 @@ package Calc {
 		 */
 		private function calcDefenseAffinity():int{
 			var aff:int = 0;			
-			// ereutel
-			for(var i:int=0;i<f.property.ereutels.length;i++){
-				var e:Object = f.property.ereutels[i];
-				if(e.name!="")
-					for(var j:int=0;j<e.rank;j++){
-						if(e.ranks[j].option == "fire_defense" && m[mk.attribute] == 0)
-							aff += e.ranks[j].value[e.pluses[j]];
-						if(e.ranks[j].option == "water_defense" && m[mk.attribute] == 1)
-							aff += e.ranks[j].value[e.pluses[j]];
-						if(e.ranks[j].option == "earth_defense" && m[mk.attribute] == 2)
-							aff += e.ranks[j].value[e.pluses[j]];
-						if(e.ranks[j].option == "wind_defense" && m[mk.attribute] == 3)
-							aff += e.ranks[j].value[e.pluses[j]];
-						if(e.ranks[j].option == "dark_defense" && m[mk.attribute] == 4)
-							aff += e.ranks[j].value[e.pluses[j]];
-					}
-			}
+			aff += f.property.getEreutelValue("fire_defense",(m[mk.attribute] == 0));
+			aff += f.property.getEreutelValue("water_defense",(m[mk.attribute] == 1));
+			aff += f.property.getEreutelValue("earth_defense",(m[mk.attribute] == 2));
+			aff += f.property.getEreutelValue("wind_defense",(m[mk.attribute] == 3));
+			aff += f.property.getEreutelValue("dark_defense",(m[mk.attribute] == 4));
 			return affinity[m[mk.attribute]][c.attribute] - aff;
 		}
 		/**
@@ -193,8 +152,8 @@ package Calc {
 			// 属性ダメージ
 			data.min = calcAttribute(false,false,true);
 			data.max = calcAttribute(false,false,false);
-			data.cri = calcAttribute(false,false,false);
-			data.exd = calcAttribute(false,false,false);
+			data.cri = calcAttribute(true,false,false);
+			data.exd = calcAttribute(false,true,false);
 			
 			//1HIT当たりのダメージを計算
 			data.average = calcAverage(data,a,c);//1hit当たりのダメージ
@@ -228,11 +187,14 @@ package Calc {
 		 */
 		private function calcAverage(data:ResultData,a:AttackData,c:CharacterData):int{
 			var hit1:int=0;//1hit当たりのダメージ
-			//通常
-			hit1 += ((data.min + data.max)/2);
+			
+			hit1 += data.exd * c.attribute_exd/100.0;
+			hit1 += data.cri * c.attribute_cri/100.0;
+			hit1 += ((data.min + data.max)/2) * c.attribute_normal/100.0;
 			
 			hit1 *= data.hit_num;
-			return hit1;
+			
+			return Math.floor(hit1);
 		}
 		/**
 		 * 属性のダメージ計算

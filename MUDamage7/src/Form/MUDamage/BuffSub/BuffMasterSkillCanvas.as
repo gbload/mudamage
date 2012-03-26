@@ -28,7 +28,9 @@ package Form.MUDamage.BuffSub {
 			// tooltip
 			setTooltip(img,master);
 			// input
-			var max:int = 20;
+			var max:int = 10;
+			if(master[MasterSkill.VALUE_TYPE]!=-1)
+				max = MasterSkillValue.value[master[MasterSkill.VALUE_TYPE]].length;
 			ti = new BuffTextInput(0,max);
 			ti.text = "0";
 			ti.width = 25;
@@ -57,6 +59,7 @@ package Form.MUDamage.BuffSub {
 		 */
 		public function setValue(text:String):void{
 			ti.text = text;
+			ti.dispatchEvent(new FocusEvent(FocusEvent.FOCUS_OUT));
 		}
 		/**
 		 * set event

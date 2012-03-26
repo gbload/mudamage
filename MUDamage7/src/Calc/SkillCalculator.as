@@ -30,7 +30,7 @@ package Calc {
 			var r:Array = new Array();
 			//命中率計算
 			var hit:Number = calcHit(c.hit);
-			
+
 			//ダメージ計算
 			for(var n:String in a.skills){
 				if(a.skills[n].skill[a.key.special]=="フレイムハンド"){
@@ -40,16 +40,23 @@ package Calc {
 				}
 			}
 			//属性ダメージ計算
-			if(m[mk.attribute_min]==0 || m[mk.attribute]!=5)
-				r.push(calcAttributeSkill(hit));
-			else{
-				for(var j:int=0;j<5;j++){
-					m[mk.attribute] = j;
+			if(c.attribute!=5)
+				if(m[mk.name]=="防御無視")
+					for(var g:int=0;g<=5;g++){
+						m[mk.attribute] = g;
+						r.push(calcAttributeSkill(hit));
+					}
+				else if(m[mk.attribute_min]==0 || m[mk.attribute]!=5)
 					r.push(calcAttributeSkill(hit));
+				else{
+					for(var j:int=0;j<5;j++){
+						m[mk.attribute] = j;
+						r.push(calcAttributeSkill(hit));
+					}
+					// 属性リセット
+					m[mk.attribute] = 5;
 				}
-				// 属性リセット
-				m[mk.attribute] = 5;
-			}
+			
 			// 被ダメージをスタック
 			suffer_count = 0; //被ダメージ行の数
 			if(m!=null){
@@ -69,6 +76,7 @@ package Calc {
 							r.push(calcAttributeSuffer());
 							suffer_count++;
 						}
+
 			return r;
 		}
 		/**
