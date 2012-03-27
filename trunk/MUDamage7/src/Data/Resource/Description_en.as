@@ -18,14 +18,43 @@ Bugs
 - Enhancing menus.
 - Rage Fighter's skill speed isn't correct.
 - Unimplemented a calculation reducing skill damage by 20% in case of elf's bow calculation.
-- Unknown the calculation of Property system.
 - Unknown new skills.
+
+- Unknown the calculation of Property system.
 
 - No check PVP calculation in MUDamage after eX700.
 - PVP hit and avoidance probability is not validate.(Now: self=(pvphit * lv),you=(pvpavoid * lv),p=(self/(self+you))^2）
 		                        				]]> ).toString();
 		public static var release:String = ( <![CDATA[
 Release notes
+
+2012/03/26 ver3.18
+- Apply critical probability and excellent damage probability of attribute system.
+- Apply status increase options of attribute system.
+- Enable to save the adding attribute form.
+- Modify the bug that attack power became 0 when weapon wasn't selected.
+- Modify the bug that cannot calculate when attribute item wasn't selected.
+- Add limit of 10 points master skill.
+- Modify the bug that masuter skill tree form became empty in opening file.
+
+2012/03/25 ver3.17
+- Add new ereutel.
+- Add rank 4 and 5 in attribute system.
+- Modify ereutel option value.
+- Show attribute damage at other row in result screen.
+- Show the attribute suffer damage in result screen.
+- Add monster wing.
+- Add map "Akeron".
+
+2012/03/21 ver3.16
+- Modify the bug that master skill's buff skill was calculated as integer.(I checked only "Swell Life".)
+- Modify "Innovation" and "Weakness" calculation. 
+- Attribute damage show at other column in result screen.(Attribute damage isn't added to average damage.)
+- Add "Total Damage" and "Skill Hit count" in result screen.
+
+2012/03/21 ver3.15
+- Modify the calculation of master skill "Defense Success Rate increase".
+- Modify the bug that master skill value wasn't float.
 
 2012/03/01 ver3.14
 - Modify the bug that the defense bonus of unification of armors wasn't applied when ancient item was selected.
