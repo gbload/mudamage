@@ -22,11 +22,13 @@ sourcecode:
 
 ・属性システムの計算式不明
 
-・eX700適用後辺りの更新から対人計算を未更新。
 ・対人計算における命中率計算。（現在self=(pvphit * lv),you=(pvpavoid * lv),p=(self/(self+you))^2）
 		                        				]]> ).toString();
 		public static var release:String = ( <![CDATA[
 リリース
+
+2012/03/28 ver3.19
+・対人計算を修正。
 
 2012/03/26 ver3.18
 ・属性システムのクリティカル確率、EXD確率を適用。

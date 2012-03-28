@@ -108,8 +108,11 @@ package Calc {
 		    d += i.setop_damage;
 		    //コンボスキル
 		    if(skill.skill[a.key.special] == "コンボ"){
-		    	d += Math.floor((c.str + c.agi + c.ene)/2);
+		    	d += Math.floor((c.str + c.agi + c.ene)/2 * (100 + f.master_skill.getSkillValue("combo")) / 100);
 		    }
+		    //[PVP]
+		    d += calcPVPAttack();
+		    
 		    if(f.pet.item=="フェンリル" && f.pet.sub1=="破壊")d += Math.floor(d*10/100);//フェンリル
 		    /*
 		     * 最終ダメージ後計算
@@ -129,27 +132,33 @@ package Calc {
 				min:Boolean=false):int{
 		    //ダメージ計算===========================
 			d = calcGuard1(d);
-		    d = Math.max(d,Math.floor(f.status.lv/10));//max[攻撃力-モンス,lv/10]
-		    
-		    if(f.pet.item=="ディノラント")d += Math.floor(d*15/100);//ディノラント
-		    if(f.pet.item=="サタン")d += Math.floor(d*30/100);//サタン
-
-		    d += Math.floor(d*i.getSpec(f.wing,"inc")/100);//羽
-		    if(f.pet.item=="フェンリル" && f.pet.sub1=="破壊")d += Math.floor(d*10/100);//フェンリル
-		    
-		    //[課金アイテム]クリダメ増加%
-		    if(cri)d += Math.floor(d * i.etc_cri / 100);
-		    //[課金アイテム]EXDダメ増加%
-		    if(exd)d += Math.floor(d * i.etc_exd / 100);
-
-		    //[固定ダメージ]
-		    d = calcGuard2(d);
-		    
-		    //[セットOP]ダメージ増加
-		    d += i.setop_damage;
-
-		    return d;
+			d = Math.max(d,Math.floor(f.status.lv/10));//max[攻撃力-モンス,lv/10]
 			
+			if(f.pet.item=="ディノラント")d += Math.floor(d*15/100);//ディノラント
+			if(f.pet.item=="サタン")d += Math.floor(d*30/100);//サタン
+			
+			d += Math.floor(d*i.getSpec(f.wing,"inc")/100);//羽
+			
+			//[課金アイテム]クリダメ増加%
+			if(cri)d += Math.floor(d * i.etc_cri / 100);
+			//[課金アイテム]EXDダメ増加%
+			if(exd)d += Math.floor(d * i.etc_exd / 100);
+			
+			//[固定ダメージ]
+			d = calcGuard2(d);
+			
+			//[セットOP]ダメージ増加
+			d += i.setop_damage;
+		    //[PVP]
+		    d += calcPVPMagic();
+		    
+			if(f.pet.item=="フェンリル" && f.pet.sub1=="破壊")d += Math.floor(d*10/100);//フェンリル
+		    /*
+		     * 最終ダメージ後計算
+		     */
+		    d = calcGuard3(d);
+			
+			return d;			
 		}
 		public function calcDarkSpiritDamage(
 				skill:Object,
@@ -166,6 +175,7 @@ package Calc {
 		 */
 		protected function calcGuard1(s:int):int{
 			var def:int = m[mk.def];
+			var def_tmp:int = def;
 			/*
 			 * 固定
 			 */
@@ -174,10 +184,10 @@ package Calc {
 		    /*
 		     * 割合
 		     */
-			def -= Math.floor(def * c.support_inner/100);// インナーベーション
-			def -= Math.floor(def * c.support_ba/100);// 血戦
+			def -= Math.floor(def_tmp * c.support_inner/100);// インナーベーション
+			def -= Math.floor(def_tmp * c.support_ba/100);// 血戦
 			if(f.support.aminus_check.selected)// クリングブロー
-				def -= Math.floor(def * SupportSkillCalculator.calcClingBlow(f.support)/100);
+				def -= Math.floor(def_tmp * SupportSkillCalculator.calcClingBlow(f.support)/100);
 		    if(def < 0)def = 0;
 			//引き算
 			s = s - def;//(モンス攻撃 - DEF)
@@ -190,8 +200,23 @@ package Calc {
 		 * 最低ダメ判定前の防御計算を行ないます。
 		 */
 		protected function calcGuard1Darkspirit(s:int):int{
+			var def:int = m[mk.def];
+			var def_tmp:int = def;
+			/*
+			 * 固定
+			 */
+		    if(f.support.iv_check.selected)// インナーベーション
+		    	def -= SupportSkillCalculator.calcInnovation_Fixed(f.support);
+		    /*
+		     * 割合
+		     */
+			def -= Math.floor(def_tmp * c.support_inner/100);// インナーベーション
+			def -= Math.floor(def_tmp * c.support_ba/100);// 血戦
+			if(f.support.aminus_check.selected)// クリングブロー
+				def -= Math.floor(def_tmp * SupportSkillCalculator.calcClingBlow(f.support)/100);
+		    if(def < 0)def = 0;
 			//引き算
-			s = s - m[mk.def];//(モンス攻撃 - DEF)
+			s = s - def;//(モンス攻撃 - DEF)
 			//カスリダメージ
 			if(c.darkspirit_hit < m[mk.avoid])
 				s = Math.floor(s*0.3);
@@ -210,6 +235,18 @@ package Calc {
 			return s;
 		}
 		/**
+		 * 対人攻撃力
+		 */
+		protected function calcPVPAttack():int{
+			return 0;
+		}
+		/**
+		 * 対人魔力
+		 */
+		protected function calcPVPMagic():int{
+			return 0;
+		}
+		/**
 		 * 被ダメージを計算します。
 		 */
 		public function calcSuffer(s:int):int{
@@ -217,6 +254,7 @@ package Calc {
 			s = calcAvoidance(s);
 		    s = Math.max(s,Math.floor(m[mk.lv]/10));// 固定ダメ計算
 			s = calcGuardCommon2(s,{f:f,i:i,c:c});
+			s = calcGuardCommon3(s,{f:f,i:i,c:c});
 			return s;
 		}
 		/**
@@ -237,7 +275,6 @@ package Calc {
 			var c:CharacterData = muc.c;
 			
 			s = s - c.def/2;//(モンス攻撃 - DEF)
-			s = s - c.attribute_def;
 			
 			/*
 			 * 固定
@@ -280,8 +317,6 @@ package Calc {
 					s = (s * 85 / 100);//15%吸収
 				else s = (s * 90 / 100);//10%吸収
 			}
-			//フェンリルの吸収
-			if(f.pet.item == "フェンリル" && f.pet.sub1 == "守護")s = (s * 90/100);//10%吸収
 			//ダークホースの吸収
 			if(f.pet.item == "ダークホース")s = (s * (100 - Math.floor(15 + (f.pet.sub1_index+1)/2)) /100);// 15+Lv/2
 			//羽の吸収
@@ -290,6 +325,18 @@ package Calc {
 			s = s - Math.floor(s * c.support_sb/100);
 			
 			return s;
+		}
+		/**
+		 * 共通:最終ダメージ後計算
+		 */
+		protected function calcGuardCommon3(s:int,muc:Object):int{
+			var f:Object = muc.f;
+			var i:ItemData = muc.i;
+			var c:CharacterData = muc.c;
+			//フェンリルの吸収
+			if(f.pet.item == "フェンリル" && f.pet.sub1 == "守護")s = (s * 90/100);//10%吸収
+			return s;
+			
 		}
 		
 	}
