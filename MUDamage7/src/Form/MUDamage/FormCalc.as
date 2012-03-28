@@ -21,6 +21,7 @@ package Form.MUDamage {
 		private var sub2:ComboBox;
 		private var calc:Button;
 		private var pvp_text:TextInput;
+		private var pvp_radio:Array;
 		private var pvp_calc:Button;
 	
 		private var hbox:HBox;
@@ -43,6 +44,7 @@ package Form.MUDamage {
 			createCalc();
 			ln();
 			createPVPTextInput();
+			createPVPRadioButton();
 			createPVPCalc();
 		}
 		private function ln():void{
@@ -87,6 +89,25 @@ package Form.MUDamage {
 			hbox.addChild(pvp_text);
 		}
 		/**
+		 * PvP Input Button
+		 */
+		private function createPVPRadioButton():void{
+			pvp_radio = new Array();
+			var radio:RadioButton = new RadioButton();
+			radio.groupName = "pvp_type"+d.getJob().selectedIndex;
+			radio.selected = true;
+			radio.label = "城";
+			radio.value = 1;
+			hbox.addChild(radio);
+			pvp_radio.push(radio);
+			var radio2:RadioButton = new RadioButton();
+			radio2.groupName = "pvp_type"+d.getJob().selectedIndex;
+			radio2.label = "決闘";
+			radio2.value = 0;
+			hbox.addChild(radio2);
+			pvp_radio.push(radio2);
+		}
+		/**
 		 * PvP Calc Button
 		 */
 		private function createPVPCalc():void{
@@ -115,7 +136,7 @@ package Form.MUDamage {
 			var form:FormMUDamage = new FormMUDamage(controller, a[1]);
 			StaticFormIO.setData(a,form);
 			// 計算して結果を表示
-			controller.showResult(new PVPResultScreen(d,form));
+			controller.showResult(new PVPResultScreen(d,form,getPVPRadioValue()));
 		}
 		/**
 		 * event change map
@@ -144,6 +165,13 @@ package Form.MUDamage {
 		}
 		public function getSub2():ComboBox{
 			return sub2;
+		}
+		private function getPVPRadioValue():int{
+			for(var i:int=0;i<pvp_radio.length;i++){
+				if(pvp_radio[i].selected)
+					return pvp_radio[i].value;
+			}
+			return 0;
 		}
 	}
 }

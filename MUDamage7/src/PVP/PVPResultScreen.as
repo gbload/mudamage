@@ -16,16 +16,20 @@ package PVP {
 	public class PVPResultScreen extends Form {
 		private var muc1:Object;
 		private var muc2:Object;
+		private var type:int;
 		
 		/**
 		 * コンストラクタ
 		 */
-		public function PVPResultScreen(d1:FormMUDamage,d2:FormMUDamage) {
+		public function PVPResultScreen(d1:FormMUDamage,d2:FormMUDamage,type:int) {
 			super();
 			this.muc1 = calc(d1);
 			this.muc2 = calc(d2);
+			this.type = type;
 			// ラベル付
 			this.label = d2.form_title.text;
+			// スクロール対策
+			this.setStyle("backgroundColor","#FFFFFF");//背景色を白色に
 			init();
 		}
 		/**
@@ -57,7 +61,7 @@ package PVP {
 			hbox.addChild(new ItemScreen(muc1));
 			// ダメージ一覧Gridを表示
 			this.addChild(new DamageGrid(
-					(new PVPDamageCalculator(muc1,muc2)).calcSkills()));
+					(new PVPSkillCalculator(muc1,muc2,type)).calcSkills()));
 
 			hbox = new HBox();
 			this.addChild(hbox);
@@ -67,7 +71,7 @@ package PVP {
 			hbox.addChild(new ItemScreen(muc2));
 			// ダメージ一覧Gridを表示
 			this.addChild(new DamageGrid(
-					(new PVPDamageCalculator(muc2,muc1)).calcSkills()));
+					(new PVPSkillCalculator(muc2,muc1,type)).calcSkills()));
 		}
 		/**
 		 * 閉じるボタン
