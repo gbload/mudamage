@@ -474,6 +474,10 @@ package Calc {
 		    d += c.support_a;
 		    if(f.support.miracle_check.selected)d += 15;
 		    d += c.support_sera_a;
+		    if(f.support.cafe.selectedLabel == "時の結晶")d += 50;
+		    if(i.hasSpecialRing("スケルトン変化の指輪"))d += 40;
+		    if(i.hasSpecialRing("クリスマス変化の指輪"))d += 20;
+		    if(i.hasSpecialRing("パンダ変化の指輪"))d += 30;
 		    //課金アイテム
 		    d += i.etc_attack2;
 		    

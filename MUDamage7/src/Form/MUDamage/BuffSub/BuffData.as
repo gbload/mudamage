@@ -74,9 +74,15 @@ package Form.MUDamage.BuffSub {
 		private static var scroll_data:Array = ["ｽｸﾛｰﾙなし","速度+15","攻撃力+30","魔力+30"
 											,"防御力+60","生命+200","マナ+300","クリダメ+20%","EXDダメ+20%"];
 		private static var leap_data:Array = ["秘薬なし","力+50","敏捷+50","体力+50","エナ+50","統率+50"];
+		private static var aura_data:Array = ["オーラなし","アビリティオーラ","シールドオーラ"];
+		private static var inv_data:Array = ["彫刻なし","鷹の彫刻","山羊の彫刻","ゴールデンオークのお守り"];
+		private static var cafe_data:Array = ["なし","時の結晶"];
 		public var item:ComboBox = new BuffComboBox(item_data);
 		public var scroll:ComboBox = new BuffComboBox(scroll_data);
 		public var leap:ComboBox = new BuffComboBox(leap_data);
+		public var aura:ComboBox = new BuffComboBox(aura_data);
+		public var inv:ComboBox = new BuffComboBox(inv_data);
+		public var cafe:ComboBox = new BuffComboBox(cafe_data);
 		/**
 		 * display
 		 */
@@ -177,6 +183,10 @@ package Form.MUDamage.BuffSub {
 			a.push(aminus_check.selected);
 			a.push(gminus_check.selected);
 			
+			a.push(aura.selectedIndex);
+			a.push(inv.selectedIndex);
+			a.push(cafe.selectedIndex);
+			
 			return a;
 		}
 		private function setCheck(check:CheckBox,val:String):void{
@@ -244,6 +254,10 @@ package Form.MUDamage.BuffSub {
 			setCheck(ht_check,a[index++]);
 			setCheck(aminus_check,a[index++]);
 			setCheck(gminus_check,a[index++]);
+			
+			aura.selectedIndex = a[index++];
+			inv.selectedIndex = a[index++];
+			cafe.selectedIndex = a[index++];
 		}
 	}
 }

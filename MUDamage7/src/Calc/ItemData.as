@@ -415,6 +415,13 @@ package Calc {
 			return value;
 		}
 		/**
+		 * 特殊リングの着用有無
+		 */
+		public function hasSpecialRing(name:String):Boolean{
+			return (getItemData(f.ring1,"name")==name
+					|| getItemData(f.ring2,"name")==name);
+		}
+		/**
 		 * validate
 		 */
 		private function validateValue(obj:Object):int{

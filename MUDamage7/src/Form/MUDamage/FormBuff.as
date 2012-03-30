@@ -89,7 +89,7 @@ package Form.MUDamage {
 			if(mud.form_job.selectedLabel=="召喚師")vbox.addChild(createRow([d.ber_check, d.ber]));
 			if(mud.form_job.selectedLabel=="レイジファイター")vbox.addChild(createRow([d.demo_check, d.demo]));
 			vbox.addChild(createRow([d.sera_check, d.sera,d.ale_check, d.ale,d.miracle_check,d.miracle]));
-			vbox.addChild(createRow([d.item,d.scroll,d.leap]));
+			vbox.addChild(createRow([d.item,d.scroll,d.leap,d.aura,d.inv,d.cafe]));
 			// event
 			var func:Function = null;
 			// event se

@@ -69,9 +69,17 @@ package Calc {
 		    //[セットOP]両手武器装備時ダメージ増加%
 		    if(i.setop_hands)d += d2;
 		    //[課金アイテム]クリダメ増加%
-		    if(cri)d += Math.floor(d * i.etc_cri / 100);
+		    if(cri){
+		    	d += Math.floor(d * i.etc_cri / 100);
+			    if(f.support.inv.selectedLabel == "鷹の彫刻")
+			    	d += Math.floor(d * 0.1);
+		    }
 		    //[課金アイテム]EXDダメ増加%
-		    if(exd)d += Math.floor(d * i.etc_exd / 100);
+		    if(exd){
+		    	d += Math.floor(d * i.etc_exd / 100);
+			    if(f.support.inv.selectedLabel == "山羊の彫刻")
+			    	d += Math.floor(d * 0.1);
+		    }
 	
 		    if(f.pet.item=="ディノラント")d += Math.floor(d*15/100);//ディノラント
 		    if(f.pet.item=="サタン")d += Math.floor(d*30/100);//サタン
@@ -275,12 +283,16 @@ package Calc {
 			var c:CharacterData = muc.c;
 			
 			s = s - c.def/2;//(モンス攻撃 - DEF)
+		    if(f.support.cafe.selectedLabel == "時の結晶")
+		    	s -= 60;
 			
 			/*
 			 * 固定
 			 */
 		    if(f.support.wn_check.selected)//ウィークネス
 		    	s -= SupportSkillCalculator.calcWeakness_Fixed(f.support);
+		    
+		    if(s<0)s=0;
 		    /*
 		     * 割合
 		     */
