@@ -161,6 +161,8 @@ package Calc {
 			if(i.is_shield)c.def += Math.floor(c.def*i.setop_shield/100);
 			//ソケットの盾装備時
 			if(i.is_shield)c.def += Math.floor(c.def*(i.getSocketProtects("盾装備時増加"))/100);
+		    if(i.hasSpecialRing("エリート骸骨変化の指輪"))
+		    	c.def += Math.floor(c.def*0.1);
 			/*
 			 * 固定増加分
 			 */
@@ -343,6 +345,10 @@ package Calc {
 				c.life += 200;//380OP
 			if(f.pet.item=="フェンリル" && f.pet.sub1=="黄金")
 				c.life += c.lv/2;//黄金のフェンリルの生命増加
+			if(f.support.inv.selectedLabel == "ゴールデンオークのお守り")
+				c.life += 100;
+		    if(i.hasSpecialRing("エリート骸骨変化の指輪"))
+		    	c.life += 400;
 			// Iron
 			if(f.support.iron_check.selected)
 				c.life += Math.floor(SupportSkillCalculator.calcIronDefense_Life(
@@ -413,6 +419,11 @@ package Calc {
 				c.sd += 700;//380OP
 			
 			c.sd += f.property.getEreutelValue("sd");// attribute
+
+			if(f.support.aura.selectedLabel == "シールドオーラ")
+				c.sd += c.lv*10;
+			if(f.support.inv.selectedLabel == "ゴールデンオークのお守り")
+				c.sd += 500;
 		}
 		/**
 		 * AGの計算
@@ -430,6 +441,8 @@ package Calc {
 				if(f.pet.sub1=="AG+50"||f.pet.sub2=="AG+50")
 					c.ag += 50;
 			c.ag += f.property.getEreutelValue("ag");// attribute
+			if(f.support.aura.selectedLabel == "アビリティオーラ")
+				c.ag += c.lv;
 			// AGH
 			var tmp:Number = f.master_skill.getSkillValue("ag_recovery");//master skill
 			if(f.job=="ナイト")tmp += 5.00;
