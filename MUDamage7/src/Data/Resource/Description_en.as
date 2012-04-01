@@ -28,6 +28,9 @@ Bugs
 		public static var release:String = ( <![CDATA[
 Release notes
 
+2012/03/28 ver3.21
+- Modify PVP calculator.
+
 2012/03/28 ver3.20
 - Add some buff items.
 - Add some special rings.

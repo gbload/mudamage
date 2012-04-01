@@ -89,7 +89,7 @@ package PVP {
 			//引き算
 			s = s + (def_tmp - def);//(モンス攻撃 - DEF)
 			// ダメ減関連
-			calcGuardCommon1(s,muc2);
+			s = calcGuardCommon1(s,muc2);
 			return s;
 		}
 		/**
