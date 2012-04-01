@@ -28,6 +28,14 @@ Bugs
 		public static var release:String = ( <![CDATA[
 Release notes
 
+2012/03/28 ver3.20
+- Add some buff items.
+- Add some special rings.
+- Modify special ring effect.
+
+2012/03/28 ver3.19
+- Modify PVP calculator.
+
 2012/03/26 ver3.18
 - Apply critical probability and excellent damage probability of attribute system.
 - Apply status increase options of attribute system.
