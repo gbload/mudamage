@@ -231,7 +231,7 @@ package Data.Database.MLV
 		// knight2
 		["swell_life_mastery2","スウェルライフマスタリ2",1,1,MasterSkillImage.blade_ang_icon_17,"最大AG増加"],
 		["maximum_attack","最大攻撃力増加",3,0,MasterSkillImage.blade_ang_icon_18,""],
-		["critical_probability","クリティカル確率増加",0,1,MasterSkillImage.blade_ang_icon_19,""],
+		["critical_probability","クリティカル確率増加",1,1,MasterSkillImage.blade_ang_icon_19,""],
 		
 		["mana_completion","マナ完全回復",0,1,MasterSkillImage.blade_ang_icon_20,""],
 		["life_completion","生命力完全回復",0,1,MasterSkillImage.blade_ang_icon_21,""],
