@@ -307,6 +307,7 @@ package Calc {
 				if(exop["ダメ減"])
 					dec += 4;
 			dec += i.getEnchantProtects("ダメ減");
+			dec += i.getSocketProtects("ダメ減");
 			s -= Math.floor(s*dec/100);
 			
 			return s;

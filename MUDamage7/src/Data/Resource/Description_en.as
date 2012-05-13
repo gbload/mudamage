@@ -28,6 +28,20 @@ Bugs
 		public static var release:String = ( <![CDATA[
 Release notes
 
+2012/04/19 ver3.23
+- Change that attribute damage don't display in "BC Gate & Coffin".
+- Modify cool time 1000ms to 900ms of "Chain Driver".(Maybe, attack speed exists in the other.)
+- Modify the bug that socket option "Damage decrease" is not applied.
+- Modify "Spy Program Staff".
+- Modify magic value of "Bes Staff of Destruction".
+
+2012/04/19 ver3.22
+- Modify value of master skill "Critical probability increase".
+- Modify value of 2.5 wing.
+- Change value of attribute attack depending stats.(non verification.)
+- Modify attack success rate of monster "Berserker".
+- Add new socket weapons.
+
 2012/03/28 ver3.21
 - Modify PVP calculator.
 
