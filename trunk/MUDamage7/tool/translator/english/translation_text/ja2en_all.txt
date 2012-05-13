@@ -10,10 +10,10 @@ Light Plate Boots
 Not found data.
 風の鎧
 Wind Armor
-エナジー増加
-Increase Energy
 魔力op
 Magic option
+エナジー増加
+Increase Energy
 スケルトン
 Skeleton Ring
 ガルム
@@ -50,18 +50,18 @@ AH
 HP recovery
 備考：※A+の要求エナ92\n
 note:A+ is required 92 ene.\n
-PVP時 属性攻撃エクセレントダメージ確率増加％
-PVP attribute excellent damage probability increase(%)
 猛毒のミノタウロス
 Poison Bull Fighter
+PVP時 属性攻撃エクセレントダメージ確率増加％
+PVP attribute excellent damage probability increase(%)
 ハイペリオンの青銅のブーツ
 Hyperion Bronze Boots
 効果持続時間増加
 Increase duration.
-オピオンのサイクロンアーマー
-Ophion Violent Wing Armor
 敵の防御力無視 +1%
 Ignore Defence 1%
+オピオンのサイクロンアーマー
+Ophion Violent Wing Armor
 ダークスピリットのクリティカルダメージ確率増加
 Critical Damage probability increase of dark spirit.
 両手剣マスタリ
@@ -110,18 +110,18 @@ Venom Mist Armor
 Elvian Wind Pants
 ライフドレインマスタリ
 Life Drain Mastery
-追加
-Add
 ダブルダメージ確率 +1%
 Double Damage Rate +1%
+追加
+Add
 エターナルウインググラブ
 Eternal Wing Gloves
 体力 +50
 Vitality +50
-オルカス
-Orcus
 妙薬:攻撃力+15
 Miracle : Attack +15
+オルカス
+Orcus
 アタックプラス強化
 Increase Greater Damage
 エルフの斧
@@ -238,20 +238,20 @@ Sunlight Boots
 Spirit Beast3(after 0~5min)
 攻撃魔力lv
 Dmg Level
-アミスのケルベロスアーマー
-Amis Storm Crow Armor
 を開きました。
 open.
+アミスのケルベロスアーマー
+Amis Storm Crow Armor
 モスマン
 Beetle Monster
 ディバインアーマー
 Divino Armor
 ホルスのスキルのネックレス
 Horus Pendant of Ability
-ブレス強化
-Increase Bless
 エルベランド
 Elbeland
+ブレス強化
+Increase Bless
 メテルのダークソウルヘルム
 Meter Adamantine Helm
 力:
@@ -1014,14 +1014,14 @@ Spirit Beast2(after 5~10min)
 The probability of pushing out targets.
 カオスキャッスル4（近接）
 Chaos Castle 4(adjacency)
-風属性攻撃相性増加％
-Wind attribute attack affinity increase(%)
 マナ +25
 Mana +25
-属性防御力:
-Attribute Defense:
+風属性攻撃相性増加％
+Wind attribute attack affinity increase(%)
 フリッグの風のネックレス
 Frigg Pendant of Wind
+属性防御力:
+Attribute Defense:
 SD回復速度増加
 Increase SD Healing Speed
 x%の確率でスタン状態にする
@@ -1282,6 +1282,8 @@ Gladius
 Increase Electric Spark
 無名
 Anonymous
+デビルクロスボウガン
+Devil Crossbow
 ゴッドブロー(コンボ)
 Death Stab (Combo)
 防御力:
@@ -1364,6 +1366,8 @@ C+：
 C+:
 氷抵抗力
 Resist Ice
+マグマスピア
+Magma Spear
 骸骨の戦士2（5～10分経過)
 Orc Warrior2(after 5~10min)
 ガイアのシルクの鎧
@@ -1676,6 +1680,8 @@ Bone Blade
 Increase Soul Barrier
 無視:
 Ignore:
+サンダーボルト
+Thunderbolt
 ダークスカルアーマー2（5～10分経過)
 Spirit Soldier2(after 5~10min)
 魔法師
@@ -1882,6 +1888,8 @@ Silk Boots
 Ceto Rapier
 シャドウポーン
 Shadow Pawn
+サイクロンソード
+Cyclone Sword
 ハイオンのドラゴングラブ
 Hyon Dragon Gloves
 ブラッドストームを習得。自身の周囲に2HITダメージ。(コンボスキル使用時は3番目で使用可能)
@@ -1908,6 +1916,8 @@ Salamander
 La Cleon
 オーク戦士8（5～10分経過)
 Orc Warrior8(after 5~10min)
+スパイプログラムスタッフ
+Spy Program Staff
 ハンドアックス
 Hand Axe
 アルヴィトのルシファーの杖
@@ -2112,6 +2122,8 @@ Elite Goblin
 Spirit Soldier1(after 5~10min)
 力：
 Strength:
+エンジェリックボウ
+Angelic Bow
 キャプテングリズリー
 Captain Grizzly
 オークアーチャー8（10～15分経過)
@@ -2586,6 +2598,8 @@ Skill Dmg +10
 Wind
 カオスキャッスル7（近接）
 Chaos Castle 7(adjacency)
+ソニックブレード
+Sonic Blade
 フロストメイス
 Frost Mace
 スキルのネックレス
@@ -2896,6 +2910,8 @@ Earth
 High tension : 
 カリスの精霊のブーツ
 Karis Spirit Boots
+ブラストブレーキ
+Blast Brake
 アイコンなしのため力増加と同じものを使用。
 Using 'strength increase' icon because of no icon.
 勝利回数 
@@ -4078,16 +4094,16 @@ Spirit Knight2(after 0~5min)
 Twisting Slash
 青銅のガーダー
 Bronze Pants
-ドッペルゲンガー
-Doppleganger
 栄光
 Glory
+ドッペルゲンガー
+Doppleganger
 ドラゴンスピアー
 Dragon Spear
-アビスガーダー
-Hades Pants
 ブラックソウルグラブ
 Dark Soul Gloves
+アビスガーダー
+Hades Pants
 体力:
 Vitality:
 暗黒のオウガ5（0～5分経過)
@@ -4624,6 +4640,8 @@ Ancient Boots
 Wing of Spirit
 ドラゴンヘルム
 Dragon Helm
+ホーンオブスチール
+Horn of Steel
 オーディーンのグラブ
 Legendary Gloves
 サイクロプス

@@ -1,27 +1,21 @@
-オーラなし
-None Aura
-ゴールデンオークのお守り
-Charm of Golden Orc
-城
-Siege
-鷹の彫刻
-Sculpture of Hawk
-クリスマス変化の指輪
-Ring of Christmas
-彫刻なし
-None Sculpture
-エリート骸骨変化の指輪
-Ring of Elite skeleton
-決闘
-Duel
-時の結晶
-Crystal of Time
-アビリティオーラ
-Ability Aura
-シールドオーラ
-Shield Aura
-山羊の彫刻
-Sculpture of Goat
+ブラストブレーキ
+Blast Brake
+マグマスピア
+Magma Spear
+サンダーボルト
+Thunderbolt
+デビルクロスボウガン
+Devil Crossbow
+ソニックブレード
+Sonic Blade
+ホーンオブスチール
+Horn of Steel
+スパイプログラムスタッフ
+Spy Program Staff
+エンジェリックボウ
+Angelic Bow
+サイクロンソード
+Cyclone Sword
 スキル+11
 Skill+11
 クリティカルダメージ確率 +15%
@@ -34,10 +28,10 @@ Light Plate Boots
 Not found data.
 風の鎧
 Wind Armor
-魔力op
-Magic option
 エナジー増加
 Increase Energy
+魔力op
+Magic option
 スケルトン
 Skeleton Ring
 ガルム
@@ -74,18 +68,18 @@ AH
 HP recovery
 備考：※A+の要求エナ92\n
 note:A+ is required 92 ene.\n
-猛毒のミノタウロス
-Poison Bull Fighter
 PVP時 属性攻撃エクセレントダメージ確率増加％
 PVP attribute excellent damage probability increase(%)
+猛毒のミノタウロス
+Poison Bull Fighter
 ハイペリオンの青銅のブーツ
 Hyperion Bronze Boots
 効果持続時間増加
 Increase duration.
-敵の防御力無視 +1%
-Ignore Defence 1%
 オピオンのサイクロンアーマー
 Ophion Violent Wing Armor
+敵の防御力無視 +1%
+Ignore Defence 1%
 ダークスピリットのクリティカルダメージ確率増加
 Critical Damage probability increase of dark spirit.
 両手剣マスタリ
@@ -134,18 +128,18 @@ Venom Mist Armor
 Elvian Wind Pants
 ライフドレインマスタリ
 Life Drain Mastery
-ダブルダメージ確率 +1%
-Double Damage Rate +1%
 追加
 Add
+ダブルダメージ確率 +1%
+Double Damage Rate +1%
 エターナルウインググラブ
 Eternal Wing Gloves
 体力 +50
 Vitality +50
-妙薬:攻撃力+15
-Miracle : Attack +15
 オルカス
 Orcus
+妙薬:攻撃力+15
+Miracle : Attack +15
 アタックプラス強化
 Increase Greater Damage
 エルフの斧
@@ -256,26 +250,26 @@ Sedemen Red Wing Helm
 Grizzly
 ヘラスのスフィンクスのグラブ
 Heras Sphinx Gloves
-暗黒のオウガ3（0～5分経過)
-Spirit Beast3(after 0~5min)
 ソレイユブーツ
 Sunlight Boots
+暗黒のオウガ3（0～5分経過)
+Spirit Beast3(after 0~5min)
 攻撃魔力lv
 Dmg Level
-を開きました。
-open.
 アミスのケルベロスアーマー
 Amis Storm Crow Armor
+を開きました。
+open.
 モスマン
 Beetle Monster
 ディバインアーマー
 Divino Armor
 ホルスのスキルのネックレス
 Horus Pendant of Ability
-エルベランド
-Elbeland
 ブレス強化
 Increase Bless
+エルベランド
+Elbeland
 メテルのダークソウルヘルム
 Meter Adamantine Helm
 力:
@@ -332,6 +326,8 @@ Cyclone
 Minet Sphinx Pants
 ガードプラスマスタリ
 Great Defense Mastery
+シールドオーラ
+Shield Aura
 カリスの精霊の兜
 Karis Spirit Helm
 シリオンの骸骨の鎧
@@ -516,10 +512,10 @@ Golden Iron Knight
 Save the following titles.
 クロノのレッドウイングガーダー
 Chrono Red Wing Pants
-マヘスの青銅の盾
-Maahes Bronze Shield
 幸運
 Luck
+マヘスの青銅の盾
+Maahes Bronze Shield
 フェニックスソウルブーツ
 Phoenix Soul Boots
 グリードのスケイルアーマー
@@ -778,6 +774,8 @@ Beast Upper Mastery
 PvP Defence Rate
 ギガンティスDS7
 Gigantis DS7
+鷹の彫刻
+Sculpture of Hawk
 ビーストマスター
 Cavalry Captain
 タイラントマスク
@@ -1034,16 +1032,16 @@ Spirit Beast2(after 5~10min)
 The probability of pushing out targets.
 カオスキャッスル4（近接）
 Chaos Castle 4(adjacency)
-マナ +25
-Mana +25
 風属性攻撃相性増加％
 Wind attribute attack affinity increase(%)
+マナ +25
+Mana +25
 SD回復速度増加
 Increase SD Healing Speed
-フリッグの風のネックレス
-Frigg Pendant of Wind
 属性防御力:
 Attribute Defense:
+フリッグの風のネックレス
+Frigg Pendant of Wind
 ベガ
 Vega
 x%の確率でスタン状態にする
@@ -1568,6 +1566,8 @@ Chaos Castle 4
 Spirit Soldier4(after 10~15min)
 スキル攻撃力 +50
 Skill Dmg +50
+時の結晶
+Crystal of Time
 ダークソウルブーツ
 Adamantine Boots
 属性攻撃力:
@@ -2738,6 +2738,8 @@ Chons Dark Steel Gloves
 Apollo
 アビスのスフィンクスのグラブ
 Hades Sphinx Gloves
+決闘
+Duel
 ルシファーの鎧
 Grand Soul Armor
 7分の1
@@ -2798,6 +2800,8 @@ Win
 Kalima3
 ミスト
 Mist
+ゴールデンオークのお守り
+Charm of Golden Orc
 グランドヴァイパーの杖
 Grand Viper Staff
 データをインポートしました。
@@ -2826,6 +2830,8 @@ Vega Sacred Fire Gloves
 Eplete Shield Plate
 平穏
 Peace
+エリート骸骨変化の指輪
+Ring of Elite skeleton
 アイスアロー
 Ice Arrow
 精霊のガーダー
@@ -3248,6 +3254,8 @@ Decrease attack success rate of monster
 Sleep Increase
 アイリスブーツ
 Iris Boots
+アビリティオーラ
+Ability Aura
 髑髏メイジ5（5～10分経過)
 Spirit Sorcerer5(after 5~10min)
 炎属性の書マスタリ
@@ -3444,6 +3452,8 @@ In attacking monster, attribute
 Magni Piercing Groove Boots
 エルフの盾
 Elven Shield
+彫刻なし
+None Sculpture
 防御無視
 Ignore
 ディメンションウォーカー
@@ -3686,6 +3696,8 @@ Gaion Kharein
 Strange Rabbit
 インナーベーション:
 Innovation:
+クリスマス変化の指輪
+Ring of Christmas
 全ステータス
 All status
 要求レベル:
@@ -3704,6 +3716,8 @@ Increase Poison
 Gorgon
 セルパン
 Selupan
+オーラなし
+None Aura
 マナ +50
 Mana +50
 カストルのパルテナの兜
@@ -3784,6 +3798,8 @@ Pad Armor
 Doppleganger
 ソラムDS7
 Solam DS7
+山羊の彫刻
+Sculpture of Goat
 エルルーンのデモニックアーマー
 Olrun Demonic Armor
 x%の確率で2マス外へ押し出す
@@ -4838,6 +4854,8 @@ Chaos Wing
 The probability of binding
 ミストの青銅の兜
 Mist Bronze Helm
+城
+Siege
 セメデンのレッドウインググラブ
 Sedemen Red Wing Gloves
 WIZの敏捷：
