@@ -194,8 +194,8 @@ package Calc {
 		     */
 			def -= Math.floor(def_tmp * c.support_inner/100);// インナーベーション
 			def -= Math.floor(def_tmp * c.support_ba/100);// 血戦
-			if(f.support.aminus_check.selected)// クリングブロー
-				def -= Math.floor(def_tmp * SupportSkillCalculator.calcClingBlow(f.support)/100);
+			if(f.support.gminus_check.selected)// ビーストアッパー
+				def -= Math.floor(def_tmp * SupportSkillCalculator.calcBeastUpper(f.support)/100);
 		    if(def < 0)def = 0;
 			//引き算
 			s = s - def;//(モンス攻撃 - DEF)
@@ -298,8 +298,8 @@ package Calc {
 		     */
 			//モンスターの攻撃力低下
 			s -= Math.floor(s * c.support_weak/100);//ウイークネス
-			if(f.support.gminus_check.selected)// クリングブロー
-				s -= Math.floor(s * SupportSkillCalculator.calcBeastUpper(f.support)/100);
+			if(f.support.aminus_check.selected)// クリングブロー
+				s -= Math.floor(s * SupportSkillCalculator.calcClingBlow(f.support)/100);
 			
 			// ダメ減
 			var dec:int = 0;

@@ -189,8 +189,16 @@ package Calc.ResultScreen {
 				if(i.getItemData(obj,"lv")>0)
 					tooltip += "要求レベル:"+i.getItemData(obj,"lv").toString()+"\n";
 				// require
-				if(i.getRequire(obj,"str")>0)
-					tooltip += "要求力:"+i.getRequire(obj,"str").toString()+"\n";
+				if(i.getRequire(obj,"str")>0){
+					tooltip += "要求力:"+i.getRequire(obj,"str").toString();
+					// option
+					for(var n:String in obj.option)
+						if(n!="" && obj.option[n]){
+							tooltip += "("+(i.getRequire(obj,"str")+(obj.option[n]/4)*5).toString()+")";
+							break;
+						}
+					tooltip += "\n";
+				}
 				if(i.getRequire(obj,"agi")>0)
 					tooltip += "要求敏捷:"+i.getRequire(obj,"agi").toString()+"\n";
 				if(i.getRequire(obj,"vit")>0)
@@ -255,8 +263,19 @@ package Calc.ResultScreen {
 				if(i.getItemData(obj,"lv")>0)
 					tooltip += "要求レベル:"+i.getItemData(obj,"lv").toString()+"\n";
 				// require
-				if(i.getRequire(obj,"str")>0)
-					tooltip += "要求力:"+i.getRequire(obj,"str").toString()+"\n";
+				if(i.getRequire(obj,"str")>0){
+					tooltip += "要求力:"+i.getRequire(obj,"str").toString();
+					// option
+					for(var n:String in obj.option)
+						if(n!="" && obj.option[n]){
+							if(is_shield)
+								tooltip += "("+(i.getRequire(obj,"str")+obj.option[n]).toString()+")";
+							else
+								tooltip += "("+(i.getRequire(obj,"str")+(obj.option[n]/4)*5).toString()+")";
+							break;
+						}
+					tooltip += "\n";
+				}
 				if(i.getRequire(obj,"agi")>0)
 					tooltip += "要求敏捷:"+i.getRequire(obj,"agi").toString()+"\n";
 				if(i.getRequire(obj,"vit")>0)
