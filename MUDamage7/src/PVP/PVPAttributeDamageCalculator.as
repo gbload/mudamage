@@ -81,6 +81,8 @@ package PVP {
 			else
 				d = Math.max(6, d);
 			
+			// 対人ダメージ増加（バグで130％のところを230％にしてる？）
+			d += Math.floor(d*1.3);
 			// ダメージ増加
 			d += Math.floor(d*inc/100);
 			// ダメージ吸収
@@ -104,7 +106,7 @@ package PVP {
 			aff -= f2.property.getEreutelValue("earth_defense",(c2.attribute == 2));
 			aff -= f2.property.getEreutelValue("wind_defense",(c2.attribute == 3));
 			aff -= f2.property.getEreutelValue("dark_defense",(c2.attribute == 4));
-			return affinity[c.attribute][c2.attribute] + aff + 30;
+			return affinity[c.attribute][c2.attribute] + aff;
 		}
 		/**
 		 * 属性のダメージ計算

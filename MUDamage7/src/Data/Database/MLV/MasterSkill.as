@@ -158,10 +158,10 @@ package Data.Database.MLV
 		["dragon_roar","ドラゴンロアー強化",2,0,MasterSkillImage.img7_7,""],
 		
 		// 魔法スキル強化
-		["burning_hammer","バーニングハンマー強化",3,0,MasterSkillImage.img2_24,""],
+		["burning_hammer","バーニングハンマー強化",6,0,MasterSkillImage.img2_24,""],
 		["inferno","インフェルノ強化",2,0,MasterSkillImage.img2_28,""],
-		["thunder_wire","サンダーワイヤー強化",3,0,MasterSkillImage.img2_25,""],
-		["shining_blast","シャイニングブラスト強化",2,0,MasterSkillImage.img2_29,""],
+		["thunder_wire","サンダーワイヤー強化",6,0,MasterSkillImage.img2_25,""],
+		["shining_blast","シャイニングブラスト強化",6,0,MasterSkillImage.img2_29,""],
 		["soul_the_end","ソウルジエンド強化",3,0,MasterSkillImage.img2_33,""],
 		["hell_fire","ヘルファイア強化",3,0,MasterSkillImage.img2_37,""],
 		["death_plant","デスプラント強化",3,0,MasterSkillImage.img2_31,""],
@@ -242,10 +242,10 @@ package Data.Database.MLV
 		
 		["ignore_defense","防御力無視確率増加",0,1,MasterSkillImage.blade_ang_icon_25,""],
 		// wizard
-		["meteor_strike","メテオストライク強化",2,0,MasterSkillImage.grand_wis_icon_16,""],
+		["meteor_strike","メテオストライク強化",6,0,MasterSkillImage.grand_wis_icon_16,""],
 		["sudden_ice","サドゥンアイス強化",2,0,MasterSkillImage.grand_wis_icon_18,""],
 		
-		["hell_burst","ヘルバースト強化",14,0,MasterSkillImage.grand_wis_icon_19,""],
+		["hell_burst","ヘルバースト強化",2,0,MasterSkillImage.grand_wis_icon_19,""],
 		["sudden_ice_mastery","サドゥンアイスマスタリ",0,1,MasterSkillImage.grand_wis_icon_20,"x%の確率で3秒間移動不可にする"],
 		
 		["meteor_strike_mastery","メテオストライクマスタリ",0,1,MasterSkillImage.grand_wis_icon_21,"x%の確率で2秒間スタン状態にする"],

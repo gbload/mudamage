@@ -28,9 +28,9 @@ package Form.MUDamage {
 		    // name,min,max,def,requireLV
 		    ["",0,0,0,0],
 		    ["ミュレンの魔法書",30,45,30,100],
-		    ["エトナラムの巻物",50,70,50,200]
+		    ["エトラムの巻物",50,70,50,200]
 	                               	];
-		private var attr_data:Array = ["火","水","地","風","暗黒"];
+		private var attr_data:Array = ["火","水","土","風","闇"];
 		/**
 		 * コンストラクタ
 		 */
