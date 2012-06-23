@@ -18,11 +18,16 @@ package Calc {
 		
 		private static var affinity:Array = [
 		    // 火、水、地、風、暗黒、無属性
-		    [100,80,90,110,120,120],
-		    [120,100,80,90,110,120],
-		    [110,120,100,80,90,120],
-		    [90,110,120,100,80,120],
-		    [80,90,110,120,100,120]
+		    [0,-20,-10,10,20,20],
+		    [20,0,-20,-10,10,20],
+		    [10,20,0,-20,-10,20],
+		    [-10,10,20,0,-20,20],
+		    [-20,-10,10,20,0,20]
+//		    [100,80,90,110,120,120],
+//		    [120,100,80,90,110,120],
+//		    [110,120,100,80,90,120],
+//		    [90,110,120,100,80,120],
+//		    [80,90,110,120,100,120]
 		                                 ];
 		private static var affinity_names:Array = 
 				["火","水","土","風","闇","無"];
@@ -56,15 +61,20 @@ package Calc {
 			inc += f.property.getEreutelValue("monster_increase");
 			
 			// affinity
-			d = Math.floor(d*calcAffinity()/100);
+			d += Math.floor(d*(calcAffinity()/2)/100);
 			// EXD
 			if(exd)
 				d = Math.floor(d*1.2);
 			// guard
-			if(m[mk.attribute_def]==0)
+			if(m[mk.attribute_def]==0){
 				d -= m[mk.def];
-			else
+			}else{
 				d -= m[mk.attribute_def];
+				if(m.attribute==5)
+					d -= Math.floor(m[mk.attribute_def]*((calcAffinity()/2)+10)/100);
+				else
+					d -= Math.floor(m[mk.attribute_def]*(calcAffinity()/2)/100);
+			}
 			// 最低ダメ設定
 			if(min)
 				d = Math.max(4, d);
@@ -98,16 +108,20 @@ package Calc {
 			drain += f.property.getEreutelValue("monster_drain");
 
 			// affinity
-			d = Math.floor(d*calcDefenseAffinity()/100);
+			d += Math.floor(d*(calcDefenseAffinity()/2)/100);
 			// guard
-			d -= m[mk.attribute_def];
+			d -= c.attribute_def;
+			if(c.attribute==5)
+				d -= Math.floor(c.attribute_def*((calcDefenseAffinity()/2)+10)/100);//無属性バグ
+			else
+				d -= Math.floor(c.attribute_def*(calcDefenseAffinity()/2)/100);
 			// ダメージ減少
 			d -= Math.floor(d*dec/100);
 			// 最低ダメ設定
 			if(min)
-				d = Math.max(4, d);
+				d = Math.max(Math.floor(c.lv/100), d);
 			else
-				d = Math.max(6, d);
+				d = Math.max(Math.floor(c.lv/100)*1.5, d);
 			
 			// ダメージ吸収
 			d = Math.floor(d*(100-drain)/100);

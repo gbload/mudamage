@@ -200,6 +200,9 @@ package Calc {
 		 * attribute defense
 		 */
 		private function calcAttributeDef():void{
+			var inc:int = D.getData("job_attr_def")[f.job_index];
+			// 敏捷によるDEF
+			c.attribute_def = c.agi/inc;
 			if(f.property.name!=""){
 				// pentagram
 				c.attribute = f.property.attribute_num;

@@ -120,12 +120,12 @@ package Form.MUDamage {
 		/**
 		 * 攻撃力、防御力を計算
 		 */
-		private function calcValue(val:int,plus:int):int{
+		private function calcValue(val:int,plus:int,inc:int):int{
 			var d:int = 0;
 			if(val!=0){
 				// pentagram
 				d = val;
-				d += 3*plus;
+				d += inc*plus;
 				if(plus >= 10)
 					d += ((plus-9)+1)*(plus-9)/2;
 			}
@@ -163,9 +163,9 @@ package Form.MUDamage {
 				attribute_num: attribute.selectedIndex,
 				plus: plus.selectedIndex,
 				ereutels: a,
-				min: calcValue(item.selectedItem[1],plus.selectedIndex),
-				max: calcValue(item.selectedItem[2],plus.selectedIndex),
-				def: calcValue(item.selectedItem[3],plus.selectedIndex),
+				min: calcValue(item.selectedItem[1],plus.selectedIndex,4),
+				max: calcValue(item.selectedItem[2],plus.selectedIndex,4),
+				def: calcValue(item.selectedItem[3],plus.selectedIndex,3),
 				getEreutelValue : getEreutelValue(a)
 			};
 			return obj;

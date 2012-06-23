@@ -16,14 +16,19 @@ package PVP {
 	 */
 	public class PVPAttributeDamageCalculator extends PVPDamageCalculator {
 		private static var nf:NumberFormatter = new NumberFormatter();
-		
+
 		private static var affinity:Array = [
 		    // 火、水、地、風、暗黒、無属性
-		    [100,80,90,110,120,120],
-		    [120,100,80,90,110,120],
-		    [110,120,100,80,90,120],
-		    [90,110,120,100,80,120],
-		    [80,90,110,120,100,120]
+		    [0,-20,-10,10,20,20],
+		    [20,0,-20,-10,10,20],
+		    [10,20,0,-20,-10,20],
+		    [-10,10,20,0,-20,20],
+		    [-20,-10,10,20,0,20]
+//		    [100,80,90,110,120,120],
+//		    [120,100,80,90,110,120],
+//		    [110,120,100,80,90,120],
+//		    [90,110,120,100,80,120],
+//		    [80,90,110,120,100,120]
 		                                 ];
 		private static var affinity_names:Array = 
 				["火","水","土","風","闇","無"];
@@ -65,24 +70,28 @@ package PVP {
 			d -= f2.property.getEreutelValue("short_defense");
 			dec += f2.property.getEreutelValue("pvp_decrease");
 			drain += f2.property.getEreutelValue("pvp_drain");
-			
+
+			// 対人ダメージ増加（バグで130％のところを230％にしてる？）
+			d += Math.floor(d*1.6);
 			// affinity
-			d = Math.floor(d*calcAffinity()/100);
+			d += Math.floor(d*(calcAffinity()/2)/100);
 			// EXD
 			if(exd)
 				d = Math.floor(d*1.2);
 			// guard
 			d -= c2.attribute_def;
+			if(c2.attribute==5)
+				d -= Math.floor(c2.attribute_def*((calcAffinity()/2)+10)/100);//無属性バグ
+			else
+				d -= Math.floor(c2.attribute_def*(calcAffinity()/2)/100);
 			// ダメージ減少
 			d -= Math.floor(d*dec/100);
 			// 最低ダメ設定
 			if(min)
-				d = Math.max(4, d);
+				d = Math.max(Math.floor(c.lv/100), d);
 			else
-				d = Math.max(6, d);
+				d = Math.max(Math.floor(c.lv/100)*1.5, d);
 			
-			// 対人ダメージ増加（バグで130％のところを230％にしてる？）
-			d += Math.floor(d*1.3);
 			// ダメージ増加
 			d += Math.floor(d*inc/100);
 			// ダメージ吸収
