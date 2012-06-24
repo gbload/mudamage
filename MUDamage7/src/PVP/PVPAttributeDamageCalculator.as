@@ -88,9 +88,10 @@ package PVP {
 			d -= Math.floor(d*dec/100);
 			// 最低ダメ設定
 			if(min)
-				d = Math.max(Math.floor(c.lv/100), d);
+				d = Math.max(Math.floor((c.lv-c2.lv)/100), d);
 			else
-				d = Math.max(Math.floor(c.lv/100)*1.5, d);
+				d = Math.max(Math.floor((c.lv-c2.lv)/70), d);
+			if(d<0)d=0;
 			
 			// ダメージ増加
 			d += Math.floor(d*inc/100);
@@ -152,8 +153,8 @@ package PVP {
 		 */
 		private function calcHit():Number{
 			var hit:Number = 0;
-			var h1:Number = c.lv * c.pvp_hit;
-			var h2:Number = c2.lv * c2.pvp_avoid;
+			var h1:Number = c.lv * c.attribute_pvp_hit;
+			var h2:Number = c2.lv * c2.attribute_pvp_avoid;
 			hit = Math.pow((h2/h1),2);
 			hit = 1 / (1 + hit);
 			return hit;

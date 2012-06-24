@@ -136,7 +136,9 @@ package Calc.ResultScreen {
 			
 			if(f.property.name!=""){
 				ln();
-				text("属性攻撃力:" + a.attribute.min + "～" + a.attribute.max);
+				text("属性攻撃力:" + a.attribute.min + "～" + a.attribute.max,"red");
+				//攻撃成功率
+				text("(率" + c.attribute_hit +"/対人" +c.attribute_pvp_hit +")","red");
 			}
 		}
 		/**
@@ -148,6 +150,13 @@ package Calc.ResultScreen {
 			text("防御力:" + c.def);
 			//防御成功率
 			text("(率" + c.avoid +"/対人" +c.pvp_avoid +")");
+			
+			if(f.property.name!=""){
+				ln();
+				text("属性防御力:" + c.attribute_def,"red");
+				//防御成功率
+				text("(率" + c.attribute_avoid +"/対人" +c.attribute_pvp_avoid +")","red");
+			}
 		}
 		/**
 		 * クリティカルやEXD等の確率を表示
@@ -163,6 +172,14 @@ package Calc.ResultScreen {
 			//防御無視　WD
 			text("無視:" + c.ignore + "%");
 			text("WD:" + c.wd + "%");
+			
+			if(f.property.name!=""){
+				ln();
+				
+				text("属性通常:" + c.attribute_normal + "%","red");
+				text("属性クリ:" + c.attribute_cri + "%","red");
+				text("属性EXD:" + c.attribute_exd + "%","red");
+			}
 		}
 		/**
 		 * セットオプション

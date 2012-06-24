@@ -14,6 +14,8 @@ package Calc {
 	 * 対人ダメージ計算
 	 */
 	public class DamageCalculator {
+		private static var nf:NumberFormatter = new NumberFormatter();
+		
 		protected var f:Object;
 		protected var i:ItemData;
 		protected var c:CharacterData;
@@ -350,6 +352,22 @@ package Calc {
 			if(f.pet.item == "フェンリル" && f.pet.sub1 == "守護")s = (s * 90/100);//10%吸収
 			return s;
 			
+		}
+		/**
+		 * 被ダメージ命中率を計算します。
+		 */
+		public function calcSufferSuccess():String{
+			var s:Number = 0;
+			if(m[mk.hit] != 0){
+				if(c.avoid > m[mk.hit])
+					s = 0.05;//5%
+				else
+					s = 1 - (c.avoid / m[mk.hit]);
+			}else
+				s = 1;
+
+			nf.precision = 2; // 小数点以下2桁に設定
+			return nf.format(s*100);
 		}
 		
 	}
