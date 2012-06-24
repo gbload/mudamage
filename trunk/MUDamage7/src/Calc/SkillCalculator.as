@@ -44,14 +44,14 @@ package Calc {
 				if(m[mk.name]=="防御無視")
 					for(var g:int=0;g<=5;g++){
 						m[mk.attribute] = g;
-						r.push(calcAttributeSkill(hit));
+						r.push(calcAttributeSkill());
 					}
 				else if(m[mk.attribute_min]==0 || m[mk.attribute]!=5)
-					r.push(calcAttributeSkill(hit));
+					r.push(calcAttributeSkill());
 				else{
 					for(var j:int=0;j<5;j++){
 						m[mk.attribute] = j;
-						r.push(calcAttributeSkill(hit));
+						r.push(calcAttributeSkill());
 					}
 					// 属性リセット
 					m[mk.attribute] = 5;
@@ -61,7 +61,8 @@ package Calc {
 			suffer_count = 0; //被ダメージ行の数
 			if(m!=null){
 				r.push({minmax:calcSuffer(m[mk.min])
-						+ "～" + calcSuffer(m[mk.max])});
+						+ "～" + calcSuffer(m[mk.max]),
+						hit:calcSufferSuccess()+"%"});
 				suffer_count++;
 			}
 			//属性被ダメージ計算
@@ -70,13 +71,15 @@ package Calc {
 					if(m[mk.attribute]!=5){
 						r.push(calcAttributeSuffer());
 						suffer_count++;
-					}else
+					}else{
 						for(var k:int=0;k<5;k++){
 							m[mk.attribute] = k;
 							r.push(calcAttributeSuffer());
 							suffer_count++;
 						}
-
+						// 属性リセット
+						m[mk.attribute] = 5;
+					}
 			return r;
 		}
 		/**

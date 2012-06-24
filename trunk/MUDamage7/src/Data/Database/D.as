@@ -59,7 +59,11 @@ package Data.Database
 			job_pvp_avoid: Job.pvp_avoid,
 			job_attr_min: Job.attr_min,
 			job_attr_max: Job.attr_max,
-			job_attr_def: Job.attr_def
+			job_attr_def: Job.attr_def,
+			job_attr_hit: Job.hit,
+			job_attr_pvp_hit: Job.pvp_hit,
+			job_attr_avoid: Job.avoid,
+			job_attr_pvp_avoid: Job.pvp_avoid
 		};
 		public static var keys:Object = {
 			wing:Key.key[4],

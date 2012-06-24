@@ -45,6 +45,10 @@ package Calc {
 		//キャラクター属性
 		public var attribute:int=5;//属性　火、水、地、風、暗黒、無属性
 		public var attribute_def:int=0;//属性防御力
+		public var attribute_hit:int=0;//属性攻撃成功率
+		public var attribute_avoid:int=0;//属性防御成功率	
+		public var attribute_pvp_hit:int=0;//属性攻撃成功率
+		public var attribute_pvp_avoid:int=0;//属性防御成功率	
 		public var attribute_normal:Number=0;//属性通常確率
 		public var attribute_cri:Number=0;//属性クリティカル確率
 		public var attribute_exd:Number=0;//属性EXD確率

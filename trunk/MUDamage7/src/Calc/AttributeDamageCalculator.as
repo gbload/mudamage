@@ -32,6 +32,7 @@ package Calc {
 		private static var affinity_names:Array = 
 				["火","水","土","風","闇","無"];
 
+		private var success_rate_minus:Number = 0;
 		/**
 		 * コンストラクタ
 		 */
@@ -77,9 +78,10 @@ package Calc {
 			}
 			// 最低ダメ設定
 			if(min)
-				d = Math.max(4, d);
+				d = Math.max(Math.floor((c.lv-m[mk.lv])/100), d);
 			else
-				d = Math.max(6, d);
+				d = Math.max(Math.floor((c.lv-m[mk.lv])/70), d);
+			if(d<0)d=0;
 			
 			// ダメージ増加
 			d += Math.floor(d*inc/100);
@@ -117,12 +119,18 @@ package Calc {
 				d -= Math.floor(c.attribute_def*(calcDefenseAffinity()/2)/100);
 			// ダメージ減少
 			d -= Math.floor(d*dec/100);
+			// マイナスダメージ割合保存
+			if(min)success_rate_minus = d;
+			else if(success_rate_minus < 0)
+				if(d<0) success_rate_minus = 1;
+				else success_rate_minus = -success_rate_minus /(-success_rate_minus+d);
+			else success_rate_minus = 0;
 			// 最低ダメ設定
 			if(min)
-				d = Math.max(Math.floor(c.lv/100), d);
+				d = Math.max(Math.floor((m[mk.lv]-c.lv)/100), d);
 			else
-				d = Math.max(Math.floor(c.lv/100)*1.5, d);
-			
+				d = Math.max(Math.floor((m[mk.lv]-c.lv)/100)*1.5, d);
+			if(d<0)d=0;
 			// ダメージ吸収
 			d = Math.floor(d*(100-drain)/100);
 			return d;
@@ -154,8 +162,9 @@ package Calc {
 		/**
 		 * 属性のダメージ計算
 		 */
-		protected function calcAttributeSkill(hit:Number):ResultData{
+		protected function calcAttributeSkill():ResultData{
 			var data:ResultData = new ResultData();
+			var hit:Number = calcHit();
 			//スキル名
 			data.skillname = "属性"+":";
 			data.skillname += affinity_names[c.attribute]+"->"+affinity_names[m[mk.attribute]];
@@ -184,12 +193,12 @@ package Calc {
 		 * @param monster data
 		 * @return hit
 		 */
-		private function calcHit(c:int):Number{
+		private function calcHit():Number{
 			var hit:Number = 0;
-			if(c < m[mk.avoid])
+			if(c.attribute_hit < m[mk.attribute_avoid])
 				hit = 0.05;
 			else
-				hit = 1.0 - (m[mk.avoid] / c);
+				hit = 1.0 - (m[mk.attribute_avoid] / c.attribute_hit);
 			return hit;
 		}
 		/**
@@ -213,8 +222,8 @@ package Calc {
 		/**
 		 * 属性のダメージ計算
 		 */
-		protected function calcAttributeSuffer():ResultData{
-			var data:ResultData = new ResultData();
+		protected function calcAttributeSuffer():Object{
+			var data:Object = new Object();
 			//スキル名
 			data.skillname = "属性"+":";
 			data.skillname += affinity_names[m[mk.attribute]]+"->"+affinity_names[c.attribute];
@@ -227,7 +236,27 @@ package Calc {
 			//データの整形
 			data.minmax = data.min + "〜" + data.max;
 			
+			//命中率
+			data.hit = calcAttributeSufferSuccess() + "%";
+			
 			return data;
+		}
+		/**
+		 * 属性被ダメージ命中率を計算します。
+		 */
+		public function calcAttributeSufferSuccess():String{
+			var s:Number = 0;
+			if(m[mk.attribute_hit] != 0){
+				if(c.attribute_avoid > m[mk.attribute_hit])
+					s = 0.05;//5%
+				else
+					s = 1 - (c.attribute_avoid / m[mk.attribute_hit]);
+			}
+			if(success_rate_minus!=0)
+				s -= s*success_rate_minus;
+			
+			nf.precision = 2; // 小数点以下2桁に設定
+			return nf.format(s*100);
 		}
 	}
 }

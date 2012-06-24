@@ -136,6 +136,13 @@ package PVP {
 				text("魔力:" + muc.minmax[2] + "～" + muc.minmax[3]);
 			if(muc.job == 5)//呪い組み
 				text(" 呪い:" + muc.noroi[0] + "～" + muc.noroi[1]);
+			
+			if(f.property.name!=""){
+				ln();
+				text("属性攻撃力:" + a.attribute.min + "～" + a.attribute.max,"red");
+				//攻撃成功率
+				text("(率" + c.attribute_hit +"/対人" +c.attribute_pvp_hit +")","red");
+			}
 		}
 		/**
 		 * 防御関連のステータスを表示
@@ -146,6 +153,13 @@ package PVP {
 			text("防御力:" + muc.def);
 			//防御成功率
 			text("(率" + muc.avoid +"/対人" +muc.pvpavoid +")");
+			
+			if(f.property.name!=""){
+				ln();
+				text("属性防御力:" + c.attribute_def,"red");
+				//防御成功率
+				text("(率" + c.attribute_avoid +"/対人" +c.attribute_pvp_avoid +")","red");
+			}
 		}
 		/**
 		 * クリティカルやEXD等の確率を表示
@@ -161,6 +175,14 @@ package PVP {
 			//防御無視　WD
 			text("無視:" + muc.ignore + "%");
 			text("WD:" + muc.wd + "%");
+			
+			if(f.property.name!=""){
+				ln();
+				
+				text("属性通常:" + c.attribute_pvp_normal + "%","red");
+				text("属性クリ:" + c.attribute_pvp_cri + "%","red");
+				text("属性EXD:" + c.attribute_pvp_exd + "%","red");
+			}
 		}
 		/**
 		 * セットオプション

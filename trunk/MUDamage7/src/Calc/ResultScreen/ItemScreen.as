@@ -197,16 +197,16 @@ package Calc.ResultScreen {
 							tooltip += "("+(i.getRequire(obj,"str")+(obj.option[n]/4)*5).toString()+")";
 							break;
 						}
-					tooltip += "\n";
+					tooltip += "?\n";
 				}
 				if(i.getRequire(obj,"agi")>0)
-					tooltip += "要求敏捷:"+i.getRequire(obj,"agi").toString()+"\n";
+					tooltip += "要求敏捷:"+i.getRequire(obj,"agi").toString()+"?\n";
 				if(i.getRequire(obj,"vit")>0)
-					tooltip += "要求体力:"+i.getRequire(obj,"vit").toString()+"\n";
+					tooltip += "要求体力:"+i.getRequire(obj,"vit").toString()+"?\n";
 				if(i.getRequire(obj,"ene")>0)
-					tooltip += "要求エナジー:"+i.getRequire(obj,"ene").toString()+"\n";
+					tooltip += "要求エナジー:"+i.getRequire(obj,"ene").toString()+"?\n";
 				if(i.getRequire(obj,"rec")>0)
-					tooltip += "要求統率:"+i.getRequire(obj,"rec").toString()+"\n";
+					tooltip += "要求統率:"+i.getRequire(obj,"rec").toString()+"?\n";
 				// 表示
 				text(str,getColor(obj.kind),tooltip);
 				
@@ -274,16 +274,16 @@ package Calc.ResultScreen {
 								tooltip += "("+(i.getRequire(obj,"str")+(obj.option[n]/4)*5).toString()+")";
 							break;
 						}
-					tooltip += "\n";
+					tooltip += "?\n";
 				}
 				if(i.getRequire(obj,"agi")>0)
-					tooltip += "要求敏捷:"+i.getRequire(obj,"agi").toString()+"\n";
+					tooltip += "要求敏捷:"+i.getRequire(obj,"agi").toString()+"?\n";
 				if(i.getRequire(obj,"vit")>0)
-					tooltip += "要求体力:"+i.getRequire(obj,"vit").toString()+"\n";
+					tooltip += "要求体力:"+i.getRequire(obj,"vit").toString()+"?\n";
 				if(i.getRequire(obj,"ene")>0)
-					tooltip += "要求エナジー:"+i.getRequire(obj,"ene").toString()+"\n";
+					tooltip += "要求エナジー:"+i.getRequire(obj,"ene").toString()+"?\n";
 				if(i.getRequire(obj,"rec")>0)
-					tooltip += "要求統率:"+i.getRequire(obj,"rec").toString()+"\n";
+					tooltip += "要求統率:"+i.getRequire(obj,"rec").toString()+"?\n";
 				// 表示
 				text(str,getColor(obj.kind),tooltip);
 				

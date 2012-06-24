@@ -32,8 +32,10 @@ package Calc {
 			calcAttributeDef();
 			calcAvoid();
 			calcPVPAvoid();
+			calcAttributeAvoid();
 			calcHit();
 			calcPVPHit();
+			calcAttributeHit();
 			calcLife();
 			calcMana();
 			calcSD();
@@ -256,7 +258,7 @@ package Calc {
 		private function calcPVPAvoid():void{
 			var inc:Array = D.getData("job_pvp_avoid")[f.job_index];
 			// LV、敏捷
-			c.pvp_avoid = Math.floor(c.lv*inc[0]) + Math.floor(c.agi/inc[1]);
+			c.pvp_avoid = Math.floor(f.status.lv*inc[0]) + Math.floor(c.agi/inc[1]);
 			// エンチャント
 			c.pvp_avoid += i.getEnchantProtects("対人防御成功");
 			// MasterSkill
@@ -265,6 +267,19 @@ package Calc {
 			for(var n:Object in i.protects)
 				if(i.protects[n]["op380"])
 					c.pvp_avoid += 10;
+		}
+		/**
+		 * 属性防御成功率の計算
+		 */
+		private function calcAttributeAvoid():void{
+			var inc:int = D.getData("job_attr_avoid")[f.job_index];
+			// 敏捷
+			c.attribute_avoid = Math.floor(c.agi/inc);
+			c.attribute_avoid += Math.floor(c.attribute_avoid*f.property.getEreutelValue("defense_success")/100);
+			
+			var inc2:Array = D.getData("job_attr_pvp_avoid")[f.job_index];
+			// LV、敏捷
+			c.attribute_pvp_avoid = Math.floor(f.status.lv*inc2[0]) + Math.floor(c.agi/inc2[1]);
 		}
 		/**
 		 * 攻撃成功率の計算
@@ -300,6 +315,19 @@ package Calc {
 			if(!i.is_shield && f.left.op380)
 				c.pvp_hit += 10;
 			
+		}
+		/**
+		 * 属性攻撃成功率の計算
+		 */
+		private function calcAttributeHit():void{
+			var inc:Array = D.getData("job_attr_hit")[f.job_index];
+			// ステータス
+			c.attribute_hit = f.status.lv*inc[0] + Math.floor(c.agi*inc[1]) + Math.floor(c.str/inc[2]);
+			c.attribute_hit += Math.floor(c.attribute_hit*f.property.getEreutelValue("attack_success")/100);
+			
+			inc = D.getData("job_attr_pvp_hit")[f.job_index];
+			// ステータス
+			c.attribute_pvp_hit = Math.floor(f.status.lv*inc[0]) + Math.floor(c.agi*inc[1]);
 		}
 		/**
 		 * 生命の計算
@@ -569,8 +597,8 @@ package Calc {
 		 */
 		private function calcAttributeNormal():void{
 			// ereutel
-			c.attribute_cri += f.property.getEreutelValue("monster_citical");
-			c.attribute_pvp_cri += f.property.getEreutelValue("pvp_citical");
+			c.attribute_cri += f.property.getEreutelValue("monster_critical");
+			c.attribute_pvp_cri += f.property.getEreutelValue("pvp_critical");
 			c.attribute_exd += f.property.getEreutelValue("monster_exd");
 			c.attribute_pvp_exd += f.property.getEreutelValue("pvp_exd");
 			// クリティカル確率調整

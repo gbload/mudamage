@@ -118,6 +118,10 @@ package Calc.ResultScreen {
 			str += " 攻撃力" + m[mk.min] + "〜" + m[mk.max] + "(" + m[mk.hit] + ")";
 			// 防御力 & 率
 			str += " 防御力" + m[mk.def] + "(" + m[mk.avoid] + ")";
+			// 攻撃力 & 率
+			str += " 属性攻撃力" + m[mk.attribute_min] + "〜" + m[mk.attribute_max] + "(" + m[mk.attribute_hit] + ")";
+			// 防御力 & 率
+			str += " 属性防御力" + m[mk.attribute_def] + "(" + m[mk.attribute_avoid] + ")";
 			// 経験値
 			
 			label.text = str;
