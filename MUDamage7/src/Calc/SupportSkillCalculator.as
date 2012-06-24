@@ -103,8 +103,8 @@ package Calc {
 					+ (parseInt(d.wizard_ene.text)/200)
 					+ 10 + d.master_sb1.getSkillValue();
 			else
-				return Math.floor(parseInt(d.wizard_agi.text)/50)
-				+ Math.floor(parseInt(d.wizard_ene.text)/200)
+				return Math.floor(parseInt(d.wizard_agi.text)/50
+				+ parseInt(d.wizard_ene.text)/200)
 				+ 10;
 		}
 		public static function calcSoulBarrier_Time(d:BuffData):int{
