@@ -245,7 +245,7 @@ for($i=1;$i<@dat;$i++){
 			push(@a,&L($dats[$j]));
 		}
 	}elsif($id eq "lucky"){
-		# item,name,kind,type,job,lv,speed,setstatus,setname,spec
+		# item,name,kind,type,job,lv,speed,setstatus,setname,spec,ex_en_type
 		for($j=0;$j<@dats;$j++){
 			if($j==4){ #job
 				push(@a,&printArray($j,$j+6,\@dats));
