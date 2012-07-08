@@ -706,9 +706,14 @@ package Calc {
 		    	d += f.master_skill.getSkillValue("maximum_magic_curse");
 		    }
 			//バーサーカー
-		    if(!min){d += Math.floor(c.ene/4 * c.support_berserker/100);}
-		    else{d += Math.floor(c.ene/9 * c.support_berserker/100);}
-			
+		    if(f.support.ber_check.selected){
+			    var berserker:Number = SupportSkillCalculator.calcBerserkerMind_Magic(
+						f.master_skill.getSkillValue("berserker_mind"),
+						f.status.ene);
+			    if(!min){d += Math.floor(c.ene/4 * berserker/100);}
+			    else{d += Math.floor(c.ene/9 * berserker/100);}
+		    }
+		    
 			return d;
 		}
 		/**
@@ -832,26 +837,26 @@ package Calc {
 			var job_max:Array = D.getData("job_attr_max")[f.job_index];
 			// min
 			if(job_min[0]!=0)
-				a.attribute.min += Math.floor(c.str/job_min[0]);
+				a.attribute.min += Math.floor(f.status.str/job_min[0]);
 			if(job_min[1]!=0)
-				a.attribute.min += Math.floor(c.agi/job_min[1]);
+				a.attribute.min += Math.floor(f.status.agi/job_min[1]);
 			if(job_min[2]!=0)
-				a.attribute.min += Math.floor(c.vit/job_min[2]);
+				a.attribute.min += Math.floor(f.status.vit/job_min[2]);
 			if(job_min[3]!=0)
-				a.attribute.min += Math.floor(c.ene/job_min[3]);
+				a.attribute.min += Math.floor(f.status.ene/job_min[3]);
 			if(f.job=="ダークロード" && job_min[4]!=0)
-				a.attribute.min += Math.floor(c.rec/job_min[4]);
+				a.attribute.min += Math.floor(f.status.rec/job_min[4]);
 			// max
 			if(job_max[0]!=0)
-				a.attribute.max += Math.floor(c.str/job_max[0]);
+				a.attribute.max += Math.floor(f.status.str/job_max[0]);
 			if(job_max[1]!=0)
-				a.attribute.max += Math.floor(c.agi/job_max[1]);
+				a.attribute.max += Math.floor(f.status.agi/job_max[1]);
 			if(job_max[2]!=0)
-				a.attribute.max += Math.floor(c.vit/job_max[2]);
+				a.attribute.max += Math.floor(f.status.vit/job_max[2]);
 			if(job_max[3]!=0)
-				a.attribute.max += Math.floor(c.ene/job_max[3]);
+				a.attribute.max += Math.floor(f.status.ene/job_max[3]);
 			if(f.job=="ダークロード" && job_max[4]!=0)
-				a.attribute.max += Math.floor(c.rec/job_max[4]);
+				a.attribute.max += Math.floor(f.status.rec/job_max[4]);
 		}
 	}
 }

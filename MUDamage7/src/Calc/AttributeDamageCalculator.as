@@ -64,17 +64,15 @@ package Calc {
 			// affinity
 			d += Math.floor(d*(calcAffinity()/2)/100);
 			// EXD
-			if(exd)
+			if(exd){
 				d = Math.floor(d*1.2);
+			}
 			// guard
-			if(m[mk.attribute_def]==0){
-				d -= m[mk.def];
+			d -= m[mk.attribute_def];
+			if(m[mk.attribute]==5){
+				d += Math.floor(m[mk.attribute_def]*((calcAffinity()/2)+10)/100);
 			}else{
-				d -= m[mk.attribute_def];
-				if(m.attribute==5)
-					d -= Math.floor(m[mk.attribute_def]*((calcAffinity()/2)+10)/100);
-				else
-					d -= Math.floor(m[mk.attribute_def]*(calcAffinity()/2)/100);
+				d += Math.floor(m[mk.attribute_def]*(calcAffinity()/2)/100);
 			}
 			// 最低ダメ設定
 			if(min)
@@ -93,6 +91,7 @@ package Calc {
 		 */
 		private function calcMonsterAttribute(min:Boolean):int{
 			var d:int = 0;
+			var def:int = 0;
 			var dec:int = 0;
 			var drain:int = 0;
 			// 属性なし
@@ -104,19 +103,20 @@ package Calc {
 				d += m[mk.attribute_max];
 
 			// ereutel
-			d -= f.property.getEreutelValue("defense");
-			d -= f.property.getEreutelValue("monster_defense");
+			def += f.property.getEreutelValue("defense");
+			def += f.property.getEreutelValue("monster_defense");
 			dec += f.property.getEreutelValue("monster_decrease");
 			drain += f.property.getEreutelValue("monster_drain");
 
 			// affinity
 			d += Math.floor(d*(calcDefenseAffinity()/2)/100);
 			// guard
-			d -= c.attribute_def;
+			def += c.attribute_def;
+			d -= def;
 			if(c.attribute==5)
-				d -= Math.floor(c.attribute_def*((calcDefenseAffinity()/2)+10)/100);//無属性バグ
+				d += Math.floor(def*((calcDefenseAffinity()/2)+10)/100);//無属性バグ
 			else
-				d -= Math.floor(c.attribute_def*(calcDefenseAffinity()/2)/100);
+				d += Math.floor(def*(calcDefenseAffinity()/2)/100);
 			// ダメージ減少
 			d -= Math.floor(d*dec/100);
 			// マイナスダメージ割合保存

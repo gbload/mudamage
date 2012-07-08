@@ -47,6 +47,7 @@ package PVP {
 				exd:Boolean=false,
 				min:Boolean=false):int{
 			var d:int = 0;
+			var def:int = 0;
 			var inc:int = 0;
 			var dec:int = 0;
 			var drain:int = 0;
@@ -64,10 +65,10 @@ package PVP {
 			d += f.property.getEreutelValue("long_attack");
 			d += f.property.getEreutelValue("short_attack");
 			inc += f.property.getEreutelValue("pvp_increase");
-			d -= f2.property.getEreutelValue("defense");
-			d -= f2.property.getEreutelValue("pvp_defense");
-			d -= f2.property.getEreutelValue("long_defense");
-			d -= f2.property.getEreutelValue("short_defense");
+			def += f2.property.getEreutelValue("defense");
+			def += f2.property.getEreutelValue("pvp_defense");
+			def += f2.property.getEreutelValue("long_defense");
+			def += f2.property.getEreutelValue("short_defense");
 			dec += f2.property.getEreutelValue("pvp_decrease");
 			drain += f2.property.getEreutelValue("pvp_drain");
 
@@ -79,11 +80,12 @@ package PVP {
 			if(exd)
 				d = Math.floor(d*1.2);
 			// guard
-			d -= c2.attribute_def;
+			def += c2.attribute_def;
+			d -= def;
 			if(c2.attribute==5)
-				d -= Math.floor(c2.attribute_def*((calcAffinity()/2)+10)/100);//無属性バグ
+				d += Math.floor(def*((calcAffinity()/2)+10)/100);//無属性バグ
 			else
-				d -= Math.floor(c2.attribute_def*(calcAffinity()/2)/100);
+				d += Math.floor(def*(calcAffinity()/2)/100);
 			// ダメージ減少
 			d -= Math.floor(d*dec/100);
 			// 最低ダメ設定
@@ -111,11 +113,11 @@ package PVP {
 			aff += f.property.getEreutelValue("wind_attack",(c2.attribute == 3));
 			aff += f.property.getEreutelValue("dark_attack",(c2.attribute == 4));
 
-			aff -= f2.property.getEreutelValue("fire_defense",(c2.attribute == 0));
-			aff -= f2.property.getEreutelValue("water_defense",(c2.attribute == 1));
-			aff -= f2.property.getEreutelValue("earth_defense",(c2.attribute == 2));
-			aff -= f2.property.getEreutelValue("wind_defense",(c2.attribute == 3));
-			aff -= f2.property.getEreutelValue("dark_defense",(c2.attribute == 4));
+			aff -= f2.property.getEreutelValue("fire_defense",(c.attribute == 0));
+			aff -= f2.property.getEreutelValue("water_defense",(c.attribute == 1));
+			aff -= f2.property.getEreutelValue("earth_defense",(c.attribute == 2));
+			aff -= f2.property.getEreutelValue("wind_defense",(c.attribute == 3));
+			aff -= f2.property.getEreutelValue("dark_defense",(c.attribute == 4));
 			return affinity[c.attribute][c2.attribute] + aff;
 		}
 		/**

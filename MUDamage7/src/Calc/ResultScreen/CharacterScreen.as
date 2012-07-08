@@ -106,7 +106,7 @@ package Calc.ResultScreen {
 			
 			ln();
 			
-			text("HP:" + c.life);
+			textAddStatus("HP:", c.life, c.life - c.ori_life);
 			text("SD:" + c.sd);
 			text("マナ:" + c.mana);
 			text("AG:" + c.ag, "", "3秒毎にAG回復+"+c.agh);

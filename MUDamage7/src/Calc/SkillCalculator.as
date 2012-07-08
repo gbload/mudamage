@@ -41,12 +41,12 @@ package Calc {
 			}
 			//属性ダメージ計算
 			if(c.attribute!=5 && m[mk.name]!="BC門・石造")
-				if(m[mk.name]=="防御無視")
+				if(m[mk.name]=="防御無視"){
 					for(var g:int=0;g<=5;g++){
 						m[mk.attribute] = g;
 						r.push(calcAttributeSkill());
 					}
-				else if(m[mk.attribute_min]==0 || m[mk.attribute]!=5)
+				}else if(m[mk.attribute_min]==0 || m[mk.attribute]!=5)
 					r.push(calcAttributeSkill());
 				else{
 					for(var j:int=0;j<5;j++){

@@ -125,8 +125,10 @@ package Form.MUDamage {
 				func = function(event:Event):void{
 					var master:FormMasterSkillTree = mud.form_status.getMasterSkillTree();
 					var magic:Number = SupportSkillCalculator.calcBerserkerMind_Magic(
-							master.getSkillValue("berserker_mind")
-							+ master.getSkillValue("berserker_mind_mastery"),
+							master.getSkillValue("berserker_mind_mastery"),
+							parseInt(mud.form_status.getEne().text));
+					var curse:Number = SupportSkillCalculator.calcBerserkerMind_Magic(
+							master.getSkillValue("berserker_mind"),
 							parseInt(mud.form_status.getEne().text));
 					var magic_fixed:int = SupportSkillCalculator.calcBerserkerMind_MagicFixed(
 						master.getSkillValue("berserker_mind_mastery2"));
@@ -140,7 +142,8 @@ package Form.MUDamage {
 							master.getSkillValue("berserker_mind")
 							+ master.getSkillValue("berserker_mind_mastery"),
 							parseInt(mud.form_status.getEne().text));
-					d.ber.text = "バーサーカーマインド:魔力"+magic.toString()+"%"
+					d.ber.text = "バーサーカーマインド:魔力"+magic.toString()+"%";
+					d.ber.text += " 呪い"+curse.toString()+"%";
 					d.ber.text += " 魔力"+"+"+magic_fixed.toString();
 					d.ber.text += " 生命"+life.toString()+"%";
 					d.ber.text += " 防御力"+def.toString()+"%";
