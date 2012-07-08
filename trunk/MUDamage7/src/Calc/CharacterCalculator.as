@@ -65,8 +65,7 @@ package Calc {
 			if(f.support.wn_check.selected)c.support_weak = SupportSkillCalculator.calcWeakness(f.support);//ウイークネス
 			if(f.support.ber_check.selected)
 				c.support_berserker = SupportSkillCalculator.calcBerserkerMind_Magic(
-						f.master_skill.getSkillValue("berserker_mind")
-						+ f.master_skill.getSkillValue("berserker_mind_mastery"),
+						f.master_skill.getSkillValue("berserker_mind_mastery"),
 						f.status.ene);//バーサーカー
 			if(f.support.ht_check.selected)
 				c.support_vit = SupportSkillCalculator.calcHighTension(
@@ -204,7 +203,7 @@ package Calc {
 		private function calcAttributeDef():void{
 			var inc:int = D.getData("job_attr_def")[f.job_index];
 			// 敏捷によるDEF
-			c.attribute_def = c.agi/inc;
+			c.attribute_def = f.status.agi/inc;
 			if(f.property.name!=""){
 				// pentagram
 				c.attribute = f.property.attribute_num;
@@ -274,12 +273,12 @@ package Calc {
 		private function calcAttributeAvoid():void{
 			var inc:int = D.getData("job_attr_avoid")[f.job_index];
 			// 敏捷
-			c.attribute_avoid = Math.floor(c.agi/inc);
+			c.attribute_avoid = Math.floor(f.status.agi/inc);
 			c.attribute_avoid += Math.floor(c.attribute_avoid*f.property.getEreutelValue("defense_success")/100);
 			
 			var inc2:Array = D.getData("job_attr_pvp_avoid")[f.job_index];
 			// LV、敏捷
-			c.attribute_pvp_avoid = Math.floor(f.status.lv*inc2[0]) + Math.floor(c.agi/inc2[1]);
+			c.attribute_pvp_avoid = Math.floor(f.status.lv*inc2[0]) + Math.floor(f.status.agi/inc2[1]);
 		}
 		/**
 		 * 攻撃成功率の計算
@@ -322,12 +321,12 @@ package Calc {
 		private function calcAttributeHit():void{
 			var inc:Array = D.getData("job_attr_hit")[f.job_index];
 			// ステータス
-			c.attribute_hit = f.status.lv*inc[0] + Math.floor(c.agi*inc[1]) + Math.floor(c.str/inc[2]);
+			c.attribute_hit = f.status.lv*inc[0] + Math.floor(f.status.agi*inc[1]) + Math.floor(f.status.str/inc[2]);
 			c.attribute_hit += Math.floor(c.attribute_hit*f.property.getEreutelValue("attack_success")/100);
 			
 			inc = D.getData("job_attr_pvp_hit")[f.job_index];
 			// ステータス
-			c.attribute_pvp_hit = Math.floor(f.status.lv*inc[0]) + Math.floor(c.agi*inc[1]);
+			c.attribute_pvp_hit = Math.floor(f.status.lv*inc[0]) + Math.floor(f.status.agi*inc[1]);
 		}
 		/**
 		 * 生命の計算
@@ -337,10 +336,12 @@ package Calc {
 			var job_vit:int = D.getData("job_status")[f.job_index][2];
 			// ステータス
 			var tmp:int = inc[0] + (f.status.vit - job_vit)*inc[1] + (c.lv-1)*inc[2];
-			// MasterSkill
-			tmp += f.master_skill.getSkillValue("maximum_life");
+			// 純粋Life
+			c.ori_life = tmp;
 			// 追加体力
 			c.life = c.add_vit * inc[1];//セットとソケットの体力＋
+			// MasterSkill
+			c.life += f.master_skill.getSkillValue("maximum_life");
 			//HP
 			c.life += tmp;
 			/*

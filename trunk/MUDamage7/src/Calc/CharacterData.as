@@ -29,6 +29,7 @@ package Calc {
 		public var add_rec:int=0;//キャラクターの追加統率
 		//キャラクター能力
 		public var life:int=0;//Life
+		public var ori_life:int=0;//純粋Life
 		public var sd:int=0;//SD
 		public var mana:int=0;//マナ
 		public var ag:int=0;//AG
