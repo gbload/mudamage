@@ -623,7 +623,9 @@ package Calc {
 			attr["風"]=0;
 			attr["地"]=0;
 			for(var n:Object in equips)
-				attr[equips[n].socket_attr]++;
+				for(var m:Object in equips[n].socket_attr){
+					attr[equips[n].socket_attr[m]]++;
+				}
 			// WD3%
 			if(attr["炎"] && attr["稲妻"] && attr["氷"] &&
 					attr["水"] && attr["風"] && attr["地"])
@@ -638,7 +640,7 @@ package Calc {
 			c.ignore += i.setop_ignore;//セットOP
 			c.ignore += c.support_ignore;//レイジファイターバフ
 			c.ignore += f.master_skill.getSkillValue("ignore_defense");
-			
+
 			//ダブルダメージ
 			c.wd += i.setop_w;//セットOP
 			c.wd += f.master_skill.getSkillValue("double_damage");

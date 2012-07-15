@@ -20,13 +20,40 @@ Bugs
 - Unimplemented a calculation reducing skill damage by 20% in case of elf's bow calculation.
 - Unknown new skills.
 
-- Unknown the calculation of Property system.
-
-- No check PVP calculation in MUDamage after eX700.
 - PVP hit and avoidance probability is not validate.(Now: self=(pvphit * lv),you=(pvpavoid * lv),p=(self/(self+you))^2）
 		                        				]]> ).toString();
 		public static var release:String = ( <![CDATA[
 Release notes
+
+2012/07/15 ver3.28
+- Modify bug that set option of Hapi and Olrun was not applied.
+- Modify bug that set socket option was not applied.
+
+2012/06/24 ver3.27
+- Change master level to 302 from 300.
+- Modify berserker mind increase of summoner's master skill.
+- Modify to pure HP without maximum life of master skill. 
+- Modify bug that attribute affinity was reverse.
+- Modify attribute max attack of elemental beast and attribute defense of salamander.
+- Display pure HP in result screen.
+
+2012/06/24 ver3.26
+- Modify bug that enchant option of lucky item was weapon type.
+- Modify calculation of soul barrier.
+- Apply eX702.(but required value is by intuition.)
+- Modify calculation of attribute.(but hit rate is fuzzy.)
+
+2012/06/23 ver3.25
+- Modify calculation of attribute.
+
+2012/05/27 ver3.24
+- Modify Cling Blow's debuff and Beast Upper's debuff.
+- Change display of required strength.
+- Modify required value of arch angel rod.
+- Modify required value of phenix soul claw.(a little different with real value.)
+- Modify dependent rate of character's status about attribute attack.
+- Modify rising rate of attribute attack in PVP.
+- Modify parts of wizard's master skill value.
 
 2012/04/19 ver3.23
 - Change that attribute damage don't display in "BC Gate & Coffin".

@@ -79,7 +79,7 @@ package Calc {
 			obj.enchant = {};
 			obj.socket = {};
 			obj.socket_bonus = {};
-			obj.socket_attr = "none";
+			obj.socket_attr = {};
 			obj.op380 = false;
 			return obj;
 		}
@@ -215,7 +215,7 @@ package Calc {
 						if(names[i].selectedLabel != ""){
 							obj.socket[names[i].selectedLabel] = 
 								parseInt(values[i].selectedLabel.split("分の1")[0].split("%")[0]);
-							obj.socket_attr = names[i].selectedItem[1]; 
+							obj.socket_attr[i] = names[i].selectedItem[1]; 
 						}
 					var bonuses:Array = form.getSocket().getBonuses();
 					for(i=0;i<bonuses.length;i++)
