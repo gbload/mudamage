@@ -1,21 +1,147 @@
-ブラストブレーキ
-Blast Brake
-マグマスピア
-Magma Spear
-サンダーボルト
-Thunderbolt
-デビルクロスボウガン
-Devil Crossbow
-ソニックブレード
-Sonic Blade
-ホーンオブスチール
-Horn of Steel
-スパイプログラムスタッフ
-Spy Program Staff
-エンジェリックボウ
-Angelic Bow
-サイクロンソード
-Cyclone Sword
+レイジウインドガーダー
+Rage Wind Pants
+呪い上昇
+Curse Increase
+ 属性攻撃力
+ Attribute Attack
+エンビジョングラブ
+Envision Gloves
+ライトロードブーツ
+Light Lord Boots
+サキュバスヘルム
+Succubus Helm
+エンビジョンブーツ
+Envision Boots
+魔力 +13%
+Magic +13%
+ミラクルスタッフ
+Miracle Staff
+レイジウインド
+Rage Wind
+マジックナイトアーマー
+Magic Knight Armor
+属性EXD:
+Attribute XDMG:
+マジックナイトガーダー
+Magic Knight Pants
+ダークデビルブーツ
+Dark Devil Boots
+攻撃力、魔力増加
+Attack,Magic Increase
+スティッキー
+Sticky
+ストームウイングアーマー
+Storm Wing Armor
+ストームウインググラブ
+Storm Wing Gloves
+エンビジョンアーマー
+Envision Armor
+属性通常:
+Attribute Normal:
+スティッキーアーマー
+Sticky Armor
+ダークデビルアーマー
+Dark Devil
+エンビジョン
+Envision
+ダークデビルシールド
+Dark Devil Shield
+サキュバス
+Succubus
+レイジウインドアーマー
+Rage Wind Armor
+ライトロード
+Light Lord
+ダブルダメージ確率 +12%
+Double Damage Probability Increase +12%
+ライトロードグラブ
+Light Lord Gloves
+スティッキーガーダー
+Sticky Pants
+サモンスピリットロッド
+Summon Spirit Rod
+スティッキーグラブ
+Sticky Gloves
+ヘルナイトガーダー
+Hell Knight Pants
+ヘルナイト
+Hell Knight
+属性クリ:
+Attribute Critical:
+エンビジョンマスク
+Envision Mask
+マジックナイトブーツ
+Magic Knight Boots
+ヘルナイトグラブ
+Hell Knight Gloves
+ライトロードガーダー
+Light Lord Pants
+ 呪い
+ Curse
+レイジウインドブーツ
+Rage Wind Boots
+ヘルナイトブーツ
+Hell Knight Boots
+スティッキーブーツ
+Sticky Boots
+レイジウインドシールド
+Rage Wind Shield
+ダークデビルガーダー
+Dark Devil Pants
+マジックナイト
+Magic Knight
+サキュバスブーツ
+Succubus Boots
+ダークデビル
+Dark Devil
+スティッキーヘルム
+Sticky Helm
+マジックナイトシールド
+Magic Knight Shield
+ 属性防御力
+ Attribute Defense
+レイジウインドグラブ
+Rage Wind Gloves
+エトラムの巻物
+Scroll of Etonaramu
+マナ +200
+Mana +200
+ストームウイング
+Storm Wing
+エクセレントダメージ確率 +9%
+Excellent Damage rate increase +9%
+ライトロードシールド
+Light Lord Shield
+ストームウイングブーツ
+Storm Wing Boots
+ライトロードアーマー
+Light Lord Armor
+ダークデビルヘルム
+Dark Devil Helm
+サキュバスグラブ
+Succubus Gloves
+ダークデビルグラブ
+Dark Devil Gloves
+エンビジョンガーダー
+Envision Pants
+ストームウイングガーダー
+Storm Wing Pants
+サキュバスガーダー
+Succubus Pants
+ライトロードヘルム
+Light Lord Helm
+ストームウイングヘルム
+Storm Wing Helm
+サキュバスアーマー
+Succubus Armor
+マジックナイトグラブ
+Magic Knight Gloves
+ヘルナイトアーマー
+Hell Knight Armor
+レイジウインドヘルム
+Rage Wind Helm
+エンビジョンシールド
+Envision Shield
 スキル+11
 Skill+11
 クリティカルダメージ確率 +15%
@@ -28,10 +154,10 @@ Light Plate Boots
 Not found data.
 風の鎧
 Wind Armor
-エナジー増加
-Increase Energy
 魔力op
 Magic option
+エナジー増加
+Increase Energy
 スケルトン
 Skeleton Ring
 ガルム
@@ -68,18 +194,18 @@ AH
 HP recovery
 備考：※A+の要求エナ92\n
 note:A+ is required 92 ene.\n
-PVP時 属性攻撃エクセレントダメージ確率増加％
-PVP attribute excellent damage probability increase(%)
 猛毒のミノタウロス
 Poison Bull Fighter
+PVP時 属性攻撃エクセレントダメージ確率増加％
+PVP attribute excellent damage probability increase(%)
 ハイペリオンの青銅のブーツ
 Hyperion Bronze Boots
 効果持続時間増加
 Increase duration.
-オピオンのサイクロンアーマー
-Ophion Violent Wing Armor
 敵の防御力無視 +1%
 Ignore Defence 1%
+オピオンのサイクロンアーマー
+Ophion Violent Wing Armor
 ダークスピリットのクリティカルダメージ確率増加
 Critical Damage probability increase of dark spirit.
 両手剣マスタリ
@@ -128,18 +254,18 @@ Venom Mist Armor
 Elvian Wind Pants
 ライフドレインマスタリ
 Life Drain Mastery
-追加
-Add
 ダブルダメージ確率 +1%
 Double Damage Rate +1%
+追加
+Add
 エターナルウインググラブ
 Eternal Wing Gloves
 体力 +50
 Vitality +50
-オルカス
-Orcus
 妙薬:攻撃力+15
 Miracle : Attack +15
+オルカス
+Orcus
 アタックプラス強化
 Increase Greater Damage
 エルフの斧
@@ -256,20 +382,20 @@ Sunlight Boots
 Spirit Beast3(after 0~5min)
 攻撃魔力lv
 Dmg Level
-アミスのケルベロスアーマー
-Amis Storm Crow Armor
 を開きました。
 open.
+アミスのケルベロスアーマー
+Amis Storm Crow Armor
 モスマン
 Beetle Monster
 ディバインアーマー
 Divino Armor
 ホルスのスキルのネックレス
 Horus Pendant of Ability
-ブレス強化
-Increase Bless
 エルベランド
 Elbeland
+ブレス強化
+Increase Bless
 メテルのダークソウルヘルム
 Meter Adamantine Helm
 力:
@@ -1032,16 +1158,16 @@ Spirit Beast2(after 5~10min)
 The probability of pushing out targets.
 カオスキャッスル4（近接）
 Chaos Castle 4(adjacency)
-風属性攻撃相性増加％
-Wind attribute attack affinity increase(%)
 マナ +25
 Mana +25
+風属性攻撃相性増加％
+Wind attribute attack affinity increase(%)
 SD回復速度増加
 Increase SD Healing Speed
-属性防御力:
-Attribute Defense:
 フリッグの風のネックレス
 Frigg Pendant of Wind
+属性防御力:
+Attribute Defense:
 ベガ
 Vega
 x%の確率でスタン状態にする
@@ -1300,6 +1426,8 @@ Skill Dmg +20
 Increase Electric Spark
 無名
 Anonymous
+デビルクロスボウガン
+Devil Crossbow
 防御力:
 Defence:
 ゴッドブロー(コンボ)
@@ -1382,6 +1510,8 @@ C+：
 C+:
 氷抵抗力
 Resist Ice
+マグマスピア
+Magma Spear
 骸骨の戦士2（5～10分経過)
 Orc Warrior2(after 5~10min)
 ガイアのシルクの鎧
@@ -1694,6 +1824,8 @@ Bone Blade
 Increase Soul Barrier
 無視:
 Ignore:
+サンダーボルト
+Thunderbolt
 ダークスカルアーマー2（5～10分経過)
 Spirit Soldier2(after 5~10min)
 魔法師
@@ -1900,6 +2032,8 @@ Silk Boots
 Ceto Rapier
 シャドウポーン
 Shadow Pawn
+サイクロンソード
+Cyclone Sword
 ハイオンのドラゴングラブ
 Hyon Dragon Gloves
 ブラッドストームを習得。自身の周囲に2HITダメージ。(コンボスキル使用時は3番目で使用可能)
@@ -1926,6 +2060,8 @@ Salamander
 La Cleon
 オーク戦士8（5～10分経過)
 Orc Warrior8(after 5~10min)
+スパイプログラムスタッフ
+Spy Program Staff
 ハンドアックス
 Hand Axe
 アルヴィトのルシファーの杖
@@ -2128,6 +2264,8 @@ Earthquake
 Spirit Soldier1(after 5~10min)
 ゴブリン
 Elite Goblin
+エンジェリックボウ
+Angelic Bow
 力：
 Strength:
 キャプテングリズリー
@@ -2604,6 +2742,8 @@ Skill Dmg +10
 Wind
 カオスキャッスル7（近接）
 Chaos Castle 7(adjacency)
+ソニックブレード
+Sonic Blade
 フロストメイス
 Frost Mace
 スキルのネックレス
@@ -2914,6 +3054,8 @@ Earth
 High tension : 
 カリスの精霊のブーツ
 Karis Spirit Boots
+ブラストブレーキ
+Blast Brake
 アイコンなしのため力増加と同じものを使用。
 Using 'strength increase' icon because of no icon.
 勝利回数 
@@ -4642,6 +4784,8 @@ Dragon Helm
 Wing of Spirit
 エンシェントブーツ
 Ancient Boots
+ホーンオブスチール
+Horn of Steel
 オーディーンのグラブ
 Legendary Gloves
 サイクロプス
