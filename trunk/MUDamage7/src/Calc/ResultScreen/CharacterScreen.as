@@ -105,8 +105,14 @@ package Calc.ResultScreen {
 				textAddStatus("統率:", c.rec, c.add_rec);
 			
 			ln();
-			
-			textAddStatus("HP:", c.life, c.life - c.ori_life);
+			var hp_text:String = "";
+			if(c.life - c.ori_life > 0){
+				hp_text += c.ori_life.toString() + "+" + (c.life - c.ori_life).toString() + "\n";
+			}
+			hp_text += "大赤P+1(2秒):+" + Math.floor(c.ori_life*0.45).toString() + "\n";;
+			hp_text += "中複合P(4秒):+" + Math.floor(c.life*0.25).toString() + "\n";;
+			hp_text += "AH(7.5秒毎):+" + c.ah.toString() + "\n";;
+			text("HP:" + c.life,"blue",hp_text);
 			text("SD:" + c.sd);
 			text("マナ:" + c.mana);
 			text("AG:" + c.ag, "", "3秒毎にAG回復+"+c.agh);

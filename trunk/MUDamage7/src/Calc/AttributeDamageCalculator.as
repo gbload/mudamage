@@ -62,17 +62,17 @@ package Calc {
 			inc += f.property.getEreutelValue("monster_increase");
 			
 			// affinity
-			d += Math.floor(d*(calcAffinity()/2)/100);
+			if(m[mk.attribute]!=5)
+				d += Math.floor(d*(calcAffinity()/2)/100);
 			// EXD
 			if(exd){
 				d = Math.floor(d*1.2);
 			}
 			// guard
-			d -= m[mk.attribute_def];
 			if(m[mk.attribute]==5){
-				d += Math.floor(m[mk.attribute_def]*((calcAffinity()/2)+10)/100);
+				d -= m[mk.attribute_def];
 			}else{
-				d += Math.floor(m[mk.attribute_def]*(calcAffinity()/2)/100);
+				d -= Math.floor(m[mk.attribute_def] - m[mk.attribute_def]*(calcAffinity()/2)/100);
 			}
 			// 最低ダメ設定
 			if(min)
@@ -80,7 +80,6 @@ package Calc {
 			else
 				d = Math.max(Math.floor((c.lv-m[mk.lv])/70), d);
 			if(d<0)d=0;
-			
 			// ダメージ増加
 			d += Math.floor(d*inc/100);
 			

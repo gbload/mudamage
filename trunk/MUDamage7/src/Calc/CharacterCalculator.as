@@ -387,6 +387,20 @@ package Calc {
 					f.master_skill.getSkillValue("iron_defense")));
 			// attribute
 			c.life += f.property.getEreutelValue("hp");
+			
+			/*
+			 * オートヒーリング
+			 */
+			var ah:Number = 0;
+			ah += i.getValueMap(f.wing.option,"AH");
+			ah += i.getValueMap(f.neck.option,"AH");
+			ah += i.getValueMap(f.ring1.option,"AH");
+			ah += i.getValueMap(f.ring2.option,"AH");
+			ah += f.master_skill.getSkillValue("life_recovery");
+			c.ah = Math.floor(c.life * ah / 100);
+			//固定増加
+			c.ah += i.getEnchantProtects("自動生命回復");
+			c.ah += i.getSocketProtects("自動生命回復");
 		}
 		/**
 		 * マナの計算
@@ -481,6 +495,7 @@ package Calc {
 			else tmp += 3.00;
 			c.agh = 2 + Math.floor(c.ag*tmp/100);
 			c.agh += i.setop_agah;//セットOP
+			c.agh += i.getSocketProtects("自動AG回復");
 		}
 		/**
 		 * 攻撃速度の計算
