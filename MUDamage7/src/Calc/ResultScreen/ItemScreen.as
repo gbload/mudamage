@@ -156,6 +156,9 @@ package Calc.ResultScreen {
 					tooltip += "要求レベル:"+i.getItemData(f.neck,"lv").toString()+"\n";
 				// 表示
 				text(str,getColor(f.neck.kind));
+				// セットステータス
+				for(var tmp:Object in f.neck.set_status)
+					text(tmp+"+"+f.neck.set_status[tmp],getColor(f.neck.kind));
 				// EXOP
 				text(getExellent(f.neck),getColor(f.neck.kind));
 			}
@@ -210,6 +213,9 @@ package Calc.ResultScreen {
 				// 表示
 				text(str,getColor(obj.kind),tooltip);
 				
+				// セットステータス
+				for(var tmp:Object in obj.set_status)
+					text(tmp+"+"+obj.set_status[tmp],getColor(obj.kind));
 				// EXOP
 				text(getExellent(obj),getColor(obj.kind));
 				// ソケットOP
@@ -286,7 +292,10 @@ package Calc.ResultScreen {
 					tooltip += "要求統率:"+i.getRequire(obj,"rec").toString()+"?\n";
 				// 表示
 				text(str,getColor(obj.kind),tooltip);
-				
+
+				// セットステータス
+				for(var tmp:Object in obj.set_status)
+					text(tmp+"+"+obj.set_status[tmp],getColor(obj.kind));
 				// EXOP
 				text(getExellent(obj),getColor(obj.kind));
 				// ソケットOP
@@ -313,6 +322,9 @@ package Calc.ResultScreen {
 					tooltip += "要求レベル:"+i.getItemData(obj,"lv").toString()+"\n";
 				// 表示
 				text(str,getColor(obj.kind));
+				// セットステータス
+				for(var tmp:Object in obj.set_status)
+					text(tmp+"+"+obj.set_status[tmp],getColor(obj.kind));
 				// EXOP
 				text(getExellent(obj),getColor(obj.kind));
 			}

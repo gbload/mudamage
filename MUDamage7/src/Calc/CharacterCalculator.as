@@ -65,7 +65,7 @@ package Calc {
 			if(f.support.wn_check.selected)c.support_weak = SupportSkillCalculator.calcWeakness(f.support);//ウイークネス
 			if(f.support.ber_check.selected)
 				c.support_berserker = SupportSkillCalculator.calcBerserkerMind_Magic(
-						f.master_skill.getSkillValue("berserker_mind_mastery"),
+						f.master_skill.getSkillValue("berserker_mind_mastery")+
 						f.master_skill.getSkillValue("berserker_mind_mastery2"),
 						f.status.ene);//バーサーカー
 			if(f.support.ht_check.selected)
@@ -163,39 +163,40 @@ package Calc {
 			if(i.is_shield)c.def += Math.floor(c.def*i.setop_shield/100);
 			//ソケットの盾装備時
 			if(i.is_shield)c.def += Math.floor(c.def*(i.getSocketProtects("盾装備時増加"))/100);
-		    if(i.hasSpecialRing("エリート骸骨変化の指輪"))
-		    	c.def += Math.floor(c.def*0.1);
-			/*
-			 * 固定増加分
-			 */
-			//MLV盾強化
-			c.def += f.master_skill.getSkillValue("shield") * 2;
-			//MLV羽強化
-			c.def += f.master_skill.getSkillValue("wing_defense") * 2;
-			//ソケットのDEF増加
-			c.def += i.getSocketProtects("防御力増加") * 2;
-			//ボーナスソケットのDEF増加
-			c.def += i.getSocketBonusProtects("防御力") * 2;
-			//かぼちゃ、課金などのでDEF増加
-			c.def += i.etc_def * 2;
-			//ペットによるDEF増加
-			if(f.pet == "白と黒のポンガ")c.def += 100;//防御力+50 → DEF+100
-			//ペットによるDEF増加
-			if(f.pet == "白銀のアリオン")c.def += 100;//防御力+50 → DEF+100
 			//バーサーカーによるDEF減少
 			if(f.support.ber_check.selected)
 				c.def -= Math.floor(tmp * SupportSkillCalculator.calcBerserkerMind_Defense(
 						f.master_skill.getSkillValue("berserker_mind"),
 						f.status.ene)/100);
+			/*
+			 * 固定増加分
+			 */
+			//MLV盾強化
+			c.add_def += f.master_skill.getSkillValue("shield") * 2;
+			//MLV羽強化
+			c.add_def += f.master_skill.getSkillValue("wing_defense") * 2;
+			//ソケットのDEF増加
+			c.add_def += i.getSocketProtects("防御力増加") * 2;
+			//ボーナスソケットのDEF増加
+			c.add_def += i.getSocketBonusProtects("防御力") * 2;
+			//かぼちゃ、課金などのでDEF増加
+			c.add_def += i.etc_def * 2;
+			//エリート骸骨
+		    if(i.hasSpecialRing("エリート骸骨変化の指輪"))
+		    	c.add_def += 10;
+			//ペットによるDEF増加
+			if(f.pet == "白と黒のポンガ")c.add_def += 100;//防御力+50 → DEF+100
+			//ペットによるDEF増加
+			if(f.pet == "白銀のアリオン")c.add_def += 100;//防御力+50 → DEF+100
 			// G+
-			c.def += c.support_g*2;
+			c.add_def += c.support_g*2;
 			// Concentration
-			if(f.support.con_check.selected)c.def += SupportSkillCalculator.calcConcentration_Defense(f.support)*2;
+			if(f.support.con_check.selected)c.add_def += SupportSkillCalculator.calcConcentration_Defense(f.support)*2;
 			// Seraphy
-			c.def += c.support_sera_g*2;
+			c.add_def += c.support_sera_g*2;
 			// Iron
 			if(f.support.iron_check.selected)
-				c.def += Math.floor(SupportSkillCalculator.calcIronDefense_Defense(
+				c.add_def += Math.floor(SupportSkillCalculator.calcIronDefense_Defense(
 					f.master_skill.getSkillValue("iron_defense")))*2;
 		}
 		/**

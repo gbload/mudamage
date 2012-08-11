@@ -124,6 +124,7 @@ package PVP {
 		 * @return hit
 		 */
 		protected function calcHit():Number{
+			if(c.attribute!=5)return 1;
 			var hit:Number = 0;
 			var h1:Number = c.lv * c.pvp_hit;
 			var h2:Number = c2.lv * c2.pvp_avoid;
