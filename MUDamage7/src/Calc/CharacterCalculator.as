@@ -66,6 +66,7 @@ package Calc {
 			if(f.support.ber_check.selected)
 				c.support_berserker = SupportSkillCalculator.calcBerserkerMind_Magic(
 						f.master_skill.getSkillValue("berserker_mind_mastery"),
+						f.master_skill.getSkillValue("berserker_mind_mastery2"),
 						f.status.ene);//バーサーカー
 			if(f.support.ht_check.selected)
 				c.support_vit = SupportSkillCalculator.calcHighTension(

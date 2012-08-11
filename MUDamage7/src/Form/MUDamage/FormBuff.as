@@ -126,9 +126,11 @@ package Form.MUDamage {
 					var master:FormMasterSkillTree = mud.form_status.getMasterSkillTree();
 					var magic:Number = SupportSkillCalculator.calcBerserkerMind_Magic(
 							master.getSkillValue("berserker_mind_mastery"),
+							master.getSkillValue("berserker_mind_mastery2"),
 							parseInt(mud.form_status.getEne().text));
 					var curse:Number = SupportSkillCalculator.calcBerserkerMind_Magic(
 							master.getSkillValue("berserker_mind"),
+							0,
 							parseInt(mud.form_status.getEne().text));
 					var magic_fixed:int = SupportSkillCalculator.calcBerserkerMind_MagicFixed(
 						master.getSkillValue("berserker_mind_mastery2"));
