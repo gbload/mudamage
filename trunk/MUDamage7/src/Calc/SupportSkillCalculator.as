@@ -43,30 +43,32 @@ package Calc {
 		public static function calcIronDefense_Life(master:Number):Number{
 			return master+800;
 		}
-		public static function calcBerserkerMind_Magic(master:Number,ene:int):Number{
-			if(master)
-				return master+(ene/30);
-			else
-				return Math.floor(ene/30);
+		public static function calcBerserkerMind_Magic(master:Number,master2:Number,ene:int):Number{
+			var r:Number = 0;
+			if(master2)r+=master2;
+			if(master)r+=master;
+			if(master || master2)r+=ene/30;
+			else r+=Math.floor(ene/30);
+			return r;
 		}
 		public static function calcBerserkerMind_MagicFixed(master:int):int{
-			return master;
+			return 0;
 		}
 		public static function calcBerserkerMind_Life(master:Number,ene:int):Number{
 			if(master)
-				return master+(ene/60) - 40;
+				return (ene/60) - 40;
 			else
 				return Math.floor(ene/60) - 40;
 		}
 		public static function calcBerserkerMind_Defense(master:Number,ene:int):Number{
 			if(master)
-				return master+(	ene/45) - 50;
+				return (ene/45) - 50;
 			else
 				return Math.floor(ene/45) - 50;
 		}
 		public static function calcBerserkerMind_Mana(master:Number,ene:int):Number{
 			if(master)
-				return master+(ene/30);
+				return (ene/30);
 			else
 				return Math.floor(ene/30);
 		}

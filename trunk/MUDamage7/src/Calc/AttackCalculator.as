@@ -633,13 +633,6 @@ package Calc {
 		    	d += i.setop_cri;//セットOP
 		    }
 
-		    //妙薬・A＋・セラ
-		    d += c.support_a;
-		    if(f.support.miracle_check.selected)d += 15;
-		    d += c.support_sera_a;
-		    //[課金]魔力増加(バグ？)
-		    d += i.etc_magic2;
-
 			return d;
 		}
 		private function calcDarkSpirit():void{
@@ -709,6 +702,7 @@ package Calc {
 		    if(f.support.ber_check.selected){
 			    var berserker:Number = SupportSkillCalculator.calcBerserkerMind_Magic(
 						f.master_skill.getSkillValue("berserker_mind"),
+						0,
 						f.status.ene);
 			    if(!min){d += Math.floor(c.ene/4 * berserker/100);}
 			    else{d += Math.floor(c.ene/9 * berserker/100);}

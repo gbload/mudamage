@@ -141,6 +141,10 @@ package Calc {
 				exd:Boolean=false,
 				min:Boolean=false):int{
 		    //ダメージ計算===========================
+
+		    //妙薬・A＋・セラ
+		    d += a.add;
+		    
 			d = calcGuard1(d);
 			d = Math.max(d,Math.floor(f.status.lv/10));//max[攻撃力-モンス,lv/10]
 			
