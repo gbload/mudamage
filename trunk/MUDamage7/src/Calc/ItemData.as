@@ -324,7 +324,7 @@ package Calc {
 				obj.key[str].toString();
 				// spec
 				var req:int = obj.key.require;
-				if(obj.item[obj.key.kind] == "EX")
+				if(obj.kind == "EX")
 					req = obj.key.exrequire;
 				if(obj.set_item != null)
 					req = obj.key.exrequire;

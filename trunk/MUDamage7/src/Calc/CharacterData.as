@@ -40,6 +40,7 @@ package Calc {
 		public var hit:int=0;//攻撃成功率
 		public var pvp_hit:int=0;//対人攻撃成功率
 		public var def:int=0;//防御力
+		public var add_def:int=0;//固定防御力
 		public var avoid:int=0;//防御成功率
 		public var pvp_avoid:int=0;//対人防御成功率
 		public var speed:int=0;//攻撃速度

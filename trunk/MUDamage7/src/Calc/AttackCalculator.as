@@ -701,8 +701,8 @@ package Calc {
 			//バーサーカー
 		    if(f.support.ber_check.selected){
 			    var berserker:Number = SupportSkillCalculator.calcBerserkerMind_Magic(
-						f.master_skill.getSkillValue("berserker_mind"),
-						0,
+						f.master_skill.getSkillValue("berserker_mind")+
+						f.master_skill.getSkillValue("berserker_mind_mastery2"),
 						f.status.ene);
 			    if(!min){d += Math.floor(c.ene/4 * berserker/100);}
 			    else{d += Math.floor(c.ene/9 * berserker/100);}

@@ -205,7 +205,7 @@ package Data.Database.MLV
 		// rank6 ~
 		// 共通
 		["set_defense","セット防御力増加",3,0,MasterSkillImage.blade_pro_icon_15,"防具統一時に防御力増加"],
-		["reflection","ダメージ反射",0,1,MasterSkillImage.blade_pro_icon_16,"ダメージを受けた時、x%の確率で対象から受けたダメージを一度反射"],
+		["reflection","ダメージ反射",26,1,MasterSkillImage.blade_pro_icon_16,"ダメージを受けた時、x%の確率で対象から受けたダメージを一度反射"],
 		
 		["energy","エナジー増加",9,0,MasterSkillImage.blade_pro_icon_17,""],
 		["vitality","体力増加",9,0,MasterSkillImage.blade_pro_icon_18,""],
@@ -231,16 +231,16 @@ package Data.Database.MLV
 		// knight2
 		["swell_life_mastery2","スウェルライフマスタリ2",1,1,MasterSkillImage.blade_ang_icon_17,"最大AG増加"],
 		["maximum_attack","最大攻撃力増加",3,0,MasterSkillImage.blade_ang_icon_18,""],
-		["critical_probability","クリティカル確率増加",1,1,MasterSkillImage.blade_ang_icon_19,""],
+		["critical_probability","クリティカル確率増加",26,1,MasterSkillImage.blade_ang_icon_19,""],
 		
-		["mana_completion","マナ完全回復",0,1,MasterSkillImage.blade_ang_icon_20,""],
-		["life_completion","生命力完全回復",0,1,MasterSkillImage.blade_ang_icon_21,""],
-		["exdamage_probability","エクセレントダメージ確率増加",0,1,MasterSkillImage.blade_ang_icon_22,""],
+		["mana_completion","マナ完全回復",26,1,MasterSkillImage.blade_ang_icon_20,""],
+		["life_completion","生命力完全回復",26,1,MasterSkillImage.blade_ang_icon_21,""],
+		["exdamage_probability","エクセレントダメージ確率増加",26,1,MasterSkillImage.blade_ang_icon_22,""],
 		
-		["double_damage","ダブルダメージ確率増加",0,1,MasterSkillImage.blade_ang_icon_23,""],
-		["sd_completion","SD完全回復",0,1,MasterSkillImage.blade_ang_icon_24,""],
+		["double_damage","ダブルダメージ確率増加",26,1,MasterSkillImage.blade_ang_icon_23,""],
+		["sd_completion","SD完全回復",26,1,MasterSkillImage.blade_ang_icon_24,""],
 		
-		["ignore_defense","防御力無視確率増加",0,1,MasterSkillImage.blade_ang_icon_25,""],
+		["ignore_defense","防御力無視確率増加",26,1,MasterSkillImage.blade_ang_icon_25,""],
 		// wizard
 		["meteor_strike","メテオストライク強化",6,0,MasterSkillImage.grand_wis_icon_16,""],
 		["sudden_ice","サドゥンアイス強化",2,0,MasterSkillImage.grand_wis_icon_18,""],

@@ -288,7 +288,7 @@ package Calc {
 			var i:ItemData = muc.i;
 			var c:CharacterData = muc.c;
 			
-			s = s - c.def/2;//(モンス攻撃 - DEF)
+			s = s - c.def/2 - c.add_def/2;//(モンス攻撃 - DEF)
 		    if(f.support.cafe.selectedLabel == "時の結晶")
 		    	s -= 60;
 			

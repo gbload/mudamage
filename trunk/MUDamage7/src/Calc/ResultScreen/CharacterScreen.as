@@ -153,7 +153,7 @@ package Calc.ResultScreen {
 		private function setDefense():void{
 			ln();
 			
-			text("防御力:" + c.def);
+			textAddStatus("防御力:",(c.def+c.add_def),c.add_def);
 			//防御成功率
 			text("(率" + c.avoid +"/対人" +c.pvp_avoid +")");
 			
