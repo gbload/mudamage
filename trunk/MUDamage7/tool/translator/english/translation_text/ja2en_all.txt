@@ -10,10 +10,10 @@ Light Plate Boots
 Not found data.
 風の鎧
 Wind Armor
-エナジー増加
-Increase Energy
 魔力op
 Magic option
+エナジー増加
+Increase Energy
 スケルトン
 Skeleton Ring
 ガルム
@@ -58,10 +58,10 @@ Poison Bull Fighter
 Hyperion Bronze Boots
 効果持続時間増加
 Increase duration.
-オピオンのサイクロンアーマー
-Ophion Violent Wing Armor
 敵の防御力無視 +1%
 Ignore Defence 1%
+オピオンのサイクロンアーマー
+Ophion Violent Wing Armor
 ダークスピリットのクリティカルダメージ確率増加
 Critical Damage probability increase of dark spirit.
 両手剣マスタリ
@@ -250,10 +250,10 @@ Beetle Monster
 Divino Armor
 ホルスのスキルのネックレス
 Horus Pendant of Ability
-ブレス強化
-Increase Bless
 エルベランド
 Elbeland
+ブレス強化
+Increase Bless
 メテルのダークソウルヘルム
 Meter Adamantine Helm
 力:
@@ -2500,6 +2500,8 @@ Defense Success Rate
 Master LV
 タロスのオーディーンの兜
 Taros Legendary Helm
+大赤P+1(2秒):+
+Big Red Portion +1(2sec):+
 要求エナジー:
 Require Energy:
 エナジー：
@@ -3242,6 +3244,8 @@ Alvitr Pendant of Water
 Sticky Gloves
 アッシュクローガーダー
 Ashcrow Pants
+中複合P(4秒):+
+Middle Mix Portion(4sec):+
 ヘルナイトグラブ
 Hell Knight Gloves
 ティターンアーマー
@@ -4952,6 +4956,8 @@ Vitality +20
 Berserker Scale Pants
 ドラゴンナイトブーツ
 Dragon Knight Boots
+AH(7.5秒毎):+
+Auto Healing(7.5sec):+
 ガイアのガストラ
 Gaia Golden Crossbow
 ゴールドクラスト

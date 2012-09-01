@@ -103,7 +103,7 @@ package Form.MUDamage {
 			changeSetop();
 			//380OPの変更
 			if((isNormal() || isEx())
-			 && item.selectedItem[6] == 380){
+			 && parseInt(d[k.lv]) == 380){
 				FormCommon.show(op380box);
 			}else{
 				FormCommon.hide(op380box);
