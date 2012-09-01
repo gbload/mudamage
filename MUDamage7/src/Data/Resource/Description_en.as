@@ -25,6 +25,31 @@ Bugs
 		public static var release:String = ( <![CDATA[
 Release notes
 
+2012/09/01 ver3.32
+- Modify bug that 380 option form isn't displayed.
+
+2012/08/11 ver3.31
+- Modify master skill value of probability type.
+- Modify bug that require status of excellent item is it of normal item.
+- Modify bug that "Barserker Mind Mastery2" isn't applied to curse.
+- Modify bug that ancient item's status isn't displayed in result screen.
+- Modify not to calculate support defense to base defense. 
+- Modify error of Warrior's option "AG increase".
+- Modify to hit always for PvP when set attribute item.
+
+2012/07/26 ver3.30
+- Modify effect of "Barserker Mind Mastery2".
+- Modify bug that effect of "Crystal of Time" etc isn't applied for magic.
+
+2012/07/21 ver3.29
+- Modify bug that option of "Magni" isn't calculated.
+- Modify bug that damage decrease of cloak is set lower.
+- Modify attribute defense of attribute BOSS.
+- Modify not to apply attribute affinity to none attribute monsters. 
+- Adjust fraction of attribute damage.
+- Display Auto Healing value.
+- Modify bug that socket option "AG auto healing" isn't added.
+
 2012/07/15 ver3.28
 - Modify bug that set option of Hapi and Olrun was not applied.
 - Modify bug that set socket option was not applied.

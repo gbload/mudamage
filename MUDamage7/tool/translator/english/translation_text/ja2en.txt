@@ -1,147 +1,9 @@
-レイジウインドガーダー
-Rage Wind Pants
-呪い上昇
-Curse Increase
- 属性攻撃力
- Attribute Attack
-エンビジョングラブ
-Envision Gloves
-ライトロードブーツ
-Light Lord Boots
-サキュバスヘルム
-Succubus Helm
-エンビジョンブーツ
-Envision Boots
-魔力 +13%
-Magic +13%
-ミラクルスタッフ
-Miracle Staff
-レイジウインド
-Rage Wind
-マジックナイトアーマー
-Magic Knight Armor
-属性EXD:
-Attribute XDMG:
-マジックナイトガーダー
-Magic Knight Pants
-ダークデビルブーツ
-Dark Devil Boots
-攻撃力、魔力増加
-Attack,Magic Increase
-スティッキー
-Sticky
-ストームウイングアーマー
-Storm Wing Armor
-ストームウインググラブ
-Storm Wing Gloves
-エンビジョンアーマー
-Envision Armor
-属性通常:
-Attribute Normal:
-スティッキーアーマー
-Sticky Armor
-ダークデビルアーマー
-Dark Devil
-エンビジョン
-Envision
-ダークデビルシールド
-Dark Devil Shield
-サキュバス
-Succubus
-レイジウインドアーマー
-Rage Wind Armor
-ライトロード
-Light Lord
-ダブルダメージ確率 +12%
-Double Damage Probability Increase +12%
-ライトロードグラブ
-Light Lord Gloves
-スティッキーガーダー
-Sticky Pants
-サモンスピリットロッド
-Summon Spirit Rod
-スティッキーグラブ
-Sticky Gloves
-ヘルナイトガーダー
-Hell Knight Pants
-ヘルナイト
-Hell Knight
-属性クリ:
-Attribute Critical:
-エンビジョンマスク
-Envision Mask
-マジックナイトブーツ
-Magic Knight Boots
-ヘルナイトグラブ
-Hell Knight Gloves
-ライトロードガーダー
-Light Lord Pants
- 呪い
- Curse
-レイジウインドブーツ
-Rage Wind Boots
-ヘルナイトブーツ
-Hell Knight Boots
-スティッキーブーツ
-Sticky Boots
-レイジウインドシールド
-Rage Wind Shield
-ダークデビルガーダー
-Dark Devil Pants
-マジックナイト
-Magic Knight
-サキュバスブーツ
-Succubus Boots
-ダークデビル
-Dark Devil
-スティッキーヘルム
-Sticky Helm
-マジックナイトシールド
-Magic Knight Shield
- 属性防御力
- Attribute Defense
-レイジウインドグラブ
-Rage Wind Gloves
-エトラムの巻物
-Scroll of Etonaramu
-マナ +200
-Mana +200
-ストームウイング
-Storm Wing
-エクセレントダメージ確率 +9%
-Excellent Damage rate increase +9%
-ライトロードシールド
-Light Lord Shield
-ストームウイングブーツ
-Storm Wing Boots
-ライトロードアーマー
-Light Lord Armor
-ダークデビルヘルム
-Dark Devil Helm
-サキュバスグラブ
-Succubus Gloves
-ダークデビルグラブ
-Dark Devil Gloves
-エンビジョンガーダー
-Envision Pants
-ストームウイングガーダー
-Storm Wing Pants
-サキュバスガーダー
-Succubus Pants
-ライトロードヘルム
-Light Lord Helm
-ストームウイングヘルム
-Storm Wing Helm
-サキュバスアーマー
-Succubus Armor
-マジックナイトグラブ
-Magic Knight Gloves
-ヘルナイトアーマー
-Hell Knight Armor
-レイジウインドヘルム
-Rage Wind Helm
-エンビジョンシールド
-Envision Shield
+AH(7.5秒毎):+
+Auto Healing(7.5sec):+
+中複合P(4秒):+
+Middle Mix Portion(4sec):+
+大赤P+1(2秒):+
+Big Red Portion +1(2sec):+
 スキル+11
 Skill+11
 クリティカルダメージ確率 +15%
@@ -154,10 +16,10 @@ Light Plate Boots
 Not found data.
 風の鎧
 Wind Armor
-魔力op
-Magic option
 エナジー増加
 Increase Energy
+魔力op
+Magic option
 スケルトン
 Skeleton Ring
 ガルム
@@ -178,10 +40,10 @@ Gaul
 Thunder Hawk Boots
 A+MLv0[(ｴﾅ/7)+3]
 A+MLv0[(ene/7)+3]
-両手剣
-Two Hand Sword
 カルリマ5
 Kalima5
+両手剣
+Two Hand Sword
 髑髏メイジ4（5～10分経過)
 Spirit Sorcerer4(after 5~10min)
 PVP時 属性攻撃クリティカル確率増加％
@@ -194,18 +56,18 @@ AH
 HP recovery
 備考：※A+の要求エナ92\n
 note:A+ is required 92 ene.\n
-猛毒のミノタウロス
-Poison Bull Fighter
 PVP時 属性攻撃エクセレントダメージ確率増加％
 PVP attribute excellent damage probability increase(%)
+猛毒のミノタウロス
+Poison Bull Fighter
 ハイペリオンの青銅のブーツ
 Hyperion Bronze Boots
 効果持続時間増加
 Increase duration.
-敵の防御力無視 +1%
-Ignore Defence 1%
 オピオンのサイクロンアーマー
 Ophion Violent Wing Armor
+敵の防御力無視 +1%
+Ignore Defence 1%
 ダークスピリットのクリティカルダメージ確率増加
 Critical Damage probability increase of dark spirit.
 両手剣マスタリ
@@ -218,14 +80,14 @@ Giant Sword
 Swamp of Peace
 サピトレス
 Sapi-Tres
-G+MLv2[(ｴﾅ/7.2)+6]
-G+MLv2[(ene/7.2)+6]
 ブレイブブーツ
 Brave Boots
-コンス
-Chons
+G+MLv2[(ｴﾅ/7.2)+6]
+G+MLv2[(ene/7.2)+6]
 サイクロンガーダー
 Violent Wing Pants
+コンス
+Chons
 エクセレントダメージ確率 +12%
 Excellent Damage rate increase +12
 ブロバー
@@ -236,12 +98,14 @@ Dark Raver
 Lance Scout
 シルバーバルキリー
 Silver Valkyrie
+ダークデビル
+Dark Devil
 ポイズンアロー
 Poison Arrow
-スペルエンハンス(最小魔力20%上昇)
-Expansion of Wizardry(Minimum Dmg+20%)
 6分の1
 6(1/6)
+スペルエンハンス(最小魔力20%上昇)
+Expansion of Wizardry(Minimum Dmg+20%)
 ダブルダメージ確率 +2%
 Double Damage Rate +2%
 狂喜
@@ -254,18 +118,18 @@ Venom Mist Armor
 Elvian Wind Pants
 ライフドレインマスタリ
 Life Drain Mastery
-ダブルダメージ確率 +1%
-Double Damage Rate +1%
 追加
 Add
+ダブルダメージ確率 +1%
+Double Damage Rate +1%
 エターナルウインググラブ
 Eternal Wing Gloves
 体力 +50
 Vitality +50
-妙薬:攻撃力+15
-Miracle : Attack +15
 オルカス
 Orcus
+妙薬:攻撃力+15
+Miracle : Attack +15
 アタックプラス強化
 Increase Greater Damage
 エルフの斧
@@ -318,52 +182,52 @@ Storm Jahad Boots
 Strength +30
 ダメージ増加 +15
 Damage Increase +15
-ナルコンドラ
-Narcondra
 フレイムストライクマスタリ
 Flame Strike Mastery
-フェイズのシルクのブーツ
-Fase Silk Boots
+ナルコンドラ
+Narcondra
 闘志
 Warrior
+フェイズのシルクのブーツ
+Fase Silk Boots
 生命 +10
 Life +10
 ゴッドブローマスタリ
 God Blow Mastery
 アエギス
 Aegis
-アミスのケルベロスブーツ
-Amis Storm Crow Boots
 レッドスピリットガーダー
 Red Spirit Pants
-フェニックスソウルアーマー
-Phoenix Soul Armor
+アミスのケルベロスブーツ
+Amis Storm Crow Boots
 開始
 Start
-片手杖マスタリ
-One Hand Staff Mastery
-ドラゴンブーツ
-Dragon Boots
+フェニックスソウルアーマー
+Phoenix Soul Armor
 ウイークネス:
 Weakness:
+ドラゴンブーツ
+Dragon Boots
+片手杖マスタリ
+One Hand Staff Mastery
 レッドスカルアーマー7（0～5分経過）
 Spirit Knight7(after 0~5min)
 守護天使
 Guardian Angel
-ガルーダのミスリルガーダー
-Garuda Brass Pants
 バルラム
 Valam
+ガルーダのミスリルガーダー
+Garuda Brass Pants
 ケルベロスガーダー
 Storm Crow Pants
 アイリス
 Iris
 ウバイドエレメンタルナイト
 Ubido elemental knight
-ブラッドキャッスル7
-Blood Castle 7
 なし
 None
+ブラッドキャッスル7
+Blood Castle 7
 アプルナスのスケイルガーダー
 Eplete Scale Pants
 魔法速度:
@@ -376,26 +240,26 @@ Sedemen Red Wing Helm
 Grizzly
 ヘラスのスフィンクスのグラブ
 Heras Sphinx Gloves
-ソレイユブーツ
-Sunlight Boots
 暗黒のオウガ3（0～5分経過)
 Spirit Beast3(after 0~5min)
+ソレイユブーツ
+Sunlight Boots
 攻撃魔力lv
 Dmg Level
-を開きました。
-open.
 アミスのケルベロスアーマー
 Amis Storm Crow Armor
+を開きました。
+open.
 モスマン
 Beetle Monster
 ディバインアーマー
 Divino Armor
 ホルスのスキルのネックレス
 Horus Pendant of Ability
-エルベランド
-Elbeland
 ブレス強化
 Increase Bless
+エルベランド
+Elbeland
 メテルのダークソウルヘルム
 Meter Adamantine Helm
 力:
@@ -410,6 +274,8 @@ Evis Bone Pendant Wind
 Bluewing Crossbow
 チェーンライトニング
 Chain Lightning
+サキュバスブーツ
+Succubus Boots
 自身のサポ
 Self
 バンガイオンのケルベロスアーマー
@@ -446,6 +312,8 @@ Venom Mist Boots
 Tarkan
 フェンリルの杖
 Staff of Resurrenction
+サキュバスグラブ
+Succubus Gloves
 真空斬り
 Cyclone
 ミネのスフィンクスのガーダー
@@ -486,6 +354,8 @@ Poison
 Thunder Lich
 チャメルのセイクリッドファイアガーダー
 Chamereuui Sacred Fire Pants
+エンビジョングラブ
+Envision Gloves
 マナ増
 Mana Increase
 インベリアルスタッフ
@@ -510,12 +380,12 @@ Castol Guardian Boots
 Spirit Soldier1(after 10~15min)
 武人のマント
 Cape of Fighter
-モロスのスケイルヘルム
-Moro Scale Helm
-ダークスピリット強化1
-Increase Dark Raven 1
 アピス
 Apis
+ダークスピリット強化1
+Increase Dark Raven 1
+モロスのスケイルヘルム
+Moro Scale Helm
 シャイニングブラスト強化
 Cometfall Increase
 魔導のガーダー
@@ -526,40 +396,40 @@ Ubido Devil fairy
 Spirit Beast7(after 5~10min)
 ガイオンガード
 Bodyguard
-エルフのブーツ
-Vine Boots
 ファイル
 File
+エルフのブーツ
+Vine Boots
 20分の1
 20(1/20)
 骸骨の戦士2（0～5分経過)
 Orc Warrior2(after 0~5min)
 体力向上：
 Vitality Increase:
-属性攻撃力上昇
-Attribute attack increase
 ディノラント
 Dinorant
-ドラゴンナイトガーダー
-Dragon Knight Pants
+属性攻撃力上昇
+Attribute attack increase
 ベガのセイクリッドファイアアーマー
 Vega Sacred Fire Armor
-暗黒のオウガ2（0～5分経過)
-Spirit Beast2(after 0~5min)
-カオスキャッスル1（近接）
-Chaos Castle 1(adjacency)
+ドラゴンナイトガーダー
+Dragon Knight Pants
 シュリカー2
 Schriker 2
+カオスキャッスル1（近接）
+Chaos Castle 1(adjacency)
+暗黒のオウガ2（0～5分経過)
+Spirit Beast2(after 0~5min)
 絆のエンブレムを3人PTで使用　→　210%
 -
 獲得マナ
 Getting Mana
  防御力
  Defense
-両手杖強化
-Increase Two Hand Staff
 ハウンド
 Hound
+両手杖強化
+Increase Two Hand Staff
 カオスキャッスル2（近接）
 Chaos Castle 2(adjacency)
 アイスジャイアント
@@ -568,6 +438,8 @@ Ice Giant
 Book of Neil
 クリティカルダメージ確率 +3%
 Critical Damage Success Rate Increase +3%
+レイジウインドシールド
+Rage Wind Shield
 SD回復速度上昇(%)
 Increase Recovery Speed SD(%)
 分の1
@@ -578,22 +450,22 @@ Silk Armor
 Strong
 1HITダメージ/秒
 1Hit Dmg/sec
-ミスリルアーマー
-Brass Armor
 ラッキー LV2
 Lucky LVL2
-クロノの魔法のリング
-Chrono Ring of Magic
-ナイトブレード
-Knight Blade
+ミスリルアーマー
+Brass Armor
 攻撃
 Dmg
+ナイトブレード
+Knight Blade
+クロノの魔法のリング
+Chrono Ring of Magic
 盾装備時、防御力
 Increase defensive Skill When Using Shield Weapons
-サイクロングラブ
-Violent Wing Gloves
 鋼鉄のブーツ
 Plate Boots
+サイクロングラブ
+Violent Wing Gloves
 エレクトリックスパーク
 Electric Spike
 両手杖マスタリ
@@ -606,30 +478,30 @@ Amethyst Ring
 Pendant of Water
 勇名
 Fame
-ベスのイクリプスガーダー
-Bes Eclipse Garter
 ピアシングブーツ
 Piercing Groove Boots
+ベスのイクリプスガーダー
+Bes Eclipse Garter
 タイトル
 Title
-近接
-Small Area
 ガイアのシルクのグラブ
 Gaia Silk Gloves
+近接
+Small Area
 イノセント
 Seraphim
 最大生命+200　対人防御成功率+10
 Max Life+200 PvP Defense Success Rate+10
 ソレイユガーダー
 Sunlight Pants
- 持続時間
- Duration
 ダメージ反射
 Reflection Damage
-タイラントガーダー
-Royal Pants
+ 持続時間
+ Duration
 最小〜最大
 min - max
+タイラントガーダー
+Royal Pants
 骸骨の戦士7（5～10分経過）
 Orc Warrior7(after 5~10min)
 ゴールドアイアンナイト
@@ -638,10 +510,10 @@ Golden Iron Knight
 Save the following titles.
 クロノのレッドウイングガーダー
 Chrono Red Wing Pants
-幸運
-Luck
 マヘスの青銅の盾
 Maahes Bronze Shield
+幸運
+Luck
 フェニックスソウルブーツ
 Phoenix Soul Boots
 グリードのスケイルアーマー
@@ -668,6 +540,10 @@ Scepter of Archangel(old)
 Wing of Soul
 アポロの氷のネックレス
 Apollo Pendant Ice
+ライトロード
+Light Lord
+ライトロードグラブ
+Light Lord Gloves
 耐久力減少1
 Decrease Endurance 1
 パルテナ
@@ -716,6 +592,8 @@ Inferno
 Weakness : 
 インポート
 Import
+エトラムの巻物
+Scroll of Etonaramu
 ゴールドアックス
 Larkan Axe
 統率：
@@ -822,6 +700,8 @@ Mutant
 Increase Summon Monster 2
 対人計算
 PVP Calculation
+属性通常:
+Attribute Normal:
 スモールバックラー
 Buckler
 経験値増加(%)：
@@ -832,6 +712,8 @@ Spirit of Guardian
 Duration Reduction
 自動AG回復
 AG Auto Increment
+スティッキーガーダー
+Sticky Pants
 デビルウイング
 Wing of Dragon
 飛冴弓
@@ -904,6 +786,8 @@ Gigantis DS7
 Sculpture of Hawk
 ビーストマスター
 Cavalry Captain
+エンビジョンガーダー
+Envision Pants
 タイラントマスク
 Royal Helm
 コンセントレーション:
@@ -1036,32 +920,34 @@ Blind :
 Bloody Soldier
 クラス:
 Character:
-PVP時 属性攻撃力上昇
-PVP attribute attack increase
-妙薬
-Miracle Potion
 データの保存を許可してください。
 Please allow storage of data.
+妙薬
+Miracle Potion
+PVP時 属性攻撃力上昇
+PVP attribute attack increase
 風のリング
 Ring of Wind
 アイアンホイール
 Iron Wheel
 髑髏メイジ8（10～15分経過)
 Spirit Sorcerer8(after 10~15min)
-x%の確率で2秒間スタン状態にする
-Stun x%.
 ワーム
 Worm
+x%の確率で2秒間スタン状態にする
+Stun x%.
+レイジウインドグラブ
+Rage Wind Gloves
 速度+7
 Speed +7
-大魔法師
-Critical Ring Wizard's
 ウイークネス(WN:weakness)・・・敵の攻撃力低下\n
 Weakness(WN) - Weakens damages from enemies' attack\n
-ゴールドタイタン
-Golden Titan
+大魔法師
+Critical Ring Wizard's
 両手杖
 Two Hand Staff
+ゴールドタイタン
+Golden Titan
 パンダ変化
 Panda Ring
 クイーンビー
@@ -1070,14 +956,14 @@ Queen Bee
 Trite Storm Jahad Helm
 天使の杖
 Angelic Staff
-ケンタウロスウォーリア
-Kentarus Warrior
 アルビアン
 Elvian
-ダークスカルアーマー7（0～5分経過）
-Spirit Soldier7(after 0~5min)
+ケンタウロスウォーリア
+Kentarus Warrior
 PT:5人
 PT:5 person
+ダークスカルアーマー7（0～5分経過）
+Spirit Soldier7(after 0~5min)
 ダークスピリットの攻撃力増加
 Attack increase of dark spirit.
 サファイアリング
@@ -1086,20 +972,20 @@ Sapphire Ring
 Dark Elf DS7
 骸骨の戦士3（10～15分経過)
 Orc Warrior3(after 10~15min)
-カオスドラゴンアックス
-Chaos Dragon Axe
 対人ダメージ+200　対人攻撃成功率+10
 PvP Attack+200 PvP Attack Success Rate+10
- 敵の攻撃力低下
- Monster Attack Decrease
+カオスドラゴンアックス
+Chaos Dragon Axe
 セルケト
 Serket
+ 敵の攻撃力低下
+ Monster Attack Decrease
 Cダメ
 C Dmg
-ヘラス
-Heras
 キュア
 Cure
+ヘラス
+Heras
 灼熱のゴルゴン
 Death Gorgon
 一括インポート
@@ -1112,18 +998,18 @@ note:SB = (agi/50)+(ene/200)
 Berserker Warrior
 速度 
 Speed
-キングスカルアーチャー2（5～10分経過)
-Orc Archer2(after 5~10min)
 攻撃op
 Dmg opt
-スフィンクスのブーツ
-Sphinx Boots
+キングスカルアーチャー2（5～10分経過)
+Orc Archer2(after 5~10min)
 防御力 +100
 Defence +100
-防御成功率
-Defense success rate
+スフィンクスのブーツ
+Sphinx Boots
 ダークスカルアーマー3（10～15分経過)
 Spirit Soldier3(after 10~15min)
+防御成功率
+Defense success rate
 盾装備時増加
 Increase defensive Skill When Using Shield Weapons
 フォース
@@ -1176,6 +1062,8 @@ Stun x%.
 Increase Lightning
 ウェアウルフヒーロー
 Werewolf (Hero)
+ライトロードガーダー
+Light Lord Pants
 カオスキャッスル1（遠距離）
 Chaos Castle 1(long distance)
 羽：
@@ -1206,8 +1094,12 @@ Earth Break Increase
 Destroy Armor
 アルテミス
 Saint Crossbow
+マジックナイトシールド
+Magic Knight Shield
 ネメシスのレッドウインググラブ
 Nemesis Red Wing Gloves
+ 属性防御力
+ Attribute Defense
 炎のリング
 Ring of Fire
 カオスキャッスル5（遠距離）
@@ -1306,6 +1198,8 @@ Dark Master Helm
 Serket Iris Helm
 アミスのケルベロスガーダー
 Amis Storm Crow Pants
+ストームウイングアーマー
+Storm Wing Armor
 　ソケットOP:
  Socket OPT:
 名誉
@@ -1316,6 +1210,8 @@ Cloak of Emperor
 Boots:
 ゴールドホイール
 Golden Wheel
+スティッキーアーマー
+Sticky Armor
 ブラックソウルアーマー
 Dark Soul Armor
 髑髏メイジ3（5～10分経過)
@@ -1456,10 +1352,14 @@ Delay(ms)
 Spirit Knight8(after 5~10min)
 スキル攻撃力 +60
 Skill Dmg +60
+呪い上昇
+Curse Increase
 マナ +30
 Mana +30
 体力 +30
 Vitality +30
+エンビジョンブーツ
+Envision Boots
 スケイル
 Scale
 EXD
@@ -1470,6 +1370,8 @@ Spirit Beast4(after 5~10min)
 Great Dragon Boots
 力 +15
 Strength +15
+攻撃力、魔力増加
+Attack,Magic Increase
 リカント
 Werewolf
 ダークブリザードブーツ
@@ -1492,6 +1394,8 @@ Death Tree
 Divine Boots
 魔力上昇
 Magic Increase
+ヘルナイトガーダー
+Hell Knight Pants
 防御力増加x%、1ポイント振る毎に4秒持続時間増加
 Defense increase x%. Increase duration 4 seconds per point.
 パワースラッシュ
@@ -1562,6 +1466,8 @@ Guard option
 Battle Scepter
 暗黒のオウガ8（10～15分経過)
 Spirit Beast8(after 10~15min)
+ダークデビルヘルム
+Dark Devil Helm
  クリティカル確率
  Critical Probability
 フレイムストライク強化
@@ -1636,6 +1542,8 @@ Sylion Bone Gloves
 Magni Piercing Blade Groves
 骸骨の戦士5（10～15分経過)
 Orc Warrior5(after 10~15min)
+ダークデビルアーマー
+Dark Devil
 最大マナ
 Maximum Mana
 ネメシスのレッドウイングヘルム
@@ -1718,6 +1626,8 @@ Bloody Blue Golem
 Aruan Guardian Boots
 ドラゴン
 Dragon
+ヘルナイトアーマー
+Hell Knight Armor
 ダメージ吸収+5%
 Damage Decrease +5%
 ハーデス
@@ -1808,6 +1718,8 @@ Ring of Earth
 Input a filename which you want to open.
 メタルクラスト
 Alpha Crust
+ヘルナイト
+Hell Knight
 アルビアンの風のブーツ
 Elvian Wind Boots
 ヴァリアントガーダー
@@ -1856,6 +1768,8 @@ Garuda Pendant Fire
 Rave Plate Helm
 パーティーヒーリングを習得。パーティーメンバー全員のHPを回復。クールタイム10秒。
 Learning 'Party Heal'. Heal HP of all party member. Cool time is 10 seconds.
+ライトロードシールド
+Light Lord Shield
 究極
 Ultimate
 ノリア
@@ -1944,6 +1858,8 @@ Summoner Doppleganger
 Rage Fighter Claw
 キュアを習得。先に掛かっている状態異常を一つ回復。クールタイム20秒。
 Learning 'Cure'. cure all abnormal state. cool time is 20 seconds.
+魔力 +13%
+Magic +13%
 髑髏メイジ4（10～15分経過)
 Spirit Sorcerer4(after 10~15min)
 ダークマンモス
@@ -2054,12 +1970,12 @@ Sacred Fire Boots
 Adamantine
 軍神
 Wrath
-サラマンデル
-Salamander
-ラクリオン
-La Cleon
 オーク戦士8（5～10分経過)
 Orc Warrior8(after 5~10min)
+ラクリオン
+La Cleon
+サラマンデル
+Salamander
 スパイプログラムスタッフ
 Spy Program Staff
 ハンドアックス
@@ -2068,10 +1984,10 @@ Hand Axe
 Alvitr Dragon Soul Staff
 炎
 Fire
-SL：0%
-SL:0%
 サンダーワイヤー
 Lightning
+SL：0%
+SL:0%
 レッドスピリットグラブ
 Red Spirit Gloves
 レッドスカルアーマー3（10～15分経過)
@@ -2090,46 +2006,46 @@ Slash
 Leather Boots
 フリッグのホーリーサイトボウ
 Frigg Celestial Bow
-ガイオンディフェンダー
-Bodyguard
 髑髏メイジ3（0～5分経過)
 Spirit Sorcerer3(after 0~5min)
+ガイオンディフェンダー
+Bodyguard
 スキル攻撃力 +15
 Skill Dmg +15
 エウロパのグラブ
 Divine Gloves
 ソレイユマスク
 Sunlight Helm
-エルフのグラブ
-Vine Gloves
 呪い:
 Curse:
-コンドラ
-Condra
+エルフのグラブ
+Vine Gloves
 片手杖強化
 Increase One Hand Staff
+コンドラ
+Condra
 ダークブリザードガーダー
 Dark Steel Pants
-縮小
-zoom out
 スルトのグロリアスグラブ
 Surt Glorious Gloves
+縮小
+zoom out
 セラフィー
 Elf Soldier
-アヌビスの炎のリング
-Anubis Ring of Fire
 ブラッドキャッスル3
 Blood Castle 3
+アヌビスの炎のリング
+Anubis Ring of Fire
 ヘガトンのドラゴングラブ
 Hegaton Dragon Gloves
-最大生命+29
-Max Life+29
 バルガス
 Balgass
-アビスのスフィンクスのブーツ
-Hades Sphinx Boots
+最大生命+29
+Max Life+29
 ヴィシャス
 Vicious
+アビスのスフィンクスのブーツ
+Hades Sphinx Boots
 要求敏捷 
 require Agility
 破壊
@@ -2264,6 +2180,8 @@ Earthquake
 Spirit Soldier1(after 5~10min)
 ゴブリン
 Elite Goblin
+エンビジョン
+Envision
 エンジェリックボウ
 Angelic Bow
 力：
@@ -2300,6 +2218,8 @@ Spirit Knight1(after 0~5min)
 Pet
 最小魔力/呪い増加
 Increase Minimum Magic/Curse
+ダークデビルガーダー
+Dark Devil Pants
 ティターンブーツ
 Titan Boots
 アークエンジェルクロー
@@ -2348,6 +2268,8 @@ Brave Pants
 Losttower
 セメデンのレッドウイングアーマー
 Sedemen Red Wing Armor
+ライトロードヘルム
+Light Lord Helm
 要求LV:
 Require Level:
 PT:3人
@@ -2416,6 +2338,8 @@ Spirit Helm
 Rapier
 ダークブリザードマスク
 Dark Steel Helm
+サモンスピリットロッド
+Summon Spirit Rod
 レイジファイターブーツ
 Rage Fighter Boots
 サピウンス
@@ -2596,6 +2520,8 @@ Violent Wing Helm
 Loaded data.
 敏捷：
 Agility:
+マジックナイトブーツ
+Magic Knight Boots
 骸骨の戦士6（10～15分経過)
 Orc Warrior6(after 10~15min)
 コンバットマスター
@@ -2636,6 +2562,8 @@ Pet:
 Orc Warrior3(after 5~10min)
 クリティカルプラス強化2
 Increase Critical Damage 2
+ライトロードアーマー
+Light Lord Armor
 ダブルダメージ確率 +15%
 Double Damage Rate+15%
 杖
@@ -2656,10 +2584,14 @@ Damage Decrease:
 None Miracle Potion
 モンスター狩り時 属性攻撃エクセレントダメージ確率増加％
 Monster attribute excellent damage probability increase(%)
+サキュバスアーマー
+Succubus Armor
 生命完全回復
 Life Completion
 カンタータの鋼鉄の鎧
 Kantata Plate Armor
+マジックナイトグラブ
+Magic Knight Gloves
 狂戦士のモーニングスター
 Warrior Morning Star
 エルフのガーダー
@@ -2676,6 +2608,8 @@ Upper Beast
 Critical Damage Success Rate Increase +7%
 ブラックドラゴンガーダー
 Black Dragon Pants
+レイジウインドガーダー
+Rage Wind Pants
 魔導のブーツ
 Pad Boots
 ダブルダメージ確率
@@ -2684,6 +2618,8 @@ Double Damage Rate
 Ereutel of Wrath
 アルアン
 Aruan
+ライトロードブーツ
+Light Lord Boots
 ブラックソウルブーツ
 Dark Soul Boots
 ケルベロスアーマー
@@ -2736,8 +2672,12 @@ Eclipse Armor
 Rage Fighter
 暗黒のオウガ1（10～15分経過)
 Spirit Beast1(after 10~15min)
+属性クリ:
+Attribute Critical:
 スキル攻撃力 +10
 Skill Dmg +10
+ 呪い
+ Curse
 風
 Wind
 カオスキャッスル7（近接）
@@ -2786,6 +2726,8 @@ Guardian Armor
 Spirit Knight1(after 10~15min)
 ベルセルクDS7
 Berserker DS7
+ストームウイングガーダー
+Storm Wing Pants
 ブロイのダークソウルグラブ
 Broy Adamantine Gloves
 火
@@ -2844,6 +2786,8 @@ Hegaton Dragon Armor
 Dark Reign Blade
 SD比率減
 SD Rate Reduction
+ストームウインググラブ
+Storm Wing Gloves
 停止
 Stop
 サドゥンアイス
@@ -3072,6 +3016,8 @@ Attack Rate
 Crypos
 生命+200
 Life +200
+サキュバスガーダー
+Succubus Pants
 エンシェントロッド
 Ancient Stick
 LV：
@@ -3144,6 +3090,8 @@ PT:4 person
 Raven Attack
 キングフット
 Elite Yeti
+サキュバス
+Succubus
 アイアンディフェンスを習得。短時間キャラクターの防御力と生命力を大幅に増加させる。
 Learning of \"Iron Defense\". It increases life and defense grossly in only a short time.
 エターナルウイングロッド
@@ -3194,6 +3142,8 @@ Horus
 Blood Castle 5
 断固
 Firm
+マナ +200
+Mana +200
 自動生命回復力増加
 Increase Auto Life Healing
 最大攻撃力 +15
@@ -3244,6 +3194,8 @@ Spike Shield
 Increase the effect of defense decline
 ドッペルゲンガー・カリス
 Elf Doppleganger
+サキュバスヘルム
+Succubus Helm
 最小攻撃力
 Min Attack
 攻撃力+30
@@ -3254,12 +3206,16 @@ Titan Gloves
  Magic
 ハイペリオンの青銅の鎧
 Hyperion Bronze Armor
+属性EXD:
+Attribute XDMG:
 骸骨の戦士2（10～15分経過)
 Orc Warrior2(after 10~15min)
 アゴン
 Agon
 カンタータの風のリング
 Kantata Ring of Wind
+ダークデビルブーツ
+Dark Devil Boots
 ダメージ減少x%
 Damage decrease x%.
 アヌビス
@@ -3288,8 +3244,12 @@ Red Wing Stick
 Critical Damage +30
 アルヴィトの水のネックレス
 Alvitr Pendant of Water
+スティッキーグラブ
+Sticky Gloves
 アッシュクローガーダー
 Ashcrow Pants
+ヘルナイトグラブ
+Hell Knight Gloves
 ティターンアーマー
 Titan Armor
 /対人
@@ -3420,6 +3380,8 @@ SD完全回復
 Healing SD Completely
 ソウルバリアマスタリ
 Soul Barrier Mastery
+レイジウインドブーツ
+Rage Wind Boots
 アピスのヴァリアントブーツ
 Apis Valiant Boots
 サドゥンアイス強化
@@ -3446,6 +3408,8 @@ Bow of Archangel(old)
 Elemental Mace
 暗黒のオウガ7（10～15分経過）
 Spirit Beast7(after 10~15min)
+ストームウイング
+Storm Wing
 セイクリッドファイアアーマー
 Sacred Fire Armor
 シルフィードブーツ
@@ -3644,6 +3608,8 @@ Frigg
 Poison
 クールティン
 Coolutin
+エンビジョンシールド
+Envision Shield
 ライトニングボウ
 Light Crossbow
 スフィンクスの仮面
@@ -3820,10 +3786,14 @@ Require Command:
 19(1/19)
 弓マスタリ
 Bow Mastery
+マジックナイトガーダー
+Magic Knight Pants
 アルゴスの 精霊のグラブ
 Argo Spirit Gloves
 WD確率
 WD Rate
+スティッキー
+Sticky
 最大SD増加
 Maximum SD Increase
 エクセレントダメージ確率 +5%
@@ -3902,12 +3872,16 @@ Open
 Increase Spear
 敏捷 +20
 Agility +20
+スティッキーヘルム
+Sticky Helm
 要求体力:
 Require Stamina:
 シルクのガーダー
 Silk Pants
 最小攻撃力 +80
 Minimum Attack +80
+エクセレントダメージ確率 +9%
+Excellent Damage rate increase +9%
 ライトニングショック強化
 Lightning Shock Increase
 ｽｸﾛｰﾙなし
@@ -3948,6 +3922,8 @@ x%の確率で2マス外へ押し出す
 Push out two point by x% probability.
 バネクの魔導のブーツ
 Barnake Pad Boots
+ 属性攻撃力
+ Attribute Attack
 ルシファーの杖
 Dragon Soul Staff
 デーモン
@@ -4024,6 +4000,8 @@ Aida
 Anonymous Leather Boots
 グロリアスガーダー
 Glorious Pants
+マジックナイト
+Magic Knight
 防御無視5%
 Ignore +5%
 作成状況:
@@ -4094,10 +4072,10 @@ Broy
 Dark Soul
 氷
 Ice
-骸骨の戦士4（10～15分経過)
-Orc Warrior4(after 10~15min)
 破壊の剣
 Sword of Destruction
+骸骨の戦士4（10～15分経過)
+Orc Warrior4(after 10~15min)
 第三師団長 激流のカト
 Kato
 手
@@ -4106,14 +4084,14 @@ Gloves
 Absolute Scepter
 呪いの魔法師
 Curse Wizard
-フォースウェーブ強化
-Increase Force Wave
 エウロパの兜
 Divine Helm
-エンシェントグラブ
-Ancient Gloves
+フォースウェーブ強化
+Increase Force Wave
 キングスカルアーチャー3（5～10分経過)
 Orc Archer3(after 5~10min)
+エンシェントグラブ
+Ancient Gloves
 マグニのピアシングアーマー
 Magni Piercing Groove Armor
 オーク戦士8（10～15分経過)
@@ -4136,6 +4114,8 @@ Wind Gloves
 Mana +300
 魔力lv20
 Magic Level/20
+ダークデビルシールド
+Dark Devil Shield
 青銅の魔人
 Hommerd
 ダークスカルアーマー2（10～15分経過)
@@ -4144,6 +4124,8 @@ Spirit Soldier2(after 10~15min)
 Input Support
 耐久力減少2
 Decrease Endurance 2
+ダブルダメージ確率 +12%
+Double Damage Probability Increase +12%
 ドラークのエルフの鎧
 Drake Vine Armor
 ダークスカルアーマー2（0～5分経過)
@@ -4192,6 +4174,8 @@ Great Reign Crossbow
 Belief
 イシスのオーディーンのブーツ
 Enis Legendary Boots
+ヘルナイトブーツ
+Hell Knight Boots
 ダメージ増加 +25
 Damage Increase +25
 サイクロンアーマー
@@ -4346,6 +4330,8 @@ Increase Poison Resistant
 Attribute
 征服
 Conquest
+エンビジョンアーマー
+Envision Armor
 闇属性攻撃相性増加％
 Dark attribute attack affinity increase(%)
 バネクの魔導のガーダー
@@ -4386,6 +4372,8 @@ Zombie Fighter
 Strength +50
 ドラゴンスラッシャー
 Dragon Slayer
+エンビジョンマスク
+Envision Mask
 ダークアイアンナイト
 Dark Iron Knight
  EXD確率
@@ -4518,6 +4506,8 @@ Demonic Armor
 Iris Helm
 敏捷+50
 Agility +50
+レイジウインドアーマー
+Rage Wind Armor
 レッドスカルアーマー1（5～10分経過)
 Spirit Knight1(after 5~10min)
 ガルーダのミスリルブーツ
@@ -4586,6 +4576,8 @@ Dmg+11
 One Hand Sword
 トリテのストームハザードガーダー
 Trite Storm Jahad Pants
+ストームウイングヘルム
+Storm Wing Helm
 テュール
 Tyr
 x%の確率で一つの防具の耐久を10%減少させる
@@ -4728,6 +4720,8 @@ Ring1
 Chaos Castle 2(long distance)
 ペット:
 Pet:
+ダークデビルグラブ
+Dark Devil Gloves
 ヘガトンのドラゴンガーダー
 Hegaton Dragon Pants
 カオスサンダースタッフ
@@ -4750,6 +4744,8 @@ Dragon Knight Armor
 Spirit Sorcerer7(after 0~5min)
 シャイニングセプター
 Shining Scepter
+レイジウインドヘルム
+Rage Wind Helm
 アルゴスの精霊の鎧
 Argo Spirit Armor
 オークアーチャー8（0～5分経過)
@@ -4774,6 +4770,10 @@ Spirit Sorcerer8(after 0~5min)
 Blood Castle 1
 エターナルウイングヘルム
 Eternal Wing Helm
+レイジウインド
+Rage Wind
+マジックナイトアーマー
+Magic Knight Armor
  消費AG:
  AG Consumption:
 ▲
@@ -4854,6 +4854,8 @@ Max AG Increase
 This value of Rage Fighter is smaller than others. about 60% of others.
 蛇神の杖
 Serpent Staff
+スティッキーブーツ
+Sticky Boots
 グレートロードセプター
 Great Lord Scepter
 最小攻撃魔力
@@ -4918,6 +4920,8 @@ Stick Mastery
 Agnis
 シルクの兜
 Silk Helm
+ミラクルスタッフ
+Miracle Staff
 G+MLv4[(ｴﾅ/6.4)+10]
 G+MLv4[(ene/6.4)+10]
 カオスキャッスル3（遠距離）
@@ -4990,6 +4994,8 @@ Damage Increase +30
 Chaos Castle 2
 最小攻撃力増加
 Increase Minimum Attack
+ストームウイングブーツ
+Storm Wing Boots
 レッドウイングガーダー
 Red Wing Pants
 カオスウイング
