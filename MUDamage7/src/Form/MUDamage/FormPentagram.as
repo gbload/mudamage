@@ -18,6 +18,7 @@ package Form.MUDamage {
 		private var item:ComboBox;
 		private var attribute:ComboBox;
 		private var plus:ComboBox;
+		private var options:Array;
 		private var ereutels:Array;
 	
 		private var hbox:HBox;
@@ -28,14 +29,36 @@ package Form.MUDamage {
 		    // name,min,max,def,requireLV
 		    ["",0,0,0,0],
 		    ["ミュレンの魔法書",30,45,30,100],
-		    ["エトラムの巻物",50,70,50,200]
+		    ["エトラムの巻物",50,70,50,200],
+		    ["ロレンシア騎士団鉄壁の盾(仮)",10,15,50,100],
+		    ["英雄の飛躍(仮)",20,30,20,0],
+		    ["剣闘士の短刀(仮)",40,55,15,0],
+		    ["クンドンの狂気の刃(仮)",50,70,10,0],
+		    ["クンドンの魔法書(仮)",40,55,40,0],
+		    ["帝国守護軍の砦(仮)",20,30,100,0],
+		    ["イカロスの古書(仮)",80,110,80,0],
+		    ["アルカの預言書(仮)",110,140,110,0],
+		    ["アントニアスの剣(仮)",150,200,50,0],
+		    ["クンドンの封印書(仮)",130,170,130,0]
 	                               	];
 		private var attr_data:Array = ["火","水","土","風","闇"];
+	
+		private var option_data:Array = [
+		    ["",""],
+		    ["グリモア攻撃力増加+10%","attack"],
+		    ["グリモア防御力増加+10%","defense"],
+		    ["属性クリティカルダメージ確率+10%","critical"],
+		    ["防御力を属性防御力に変換+5%","normal_defense"],
+		    ["ダメージを属性ダメージに追加+10%","normal_attack"],
+		    ["強い相性に対する抵抗力増加+5%","strong_affinity"],
+		    ["属性攻撃に対する抵抗力増加+5%","resistance"]
+		                                 ];
 		/**
 		 * コンストラクタ
 		 */
 		public function FormPentagram(d:FormMUDamage) {
 			this.d = d;
+			this.options = new Array();
 			this.ereutels = new Array();
 
 //			this.direction = "horizontal";
@@ -45,6 +68,7 @@ package Form.MUDamage {
 			createItem();
 			createAttribute();
 			createPlus();
+			createOption();
 			for(var i:int=0;i<5;i++){
 				ln();
 				var ereutel:FormEreutel = new FormEreutel(i);
@@ -91,6 +115,27 @@ package Form.MUDamage {
 			hbox.addChild(plus);
 		}
 		/**
+		 * option
+		 */
+		private function createOption():void{
+			for(var i:int=0;i<2;i++){
+				var option:ComboBox = new ComboBox();
+				option.dataProvider = option_data;
+				option.labelFunction = FormCommon.labelfunc0;
+				option.addEventListener(ListEvent.CHANGE,eventChangeOption);
+				FormCommon.hide(option);
+				options.push(option);
+				hbox.addChild(option);
+			}
+		}
+		/**
+		 * option event
+		 */
+		private function eventChangeOption(event:Event):void {
+			if(FormCommon.isDuplication(options))
+				event.target.selectedIndex = 0;
+		}
+		/**
 		 * event
 		 */
 		private function eventChangeItem(e:Event):void{
@@ -105,7 +150,9 @@ package Form.MUDamage {
 		private function show():void{
 			FormCommon.show(attribute);
 			FormCommon.show(plus);
-			for(var i:int=0;i<ereutels.length;i++)
+			for(var i:int=0;i<options.length;i++)
+				FormCommon.show(options[i]);
+			for(i=0;i<ereutels.length;i++)
 				FormCommon.show(ereutels[i]);
 		}
 		/**
@@ -114,7 +161,9 @@ package Form.MUDamage {
 		private function hide():void{
 			FormCommon.hide(attribute);
 			FormCommon.hide(plus);
-			for(var i:int=0;i<ereutels.length;i++)
+			for(var i:int=0;i<options.length;i++)
+				FormCommon.hide(options[i]);
+			for(i=0;i<ereutels.length;i++)
 				FormCommon.hide(ereutels[i]);
 		}
 		/**
@@ -150,6 +199,22 @@ package Form.MUDamage {
 			};
 		}
 		/**
+		 * オプションを選択している場合trueを返す
+		 */
+		private function getOption():Function{
+			return function(name:String):Boolean{
+				var bool:Boolean = false;
+				if(name != "")
+					for(var i:int=0;i<options.length;i++){
+						if(options[i].selectedItem[1] == name){
+							bool=true;
+							break;
+						}
+					}
+				return bool;
+			};
+		}
+		/**
 		 * 計算用
 		 */
 		public function getPentagramData():Object{
@@ -162,6 +227,8 @@ package Form.MUDamage {
 				attribute: attribute.selectedLabel,
 				attribute_num: attribute.selectedIndex,
 				plus: plus.selectedIndex,
+				options: options,
+				getOption: getOption(),
 				ereutels: a,
 				min: calcValue(item.selectedItem[1],plus.selectedIndex,4),
 				max: calcValue(item.selectedItem[2],plus.selectedIndex,4),
