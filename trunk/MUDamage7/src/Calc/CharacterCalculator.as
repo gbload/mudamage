@@ -210,6 +210,8 @@ package Calc {
 				// pentagram
 				c.attribute = f.property.attribute_num;
 				c.attribute_def += f.property.def;
+				if(f.property.getOption("defense"))c.attribute_def += Math.floor(f.property.def * 0.1);
+				if(f.property.getOption("normal_defense"))c.attribute_def += Math.floor(c.def * 0.05);
 			}
 		}
 		/**
@@ -614,6 +616,8 @@ package Calc {
 		 * 属性確率の計算
 		 */
 		private function calcAttributeNormal():void{
+			// option
+			if(f.property.getOption("critical"))c.attribute_cri += 10;
 			// ereutel
 			c.attribute_cri += f.property.getEreutelValue("monster_critical");
 			c.attribute_pvp_cri += f.property.getEreutelValue("pvp_critical");

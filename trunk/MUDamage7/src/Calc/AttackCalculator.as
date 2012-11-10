@@ -816,6 +816,11 @@ package Calc {
 				// pentagram
 				a.attribute.min = f.property.min;
 				a.attribute.max = f.property.max;
+				// option
+				if(f.property.getOption("attack")){
+					a.attribute.min += Math.floor(f.property.min*0.1);
+					a.attribute.max += Math.floor(f.property.max*0.1);
+				}
 				// job
 				calcAttributeJob();
 				a.attribute.min += add;

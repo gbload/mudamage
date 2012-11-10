@@ -113,11 +113,16 @@ package PVP {
 			aff += f.property.getEreutelValue("wind_attack",(c2.attribute == 3));
 			aff += f.property.getEreutelValue("dark_attack",(c2.attribute == 4));
 
-			aff -= f2.property.getEreutelValue("fire_defense",(c.attribute == 0));
-			aff -= f2.property.getEreutelValue("water_defense",(c.attribute == 1));
-			aff -= f2.property.getEreutelValue("earth_defense",(c.attribute == 2));
-			aff -= f2.property.getEreutelValue("wind_defense",(c.attribute == 3));
-			aff -= f2.property.getEreutelValue("dark_defense",(c.attribute == 4));
+			if(c2.attribute != 5){
+				aff -= f2.property.getEreutelValue("fire_defense",(c.attribute == 0));
+				aff -= f2.property.getEreutelValue("water_defense",(c.attribute == 1));
+				aff -= f2.property.getEreutelValue("earth_defense",(c.attribute == 2));
+				aff -= f2.property.getEreutelValue("wind_defense",(c.attribute == 3));
+				aff -= f2.property.getEreutelValue("dark_defense",(c.attribute == 4));
+				if(f2.property.getOption("resistance"))aff -= 5;
+				if(((c2.attribute-1)%5) == c.attribute
+						&& f2.property.getOption("strong_affinity"))aff -= 5;
+			}
 			return affinity[c.attribute][c2.attribute] + aff;
 		}
 		/**

@@ -410,6 +410,10 @@ package Calc.ResultScreen {
 				tooltip += "属性攻撃力:" + f.property.min + "〜" + f.property.max + "\n";
 				tooltip += "属性防御力:" + f.property.def + "\n";
 				tooltip += "要求レベル:" + f.property.item[4] + "\n";
+				tooltip += "オプション:" + "\n";
+				for(var i:int=0;i<f.property.options.length;i++)
+					if(f.property.getOption("normal_attack"))tooltip += "　" + f.property.options[i].selectedLabel + "(MUDamage内では未適用。)" + "\n";
+					else tooltip += "　" + f.property.options[i].selectedLabel + "\n";
 				// color
 				var colors:Array = ["#FF0000","#0000FF","#FFDD00","#00FF00","#FF00FF"];
 				var color:String = colors[f.property.attribute_num];
@@ -418,7 +422,7 @@ package Calc.ResultScreen {
 				/*
 				 * ereutel
 				 */
-				for(var i:int=0;i<f.property.ereutels.length;i++){
+				for(i=0;i<f.property.ereutels.length;i++){
 					var e:Object = f.property.ereutels[i];
 					if(e.name=="")continue;
 					str = "";

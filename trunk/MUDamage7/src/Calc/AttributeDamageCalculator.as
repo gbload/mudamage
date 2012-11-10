@@ -150,12 +150,17 @@ package Calc {
 		 * 属性防御相性
 		 */
 		private function calcDefenseAffinity():int{
-			var aff:int = 0;			
-			aff += f.property.getEreutelValue("fire_defense",(m[mk.attribute] == 0));
-			aff += f.property.getEreutelValue("water_defense",(m[mk.attribute] == 1));
-			aff += f.property.getEreutelValue("earth_defense",(m[mk.attribute] == 2));
-			aff += f.property.getEreutelValue("wind_defense",(m[mk.attribute] == 3));
-			aff += f.property.getEreutelValue("dark_defense",(m[mk.attribute] == 4));
+			var aff:int = 0;
+			if(c.attribute != 5){
+				aff += f.property.getEreutelValue("fire_defense",(m[mk.attribute] == 0));
+				aff += f.property.getEreutelValue("water_defense",(m[mk.attribute] == 1));
+				aff += f.property.getEreutelValue("earth_defense",(m[mk.attribute] == 2));
+				aff += f.property.getEreutelValue("wind_defense",(m[mk.attribute] == 3));
+				aff += f.property.getEreutelValue("dark_defense",(m[mk.attribute] == 4));
+				if(f.property.getOption("resistance"))aff += 5;
+				if(((c.attribute-1)%5) == m[mk.attribute]
+						&& f.property.getOption("strong_affinity"))aff += 5;
+			}
 			return affinity[m[mk.attribute]][c.attribute] - aff;
 		}
 		/**
