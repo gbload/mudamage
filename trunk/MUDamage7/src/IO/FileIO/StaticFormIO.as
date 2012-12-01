@@ -150,6 +150,13 @@ package IO.FileIO {
 			//2012/01/23
 			//新バフスキルフォーム
 			a[28] = d.form_buff.getSaveData();
+			//2012/12/01
+			//ネックのオプション
+			a[29] = d.form_neck.getOption().selectedIndex;
+			//PVP計算
+			a[30] = d.form_calc.getPVPTextInput().text;
+			a[31] = d.form_calc.getPVPRadioButtons()[0].selected;
+			a[32] = d.form_calc.getPVPRadioButtons()[1].selected;
 			return a;
 		}
 		/**
@@ -307,8 +314,10 @@ package IO.FileIO {
 			//プロパティシステム
 			if(parseFloat(a2[19]) < 3.18){// latest version
 				d.form_pentagram.setSaveData(a[27]);
-			}else{
+			}else if(parseFloat(a2[19]) < 3.34){
 				d.form_pentagram.setSaveData318(a[27]);
+			}else{
+				d.form_pentagram.setSaveData334(a[27]);
 			}
 			//Alert.show(a.toString());
 
@@ -316,6 +325,14 @@ package IO.FileIO {
 			//新バフスキルフォーム
 			//if(parseInt(a[19])>=3.10)
 			d.form_buff.setSaveData(a[28]);
+			
+			//2012/12/01
+			//ネックのオプション
+			d.form_neck.getOption().selectedIndex = a[29];
+			//PVP計算
+			d.form_calc.getPVPTextInput().text = a[30];
+			d.form_calc.getPVPRadioButtons()[0].selected = a[31];
+			d.form_calc.getPVPRadioButtons()[1].selected = a[32];
 			
 			return true;
 		}
@@ -445,8 +462,10 @@ package IO.FileIO {
 			a[27] = new Array();
 			if(parseFloat(a[19]) < 3.18)
 				count = d.form_pentagram.getSaveCount();
-			else
+			else if(parseFloat(a2[19]) < 3.34)
 				count = d.form_pentagram.getSaveCount318();
+			else
+				count = d.form_pentagram.getSaveCount334();
 			for(i=0;i<count;i++)
 				a[27][i] = a2[index++];
 			//2012/01/23
@@ -455,6 +474,14 @@ package IO.FileIO {
 			count = d.form_buff.getSaveCount();
 			for(i=0;i<count;i++)
 				a[28][i] = a2[index++];
+
+			//2012/12/01
+			//ネックのオプション
+			a[29] = a2[index++];
+			//PVP計算
+			a[30] = a2[index++];
+			a[31] = a2[index++];
+			a[32] = a2[index++];
 			
 			return a;
 		}

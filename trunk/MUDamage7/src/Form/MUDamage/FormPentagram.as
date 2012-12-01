@@ -245,6 +245,8 @@ package Form.MUDamage {
 			a.push(item.selectedIndex);
 			a.push(attribute.selectedIndex);
 			a.push(plus.selectedIndex);
+			a.push(options[0].selectedIndex);
+			a.push(options[1].selectedIndex);
 			for(var i:int=0;i<ereutels.length;i++)
 				a = a.concat(ereutels[i].getSaveData());
 			return a;
@@ -260,6 +262,12 @@ package Form.MUDamage {
 		 */
 		public function getSaveCount318():int{
 			return 63;
+		}
+		/**
+		 * save count 3.34
+		 */
+		public function getSaveCount334():int{
+			return 65;
 		}
 		/**
 		 * import
@@ -289,6 +297,25 @@ package Form.MUDamage {
 				eventChangeItem(null);
 				attribute.selectedIndex = a[index++];
 				plus.selectedIndex = a[index++];
+				for(var i:int=0;i<ereutels.length;i++){
+					ereutels[i].setSaveData318(a,index);
+					index += 12;
+				}
+			}
+		}
+		/**
+		 * import ver3.34
+		 */
+		public function setSaveData334(a:Array):void{
+			if(a==null)return;
+			var index:int = 0;
+			item.selectedIndex = a[index++];
+			if(item.selectedIndex>0){
+				eventChangeItem(null);
+				attribute.selectedIndex = a[index++];
+				plus.selectedIndex = a[index++];
+				options[0].selectedIndex = a[index++];
+				options[1].selectedIndex = a[index++];
 				for(var i:int=0;i<ereutels.length;i++){
 					ereutels[i].setSaveData318(a,index);
 					index += 12;

@@ -160,10 +160,11 @@ package PVP {
 		 */
 		private function calcHit():Number{
 			var hit:Number = 0;
-			var h1:Number = c.lv * c.attribute_pvp_hit;
-			var h2:Number = c2.lv * c2.attribute_pvp_avoid;
-			hit = Math.pow((h2/h1),2);
-			hit = 1 / (1 + hit);
+			var h1:Number = c2.attribute_pvp_avoid - c.attribute_pvp_hit;
+			var h2:Number = c2.attribute_pvp_avoid + c.attribute_pvp_hit;
+			hit = (1/(1+Math.exp(6 * h1/h2 + 1.5)))+0.05;
+			if(hit > 1)hit = 1;
+			if(hit < 0)hit = 0;
 			return hit;
 		}
 		/**
