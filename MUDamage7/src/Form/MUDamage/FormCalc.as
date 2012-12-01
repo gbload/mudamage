@@ -166,6 +166,12 @@ package Form.MUDamage {
 		public function getSub2():ComboBox{
 			return sub2;
 		}
+		public function getPVPTextInput():TextInput{
+			return pvp_text;
+		}
+		public function getPVPRadioButtons():Array{
+			return pvp_radio;
+		}
 		private function getPVPRadioValue():int{
 			for(var i:int=0;i<pvp_radio.length;i++){
 				if(pvp_radio[i].selected)
