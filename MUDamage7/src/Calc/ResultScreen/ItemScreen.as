@@ -126,6 +126,11 @@ package Calc.ResultScreen {
 				str += "ダメージ増加"+i.getSpec(f.wing,"inc").toString()+"%"+" ";
 				str += "ダメージ吸収"+i.getSpec(f.wing,"dec").toString()+"%"+" ";
 				str += f.wing.cop;
+				if(f.wing.item[f.wing.key.type]==5){
+					str += "生命完全回復確率+5%";
+					str += "敵の攻撃力反射確率+5%";
+					str += "敵の防御力無視確率+5%";
+				}
 				// tooltip
 				tooltip += "要求LV:"+i.getSpec(f.wing,"lv").toString()+"\n";
 				tooltip += "防御力:"+i.getSpec(f.wing,"def").toString()+"\n";
@@ -412,8 +417,9 @@ package Calc.ResultScreen {
 				tooltip += "要求レベル:" + f.property.item[4] + "\n";
 				tooltip += "オプション:" + "\n";
 				for(var i:int=0;i<f.property.options.length;i++)
-					if(f.property.getOption("normal_attack"))tooltip += "　" + f.property.options[i].selectedLabel + "(MUDamage内では未適用。)" + "\n";
-					else tooltip += "　" + f.property.options[i].selectedLabel + "\n";
+					if(f.property.getOption(f.property.options[i].selectedItem[1]))
+						if(f.property.getOption("normal_attack"))tooltip += "　" + f.property.options[i].selectedLabel + "(MUDamage内では未適用。)" + "\n";
+						else tooltip += "　" + f.property.options[i].selectedLabel + "\n";
 				// color
 				var colors:Array = ["#FF0000","#0000FF","#FFDD00","#00FF00","#FF00FF"];
 				var color:String = colors[f.property.attribute_num];

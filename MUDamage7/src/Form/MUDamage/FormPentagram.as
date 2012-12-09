@@ -30,28 +30,28 @@ package Form.MUDamage {
 		    ["",0,0,0,0],
 		    ["ミュレンの魔法書",30,45,30,100],
 		    ["エトラムの巻物",50,70,50,200],
-		    ["ロレンシア騎士団鉄壁の盾(仮)",10,15,50,100],
-		    ["英雄の飛躍(仮)",20,30,20,0],
-		    ["剣闘士の短刀(仮)",40,55,15,0],
-		    ["クンドンの狂気の刃(仮)",50,70,10,0],
-		    ["クンドンの魔法書(仮)",40,55,40,0],
-		    ["帝国守護軍の砦(仮)",20,30,100,0],
-		    ["イカロスの古書(仮)",80,110,80,0],
-		    ["アルカの預言書(仮)",110,140,110,0],
-		    ["アントニアスの剣(仮)",150,200,50,0],
-		    ["クンドンの封印書(仮)",130,170,130,0]
+		    ["ロレンシア騎士団鉄壁の盾",96,129,231,300],
+		    ["英雄の飛躍",134,180,184,300],
+		    ["剣闘士の短刀",168,227,132,300],
+		    ["クンドンの狂気の刃",181,245,249,300],
+		    ["クンドンの魔法書",181,245,249,300],
+		    ["帝国守護軍の砦",181,245,249,300],
+		    ["イカロスの古書",181,245,249,300],
+		    ["アルカの預言書",209,284,288,300],
+		    ["アントニアスの剣",209,284,288,300],
+		    ["クンドンの封印書",209,284,288,300]
 	                               	];
 		private var attr_data:Array = ["火","水","土","風","闇"];
 	
 		private var option_data:Array = [
 		    ["",""],
-		    ["グリモア攻撃力増加+10%","attack"],
-		    ["グリモア防御力増加+10%","defense"],
-		    ["属性クリティカルダメージ確率+10%","critical"],
-		    ["防御力を属性防御力に変換+5%","normal_defense"],
-		    ["ダメージを属性ダメージに追加+10%","normal_attack"],
-		    ["強い相性に対する抵抗力増加+5%","strong_affinity"],
-		    ["属性攻撃に対する抵抗力増加+5%","resistance"]
+		    ["グリモア攻撃力増加+10%","attack",1,[0,2,3]],
+		    ["グリモア防御力増加+10%","defense",1,[0,2,3]],
+		    ["属性クリティカルダメージ確率+10%","critical",1,[0,2,3]],
+		    ["防御力を属性防御力に変換+5%","normal_defense",2,[0,2,3],[1,3,5]],
+		    ["ダメージを属性ダメージに追加+10%","normal_attack",2,[0,2,3],[1,3,5]],
+		    ["強い相性に対する抵抗力増加+5%","strong_affinity",2,[1,3,6],[2,3,6]],
+		    ["属性攻撃に対する抵抗力増加+5%","resistance",3,[1,3,6],[2,3,6],[3,3,6]]
 		                                 ];
 		/**
 		 * コンストラクタ
@@ -150,8 +150,13 @@ package Form.MUDamage {
 		private function show():void{
 			FormCommon.show(attribute);
 			FormCommon.show(plus);
-			for(var i:int=0;i<options.length;i++)
-				FormCommon.show(options[i]);
+			var i:int=0;
+			if(item.selectedItem[4]>=300)
+				for(i=0;i<options.length;i++)
+					FormCommon.show(options[i]);
+			else
+				for(i=0;i<options.length;i++)
+					FormCommon.hide(options[i]);
 			for(i=0;i<ereutels.length;i++)
 				FormCommon.show(ereutels[i]);
 		}
@@ -201,14 +206,23 @@ package Form.MUDamage {
 		/**
 		 * オプションを選択している場合trueを返す
 		 */
-		private function getOption():Function{
+		private function getOption(ereutels:Array):Function{
 			return function(name:String):Boolean{
 				var bool:Boolean = false;
 				if(name != "")
 					for(var i:int=0;i<options.length;i++){
-						if(options[i].selectedItem[1] == name){
-							bool=true;
-							break;
+						if(options[i].visible && options[i].selectedItem[1] == name){
+							var tmp_bool:Boolean = true;
+							for(var j:int=3;j-3<options[i].selectedItem[2];j++){
+								if(!(ereutels[options[i].selectedItem[j][0]].rank >= options[i].selectedItem[j][1]
+										&& ereutels[options[i].selectedItem[j][0]].pluses[ereutels[options[i].selectedItem[j][0]].rank-1] >= options[i].selectedItem[j][2])){
+									tmp_bool = false;
+								}
+							}
+							if(tmp_bool){
+								bool=true;
+								break;
+							}
 						}
 					}
 				return bool;
@@ -228,7 +242,7 @@ package Form.MUDamage {
 				attribute_num: attribute.selectedIndex,
 				plus: plus.selectedIndex,
 				options: options,
-				getOption: getOption(),
+				getOption: getOption(a),
 				ereutels: a,
 				min: calcValue(item.selectedItem[1],plus.selectedIndex,4),
 				max: calcValue(item.selectedItem[2],plus.selectedIndex,4),

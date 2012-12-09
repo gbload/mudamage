@@ -130,7 +130,7 @@ package Calc {
 				wing_mana = 50 + f.wing.plus*5;
 			if(f.wing.cop=="防御無視3%")
 				wing_ignore = 3;
-			if(f.wing.cop=="防御無視5%")
+			if(f.wing.cop=="防御無視5%" || f.wing.item[f.wing.key.type] == 5)
 				wing_ignore = 5;
 			if(f.wing.cop=="統率増加")
 				wing_rec = 10 + f.wing.plus*5;
