@@ -62,11 +62,22 @@ package Form.MUDamage {
 				//各種非表示
 				FormCommon.hide(item_attr);
 				FormCommon.hide(cop);
+				return;
+			}
+			var d:Object = D.getData("wing")[item.selectedItem.index];
+			var k:Object = D.getKey("wing");
+			var op_data:Array = d[k.op];
+			if(d[k.type] == 5){//征服者の羽
+				item_attr.setOptionData(op_data);
+				this.item_attr.getOption().selectedIndex = 4;
+				
+				this.item_attr.getPlus().selectedIndex = 0;
+				
+				this.item_attr.getLuck().selected = true;
+				FormCommon.hide(this.item_attr);
+				FormCommon.hide(this.cop);
 			}else{
-				var d:Object = D.getData("wing")[item.selectedItem.index];
-				var k:Object = D.getKey("wing");
 				//opの作成
-				var op_data:Array = d[k.op];
 				item_attr.setOptionData(op_data);
 				
 				//copの作成

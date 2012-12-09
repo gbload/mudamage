@@ -161,7 +161,7 @@ package Calc {
 		private function setWing(form:Object,obj:Object):void{
 			obj.item = D.getData(form.getItem().selectedItem.item)[form.getItem().selectedItem.index];
 			obj.key = D.getKey(form.getItem().selectedItem.item);
-			if(form.getItemAttr().visible){
+			if(form.getItemAttr().visible || obj.item[obj.key.type]==5){
 				obj.plus = form.getItemAttr().getPlus().selectedIndex;
 				obj.luck = form.getItemAttr().getLuck().selected;
 				obj.option[form.getItemAttr().getOption().selectedItem.type] = 
