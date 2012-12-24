@@ -1,9 +1,59 @@
-AH(7.5秒毎):+
-Auto Healing(7.5sec):+
-中複合P(4秒):+
-Middle Mix Portion(4sec):+
-大赤P+1(2秒):+
-Big Red Portion +1(2sec):+
+剣闘士の短刀
+Gladiator's Daggers
+クンドンの封印書
+Kundun Orders of Magic
+灼熱の狂暴な溶岩巨人
+Volcanic Ruthless Lava Giant
+クンドンの狂気の刃
+Kundun Madness of The Blade
+(MUDamage内では未適用。)
+(not applied in MUDamage.)
+敵の攻撃力反射確率+5%
+Probability of Reflection monster attack +5%
+グリモア攻撃力増加+10%
+Increase pentagram attack +10%
+帝国守護軍の砦
+Military Fort Patron Empire
+征服者の羽
+Wing of Conqueror
+灼熱のゾンビ闘士
+Volcanic Zombie Fighter
+オプション:
+Option:
+アルカの預言書
+Arca Prophets
+英雄の飛躍
+Hero's Elixir
+防御力を属性防御力に変換+5%
+Translation defense to pentagam defense
+強い相性に対する抵抗力増加+5%
+Better affinity +5%
+イカロスの古書
+Icarus Report
+クンドンの魔法書
+Spellbook of Kundon
+敵の防御力無視確率+5%
+Probability of ignore monster defense +5%
+属性クリティカルダメージ確率+10%
+Probability of pentagram critical damage +10%
+ダメージを属性ダメージに追加+10%
+Add normal damage to pentagram damage +10%
+グリモア防御力増加+10%
+Increase pentagram defense +10%
+属性攻撃に対する抵抗力増加+5%
+Affinity for pentagram attack +5%
+灼熱の乱暴な処刑人
+Volcanic Ash Slaughterer
+灼熱のゾンビ剣士
+Volcanic Zombie Gladiator
+灼熱の吸魂の暗殺者
+Volcanic Cruel Blood Assassin
+生命完全回復確率+5%
+Probability of complete life healing
+アントニアスの剣
+Sword of Antonius
+ロレンシア騎士団鉄壁の盾
+Impregnable Lorencia Templar Shield
 スキル+11
 Skill+11
 クリティカルダメージ確率 +15%
@@ -16,10 +66,10 @@ Light Plate Boots
 Not found data.
 風の鎧
 Wind Armor
-エナジー増加
-Increase Energy
 魔力op
 Magic option
+エナジー増加
+Increase Energy
 スケルトン
 Skeleton Ring
 ガルム
@@ -64,10 +114,10 @@ Poison Bull Fighter
 Hyperion Bronze Boots
 効果持続時間増加
 Increase duration.
-オピオンのサイクロンアーマー
-Ophion Violent Wing Armor
 敵の防御力無視 +1%
 Ignore Defence 1%
+オピオンのサイクロンアーマー
+Ophion Violent Wing Armor
 ダークスピリットのクリティカルダメージ確率増加
 Critical Damage probability increase of dark spirit.
 両手剣マスタリ
@@ -256,10 +306,10 @@ Beetle Monster
 Divino Armor
 ホルスのスキルのネックレス
 Horus Pendant of Ability
-ブレス強化
-Increase Bless
 エルベランド
 Elbeland
+ブレス強化
+Increase Bless
 メテルのダークソウルヘルム
 Meter Adamantine Helm
 力:
@@ -2506,6 +2556,8 @@ Defense Success Rate
 Master LV
 タロスのオーディーンの兜
 Taros Legendary Helm
+大赤P+1(2秒):+
+Big Red Portion +1(2sec):+
 要求エナジー:
 Require Energy:
 エナジー：
@@ -3248,6 +3300,8 @@ Alvitr Pendant of Water
 Sticky Gloves
 アッシュクローガーダー
 Ashcrow Pants
+中複合P(4秒):+
+Middle Mix Portion(4sec):+
 ヘルナイトグラブ
 Hell Knight Gloves
 ティターンアーマー
@@ -4958,6 +5012,8 @@ Vitality +20
 Berserker Scale Pants
 ドラゴンナイトブーツ
 Dragon Knight Boots
+AH(7.5秒毎):+
+Auto Healing(7.5sec):+
 ガイアのガストラ
 Gaia Golden Crossbow
 ゴールドクラスト

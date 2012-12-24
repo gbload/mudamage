@@ -9,7 +9,7 @@ site:
 sourcecode:
 	http://code.google.com/p/mudamage/
 
-©2001-2010 WEBZEN, Inc. All Rights Reserved. Licensed to ©2010 GameOn Co., Ltd.
+©2001-2012 WEBZEN, Inc. All Rights Reserved. Licensed to ©2012 GameOn Co., Ltd.
 				]]> ).toString();
 		public static var bugs:String = ( <![CDATA[
 不具合
