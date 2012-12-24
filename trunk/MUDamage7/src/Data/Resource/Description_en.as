@@ -9,7 +9,7 @@ site:
 sourcecode:
 	http://code.google.com/p/mudamage/
 
-©2001-2010 WEBZEN, Inc. All Rights Reserved. Licensed to ©2010 GameOn Co., Ltd.
+©2001-2012 WEBZEN, Inc. All Rights Reserved. Licensed to ©2012 GameOn Co., Ltd.
 				]]> ).toString();
 		public static var bugs:String = ( <![CDATA[
 Bugs
@@ -20,10 +20,33 @@ Bugs
 - Unimplemented a calculation reducing skill damage by 20% in case of elf's bow calculation.
 - Unknown new skills.
 
-- PVP hit and avoidance probability is not validate.(Now: self=(pvphit * lv),you=(pvpavoid * lv),p=(self/(self+you))^2）
-		                        				]]> ).toString();
+- Non applied pentagram option "Add normal damage to pentagram damage +5%".
+・Unknown parts of Season8.
+
+・PVP formula.
+var h1:Number = c2.pvp_avoid - c.pvp_hit;
+var h2:Number = c2.pvp_avoid + c.pvp_hit;
+hit = (1/(1+Math.exp(6 * h1/h2 + 1.5)))+0.05;
+]]> ).toString();
 		public static var release:String = ( <![CDATA[
 Release notes
+
+2012/12/09 ver3.35
+- Modify new pentagram item.
+- Add condition of pentagram option.
+- Add Wing of Conqueror.
+- Modify volcanoes monsters.
+- Modify Medusa.
+
+2012/11/10 ver3.34
+- Modify save command.
+- Modify pentagram bug that attack is surely hit.
+- Change upper limit of master level.
+- Modify pvp calculation.
+
+2012/11/10 ver3.33
+- Modify bega's option.
+- Add items in Season8 part1 (but unclearly.)
 
 2012/09/01 ver3.32
 - Modify bug that 380 option form isn't displayed.
