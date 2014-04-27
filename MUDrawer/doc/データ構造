@@ -1,0 +1,58 @@
+
+|-db・・・計算に必要なデータ等
+  |-item・・・装備等のアイテムデータ
+  |-character・・・キャラクターデータ（モンスター含む）
+  |-resource・・・アイコンデータ、文字列データ等
+  
+■はじめに
+データはjavascriptの変数で定義する。
+（例：var equip = {helm:{...},armor:{...},...};）
+
+データに日本語は含めない。
+表示上必要となる日本語はResourceファイルとして別途定義する。
+  
+■装備データの構造
+equip
+|-protect
+  |-helm
+  |-armor
+  |-garter
+  |-boots
+  |-gloves
+|-weapon
+|-shield
+|-wing
+|-pet
+|-mune
+|-accessory
+
+*protect
+ name
+ type helm,armor,garter,boots,gloves
+ job : K,W,E,M,D,S,R
+ series 
+ spec
+ |- common
+   |- (lv)
+   |- (speed)
+ |- normal
+   |- def
+   |- str
+   |- agi
+   |- vit
+   |- ene
+   |- (rec)
+ |- excellent
+ |- set
+
+セットアイテムの情報はオプション情報と合わせて別途定義する。
+
+■キャラクターに関するデータの構造
+各職業名は以下とする。
+ナイト：K
+ウィザード：W
+エルフ：E
+魔剣士：M
+ダークロード：D
+召喚師：S
+レイジファイター：R
