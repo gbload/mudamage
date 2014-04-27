@@ -1,0 +1,41 @@
+MUDamageのjavascript版
+
+plugin形式にする。
+
+src・・・ソースコードフォルダ
+|-index.html・・・HTMLファイル
+|-db・・・計算に必要なデータ等
+  |-connection・・・database接続用ソースコード
+  |-database・・・JSON形式のデータ
+    |-item・・・装備等のアイテムデータ
+    |-character・・・キャラクターデータ（モンスター含む）
+  |-resource・・・アイコンデータ、文字列データ等
+|-calc・・・計算するスクリプト類
+  |-character・・・キャラクターステータスを計算する
+  |-pvp・・・対人のダメージ計算を行う
+    |-data・・・計算に必要な変数の定義
+    |-attack・・・ダメージ計算
+    |-guard・・・被ダメージ計算
+    |-attribute・・・属性ダメージ計算
+      |-attack・・・与ダメージ計算
+      |-guard・・・被ダメージ計算
+  |-monster・・・対モンスターのダメージ計算を行う
+    (同pvp)
+|-save
+  |-save・・・現在の状態を保存する
+  |-load・・・保存されているデータを読み込む
+  |-import・・・外部からデータを読み込む
+  |-export・・・外部にデータを出力する
+  |-translate・・・mudamageの保存データとの互換性
+|-common・・・共通関数
+|-drawing・・・計算結果などの描画
+	|-form
+	  |-character・・・キャラクター情報を入力するフォーム
+	    |-status・・・キャラクターのステータスを入力するフォーム
+	    |-equip
+	    |-item
+	    |-buff
+	  |-pvp・・・pvp情報を入力するフォーム
+	  |-monster・・・モンスター情報を入力するフォーム
+	|-table
+|-plugin・・・各ファイルの依存関係等を管理

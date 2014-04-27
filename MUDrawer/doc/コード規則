@@ -1,0 +1,17 @@
+・命名規則
+・依存関係表記
+・コメント規則
+
+■命名規則
+mudrawer.src.**
+get** 取得系
+set** 登録系
+event** イベント系
+
+■依存関係表記
+mudrawer.src.plugin.setDependency([name1,name2,...]);
+nameNは依存するファイルの名前を記入する。（例：src/plugin/plugin.js）
+
+■コメント規則
+・jsdocに準拠
+・最初のところに本jsファイルの説明を書く。（タイトル、概要）
