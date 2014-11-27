@@ -134,7 +134,7 @@ package Form.MUDamage
 			// validate
 			var value:int = parseInt(level.text);
 			if(value < 0)value=0;
-			else if(value > 330)value=330;
+			else if(value > 400)value=400;
 			level.text = value.toString();
 			// change point
 			changePoint();

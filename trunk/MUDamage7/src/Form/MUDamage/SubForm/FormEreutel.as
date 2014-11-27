@@ -24,6 +24,9 @@ package Form.MUDamage.SubForm {
 		private var rank3:ComboBox;
 		private var rank4:ComboBox;
 		private var rank5:ComboBox;
+	
+		// FormPentagramからの関数受け取り用
+		private var _setOption:Function;
 		/**
 		 * データ
 		 */
@@ -41,11 +44,12 @@ package Form.MUDamage.SubForm {
 		/**
 		 * コンストラクタ
 		 */
-		public function FormEreutel(num:int) {
+		public function FormEreutel(num:int,func:Function) {
 			createItem(num);
 			createRank();
 			createRankOption();
 			hide();
+			_setOption = func;
 		}
 		/**
 		 * Item
@@ -79,6 +83,7 @@ package Form.MUDamage.SubForm {
 			for(var i:int=1;i<=10;i++)
 				a.push("+"+i);
 			plus.dataProvider = a;
+			plus.addEventListener(ListEvent.CHANGE,eventChange);
 			this.addChild(plus);
 			return plus;
 		}
@@ -125,6 +130,8 @@ package Form.MUDamage.SubForm {
 				changeRankOption();
 			} else 
 				hide();
+			// set gurimoa option
+			_setOption();
 		}
 		private function show():void{
 			FormCommon.show(rank);
